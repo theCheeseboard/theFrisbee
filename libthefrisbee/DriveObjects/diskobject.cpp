@@ -1,0 +1,136 @@
+/****************************************
+ *
+ *   INSERT-PROJECT-NAME-HERE - INSERT-GENERIC-NAME-HERE
+ *   Copyright (C) 2020 Victor Tran
+ *
+ *   This program is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   (at your option) any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
+ *
+ *   You should have received a copy of the GNU General Public License
+ *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * *************************************/
+#include "diskobject.h"
+
+#include <QTimer>
+#include <QLocale>
+
+#include "diskinterface.h"
+#include "blockinterface.h"
+#include "filesysteminterface.h"
+#include "partitiontableinterface.h"
+#include "partitioninterface.h"
+#include "driveinterface.h"
+
+struct DiskObjectPrivate {
+    QDBusObjectPath path;
+
+    QMap<QString, DiskInterface*> interfaces;
+};
+
+DiskObject::DiskObject(QDBusObjectPath path, QObject* parent) : QObject(parent) {
+    d = new DiskObjectPrivate();
+    d->path = path;
+}
+
+DiskObject::~DiskObject() {
+    delete d;
+}
+
+template <> BlockInterface* DiskObject::interface() const {
+    return static_cast<BlockInterface*>(d->interfaces.value(BlockInterface::interfaceName(), nullptr));
+}
+
+template <> FilesystemInterface* DiskObject::interface() const {
+    return static_cast<FilesystemInterface*>(d->interfaces.value(FilesystemInterface::interfaceName(), nullptr));
+}
+
+template <> PartitionTableInterface* DiskObject::interface() const {
+    return static_cast<PartitionTableInterface*>(d->interfaces.value(PartitionTableInterface::interfaceName(), nullptr));
+}
+
+template <> PartitionInterface* DiskObject::interface() const {
+    return static_cast<PartitionInterface*>(d->interfaces.value(PartitionInterface::interfaceName(), nullptr));
+}
+
+bool DiskObject::isInterfaceAvailable(DiskInterface::Interfaces interface) {
+    switch (interface) {
+        case DiskInterface::Block:
+            return d->interfaces.contains(BlockInterface::interfaceName());
+        case DiskInterface::Filesystem:
+            return d->interfaces.contains(FilesystemInterface::interfaceName());
+        case DiskInterface::PartitionTable:
+            return d->interfaces.contains(PartitionTableInterface::interfaceName());
+        case DiskInterface::Partition:
+            return d->interfaces.contains(PartitionInterface::interfaceName());
+        default:
+            return false;
+    }
+}
+
+QString DiskObject::displayName() {
+    PartitionInterface* partition = interface<PartitionInterface>();
+    if (partition && !partition->name().isEmpty()) return partition->name();
+
+    BlockInterface* block = interface<BlockInterface>();
+    if (block) {
+        DriveInterface* drive = block->drive();
+        if (drive) return drive->model();
+        return block->blockName();
+    }
+
+    return tr("Block Device");
+}
+
+void DiskObject::updateInterfaces(QMap<QString, QVariantMap> interfaces) {
+    QStringList interfaceNames = {
+        BlockInterface::interfaceName(),
+        FilesystemInterface::interfaceName(),
+        PartitionTableInterface::interfaceName(),
+        PartitionInterface::interfaceName()
+    };
+
+    for (QString interface : interfaceNames) {
+        if (interfaces.contains(interface)) {
+            //Add it to the list of interfaces
+
+            DiskInterface* diskInterface;
+            if (d->interfaces.contains(interface)) {
+                diskInterface = d->interfaces.value(interface);
+            } else {
+                diskInterface = makeDiskInterface(interface);
+                d->interfaces.insert(interface, diskInterface);
+                QTimer::singleShot(0, [ = ] {
+                    emit interfaceAdded(diskInterface->interfaceType());
+                });
+            }
+
+            diskInterface->updateProperties(interfaces.value(interface));
+        } else {
+            //Remove it from the list of interfaces
+            if (d->interfaces.contains(interface)) {
+                DiskInterface* diskInterface = d->interfaces.take(interface);
+                QTimer::singleShot(0, [ = ] {
+                    emit interfaceRemoved(diskInterface->interfaceType());
+                });
+                diskInterface->deleteLater();
+            }
+        }
+    }
+}
+
+DiskInterface* DiskObject::makeDiskInterface(QString interface) {
+    if (interface == BlockInterface::interfaceName()) return new BlockInterface(d->path);
+    if (interface == FilesystemInterface::interfaceName()) return new FilesystemInterface(d->path);
+    if (interface == PartitionTableInterface::interfaceName()) return new PartitionTableInterface(d->path);
+    if (interface == PartitionInterface::interfaceName()) return new PartitionInterface(d->path);
+    return nullptr;
+}
+
