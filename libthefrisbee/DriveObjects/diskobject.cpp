@@ -21,6 +21,7 @@
 
 #include <QTimer>
 #include <QLocale>
+#include <QIcon>
 
 #include "diskinterface.h"
 #include "blockinterface.h"
@@ -31,6 +32,8 @@
 
 struct DiskObjectPrivate {
     QDBusObjectPath path;
+
+    QSemaphore locker{1};
 
     QMap<QString, DiskInterface*> interfaces;
 };
@@ -89,6 +92,61 @@ QString DiskObject::displayName() {
     return tr("Block Device");
 }
 
+QIcon DiskObject::icon() {
+    BlockInterface* block = interface<BlockInterface>();
+
+    if (block->drive()) {
+        switch (block->drive()->media()) {
+            case DriveInterface::Thumb:
+                return QIcon::fromTheme("drive-removable-media");
+            case DriveInterface::Flash:
+            case DriveInterface::CompactFlash:
+            case DriveInterface::MemoryStick:
+            case DriveInterface::SmartMedia:
+            case DriveInterface::Sd:
+            case DriveInterface::SdHC:
+            case DriveInterface::SdXC:
+            case DriveInterface::MMC:
+                return QIcon::fromTheme("media-flash-sd-mmc");
+            case DriveInterface::Floppy:
+            case DriveInterface::Zip:
+            case DriveInterface::Jaz:
+                return QIcon::fromTheme("media-floppy");
+            case DriveInterface::Optical:
+            case DriveInterface::MagnetoOptical:
+                return QIcon::fromTheme("media-optical");
+            case DriveInterface::Cd:
+            case DriveInterface::CdR:
+            case DriveInterface::CdRw:
+                return QIcon::fromTheme("media-optical-audio");
+            case DriveInterface::Dvd:
+            case DriveInterface::DvdR:
+            case DriveInterface::DvdRw:
+            case DriveInterface::DvdRam:
+            case DriveInterface::DvdPR:
+            case DriveInterface::DvdPRw:
+            case DriveInterface::DvdPRDl:
+            case DriveInterface::DvdPRwDl:
+            case DriveInterface::HdDvd:
+            case DriveInterface::HdDvdR:
+            case DriveInterface::HdDvdRw:
+                return QIcon::fromTheme("media-optical-dvd");
+            case DriveInterface::Bd:
+            case DriveInterface::BdR:
+            case DriveInterface::BdRe:
+                return QIcon::fromTheme("media-optical-blu-ray");
+            case DriveInterface::Unknown:
+                if (block->drive()->isOpticalDrive()) {
+                    return QIcon::fromTheme("media-optical");
+                } else {
+                    return QIcon::fromTheme("drive-harddisk");
+                }
+        }
+    } else {
+        return QIcon::fromTheme("drive-harddisk");
+    }
+}
+
 void DiskObject::updateInterfaces(QMap<QString, QVariantMap> interfaces) {
     QStringList interfaceNames = {
         BlockInterface::interfaceName(),
@@ -132,5 +190,37 @@ DiskInterface* DiskObject::makeDiskInterface(QString interface) {
     if (interface == PartitionTableInterface::interfaceName()) return new PartitionTableInterface(d->path);
     if (interface == PartitionInterface::interfaceName()) return new PartitionInterface(d->path);
     return nullptr;
+}
+
+
+bool DiskObject::tryLock() {
+    bool acquired = d->locker.tryAcquire();
+    if (acquired) {
+        emit lockedChanged(isLocked());
+    }
+    return acquired;
+}
+
+tPromise<void>* DiskObject::lock() {
+    return TPROMISE_CREATE_SAME_THREAD(void, {
+        Q_UNUSED(rej);
+        TPROMISE_CREATE_NEW_THREAD(void, {
+            Q_UNUSED(rej);
+            d->locker.acquire();
+            res();
+        })->then([ = ] {
+            emit lockedChanged(isLocked());
+            res();
+        });
+    });
+}
+
+void DiskObject::releaseLock() {
+    d->locker.release();
+    emit lockedChanged(isLocked());
+}
+
+bool DiskObject::isLocked() {
+    return d->locker.available() == 0;
 }
 

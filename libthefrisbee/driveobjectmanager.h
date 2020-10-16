@@ -22,6 +22,8 @@
 
 #include <QObject>
 #include <QDBusObjectPath>
+#include <tpromise.h>
+#include <QDBusUnixFileDescriptor>
 
 struct DriveObjectManagerPrivate;
 class DiskObject;
@@ -36,6 +38,8 @@ class DriveObjectManager : public QObject {
 
         static DiskObject* diskForPath(QDBusObjectPath path);
         static DriveInterface* driveForPath(QDBusObjectPath path);
+
+        static tPromise<QDBusObjectPath>* loopSetup(QDBusUnixFileDescriptor fd, QVariantMap options);
 
     public slots:
         void updateInterfaces();

@@ -9,6 +9,8 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    diskPanes/diskpanecomponent.cpp \
+    diskPanes/overviewdiskpane.cpp \
     diskmodel.cpp \
     diskpane.cpp \
     jobs/erasecdrwjob.cpp \
@@ -24,6 +26,8 @@ SOURCES += \
     operations/restoreopticalpopover.cpp
 
 HEADERS += \
+    diskPanes/diskpanecomponent.h \
+    diskPanes/overviewdiskpane.h \
     diskmodel.h \
     diskpane.h \
     jobs/erasecdrwjob.h \
@@ -38,6 +42,7 @@ HEADERS += \
     operations/restoreopticalpopover.h
 
 FORMS += \
+    diskPanes/overviewdiskpane.ui \
     diskpane.ui \
     jobs/progress/erasecdrwjobprogress.ui \
     jobs/progress/restoreopticaljobprogress.ui \
@@ -57,3 +62,6 @@ unix:!macx: LIBS += -L$$OUT_PWD/../libthefrisbee/ -llibthefrisbee
 
 INCLUDEPATH += $$PWD/../libthefrisbee
 DEPENDPATH += $$PWD/../libthefrisbee
+
+RESOURCES += \
+    resources.qrc

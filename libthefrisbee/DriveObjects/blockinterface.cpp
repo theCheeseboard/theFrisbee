@@ -23,6 +23,7 @@
 #include <QDBusConnection>
 #include <QDBusUnixFileDescriptor>
 #include <QDBusPendingCall>
+#include <QMutex>
 #include "driveobjectmanager.h"
 #include <unistd.h>
 
@@ -43,6 +44,7 @@ BlockInterface::BlockInterface(QDBusObjectPath path, QObject* parent) : DiskInte
     });
     bindPropertyUpdater("Size", [ = ](QVariant value) {
         d->size = value.toULongLong();
+        emit sizeChanged(d->size);
     });
     bindPropertyUpdater("Drive", [ = ](QVariant value) {
         d->drive = value.value<QDBusObjectPath>();

@@ -27,14 +27,18 @@
 #include <QMessageBox>
 #include <tpopover.h>
 #include <ttoast.h>
+#include <tjobmanager.h>
 #include "operations/erasepartitiontablepopover.h"
 #include "operations/imagepopover.h"
 #include "operations/partitionpopover.h"
 #include "operations/eraseopticalpopover.h"
 #include "operations/restoreopticalpopover.h"
+#include "diskPanes/diskpanecomponent.h"
+#include "diskPanes/overviewdiskpane.h"
 
 struct DiskPanePrivate {
     DiskObject* disk;
+    QList<DiskPaneComponent*> components;
 };
 
 DiskPane::DiskPane(DiskObject* disk, QWidget* parent) :
@@ -46,7 +50,19 @@ DiskPane::DiskPane(DiskObject* disk, QWidget* parent) :
     d->disk = disk;
     ui->titleLabel->setText(disk->displayName());
 
+    DriveInterface* drive = d->disk->interface<BlockInterface>()->drive();
+    if (drive) {
+        connect(drive, &DriveInterface::changed, this, &DiskPane::updateButtons);
+    }
+    updateButtons();
+
+    connect(d->disk, &DiskObject::lockedChanged, this, &DiskPane::updateLock);
+    updateLock(d->disk->isLocked());
+
     ui->eraseButton->setProperty("type", "destructive");
+
+    d->components.append(new OverviewDiskPane(disk, this));
+    updateComponents();
 }
 
 DiskPane::~DiskPane() {
@@ -58,35 +74,40 @@ void DiskPane::on_eraseButton_clicked() {
     //Determine which type of erasure is the most appropriate for this disk
 
     DriveInterface* drive = d->disk->interface<BlockInterface>()->drive();
-    if (!drive->mediaAvailable()) {
-        QMessageBox::warning(this, tr("No Media"), tr("There is no media in the drive to erase."));
-        return;
+    if (drive) {
+        if (!drive->mediaAvailable()) {
+            QMessageBox::warning(this, tr("No Media"), tr("There is no media in the drive to erase."));
+            return;
+        }
+        if (drive->optical()) {
+            if (drive->opticalBlank()) {
+                if (QMessageBox::warning(this, tr("Disc already blank"), tr("The disc in the drive is already blank. Do you still want to erase it?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::No) == QMessageBox::No) return;
+            }
+
+            QList<DriveInterface::MediaFormat> rewritables = {
+                DriveInterface::CdRw,
+                DriveInterface::DvdRw,
+                DriveInterface::DvdPRw,
+                DriveInterface::DvdPRwDl
+            };
+
+            if (rewritables.contains(drive->media())) {
+                EraseOpticalPopover* jp = new EraseOpticalPopover(d->disk);
+                tPopover* popover = new tPopover(jp);
+                popover->setPopoverWidth(SC_DPI(-200));
+                popover->setPopoverSide(tPopover::Bottom);
+                connect(jp, &EraseOpticalPopover::done, popover, &tPopover::dismiss);
+                connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
+                connect(popover, &tPopover::dismissed, jp, &EraseOpticalPopover::deleteLater);
+                popover->show(this->window());
+            } else {
+                QMessageBox::warning(this, tr("Disc not rewritable"), tr("The disc in the drive is not rewritable."));
+            }
+            return;
+        }
     }
-    if (drive->optical()) {
-        if (drive->opticalBlank()) {
-            if (QMessageBox::warning(this, tr("Disc already blank"), tr("The disc in the drive is already blank. Do you still want to erase it?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::No) == QMessageBox::No) return;
-        }
 
-        QList<DriveInterface::MediaFormat> rewritables = {
-            DriveInterface::CdRw,
-            DriveInterface::DvdRw,
-            DriveInterface::DvdPRw,
-            DriveInterface::DvdPRwDl
-        };
-
-        if (rewritables.contains(drive->media())) {
-            EraseOpticalPopover* jp = new EraseOpticalPopover(d->disk);
-            tPopover* popover = new tPopover(jp);
-            popover->setPopoverWidth(SC_DPI(-200));
-            popover->setPopoverSide(tPopover::Bottom);
-            connect(jp, &EraseOpticalPopover::done, popover, &tPopover::dismiss);
-            connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
-            connect(popover, &tPopover::dismissed, jp, &EraseOpticalPopover::deleteLater);
-            popover->show(this->window());
-        } else {
-            QMessageBox::warning(this, tr("Disc not rewritable"), tr("The disc in the drive is not rewritable."));
-        }
-    } else if (d->disk->isInterfaceAvailable(DiskInterface::Partition)) {
+    if (d->disk->isInterfaceAvailable(DiskInterface::Partition)) {
     } else {
         ErasePartitionTablePopover* jp = new ErasePartitionTablePopover(d->disk);
         tPopover* popover = new tPopover(jp);
@@ -173,4 +194,42 @@ void DiskPane::on_restoreButton_clicked() {
     } else {
         //Use the standard restore popover
     }
+}
+
+void DiskPane::updateComponents() {
+    ui->componentsLayout->setEnabled(false);
+
+    std::sort(d->components.begin(), d->components.end(), [ = ](DiskPaneComponent * first, DiskPaneComponent * second) {
+        return first->order() < second->order();
+    });
+
+    for (DiskPaneComponent* component : d->components) {
+        ui->componentsLayout->removeWidget(component);
+    }
+
+    for (DiskPaneComponent* component : d->components) {
+        ui->componentsLayout->addWidget(component);
+    }
+    ui->componentsLayout->setEnabled(true);
+}
+
+void DiskPane::updateButtons() {
+    DriveInterface* drive = d->disk->interface<BlockInterface>()->drive();
+    if (drive) {
+        if (drive->isOpticalDrive()) {
+            ui->checkButton->setVisible(false);
+            ui->editPartitionsButton->setVisible(false);
+
+            ui->operationsWidget->setVisible(drive->mediaAvailable());
+            ui->line->setVisible(drive->mediaAvailable());
+        }
+    }
+}
+
+void DiskPane::updateLock(bool locked) {
+    ui->jobsRunningWidget->setExpanded(locked);
+}
+
+void DiskPane::on_viewJobsButton_clicked() {
+    tJobManager::showJobsPopover(this);
 }

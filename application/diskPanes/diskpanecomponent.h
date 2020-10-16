@@ -17,38 +17,20 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef DISKPANECOMPONENT_H
+#define DISKPANECOMPONENT_H
 
-#include <QMainWindow>
+#include <QWidget>
 
-QT_BEGIN_NAMESPACE
-namespace Ui {
-    class MainWindow;
-}
-QT_END_NAMESPACE
-
-struct MainWindowPrivate;
-class MainWindow : public QMainWindow {
+class DiskPaneComponent : public QWidget {
         Q_OBJECT
-
     public:
-        MainWindow(QWidget* parent = nullptr);
-        ~MainWindow();
+        explicit DiskPaneComponent(QWidget* parent = nullptr);
 
-    private slots:
-        void on_actionMountImage_triggered();
+        virtual int order() const = 0;
 
-        void on_actionExit_triggered();
+    signals:
 
-        void on_actionAbout_triggered();
-
-        void on_actionSources_triggered();
-
-        void on_actionFileBug_triggered();
-
-    private:
-        Ui::MainWindow* ui;
-        MainWindowPrivate* d;
 };
-#endif // MAINWINDOW_H
+
+#endif // DISKPANECOMPONENT_H

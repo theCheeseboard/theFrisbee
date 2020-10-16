@@ -1,5 +1,4 @@
-QT -= gui
-QT += dbus thelib
+QT += gui dbus thelib
 
 TEMPLATE = lib
 DEFINES += LIBTHEFRISBEE_LIBRARY

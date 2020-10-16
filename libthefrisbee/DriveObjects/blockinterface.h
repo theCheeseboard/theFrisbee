@@ -50,6 +50,7 @@ class BlockInterface : public DiskInterface {
         tPromise<QIODevice*>* open(OpenMode mode, QVariantMap options);
 
     signals:
+        void sizeChanged(qulonglong size);
 
     private:
         BlockInterfacePrivate* d;

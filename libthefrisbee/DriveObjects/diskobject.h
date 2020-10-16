@@ -22,6 +22,7 @@
 
 #include <QObject>
 #include <QDBusObjectPath>
+#include <tpromise.h>
 #include "diskinterface.h"
 
 class DriveObjectManager;
@@ -36,10 +37,17 @@ class DiskObject : public QObject {
         bool isInterfaceAvailable(DiskInterface::Interfaces interface);
 
         QString displayName();
+        QIcon icon();
+
+        bool tryLock();
+        tPromise<void>* lock();
+        void releaseLock();
+        bool isLocked();
 
     signals:
         void interfaceAdded(DiskInterface::Interfaces interface);
         void interfaceRemoved(DiskInterface::Interfaces interface);
+        void lockedChanged(bool locked);
 
     protected:
         friend DriveObjectManager;

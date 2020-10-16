@@ -62,7 +62,19 @@ EraseCdRwJob::EraseCdRwJob(DiskObject* disk, bool quick, QObject* parent) : tJob
             d->discType = tr("Unknown");
     }
 
-    runNextStage();
+    //Try to acquire the lock
+    d->description = tr("Waiting for other jobs to finish");
+    emit descriptionChanged(d->description);
+
+    d->disk->lock()->then([ = ] {
+        connect(this, &EraseCdRwJob::stateChanged, this, [ = ] {
+            //Release the lock
+            if (d->state == Finished || d->state == Failed) {
+                d->disk->releaseLock();
+            }
+        });
+        runNextStage();
+    });
 }
 
 EraseCdRwJob::~EraseCdRwJob() {
@@ -147,7 +159,6 @@ void EraseCdRwJob::runNextStage() {
                 emit totalProgressChanged(1);
                 proc->deleteLater();
             });
-//            proc->start("cdrdao", {"blank", "--device", d->disk->interface<BlockInterface>()->blockName(), "--blank-mode", d->quick ? "minimal" : "full"});
             proc->start("cdrecord", {"-v", QStringLiteral("blank=%1").arg(d->quick ? "fast" : "all"), QStringLiteral("dev=%1").arg(d->disk->interface<BlockInterface>()->blockName()), "gracetime=0"});
             break;
         }

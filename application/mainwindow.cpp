@@ -25,8 +25,10 @@
 #include <DriveObjects/diskobject.h>
 #include <DriveObjects/blockinterface.h>
 #include <tcsdtools.h>
+#include <taboutdialog.h>
 #include <QMenu>
 #include <QDebug>
+#include <QFileDialog>
 #include "diskmodel.h"
 #include "diskpane.h"
 
@@ -62,20 +64,24 @@ MainWindow::MainWindow(QWidget* parent)
     }
 
     QMenu* menu = new QMenu(this);
+    menu->addAction(ui->actionMountImage);
+    menu->addSeparator();
 
-//    QMenu* helpMenu = new QMenu(this);
-//    helpMenu->setTitle(tr("Help"));
-//    helpMenu->addAction(ui->actionFileBug);
-//    helpMenu->addAction(ui->actionSources);
-//    helpMenu->addSeparator();
-//    helpMenu->addAction(ui->actionAbout);
+    QMenu* helpMenu = new QMenu(this);
+    helpMenu->setTitle(tr("Help"));
+    helpMenu->addAction(ui->actionFileBug);
+    helpMenu->addAction(ui->actionSources);
+    helpMenu->addSeparator();
+    helpMenu->addAction(ui->actionAbout);
 
-//    menu->addMenu(helpMenu);
-//    menu->addAction(ui->actionExit);
+    menu->addMenu(helpMenu);
+    menu->addAction(ui->actionExit);
 
     ui->menuButton->setIconSize(SC_DPI_T(QSize(24, 24), QSize));
     ui->menuButton->setMenu(menu);
     ui->stackedWidget->setCurrentAnimation(tStackedWidget::Lift);
+
+    ui->leftWidget->setFixedWidth(SC_DPI(400));
 
     ui->diskList->setModel(new DiskModel());
     connect(ui->diskList->selectionModel(), &QItemSelectionModel::currentChanged, this, [ = ](QModelIndex current, QModelIndex previous) {
@@ -92,3 +98,39 @@ MainWindow::~MainWindow() {
     delete d;
 }
 
+
+void MainWindow::on_actionMountImage_triggered() {
+    QFileDialog* dialog = new QFileDialog(this);
+    dialog->setAcceptMode(QFileDialog::AcceptOpen);
+    dialog->setNameFilters({"Disk Images (*.img, *.iso)"});
+    dialog->setFileMode(QFileDialog::AnyFile);
+    connect(dialog, &QFileDialog::fileSelected, this, [ = ](QString file) {
+        QFile f(file);
+        f.open(QFile::ReadOnly);
+
+        QDBusUnixFileDescriptor fd(f.handle());
+        DriveObjectManager::loopSetup(fd, {})->error([ = ](QString error) {
+            qDebug() << error;
+        });
+
+    });
+    connect(dialog, &QFileDialog::finished, dialog, &QFileDialog::deleteLater);
+    dialog->open();
+}
+
+void MainWindow::on_actionExit_triggered() {
+    QApplication::exit();
+}
+
+void MainWindow::on_actionAbout_triggered() {
+    tAboutDialog d;
+    d.exec();
+}
+
+void MainWindow::on_actionSources_triggered() {
+
+}
+
+void MainWindow::on_actionFileBug_triggered() {
+
+}

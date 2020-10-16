@@ -53,6 +53,13 @@ bool DriveInterface::opticalBlank() {
     return d->properties.value("OpticalBlank").toBool();
 }
 
+bool DriveInterface::isOpticalDrive() {
+    for (MediaFormat format : mediaCompatibility()) {
+        if (format > OpticalFormatsBegin && format < OpticalFormatsEnd) return true;
+    }
+    return false;
+}
+
 DriveInterface::MediaFormat DriveInterface::media() {
     return getMediaFormat(d->properties.value("Media").toString());
 }
@@ -68,6 +75,10 @@ QList<DriveInterface::MediaFormat> DriveInterface::mediaCompatibility() {
 
 bool DriveInterface::mediaAvailable() {
     return d->properties.value("MediaAvailable").toBool();
+}
+
+bool DriveInterface::ejectable() {
+    return d->properties.value("Ejectable").toBool();
 }
 
 tPromise<void>* DriveInterface::eject() {
@@ -93,6 +104,7 @@ void DriveInterface::updateProperties(QVariantMap properties) {
 
 void DriveInterface::propertiesChanged(QString interface, QVariantMap changedProperties, QStringList invalidatedProperties) {
     updateProperties(changedProperties);
+    emit changed();
 }
 
 DriveInterface::MediaFormat DriveInterface::getMediaFormat(QString format) {
@@ -130,5 +142,5 @@ DriveInterface::MediaFormat DriveInterface::getMediaFormat(QString format) {
         {"optical_mo", MagnetoOptical}
     };
 
-    return formats.value(format);
+    return formats.value(format, Unknown);
 }

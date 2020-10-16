@@ -98,7 +98,7 @@
             <item>
              <widget class="QPushButton" name="restoreDiskButton">
               <property name="text">
-               <string>Copy Disk</string>
+               <string>Copy Media</string>
               </property>
               <property name="checkable">
                <bool>true</bool>

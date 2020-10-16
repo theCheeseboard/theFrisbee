@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>theFrisbee</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/thefrisbee.svg</normaloff>:/thefrisbee.svg</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <property name="autoFillBackground">
     <bool>true</bool>
@@ -73,8 +77,8 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset theme="the24">
-           <normaloff>:/icons/the24.svg</normaloff>:/icons/the24.svg</iconset>
+          <iconset resource="resources.qrc">
+           <normaloff>:/thefrisbee.svg</normaloff>:/thefrisbee.svg</iconset>
          </property>
          <property name="popupMode">
           <enum>QToolButton::InstantPopup</enum>
@@ -113,7 +117,7 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="QWidget" name="widget" native="true">
+       <widget class="QWidget" name="leftWidget" native="true">
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <property name="spacing">
           <number>0</number>
@@ -170,6 +174,49 @@
     </item>
    </layout>
   </widget>
+  <action name="actionFileBug">
+   <property name="icon">
+    <iconset theme="tools-report-bug"/>
+   </property>
+   <property name="text">
+    <string>File Bug</string>
+   </property>
+  </action>
+  <action name="actionSources">
+   <property name="icon">
+    <iconset theme="commit"/>
+   </property>
+   <property name="text">
+    <string>Sources</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="icon">
+    <iconset theme="help-about"/>
+   </property>
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset theme="application-exit"/>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionMountImage">
+   <property name="icon">
+    <iconset theme="media-mount"/>
+   </property>
+   <property name="text">
+    <string>Mount Image</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
@@ -190,6 +237,8 @@
    </slots>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

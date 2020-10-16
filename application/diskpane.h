@@ -44,9 +44,15 @@ class DiskPane : public QWidget {
 
         void on_restoreButton_clicked();
 
+        void on_viewJobsButton_clicked();
+
     private:
         Ui::DiskPane* ui;
         DiskPanePrivate* d;
+
+        void updateComponents();
+        void updateButtons();
+        void updateLock(bool locked);
 };
 
 #endif // DISKPANE_H

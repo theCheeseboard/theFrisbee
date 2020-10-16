@@ -17,38 +17,42 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef OVERVIEWDISKPANE_H
+#define OVERVIEWDISKPANE_H
 
-#include <QMainWindow>
+#include "diskpanecomponent.h"
 
-QT_BEGIN_NAMESPACE
 namespace Ui {
-    class MainWindow;
+    class OverviewDiskPane;
 }
-QT_END_NAMESPACE
 
-struct MainWindowPrivate;
-class MainWindow : public QMainWindow {
+struct OverviewDiskPanePrivate;
+class DiskObject;
+class OverviewDiskPane : public DiskPaneComponent {
         Q_OBJECT
 
     public:
-        MainWindow(QWidget* parent = nullptr);
-        ~MainWindow();
+        explicit OverviewDiskPane(DiskObject* disk, QWidget* parent = nullptr);
+        ~OverviewDiskPane();
 
     private slots:
-        void on_actionMountImage_triggered();
+        void on_ejectButton_clicked();
 
-        void on_actionExit_triggered();
+        void on_mountButton_clicked();
 
-        void on_actionAbout_triggered();
-
-        void on_actionSources_triggered();
-
-        void on_actionFileBug_triggered();
+        void on_unmountButton_clicked();
 
     private:
-        Ui::MainWindow* ui;
-        MainWindowPrivate* d;
+        Ui::OverviewDiskPane* ui;
+        OverviewDiskPanePrivate* d;
+
+        void updateData();
+        void updateLock(bool locked);
+
+        // DiskPaneComponent interface
+    public:
+        int order() const;
+
 };
-#endif // MAINWINDOW_H
+
+#endif // OVERVIEWDISKPANE_H

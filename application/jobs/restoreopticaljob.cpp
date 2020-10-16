@@ -59,7 +59,20 @@ void RestoreOpticalJob::startRestore(QIODevice* source, quint64 dataSize) {
 
     d->source = source;
     d->dataSize = dataSize;
-    runNextStage();
+
+    //Try to acquire the lock
+    d->description = tr("Waiting for other jobs to finish");
+    emit descriptionChanged(d->description);
+
+    d->disk->lock()->then([ = ] {
+        connect(this, &RestoreOpticalJob::stateChanged, this, [ = ] {
+            //Release the lock
+            if (d->state == Finished || d->state == Failed) {
+                d->disk->releaseLock();
+            }
+        });
+        runNextStage();
+    });
 }
 
 void RestoreOpticalJob::cancel() {

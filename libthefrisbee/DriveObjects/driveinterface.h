@@ -46,6 +46,8 @@ class DriveInterface : public QObject {
             Floppy,
             Zip,
             Jaz,
+
+            OpticalFormatsBegin,
             Optical,
             Cd,
             CdR,
@@ -64,7 +66,10 @@ class DriveInterface : public QObject {
             HdDvd,
             HdDvdR,
             HdDvdRw,
-            MagnetoOptical
+            MagnetoOptical,
+            OpticalFormatsEnd,
+
+            Unknown
         };
 
         QString vendor();
@@ -72,14 +77,17 @@ class DriveInterface : public QObject {
 
         bool optical();
         bool opticalBlank();
+        bool isOpticalDrive();
 
         MediaFormat media();
         QList<MediaFormat> mediaCompatibility();
         bool mediaAvailable();
 
+        bool ejectable();
         tPromise<void>* eject();
 
     signals:
+        void changed();
 
     protected:
         friend DriveObjectManager;

@@ -22,7 +22,7 @@
 struct FilesystemInterfacePrivate {
     QDBusObjectPath path;
 
-    QDBusArgument mountPoints;
+    QByteArrayList mountPoints;
 };
 
 FilesystemInterface::FilesystemInterface(QDBusObjectPath path, QObject* parent) : DiskInterface(path, interfaceName(), parent) {
@@ -30,7 +30,9 @@ FilesystemInterface::FilesystemInterface(QDBusObjectPath path, QObject* parent) 
     d->path = path;
 
     bindPropertyUpdater("MountPoints", [ = ](QVariant value) {
-        d->mountPoints = value.value<QDBusArgument>();
+        QDBusArgument mountPoints = value.value<QDBusArgument>();
+        d->mountPoints.clear();
+        mountPoints >> d->mountPoints;
     });
 }
 
@@ -47,9 +49,7 @@ DiskInterface::Interfaces FilesystemInterface::interfaceType() {
 }
 
 QByteArrayList FilesystemInterface::mountPoints() {
-    QByteArrayList mountPoints;
-    d->mountPoints >> mountPoints;
-    return mountPoints;
+    return d->mountPoints;
 }
 
 tPromise<void>* FilesystemInterface::mount() {

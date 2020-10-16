@@ -76,6 +76,22 @@ DriveInterface* DriveObjectManager::driveForPath(QDBusObjectPath path) {
     return instance()->d->drives.value(path);
 }
 
+tPromise<QDBusObjectPath>* DriveObjectManager::loopSetup(QDBusUnixFileDescriptor fd, QVariantMap options) {
+    return TPROMISE_CREATE_SAME_THREAD(QDBusObjectPath, {
+        QDBusMessage loopSetup = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", "/org/freedesktop/UDisks2/Manager", "org.freedesktop.UDisks2.Manager", "LoopSetup");
+        loopSetup.setArguments({QVariant::fromValue(fd), options});
+        QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(loopSetup));
+        connect(watcher, &QDBusPendingCallWatcher::finished, [ = ] {
+            if (watcher->isError()) {
+                rej(watcher->error().message());
+            } else {
+                res(watcher->reply().arguments().first().value<QDBusObjectPath>());
+            }
+            watcher->deleteLater();
+        });
+    });
+}
+
 void DriveObjectManager::updateInterfaces() {
 
     QDBusMessage managedObjects = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", "/org/freedesktop/UDisks2", "org.freedesktop.DBus.ObjectManager", "GetManagedObjects");
