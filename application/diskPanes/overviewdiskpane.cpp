@@ -136,6 +136,8 @@ void OverviewDiskPane::updateData() {
                 parts.replace(1, tr("No Disc Inserted"));
             }
         }
+    } else {
+        ui->ejectButton->setVisible(false);
     }
 
     FilesystemInterface* fs = d->disk->interface<FilesystemInterface>();

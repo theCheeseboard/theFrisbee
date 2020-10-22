@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="resources.qrc">
-    <normaloff>:/thefrisbee.svg</normaloff>:/thefrisbee.svg</iconset>
+    <normaloff>:/icons/thefrisbee.svg</normaloff>:/icons/thefrisbee.svg</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="autoFillBackground">
@@ -78,7 +78,7 @@
          </property>
          <property name="icon">
           <iconset resource="resources.qrc">
-           <normaloff>:/thefrisbee.svg</normaloff>:/thefrisbee.svg</iconset>
+           <normaloff>:/icons/thefrisbee.svg</normaloff>:/icons/thefrisbee.svg</iconset>
          </property>
          <property name="popupMode">
           <enum>QToolButton::InstantPopup</enum>
@@ -176,7 +176,8 @@
   </widget>
   <action name="actionFileBug">
    <property name="icon">
-    <iconset theme="tools-report-bug"/>
+    <iconset theme="tools-report-bug">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
     <string>File Bug</string>
@@ -184,7 +185,8 @@
   </action>
   <action name="actionSources">
    <property name="icon">
-    <iconset theme="commit"/>
+    <iconset theme="commit">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
     <string>Sources</string>
@@ -192,7 +194,8 @@
   </action>
   <action name="actionAbout">
    <property name="icon">
-    <iconset theme="help-about"/>
+    <iconset theme="help-about">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
     <string>About</string>
@@ -200,7 +203,8 @@
   </action>
   <action name="actionExit">
    <property name="icon">
-    <iconset theme="application-exit"/>
+    <iconset theme="application-exit">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
     <string>Exit</string>
@@ -211,7 +215,8 @@
   </action>
   <action name="actionMountImage">
    <property name="icon">
-    <iconset theme="media-mount"/>
+    <iconset theme="media-mount">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
     <string>Mount Image</string>
