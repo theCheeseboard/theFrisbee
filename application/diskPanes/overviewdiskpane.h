@@ -42,6 +42,8 @@ class OverviewDiskPane : public DiskPaneComponent {
 
         void on_unmountButton_clicked();
 
+        void on_detachButton_clicked();
+
     private:
         Ui::OverviewDiskPane* ui;
         OverviewDiskPanePrivate* d;

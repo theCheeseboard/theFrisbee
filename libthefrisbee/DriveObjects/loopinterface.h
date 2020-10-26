@@ -17,32 +17,33 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef LOOPINTERFACE_H
+#define LOOPINTERFACE_H
 
-#include <QMainWindow>
+#include "diskinterface.h"
+#include <tpromise.h>
 
-QT_BEGIN_NAMESPACE
-namespace Ui {
-    class MainWindow;
-}
-QT_END_NAMESPACE
-
-struct MainWindowPrivate;
-class MainWindow : public QMainWindow {
+struct LoopInterfacePrivate;
+class LoopInterface : public DiskInterface {
         Q_OBJECT
-
     public:
-        MainWindow(QWidget* parent = nullptr);
-        ~MainWindow();
+        explicit LoopInterface(QDBusObjectPath path, QObject* parent = nullptr);
+        ~LoopInterface();
 
-    private slots:
-        void on_actionMountImage_triggered();
+        static QString interfaceName();
+        Interfaces interfaceType();
 
-        void on_actionExit_triggered();
+        QByteArray backingFile();
+        tPromise<void>* detach();
+
+        bool isAvailable();
+
+    signals:
+        void backingFileChanged();
 
     private:
-        Ui::MainWindow* ui;
-        MainWindowPrivate* d;
+        LoopInterfacePrivate* d;
+
 };
-#endif // MAINWINDOW_H
+
+#endif // LOOPINTERFACE_H

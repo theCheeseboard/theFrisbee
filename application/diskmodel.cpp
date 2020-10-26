@@ -32,8 +32,7 @@ DiskModel::DiskModel(QObject* parent)
     : QAbstractItemModel(parent) {
     d = new DiskModelPrivate();
 
-    connect(DriveObjectManager::instance(), &DriveObjectManager::diskAdded, this, &DiskModel::updateList);
-    connect(DriveObjectManager::instance(), &DriveObjectManager::diskRemoved, this, &DiskModel::updateList);
+    connect(DriveObjectManager::instance(), &DriveObjectManager::rootDisksChanged, this, &DiskModel::updateList);
 }
 
 DiskModel::~DiskModel() {

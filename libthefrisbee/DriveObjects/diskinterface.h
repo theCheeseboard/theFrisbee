@@ -32,7 +32,8 @@ class DiskInterface : public QObject {
             Block,
             Filesystem,
             PartitionTable,
-            Partition
+            Partition,
+            Loop
         };
 
         explicit DiskInterface(QDBusObjectPath path, QString interface, QObject* parent = nullptr);

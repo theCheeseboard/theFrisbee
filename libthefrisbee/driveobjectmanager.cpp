@@ -22,6 +22,7 @@
 #include "DriveObjects/diskobject.h"
 #include "DriveObjects/partitiontableinterface.h"
 #include "DriveObjects/driveinterface.h"
+#include "DriveObjects/loopinterface.h"
 #include <QDebug>
 #include <QTimer>
 
@@ -58,6 +59,11 @@ QList<DiskObject*> DriveObjectManager::rootDisks() {
             for (DiskObject* partition : partitionTable->partitions()) {
                 notRootDisks.insert(partition);
             }
+        }
+
+        LoopInterface* loop = disk->interface<LoopInterface>();
+        if (loop) {
+            if (!loop->isAvailable()) notRootDisks.insert(disk);
         }
     }
 
@@ -110,9 +116,20 @@ void DriveObjectManager::updateInterfaces() {
                 object = d->objects.value(path);
             } else {
                 object = new DiskObject(path);
+
+                connect(object, &DiskObject::interfaceAdded, this, [ = ](DiskInterface::Interfaces interface) {
+                    if (interface == DiskInterface::Loop) {
+                        LoopInterface* loop = object->interface<LoopInterface>();
+                        connect(loop, &LoopInterface::backingFileChanged, this, &DriveObjectManager::rootDisksChanged);
+
+                        emit rootDisksChanged();
+                    }
+                });
+
                 d->objects.insert(path, object);
                 QTimer::singleShot(0, [ = ] {
                     emit diskAdded(object);
+                    emit rootDisksChanged();
                 });
             }
 
@@ -145,13 +162,14 @@ void DriveObjectManager::updateInterfaces() {
         if (d->objects.contains(path)) {
             DiskObject* disk = d->objects.take(path);
             QTimer::singleShot(0, [ = ] {
-                emit diskAdded(disk);
+                emit diskRemoved(disk);
+                emit rootDisksChanged();
             });
             disk->deleteLater();
         } else {
             DriveInterface* drive = d->drives.take(path);
             QTimer::singleShot(0, [ = ] {
-                emit driveAdded(drive);
+                emit driveRemoved(drive);
             });
             drive->deleteLater();
         }

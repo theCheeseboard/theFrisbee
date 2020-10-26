@@ -27,8 +27,9 @@
 #include <tcsdtools.h>
 #include <taboutdialog.h>
 #include <QMenu>
-#include <QDebug>
+#include <tlogger.h>
 #include <QFileDialog>
+#include <thelpmenu.h>
 #include "diskmodel.h"
 #include "diskpane.h"
 
@@ -42,14 +43,6 @@ MainWindow::MainWindow(QWidget* parent)
     ui->setupUi(this);
 
     DriveObjectManager::instance();
-
-//    DiskObject* o = new DiskObject(QDBusObjectPath("/"));
-//    o->interface<BlockInterface>();
-
-    for (auto disk : DriveObjectManager::rootDisks()) {
-        if (!disk->isInterfaceAvailable(DiskInterface::Block)) continue;
-        qDebug() << disk->interface<BlockInterface>()->blockName();
-    }
 
     ui->jobButtonLayout->addWidget(tJobManager::makeJobButton());
 
@@ -66,15 +59,7 @@ MainWindow::MainWindow(QWidget* parent)
     QMenu* menu = new QMenu(this);
     menu->addAction(ui->actionMountImage);
     menu->addSeparator();
-
-    QMenu* helpMenu = new QMenu(this);
-    helpMenu->setTitle(tr("Help"));
-    helpMenu->addAction(ui->actionFileBug);
-    helpMenu->addAction(ui->actionSources);
-    helpMenu->addSeparator();
-    helpMenu->addAction(ui->actionAbout);
-
-    menu->addMenu(helpMenu);
+    menu->addMenu(new tHelpMenu(this));
     menu->addAction(ui->actionExit);
 
     ui->menuButton->setIconSize(SC_DPI_T(QSize(24, 24), QSize));
@@ -110,7 +95,7 @@ void MainWindow::on_actionMountImage_triggered() {
 
         QDBusUnixFileDescriptor fd(f.handle());
         DriveObjectManager::loopSetup(fd, {})->error([ = ](QString error) {
-            qDebug() << error;
+            tCritical("LoopSetup") << error;
         });
 
     });
@@ -120,17 +105,4 @@ void MainWindow::on_actionMountImage_triggered() {
 
 void MainWindow::on_actionExit_triggered() {
     QApplication::exit();
-}
-
-void MainWindow::on_actionAbout_triggered() {
-    tAboutDialog d;
-    d.exec();
-}
-
-void MainWindow::on_actionSources_triggered() {
-
-}
-
-void MainWindow::on_actionFileBug_triggered() {
-
 }

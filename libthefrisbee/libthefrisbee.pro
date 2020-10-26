@@ -15,6 +15,7 @@ SOURCES += \
     DriveObjects/diskobject.cpp \
     DriveObjects/driveinterface.cpp \
     DriveObjects/filesysteminterface.cpp \
+    DriveObjects/loopinterface.cpp \
     DriveObjects/partitioninterface.cpp \
     DriveObjects/partitiontableinterface.cpp \
     driveobjectmanager.cpp
@@ -25,6 +26,7 @@ HEADERS += \
     DriveObjects/diskobject.h \
     DriveObjects/driveinterface.h \
     DriveObjects/filesysteminterface.h \
+    DriveObjects/loopinterface.h \
     DriveObjects/partitioninterface.h \
     DriveObjects/partitiontableinterface.h \
     libthefrisbee_global.h \

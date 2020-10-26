@@ -174,33 +174,6 @@
     </item>
    </layout>
   </widget>
-  <action name="actionFileBug">
-   <property name="icon">
-    <iconset theme="tools-report-bug">
-     <normaloff>.</normaloff>.</iconset>
-   </property>
-   <property name="text">
-    <string>File Bug</string>
-   </property>
-  </action>
-  <action name="actionSources">
-   <property name="icon">
-    <iconset theme="commit">
-     <normaloff>.</normaloff>.</iconset>
-   </property>
-   <property name="text">
-    <string>Sources</string>
-   </property>
-  </action>
-  <action name="actionAbout">
-   <property name="icon">
-    <iconset theme="help-about">
-     <normaloff>.</normaloff>.</iconset>
-   </property>
-   <property name="text">
-    <string>About</string>
-   </property>
-  </action>
   <action name="actionExit">
    <property name="icon">
     <iconset theme="application-exit">
@@ -219,7 +192,7 @@
      <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
-    <string>Mount Image</string>
+    <string>Attach Image</string>
    </property>
   </action>
  </widget>

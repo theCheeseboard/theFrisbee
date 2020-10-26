@@ -24,6 +24,7 @@
 #include <DriveObjects/blockinterface.h>
 #include <DriveObjects/driveinterface.h>
 #include <DriveObjects/filesysteminterface.h>
+#include <DriveObjects/loopinterface.h>
 
 struct OverviewDiskPanePrivate {
     DiskObject* disk;
@@ -150,6 +151,9 @@ void OverviewDiskPane::updateData() {
         ui->unmountButton->setVisible(false);
     }
 
+    LoopInterface* loop = d->disk->interface<LoopInterface>();
+    ui->detachButton->setVisible(loop != nullptr);
+
     ui->iconLabel->setPixmap(d->disk->icon().pixmap(SC_DPI_T(QSize(32, 32), QSize)));
     ui->diskInfoLabel->setText(parts.join(" · "));
 }
@@ -174,4 +178,8 @@ void OverviewDiskPane::on_mountButton_clicked() {
 
 void OverviewDiskPane::on_unmountButton_clicked() {
     d->disk->interface<FilesystemInterface>()->unmount();
+}
+
+void OverviewDiskPane::on_detachButton_clicked() {
+    d->disk->interface<LoopInterface>()->detach();
 }

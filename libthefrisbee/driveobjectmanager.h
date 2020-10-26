@@ -49,6 +49,7 @@ class DriveObjectManager : public QObject {
         void diskRemoved(DiskObject* disk);
         void driveAdded(DriveInterface* drive);
         void driveRemoved(DriveInterface* drive);
+        void rootDisksChanged();
 
     private:
         DriveObjectManagerPrivate* d;

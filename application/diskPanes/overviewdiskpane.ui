@@ -59,12 +59,23 @@
       <number>0</number>
      </property>
      <item>
+      <widget class="QPushButton" name="detachButton">
+       <property name="text">
+        <string>Detach</string>
+       </property>
+       <property name="icon">
+        <iconset theme="media-eject"/>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="unmountButton">
        <property name="text">
         <string>Unmount</string>
        </property>
        <property name="icon">
-        <iconset theme="media-unmount"/>
+        <iconset theme="media-unmount">
+         <normaloff>.</normaloff>.</iconset>
        </property>
       </widget>
      </item>
@@ -74,7 +85,8 @@
         <string>Mount</string>
        </property>
        <property name="icon">
-        <iconset theme="media-mount"/>
+        <iconset theme="media-mount">
+         <normaloff>.</normaloff>.</iconset>
        </property>
       </widget>
      </item>

@@ -19,6 +19,7 @@
  * *************************************/
 #include "restoreopticaljob.h"
 
+#include <tlogger.h>
 #include <QProcess>
 #include <tnotification.h>
 #include <DriveObjects/diskobject.h>
@@ -71,6 +72,8 @@ void RestoreOpticalJob::startRestore(QIODevice* source, quint64 dataSize) {
                 d->disk->releaseLock();
             }
         });
+
+        tInfo("OpticalRestore") << "Restore operation starts";
         runNextStage();
     });
 }
@@ -85,6 +88,8 @@ void RestoreOpticalJob::cancel() {
 
         d->description = tr("Failed to restore image");
         emit descriptionChanged(d->description);
+
+        tInfo("OpticalRestore") << "Restore operation cancelled";
     }
 }
 
@@ -124,6 +129,8 @@ void RestoreOpticalJob::runNextStage() {
                     notification->setSummary(tr("Couldn't Restore Disc"));
                     notification->setText(tr("The disc in %1 could not be restored.").arg(displayName));
                     notification->post();
+
+                    tCritical("OpticalRestore") << "Restore operation failed";
                 }
                 emit progressChanged(1);
                 emit totalProgressChanged(1);
@@ -140,7 +147,7 @@ void RestoreOpticalJob::runNextStage() {
                     }
                     line = line.trimmed();
 
-                    qDebug() << line;
+                    tDebug("OpticalRestore") << line;
 
                     if (line.startsWith("Blanking time")) {
                         d->description = tr("Preparing to restore");
@@ -201,6 +208,7 @@ void RestoreOpticalJob::runNextStage() {
             args.append(QStringLiteral("tsize=%1").arg(d->dataSize));
             args.append("-");
 
+            tInfo("OpticalErase") << "Starting cdrecord with arguments" << args;
             d->burnProcess->start("cdrecord", args);
 
             writeBlock();
@@ -218,6 +226,8 @@ void RestoreOpticalJob::runNextStage() {
 
                 d->description = tr("Restore Complete");
                 emit descriptionChanged(d->description);
+
+                tInfo("OpticalRestore") << "Restore Operation completed successfully";
 
                 tNotification* notification = new tNotification();
                 notification->setSummary(tr("Restored Disc"));

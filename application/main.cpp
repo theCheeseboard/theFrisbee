@@ -41,6 +41,9 @@ int main(int argc, char* argv[]) {
     a.setCopyrightHolder("Victor Tran");
     a.setCopyrightYear("2020");
     a.setOrganizationName("theSuite");
+//    a.setApplicationUrl(tApplication::HelpContents, QUrl("https://help.vicr123.com/docs/thefrisbee/intro"));
+    a.setApplicationUrl(tApplication::Sources, QUrl("http://github.com/vicr123/thefrisbee"));
+    a.setApplicationUrl(tApplication::FileBug, QUrl("http://github.com/vicr123/thefrisbee/issues"));
 #ifdef T_BLUEPRINT_BUILD
     a.setApplicationName("theFrisbee Blueprint");
     a.setDesktopFileName("com.vicr123.thefrisbee-blueprint");
@@ -48,6 +51,8 @@ int main(int argc, char* argv[]) {
     a.setApplicationName("theFrisbee");
     a.setDesktopFileName("com.vicr123.thefrisbee");
 #endif
+
+    a.registerCrashTrap();
 
     tSettings::registerDefaults(a.applicationDirPath() + "/defaults.conf");
     tSettings::registerDefaults("/etc/theSuite/thefrisbee/defaults.conf");

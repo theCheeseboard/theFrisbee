@@ -29,6 +29,7 @@
 #include "partitiontableinterface.h"
 #include "partitioninterface.h"
 #include "driveinterface.h"
+#include "loopinterface.h"
 
 struct DiskObjectPrivate {
     QDBusObjectPath path;
@@ -63,6 +64,10 @@ template <> PartitionInterface* DiskObject::interface() const {
     return static_cast<PartitionInterface*>(d->interfaces.value(PartitionInterface::interfaceName(), nullptr));
 }
 
+template <> LoopInterface* DiskObject::interface() const {
+    return static_cast<LoopInterface*>(d->interfaces.value(LoopInterface::interfaceName(), nullptr));
+}
+
 bool DiskObject::isInterfaceAvailable(DiskInterface::Interfaces interface) {
     switch (interface) {
         case DiskInterface::Block:
@@ -73,6 +78,8 @@ bool DiskObject::isInterfaceAvailable(DiskInterface::Interfaces interface) {
             return d->interfaces.contains(PartitionTableInterface::interfaceName());
         case DiskInterface::Partition:
             return d->interfaces.contains(PartitionInterface::interfaceName());
+        case DiskInterface::Loop:
+            return d->interfaces.contains(LoopInterface::interfaceName());
         default:
             return false;
     }
@@ -87,6 +94,11 @@ QString DiskObject::displayName() {
         DriveInterface* drive = block->drive();
         if (drive) return drive->model();
         return block->blockName();
+    }
+
+    LoopInterface* loop = interface<LoopInterface>();
+    if (loop) {
+        return tr("Loop Device");
     }
 
     return tr("Block Device");
@@ -136,6 +148,7 @@ QIcon DiskObject::icon() {
             case DriveInterface::BdRe:
                 return QIcon::fromTheme("media-optical-blu-ray");
             case DriveInterface::Unknown:
+            default:
                 if (block->drive()->isOpticalDrive()) {
                     return QIcon::fromTheme("media-optical");
                 } else {
@@ -152,7 +165,8 @@ void DiskObject::updateInterfaces(QMap<QString, QVariantMap> interfaces) {
         BlockInterface::interfaceName(),
         FilesystemInterface::interfaceName(),
         PartitionTableInterface::interfaceName(),
-        PartitionInterface::interfaceName()
+        PartitionInterface::interfaceName(),
+        LoopInterface::interfaceName()
     };
 
     for (QString interface : interfaceNames) {
@@ -189,6 +203,7 @@ DiskInterface* DiskObject::makeDiskInterface(QString interface) {
     if (interface == FilesystemInterface::interfaceName()) return new FilesystemInterface(d->path);
     if (interface == PartitionTableInterface::interfaceName()) return new PartitionTableInterface(d->path);
     if (interface == PartitionInterface::interfaceName()) return new PartitionInterface(d->path);
+    if (interface == LoopInterface::interfaceName()) return new LoopInterface(d->path);
     return nullptr;
 }
 
