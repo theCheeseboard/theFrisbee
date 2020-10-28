@@ -1,4 +1,5 @@
 QT       += core gui dbus thelib
+SHARE_APP_NAME = thefrisbee
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -53,10 +54,28 @@ FORMS += \
     operations/partitionpopover.ui \
     operations/restoreopticalpopover.ui
 
-# Default rules for deployment.
-qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /opt/$${TARGET}/bin
-!isEmpty(target.path): INSTALLS += target
+unix:!macx {
+    # Include the-libs build tools
+    include(/usr/share/the-libs/pri/buildmaster.pri)
+
+    DEFINES += SYSTEM_LIBRARY_DIRECTORY=\\\"$$[QT_INSTALL_LIBS]\\\"
+
+    QT += thelib
+    TARGET = thefrisbee
+
+    CONFIG += link_pkgconfig
+
+    desktop.path = /usr/share/applications
+    desktop.files = com.vicr123.thefrisbee.desktop
+
+    icon.path = /usr/share/icons/hicolor/scalable/apps/
+    icon.files = icons/thefrisbee.svg
+
+    defaults.files = defaults.conf
+    defaults.path = /etc/theSuite/theFrisbee/
+
+    INSTALLS += target desktop icon defaults
+}
 
 unix:!macx: LIBS += -L$$OUT_PWD/../libthefrisbee/ -llibthefrisbee
 
@@ -65,3 +84,6 @@ DEPENDPATH += $$PWD/../libthefrisbee
 
 RESOURCES += \
     resources.qrc
+
+DISTFILES += \
+    com.vicr123.thefrisbee.desktop

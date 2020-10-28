@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=theFrisbee
+GenericName=Disk Management
+GenericName[vi]=Quản lý ổ đĩa
+Categories=System;
+Exec=thefrisbee
+Icon=thefrisbee

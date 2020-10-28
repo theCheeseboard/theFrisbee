@@ -34,6 +34,13 @@ HEADERS += \
 
 # Default rules for deployment.
 unix {
-    target.path = /usr/lib
+    target.path = $$[QT_INSTALL_LIBS]
+
+    headers.files = *.h
+    headers.path = $$[QT_INSTALL_HEADERS]/libthefrisbee/
+
+    translations.files = translations/*.qm
+    translations.path = /usr/share/thefrisbee/libthefrisbee/translations
+
+    INSTALLS += target translations headers
 }
-!isEmpty(target.path): INSTALLS += target
