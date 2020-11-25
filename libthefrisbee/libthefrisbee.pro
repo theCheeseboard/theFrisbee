@@ -40,13 +40,16 @@ unix {
     headers.files = *.h
     headers.path = $$[QT_INSTALL_HEADERS]/libthefrisbee/
 
+    driveobjectheaders.files = DriveObjects/*.h
+    driveobjectheaders.path = $$[QT_INSTALL_HEADERS]/libthefrisbee/DriveObjects/
+
     translations.files = translations/*.qm
     translations.path = /usr/share/thefrisbee/libthefrisbee/translations
 
     module.files = qt_frisbee.pri
     module.path = $$[QMAKE_MKSPECS]/modules
 
-    INSTALLS += target translations headers module
+    INSTALLS += target translations headers driveobjectheaders module
 }
 
 DISTFILES += \
