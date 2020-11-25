@@ -77,7 +77,7 @@ unix:!macx {
     INSTALLS += target desktop icon defaults
 }
 
-unix:!macx: LIBS += -L$$OUT_PWD/../libthefrisbee/ -llibthefrisbee
+unix:!macx: LIBS += -L$$OUT_PWD/../libthefrisbee/ -lthefrisbee
 
 INCLUDEPATH += $$PWD/../libthefrisbee
 DEPENDPATH += $$PWD/../libthefrisbee

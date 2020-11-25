@@ -35,8 +35,10 @@ class DriveObjectManager : public QObject {
 
         static DriveObjectManager* instance();
         static QList<DiskObject*> rootDisks();
+        static QList<DiskObject*> filesystemDisks();
 
         static DiskObject* diskForPath(QDBusObjectPath path);
+        static DiskObject* diskByBlockName(QString blockName);
         static DriveInterface* driveForPath(QDBusObjectPath path);
 
         static tPromise<QDBusObjectPath>* loopSetup(QDBusUnixFileDescriptor fd, QVariantMap options);
@@ -50,6 +52,7 @@ class DriveObjectManager : public QObject {
         void driveAdded(DriveInterface* drive);
         void driveRemoved(DriveInterface* drive);
         void rootDisksChanged();
+        void filesystemDisksChanged();
 
     private:
         DriveObjectManagerPrivate* d;

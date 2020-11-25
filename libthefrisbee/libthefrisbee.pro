@@ -1,4 +1,5 @@
 QT += gui dbus thelib
+TARGET = thefrisbee
 
 TEMPLATE = lib
 DEFINES += LIBTHEFRISBEE_LIBRARY
@@ -42,5 +43,11 @@ unix {
     translations.files = translations/*.qm
     translations.path = /usr/share/thefrisbee/libthefrisbee/translations
 
-    INSTALLS += target translations headers
+    module.files = qt_thefrisbee.pri
+    module.path = $$[QMAKE_MKSPECS]/modules
+
+    INSTALLS += target translations headers module
 }
+
+DISTFILES += \
+    qt_frisbee.pri

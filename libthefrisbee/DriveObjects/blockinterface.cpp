@@ -33,6 +33,9 @@ struct BlockInterfacePrivate {
     QString name;
     quint64 size;
     QDBusObjectPath drive;
+    QString idLabel;
+    bool hintIgnore;
+    bool hintSystem;
 };
 
 BlockInterface::BlockInterface(QDBusObjectPath path, QObject* parent) : DiskInterface(path, interfaceName(), parent) {
@@ -48,6 +51,15 @@ BlockInterface::BlockInterface(QDBusObjectPath path, QObject* parent) : DiskInte
     });
     bindPropertyUpdater("Drive", [ = ](QVariant value) {
         d->drive = value.value<QDBusObjectPath>();
+    });
+    bindPropertyUpdater("IdLabel", [ = ](QVariant value) {
+        d->idLabel = value.toString();
+    });
+    bindPropertyUpdater("HintIgnore", [ = ](QVariant value) {
+        d->hintIgnore = value.toBool();
+    });
+    bindPropertyUpdater("HintSystem", [ = ](QVariant value) {
+        d->hintSystem = value.toBool();
     });
 }
 
@@ -76,11 +88,22 @@ DriveInterface* BlockInterface::drive() {
     return DriveObjectManager::driveForPath(d->drive);
 }
 
-void BlockInterface::format(QString type, QVariantMap options) {
+tPromise<void>* BlockInterface::format(QString type, QVariantMap options) {
     //TODO: Different handling if this is an optical device
-    QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Format");
-    message.setArguments({type, options});
-    QDBusConnection::systemBus().asyncCall(message);
+
+    return TPROMISE_CREATE_SAME_THREAD(void, {
+        QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Format");
+        message.setArguments({type, options});
+
+        QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
+            if (watcher->isError()) {
+                rej(watcher->error().message());
+            } else {
+                res();
+            }
+        });
+    });
 }
 
 tPromise<QIODevice*>* BlockInterface::open(BlockInterface::OpenMode mode, QVariantMap options) {
@@ -123,4 +146,16 @@ tPromise<QIODevice*>* BlockInterface::open(BlockInterface::OpenMode mode, QVaria
             }
         }
     });
+}
+
+QString BlockInterface::idLabel() {
+    return d->idLabel;
+}
+
+bool BlockInterface::hintIgnore() {
+    return d->hintIgnore;
+}
+
+bool BlockInterface::hintSystem() {
+    return d->hintSystem;
 }

@@ -96,6 +96,10 @@ tPromise<void>* DriveInterface::eject() {
     });
 }
 
+bool DriveInterface::isRemovable() {
+    return d->properties.value("Removable").toBool();
+}
+
 void DriveInterface::updateProperties(QVariantMap properties) {
     for (QString property : properties.keys()) {
         d->properties.insert(property, properties.value(property));

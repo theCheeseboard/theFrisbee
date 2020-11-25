@@ -23,6 +23,8 @@
 #include "DriveObjects/partitiontableinterface.h"
 #include "DriveObjects/driveinterface.h"
 #include "DriveObjects/loopinterface.h"
+#include "DriveObjects/filesysteminterface.h"
+#include "DriveObjects/blockinterface.h"
 #include <QDebug>
 #include <QTimer>
 
@@ -74,8 +76,37 @@ QList<DiskObject*> DriveObjectManager::rootDisks() {
     return disks;
 }
 
+QList<DiskObject*> DriveObjectManager::filesystemDisks() {
+    QList<DiskObject*> disks = instance()->d->objects.values();
+    QSet<DiskObject*> notFilesystemDisks;
+
+    for (DiskObject* disk : disks) {
+        BlockInterface* block = disk->interface<BlockInterface>();
+        if (block && block->hintIgnore()) {
+            notFilesystemDisks.insert(disk);
+            continue;
+        }
+
+        FilesystemInterface* filesystem = disk->interface<FilesystemInterface>();
+        if (!filesystem) notFilesystemDisks.insert(disk);
+    }
+
+    for (DiskObject* disk : notFilesystemDisks) {
+        disks.removeOne(disk);
+    }
+
+    return disks;
+}
+
 DiskObject* DriveObjectManager::diskForPath(QDBusObjectPath path) {
     return instance()->d->objects.value(path);
+}
+
+DiskObject* DriveObjectManager::diskByBlockName(QString blockName) {
+    for (DiskObject* object : instance()->d->objects.values()) {
+        if (object->interface<BlockInterface>() && object->interface<BlockInterface>()->blockName() == blockName) return object;
+    }
+    return nullptr;
 }
 
 DriveInterface* DriveObjectManager::driveForPath(QDBusObjectPath path) {
@@ -123,6 +154,13 @@ void DriveObjectManager::updateInterfaces() {
                         connect(loop, &LoopInterface::backingFileChanged, this, &DriveObjectManager::rootDisksChanged);
 
                         emit rootDisksChanged();
+                    } else if (interface == DiskInterface::Filesystem) {
+                        emit filesystemDisksChanged();
+                    }
+                });
+                connect(object, &DiskObject::interfaceRemoved, this, [ = ](DiskInterface::Interfaces interface) {
+                    if (interface == DiskInterface::Filesystem) {
+                        emit filesystemDisksChanged();
                     }
                 });
 
@@ -130,6 +168,7 @@ void DriveObjectManager::updateInterfaces() {
                 QTimer::singleShot(0, [ = ] {
                     emit diskAdded(object);
                     emit rootDisksChanged();
+                    emit filesystemDisksChanged();
                 });
             }
 
@@ -164,6 +203,7 @@ void DriveObjectManager::updateInterfaces() {
             QTimer::singleShot(0, [ = ] {
                 emit diskRemoved(disk);
                 emit rootDisksChanged();
+                emit filesystemDisksChanged();
             });
             disk->deleteLater();
         } else {

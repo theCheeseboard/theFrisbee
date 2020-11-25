@@ -91,6 +91,9 @@ QString DiskObject::displayName() {
 
     BlockInterface* block = interface<BlockInterface>();
     if (block) {
+        QString label = block->idLabel();
+        if (!label.isEmpty()) return label;
+
         DriveInterface* drive = block->drive();
         if (drive) return drive->model();
         return block->blockName();
@@ -151,6 +154,8 @@ QIcon DiskObject::icon() {
             default:
                 if (block->drive()->isOpticalDrive()) {
                     return QIcon::fromTheme("media-optical");
+                } else if (block->drive()->isRemovable()) {
+                    return QIcon::fromTheme("drive-removable-media");
                 } else {
                     return QIcon::fromTheme("drive-harddisk");
                 }

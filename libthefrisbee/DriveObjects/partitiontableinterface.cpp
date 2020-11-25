@@ -73,3 +73,35 @@ QList<DiskObject*> PartitionTableInterface::partitions() {
 
     return diskObjects;
 }
+
+tPromise<QDBusObjectPath>* PartitionTableInterface::createPartition(quint64 offset, quint64 size, QString type, QString name, QVariantMap options) {
+    return TPROMISE_CREATE_SAME_THREAD(QDBusObjectPath, {
+        QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "CreatePartition");
+        message.setArguments({offset, size, type, name, options});
+
+        QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
+            if (watcher->isError()) {
+                rej(watcher->error().message());
+            } else {
+                res(watcher->reply().arguments().first().value<QDBusObjectPath>());
+            }
+        });
+    });
+}
+
+tPromise<QDBusObjectPath>* PartitionTableInterface::createPartitionAndFormat(quint64 offset, quint64 size, QString type, QString name, QVariantMap options, QString formatType, QVariantMap formatOptions) {
+    return TPROMISE_CREATE_SAME_THREAD(QDBusObjectPath, {
+        QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "CreatePartitionAndFormat");
+        message.setArguments({offset, size, type, name, options, formatType, formatOptions});
+
+        QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
+            if (watcher->isError()) {
+                rej(watcher->error().message());
+            } else {
+                res(watcher->reply().arguments().first().value<QDBusObjectPath>());
+            }
+        });
+    });
+}

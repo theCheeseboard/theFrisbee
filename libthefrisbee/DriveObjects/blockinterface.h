@@ -46,8 +46,12 @@ class BlockInterface : public DiskInterface {
 
         DriveInterface* drive();
 
-        void format(QString type, QVariantMap options);
+        tPromise<void>* format(QString type, QVariantMap options);
         tPromise<QIODevice*>* open(OpenMode mode, QVariantMap options);
+
+        QString idLabel();
+        bool hintIgnore();
+        bool hintSystem();
 
     signals:
         void sizeChanged(qulonglong size);

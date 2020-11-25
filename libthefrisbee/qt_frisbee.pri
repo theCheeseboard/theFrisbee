@@ -1,0 +1,9 @@
+QT.frisbee.VERSION = 1.0
+QT.frisbee.MAJOR_VERSION = 1
+QT.frisbee.MINOR_VERSION = 1
+QT.frisbee.name = thefrisbee
+QT.frisbee.module = thefrisbee
+QT.frisbee.depends = core dbus
+QT.frisbee.includes = $$QT_MODULE_INCLUDE_BASE $$QT_MODULE_INCLUDE_BASE/libthefrisbee/
+QT.frisbee.libs = $$QT_MODULE_LIB_BASE
+QT_MODULES += frisbee

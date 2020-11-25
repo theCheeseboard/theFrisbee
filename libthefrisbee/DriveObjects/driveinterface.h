@@ -86,6 +86,8 @@ class DriveInterface : public QObject {
         bool ejectable();
         tPromise<void>* eject();
 
+        bool isRemovable();
+
     signals:
         void changed();
 
