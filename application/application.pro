@@ -65,6 +65,8 @@ unix:!macx {
 
     CONFIG += link_pkgconfig
 
+    target.path = /usr/bin
+
     desktop.path = /usr/share/applications
     desktop.files = com.vicr123.thefrisbee.desktop
 
