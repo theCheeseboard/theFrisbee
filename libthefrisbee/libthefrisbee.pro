@@ -43,7 +43,7 @@ unix {
     translations.files = translations/*.qm
     translations.path = /usr/share/thefrisbee/libthefrisbee/translations
 
-    module.files = qt_thefrisbee.pri
+    module.files = qt_frisbee.pri
     module.path = $$[QMAKE_MKSPECS]/modules
 
     INSTALLS += target translations headers module
