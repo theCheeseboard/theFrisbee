@@ -27,6 +27,7 @@
 #include <DriveObjects/driveinterface.h>
 #include <tlogger.h>
 #include "progress/erasecdrwjobprogress.h"
+#include "optical/opticalerrortracker.h"
 
 struct EraseCdRwJobPrivate {
     DiskObject* disk;
@@ -142,6 +143,8 @@ void EraseCdRwJob::runNextStage() {
             d->description = tr("Erasing %1").arg(d->discType);
             emit descriptionChanged(d->description);
 
+            OpticalErrorTracker* errorTracker = new OpticalErrorTracker();
+
             //Erase the disc
             QProcess* proc = new QProcess();
             proc->setProcessChannelMode(QProcess::MergedChannels);
@@ -157,6 +160,8 @@ void EraseCdRwJob::runNextStage() {
                     line = line.trimmed();
 
                     tDebug("OpticalErase") << line;
+                    errorTracker->sendLine(line);
+
                     peek = proc->peek(1024);
                 }
             });
@@ -168,7 +173,11 @@ void EraseCdRwJob::runNextStage() {
                     d->state = Failed;
                     emit stateChanged(Failed);
 
-                    d->description = tr("Failed to erase %1").arg(d->discType);
+                    if (errorTracker->detectedError()) {
+                        d->description = tr("Couldn't erase %1 because %2.").arg(d->discType, errorTracker->errorReason());
+                    } else {
+                        d->description = tr("Failed to erase %1").arg(d->discType);
+                    }
                     emit descriptionChanged(d->description);
 
                     tCritical("OpticalErase") << "Operation failed: cdrecord returned with exit code" << exitCode;

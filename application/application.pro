@@ -21,10 +21,12 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     operations/eraseopticalpopover.cpp \
+    operations/erasepartitionpopover.cpp \
     operations/erasepartitiontablepopover.cpp \
     operations/imagepopover.cpp \
     operations/partitionpopover.cpp \
-    operations/restoreopticalpopover.cpp
+    operations/restoreopticalpopover.cpp \
+    optical/opticalerrortracker.cpp
 
 HEADERS += \
     diskPanes/diskpanecomponent.h \
@@ -37,10 +39,12 @@ HEADERS += \
     jobs/restoreopticaljob.h \
     mainwindow.h \
     operations/eraseopticalpopover.h \
+    operations/erasepartitionpopover.h \
     operations/erasepartitiontablepopover.h \
     operations/imagepopover.h \
     operations/partitionpopover.h \
-    operations/restoreopticalpopover.h
+    operations/restoreopticalpopover.h \
+    optical/opticalerrortracker.h
 
 FORMS += \
     diskPanes/overviewdiskpane.ui \
@@ -49,6 +53,7 @@ FORMS += \
     jobs/progress/restoreopticaljobprogress.ui \
     mainwindow.ui \
     operations/eraseopticalpopover.ui \
+    operations/erasepartitionpopover.ui \
     operations/erasepartitiontablepopover.ui \
     operations/imagepopover.ui \
     operations/partitionpopover.ui \

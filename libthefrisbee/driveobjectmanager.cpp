@@ -32,6 +32,7 @@
 #include <QDBusConnection>
 #include <QDBusObjectPath>
 #include <QDBusArgument>
+#include <QDBusInterface>
 
 struct DriveObjectManagerPrivate {
     QMap<QDBusObjectPath, DiskObject*> objects;
@@ -111,6 +112,11 @@ DiskObject* DriveObjectManager::diskByBlockName(QString blockName) {
 
 DriveInterface* DriveObjectManager::driveForPath(QDBusObjectPath path) {
     return instance()->d->drives.value(path);
+}
+
+QStringList DriveObjectManager::supportedFilesystems() {
+    QDBusInterface managerInterface("org.freedesktop.UDisks2", "/org/freedesktop/UDisks2/Manager", "org.freedesktop.UDisks2.Manager", QDBusConnection::systemBus());
+    return managerInterface.property("SupportedFilesystems").toStringList();
 }
 
 tPromise<QDBusObjectPath>* DriveObjectManager::loopSetup(QDBusUnixFileDescriptor fd, QVariantMap options) {

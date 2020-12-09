@@ -26,6 +26,7 @@
 #include <DriveObjects/blockinterface.h>
 #include <DriveObjects/driveinterface.h>
 #include "progress/restoreopticaljobprogress.h"
+#include "optical/opticalerrortracker.h"
 
 struct RestoreOpticalJobPrivate {
     quint64 progress = 0;
@@ -111,6 +112,8 @@ void RestoreOpticalJob::runNextStage() {
             d->description = tr("Preparing to restore");
             emit descriptionChanged(d->description);
 
+            OpticalErrorTracker* errorTracker = new OpticalErrorTracker();
+
             d->burnProcess = new QProcess();
             connect(d->burnProcess, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, [ = ](int exitCode, QProcess::ExitStatus exitStatus) {
                 Q_UNUSED(exitStatus);
@@ -122,7 +125,11 @@ void RestoreOpticalJob::runNextStage() {
                     d->state = Failed;
                     emit stateChanged(Failed);
 
-                    d->description = tr("Failed to restore disc");
+                    if (errorTracker->detectedError()) {
+                        d->description = tr("Couldn't restore the disc because %1.").arg(errorTracker->errorReason());
+                    } else {
+                        d->description = tr("Failed to restore disc");
+                    }
                     emit descriptionChanged(d->description);
 
                     tNotification* notification = new tNotification();
@@ -135,6 +142,7 @@ void RestoreOpticalJob::runNextStage() {
                 emit progressChanged(1);
                 emit totalProgressChanged(1);
                 d->burnProcess->deleteLater();
+                errorTracker->deleteLater();
             });
             connect(d->burnProcess, &QProcess::readyRead, this, [ = ] {
                 QByteArray peek = d->burnProcess->peek(1024);
@@ -148,6 +156,7 @@ void RestoreOpticalJob::runNextStage() {
                     line = line.trimmed();
 
                     tDebug("OpticalRestore") << line;
+                    errorTracker->sendLine(line);
 
                     if (line.startsWith("Blanking time")) {
                         d->description = tr("Preparing to restore");

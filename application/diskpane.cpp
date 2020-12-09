@@ -29,6 +29,7 @@
 #include <ttoast.h>
 #include <tjobmanager.h>
 #include "operations/erasepartitiontablepopover.h"
+#include "operations/erasepartitionpopover.h"
 #include "operations/imagepopover.h"
 #include "operations/partitionpopover.h"
 #include "operations/eraseopticalpopover.h"
@@ -108,6 +109,14 @@ void DiskPane::on_eraseButton_clicked() {
     }
 
     if (d->disk->isInterfaceAvailable(DiskInterface::Partition)) {
+        ErasePartitionPopover* jp = new ErasePartitionPopover(d->disk);
+        tPopover* popover = new tPopover(jp);
+        popover->setPopoverWidth(SC_DPI(-200));
+        popover->setPopoverSide(tPopover::Bottom);
+        connect(jp, &ErasePartitionPopover::done, popover, &tPopover::dismiss);
+        connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
+        connect(popover, &tPopover::dismissed, jp, &ErasePartitionTablePopover::deleteLater);
+        popover->show(this->window());
     } else {
         ErasePartitionTablePopover* jp = new ErasePartitionTablePopover(d->disk);
         tPopover* popover = new tPopover(jp);

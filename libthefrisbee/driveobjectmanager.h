@@ -41,6 +41,8 @@ class DriveObjectManager : public QObject {
         static DiskObject* diskByBlockName(QString blockName);
         static DriveInterface* driveForPath(QDBusObjectPath path);
 
+        static QStringList supportedFilesystems();
+
         static tPromise<QDBusObjectPath>* loopSetup(QDBusUnixFileDescriptor fd, QVariantMap options);
 
     public slots:
