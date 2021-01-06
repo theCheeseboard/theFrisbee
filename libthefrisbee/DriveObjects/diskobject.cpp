@@ -30,6 +30,7 @@
 #include "partitioninterface.h"
 #include "driveinterface.h"
 #include "loopinterface.h"
+#include "encryptedinterface.h"
 
 struct DiskObjectPrivate {
     QDBusObjectPath path;
@@ -68,6 +69,10 @@ template <> LoopInterface* DiskObject::interface() const {
     return static_cast<LoopInterface*>(d->interfaces.value(LoopInterface::interfaceName(), nullptr));
 }
 
+template <> EncryptedInterface* DiskObject::interface() const {
+    return static_cast<EncryptedInterface*>(d->interfaces.value(EncryptedInterface::interfaceName(), nullptr));
+}
+
 bool DiskObject::isInterfaceAvailable(DiskInterface::Interfaces interface) {
     switch (interface) {
         case DiskInterface::Block:
@@ -80,6 +85,8 @@ bool DiskObject::isInterfaceAvailable(DiskInterface::Interfaces interface) {
             return d->interfaces.contains(PartitionInterface::interfaceName());
         case DiskInterface::Loop:
             return d->interfaces.contains(LoopInterface::interfaceName());
+        case DiskInterface::Encrypted:
+            return d->interfaces.contains(EncryptedInterface::interfaceName());
         default:
             return false;
     }
@@ -171,7 +178,8 @@ void DiskObject::updateInterfaces(QMap<QString, QVariantMap> interfaces) {
         FilesystemInterface::interfaceName(),
         PartitionTableInterface::interfaceName(),
         PartitionInterface::interfaceName(),
-        LoopInterface::interfaceName()
+        LoopInterface::interfaceName(),
+        EncryptedInterface::interfaceName()
     };
 
     for (QString interface : interfaceNames) {
@@ -209,6 +217,7 @@ DiskInterface* DiskObject::makeDiskInterface(QString interface) {
     if (interface == PartitionTableInterface::interfaceName()) return new PartitionTableInterface(d->path);
     if (interface == PartitionInterface::interfaceName()) return new PartitionInterface(d->path);
     if (interface == LoopInterface::interfaceName()) return new LoopInterface(d->path);
+    if (interface == EncryptedInterface::interfaceName()) return new EncryptedInterface(d->path);
     return nullptr;
 }
 
@@ -242,5 +251,9 @@ void DiskObject::releaseLock() {
 
 bool DiskObject::isLocked() {
     return d->locker.available() == 0;
+}
+
+QDBusObjectPath DiskObject::path() {
+    return d->path;
 }
 

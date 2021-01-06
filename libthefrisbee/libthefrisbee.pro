@@ -15,6 +15,7 @@ SOURCES += \
     DriveObjects/diskinterface.cpp \
     DriveObjects/diskobject.cpp \
     DriveObjects/driveinterface.cpp \
+    DriveObjects/encryptedinterface.cpp \
     DriveObjects/filesysteminterface.cpp \
     DriveObjects/loopinterface.cpp \
     DriveObjects/partitioninterface.cpp \
@@ -26,6 +27,7 @@ HEADERS += \
     DriveObjects/diskinterface.h \
     DriveObjects/diskobject.h \
     DriveObjects/driveinterface.h \
+    DriveObjects/encryptedinterface.h \
     DriveObjects/filesysteminterface.h \
     DriveObjects/loopinterface.h \
     DriveObjects/partitioninterface.h \

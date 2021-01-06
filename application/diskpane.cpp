@@ -102,7 +102,17 @@ void DiskPane::on_eraseButton_clicked() {
                 connect(popover, &tPopover::dismissed, jp, &EraseOpticalPopover::deleteLater);
                 popover->show(this->window());
             } else {
-                QMessageBox::warning(this, tr("Disc not rewritable"), tr("The disc in the drive is not rewritable."));
+                QMessageBox* box = new QMessageBox();
+                box->setParent(this);
+                box->setWindowModality(Qt::WindowModal);
+                box->setWindowTitle(tr("Disc not rewritable"));
+                box->setText(tr("The disc in the drive is not rewritable."));
+                box->setInformativeText(tr("Only rewritable discs can be erased. If you need to destroy the data on this disc, you should physically break it in half."));
+                box->setIcon(QMessageBox::Warning);
+                connect(box, &QMessageBox::finished, this, [ = ] {
+                    box->deleteLater();
+                });
+                box->open();
             }
             return;
         }

@@ -44,6 +44,8 @@ class DiskObject : public QObject {
         void releaseLock();
         bool isLocked();
 
+        QDBusObjectPath path();
+
     signals:
         void interfaceAdded(DiskInterface::Interfaces interface);
         void interfaceRemoved(DiskInterface::Interfaces interface);

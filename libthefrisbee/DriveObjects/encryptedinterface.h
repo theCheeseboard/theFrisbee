@@ -17,43 +17,35 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#ifndef DISKINTERFACE_H
-#define DISKINTERFACE_H
+#ifndef ENCRYPTEDINTERFACE_H
+#define ENCRYPTEDINTERFACE_H
 
-#include <QObject>
-#include <QDBusObjectPath>
+#include "diskinterface.h"
+#include <tpromise.h>
 
-class DiskObject;
-struct DiskInterfacePrivate;
-class DiskInterface : public QObject {
+struct EncryptedInterfacePrivate;
+class EncryptedInterface : public DiskInterface {
         Q_OBJECT
     public:
-        enum Interfaces {
-            Block,
-            Filesystem,
-            PartitionTable,
-            Partition,
-            Loop,
-            Encrypted
-        };
+        explicit EncryptedInterface(QDBusObjectPath path, QObject* parent = nullptr);
+        ~EncryptedInterface();
 
-        explicit DiskInterface(QDBusObjectPath path, QString interface, QObject* parent = nullptr);
-        ~DiskInterface();
+        static QString interfaceName();
 
-        virtual Interfaces interfaceType() = 0;
+        DiskObject* cleartextDevice();
 
-    protected:
-        friend DiskObject;
-        void updateProperties(QVariantMap properties);
-        void bindPropertyUpdater(QString property, std::function<void(QVariant)> updater);
+        tPromise<DiskObject*>* unlock(QString passphrase, QVariantMap options = {});
+        tPromise<void>* lock(QVariantMap options = {});
 
     signals:
 
-    private slots:
-        void propertiesChanged(QString interface, QVariantMap changedProperties, QStringList invalidatedProperties);
 
     private:
-        DiskInterfacePrivate* d;
+        EncryptedInterfacePrivate* d;
+
+        // DiskInterface interface
+    public:
+        Interfaces interfaceType();
 };
 
-#endif // DISKINTERFACE_H
+#endif // ENCRYPTEDINTERFACE_H

@@ -17,45 +17,57 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#include "filesysteminterface.h"
+#include "encryptedinterface.h"
 
-struct FilesystemInterfacePrivate {
+#include "driveobjectmanager.h"
+
+struct EncryptedInterfacePrivate {
     QDBusObjectPath path;
 
-    QByteArrayList mountPoints;
+    QDBusObjectPath cleartextDevice;
 };
 
-FilesystemInterface::FilesystemInterface(QDBusObjectPath path, QObject* parent) : DiskInterface(path, interfaceName(), parent) {
-    d = new FilesystemInterfacePrivate();
-    d->path = path;
+EncryptedInterface::EncryptedInterface(QDBusObjectPath path, QObject* parent) : DiskInterface(path, interfaceName(), parent) {
+    d = new EncryptedInterfacePrivate();
 
-    bindPropertyUpdater("MountPoints", [ = ](QVariant value) {
-        QDBusArgument mountPoints = value.value<QDBusArgument>();
-        d->mountPoints.clear();
-        mountPoints >> d->mountPoints;
+    bindPropertyUpdater("CleartextDevice", [ = ](QVariant value) {
+        d->cleartextDevice = value.value<QDBusObjectPath>();
     });
 }
 
-FilesystemInterface::~FilesystemInterface() {
+EncryptedInterface::~EncryptedInterface() {
     delete d;
 }
 
-QString FilesystemInterface::interfaceName() {
-    return QStringLiteral("org.freedesktop.UDisks2.Filesystem");
+QString EncryptedInterface::interfaceName() {
+    return QStringLiteral("org.freedesktop.UDisks2.Encrypted");
 }
 
-DiskInterface::Interfaces FilesystemInterface::interfaceType() {
-    return DiskInterface::Filesystem;
+DiskObject* EncryptedInterface::cleartextDevice() {
+    return DriveObjectManager::diskForPath(d->cleartextDevice);
 }
 
-QByteArrayList FilesystemInterface::mountPoints() {
-    return d->mountPoints;
+tPromise<DiskObject*>* EncryptedInterface::unlock(QString passphrase, QVariantMap options) {
+    return TPROMISE_CREATE_SAME_THREAD(DiskObject*, {
+        QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Unlock");
+        message.setArguments({passphrase, options});
+        QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
+            if (watcher->isError()) {
+                rej(watcher->error().message());
+            } else {
+                QDBusObjectPath objectPath = watcher->reply().arguments().first().value<QDBusObjectPath>();
+                res(DriveObjectManager::diskForPath(objectPath));
+            }
+            watcher->deleteLater();
+        });
+    });
 }
 
-tPromise<void>* FilesystemInterface::mount() {
-    return tPromise<void>::runOnSameThread([ = ](tPromiseFunctions<void>::SuccessFunction res, tPromiseFunctions<void>::FailureFunction rej) {
-        QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Mount");
-        message.setArguments({QVariantMap()});
+tPromise<void>* EncryptedInterface::lock(QVariantMap options) {
+    return TPROMISE_CREATE_SAME_THREAD(void, {
+        QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Lock");
+        message.setArguments({options});
         QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
         connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
             if (watcher->isError()) {
@@ -68,18 +80,6 @@ tPromise<void>* FilesystemInterface::mount() {
     });
 }
 
-tPromise<void>* FilesystemInterface::unmount() {
-    return tPromise<void>::runOnSameThread([ = ](tPromiseFunctions<void>::SuccessFunction res, tPromiseFunctions<void>::FailureFunction rej) {
-        QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Unmount");
-        message.setArguments({QVariantMap()});
-        QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
-            if (watcher->isError()) {
-                rej(watcher->error().message());
-            } else {
-                res();
-            }
-            watcher->deleteLater();
-        });
-    });
+DiskInterface::Interfaces EncryptedInterface::interfaceType() {
+    return Encrypted;
 }

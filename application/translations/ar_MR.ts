@@ -55,7 +55,7 @@
     </message>
     <message>
         <location filename="../diskpane.cpp" line="80"/>
-        <location filename="../diskpane.cpp" line="180"/>
+        <location filename="../diskpane.cpp" line="190"/>
         <source>No Media</source>
         <translation type="unfinished"></translation>
     </message>
@@ -75,37 +75,42 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="105"/>
+        <location filename="../diskpane.cpp" line="108"/>
         <source>Disc not rewritable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="105"/>
+        <location filename="../diskpane.cpp" line="109"/>
         <source>The disc in the drive is not rewritable.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="152"/>
+        <location filename="../diskpane.cpp" line="110"/>
+        <source>Only rewritable discs can be erased. If you need to destroy the data on this disc, you should physically break it in half.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../diskpane.cpp" line="162"/>
         <source>No Partition Table</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="153"/>
+        <location filename="../diskpane.cpp" line="163"/>
         <source>Erase the disk to create a partition table.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="180"/>
+        <location filename="../diskpane.cpp" line="190"/>
         <source>There is no media in the drive to restore to.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="201"/>
+        <location filename="../diskpane.cpp" line="211"/>
         <source>Disc not writable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="201"/>
+        <location filename="../diskpane.cpp" line="211"/>
         <source>The disc in the drive is not writable.</source>
         <translation type="unfinished"></translation>
     </message>
