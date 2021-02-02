@@ -45,7 +45,7 @@ struct RestoreOpticalJobPrivate {
     int stage = 0;
 };
 
-RestoreOpticalJob::RestoreOpticalJob(DiskObject* disk, QObject* parent) : tJob(parent) {
+RestoreOpticalJob::RestoreOpticalJob(DiskObject* disk, QObject* parent) : RestoreJob(parent) {
     d = new RestoreOpticalJobPrivate();
     d->disk = disk;
 

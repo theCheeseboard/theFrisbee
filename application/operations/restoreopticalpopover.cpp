@@ -22,6 +22,7 @@
 
 #include "tjobmanager.h"
 #include "jobs/restoreopticaljob.h"
+#include "jobs/restorediskjob.h"
 #include <QFileDialog>
 #include <QMessageBox>
 #include <DriveObjects/diskobject.h>
@@ -42,12 +43,21 @@ RestoreOpticalPopover::RestoreOpticalPopover(DiskObject* disk, QWidget* parent) 
 
     ui->optionsWidget->setFixedWidth(SC_DPI(600));
     ui->restoreConfirmWidget->setFixedWidth(SC_DPI(600));
+    ui->restoreConfirmOpticalWidget->setFixedWidth(SC_DPI(600));
     ui->titleLabel->setBackButtonShown(true);
     ui->titleLabel_2->setBackButtonShown(true);
+    ui->titleLabel_3->setBackButtonShown(true);
     ui->stackedWidget->setCurrentAnimation(tStackedWidget::Fade);
     ui->mainStack->setCurrentAnimation(tStackedWidget::SlideHorizontal);
     ui->doRestoreButton->setProperty("type", "destructive");
+    ui->doRestoreButtonOptical->setProperty("type", "destructive");
     ui->diskSelection->setModel(new DiskModel());
+
+    if (d->disk->interface<BlockInterface>()->drive()->isOpticalDrive()) {
+        ui->titleLabel->setText(tr("Restore Disc"));
+    } else {
+        ui->titleLabel->setText(tr("Restore to Block"));
+    }
 }
 
 RestoreOpticalPopover::~RestoreOpticalPopover() {
@@ -91,21 +101,47 @@ void RestoreOpticalPopover::on_restoreButton_clicked() {
         return;
     }
 
-    if (!d->disk->interface<BlockInterface>()->drive()->opticalBlank()) {
-        ui->mainStack->setCurrentWidget(ui->confirmPage);
+    DriveInterface* drive = d->disk->interface<BlockInterface>()->drive();
+    if (drive->isOpticalDrive()) {
+        if (!drive->opticalBlank()) {
+            ui->mainStack->setCurrentWidget(ui->confirmOpticalPage);
+        } else {
+            //Don't bother confirming
+            performRestoreOperation();
+        }
     } else {
-        //Don't bother confirming
-        on_doRestoreButton_clicked();
+        ui->mainStack->setCurrentWidget(ui->confirmPage);
     }
 }
 
 void RestoreOpticalPopover::on_doRestoreButton_clicked() {
+    performRestoreOperation();
+}
+
+void RestoreOpticalPopover::on_titleLabel_2_backButtonClicked() {
+    ui->mainStack->setCurrentWidget(ui->mainPage);
+}
+
+void RestoreOpticalPopover::on_titleLabel_3_backButtonClicked() {
+    ui->mainStack->setCurrentWidget(ui->mainPage);
+}
+
+void RestoreOpticalPopover::on_doRestoreButtonOptical_clicked() {
+    performRestoreOperation();
+}
+
+void RestoreOpticalPopover::performRestoreOperation() {
+    RestoreJob* job;
+    if (d->disk->interface<BlockInterface>()->drive()->isOpticalDrive()) {
+        job = new RestoreOpticalJob(d->disk);
+    } else {
+        job = new RestoreDiskJob(d->disk);
+    }
+
+    tJobManager::trackJob(job);
+    emit done();
+
     if (ui->stackedWidget->currentWidget() == ui->restoreFilePage) {
-        RestoreOpticalJob* job = new RestoreOpticalJob(d->disk);
-        tJobManager::trackJob(job);
-
-        emit done();
-
         //Restore a file
         QFile* file = new QFile(ui->restoreFileBox->text());
         if (!file->open(QFile::ReadOnly)) {
@@ -118,10 +154,6 @@ void RestoreOpticalPopover::on_doRestoreButton_clicked() {
     } else {
         //Restore a disk
         DiskObject* disk = static_cast<DiskObject*>(ui->diskSelection->currentIndex().internalPointer());
-        RestoreOpticalJob* job = new RestoreOpticalJob(d->disk);
-        tJobManager::trackJob(job);
-
-        emit done();
 
         BlockInterface* block = disk->interface<BlockInterface>();
         if (!block) {
@@ -138,8 +170,4 @@ void RestoreOpticalPopover::on_doRestoreButton_clicked() {
             return;
         });
     }
-}
-
-void RestoreOpticalPopover::on_titleLabel_2_backButtonClicked() {
-    ui->mainStack->setCurrentWidget(ui->mainPage);
 }

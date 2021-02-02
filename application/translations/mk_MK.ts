@@ -706,6 +706,53 @@
     </message>
 </context>
 <context>
+    <name>RestoreDiskJob</name>
+    <message>
+        <location filename="../jobs/restorediskjob.cpp" line="49"/>
+        <source>Waiting for disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../jobs/restorediskjob.cpp" line="63"/>
+        <source>Waiting for other jobs to finish</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../jobs/restorediskjob.cpp" line="94"/>
+        <source>Restoring to the target disk
+%1 of %2 restored</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../jobs/restorediskjob.cpp" line="110"/>
+        <source>Disk restored successfully</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../jobs/restorediskjob.cpp" line="123"/>
+        <source>Couldn&apos;t open the destination device for writing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../jobs/restorediskjob.cpp" line="140"/>
+        <source>Failed to restore image</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RestoreDiskJobProgress</name>
+    <message>
+        <location filename="../jobs/progress/restorediskjobprogress.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../jobs/progress/restorediskjobprogress.cpp" line="38"/>
+        <source>Restore to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>RestoreOpticalJob</name>
     <message>
         <location filename="../jobs/restoreopticaljob.cpp" line="52"/>
@@ -811,8 +858,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="57"/>
         <location filename="../operations/restoreopticalpopover.ui" line="251"/>
+        <location filename="../operations/restoreopticalpopover.cpp" line="57"/>
         <source>Restore Disc</source>
         <translation type="unfinished"></translation>
     </message>
@@ -844,6 +891,7 @@
     <message>
         <location filename="../operations/restoreopticalpopover.ui" line="218"/>
         <location filename="../operations/restoreopticalpopover.ui" line="286"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="365"/>
         <source>Restore this image</source>
         <translation type="unfinished"></translation>
     </message>
@@ -860,12 +908,28 @@ Once the disc in the drive is erased, all the data on it will be gone forever.</
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.cpp" line="90"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="332"/>
+        <location filename="../operations/restoreopticalpopover.cpp" line="59"/>
+        <source>Restore to Block</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="348"/>
+        <source>THIS IS IT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="355"/>
+        <source>Restoring to this block will erase it. There&apos;s no going back; once the block is erased, all the data on the block is gone forever.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/restoreopticalpopover.cpp" line="100"/>
         <source>Unable to restore same media</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.cpp" line="90"/>
+        <location filename="../operations/restoreopticalpopover.cpp" line="100"/>
         <source>A medium cannot be restored to itself. Select another medium to restore.</source>
         <translation type="unfinished"></translation>
     </message>

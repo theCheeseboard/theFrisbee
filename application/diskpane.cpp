@@ -211,7 +211,14 @@ void DiskPane::on_restoreButton_clicked() {
             QMessageBox::warning(this, tr("Disc not writable"), tr("The disc in the drive is not writable."));
         }
     } else {
-        //Use the standard restore popover
+        RestoreOpticalPopover* jp = new RestoreOpticalPopover(d->disk);
+        tPopover* popover = new tPopover(jp);
+        popover->setPopoverWidth(SC_DPI(-200));
+        popover->setPopoverSide(tPopover::Bottom);
+        connect(jp, &RestoreOpticalPopover::done, popover, &tPopover::dismiss);
+        connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
+        connect(popover, &tPopover::dismissed, jp, &RestoreOpticalPopover::deleteLater);
+        popover->show(this->window());
     }
 }
 

@@ -136,7 +136,7 @@ tPromise<QIODevice*>* BlockInterface::open(BlockInterface::OpenMode mode, QVaria
             int fd = dup(fdArg.fileDescriptor());
 
             QFile* file = new QFile();
-            if (file->open(fd, fileOpenMode, QFile::AutoCloseHandle)) {
+            if (file->open(fd, fileOpenMode | QIODevice::Unbuffered, QFile::AutoCloseHandle)) {
                 res(file);
             } else {
                 file->deleteLater();

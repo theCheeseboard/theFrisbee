@@ -20,11 +20,11 @@
 #ifndef RESTOREOPTICALJOB_H
 #define RESTOREOPTICALJOB_H
 
-#include <tjob.h>
+#include "restorejob.h"
 
 struct RestoreOpticalJobPrivate;
 class DiskObject;
-class RestoreOpticalJob : public tJob {
+class RestoreOpticalJob : public RestoreJob {
         Q_OBJECT
     public:
         explicit RestoreOpticalJob(DiskObject* disk, QObject* parent = nullptr);

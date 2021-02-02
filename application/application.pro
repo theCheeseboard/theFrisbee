@@ -16,7 +16,10 @@ SOURCES += \
     diskpane.cpp \
     jobs/erasecdrwjob.cpp \
     jobs/progress/erasecdrwjobprogress.cpp \
+    jobs/progress/restorediskjobprogress.cpp \
     jobs/progress/restoreopticaljobprogress.cpp \
+    jobs/restorediskjob.cpp \
+    jobs/restorejob.cpp \
     jobs/restoreopticaljob.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -35,7 +38,10 @@ HEADERS += \
     diskpane.h \
     jobs/erasecdrwjob.h \
     jobs/progress/erasecdrwjobprogress.h \
+    jobs/progress/restorediskjobprogress.h \
     jobs/progress/restoreopticaljobprogress.h \
+    jobs/restorediskjob.h \
+    jobs/restorejob.h \
     jobs/restoreopticaljob.h \
     mainwindow.h \
     operations/eraseopticalpopover.h \
@@ -50,6 +56,7 @@ FORMS += \
     diskPanes/overviewdiskpane.ui \
     diskpane.ui \
     jobs/progress/erasecdrwjobprogress.ui \
+    jobs/progress/restorediskjobprogress.ui \
     jobs/progress/restoreopticaljobprogress.ui \
     mainwindow.ui \
     operations/eraseopticalpopover.ui \

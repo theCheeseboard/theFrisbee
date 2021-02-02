@@ -54,7 +54,7 @@
        <item>
         <widget class="tTitleLabel" name="titleLabel">
          <property name="text">
-          <string>Restore Disc</string>
+          <string notr="true">Restore Disc</string>
          </property>
         </widget>
        </item>
@@ -228,7 +228,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="confirmPage">
+     <widget class="QWidget" name="confirmOpticalPage">
       <layout class="QVBoxLayout" name="verticalLayout_7">
        <property name="spacing">
         <number>0</number>
@@ -253,7 +253,7 @@
         </widget>
        </item>
        <item alignment="Qt::AlignHCenter">
-        <widget class="QWidget" name="restoreConfirmWidget" native="true">
+        <widget class="QWidget" name="restoreConfirmOpticalWidget" native="true">
          <layout class="QVBoxLayout" name="verticalLayout_6">
           <item>
            <widget class="QLabel" name="label_3">
@@ -281,7 +281,7 @@ Once the disc in the drive is erased, all the data on it will be gone forever.</
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="doRestoreButton">
+           <widget class="QPushButton" name="doRestoreButtonOptical">
             <property name="text">
              <string>Restore this image</string>
             </property>
@@ -309,19 +309,90 @@ Once the disc in the drive is erased, all the data on it will be gone forever.</
        </item>
       </layout>
      </widget>
+     <widget class="QWidget" name="confirmPage">
+      <layout class="QVBoxLayout" name="verticalLayout_9">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="tTitleLabel" name="titleLabel_3">
+         <property name="text">
+          <string>Restore to Block</string>
+         </property>
+        </widget>
+       </item>
+       <item alignment="Qt::AlignHCenter">
+        <widget class="QWidget" name="restoreConfirmWidget" native="true">
+         <layout class="QVBoxLayout" name="verticalLayout_8">
+          <item>
+           <widget class="QLabel" name="label_5">
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>THIS IS IT</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_6">
+            <property name="text">
+             <string>Restoring to this block will erase it. There's no going back; once the block is erased, all the data on the block is gone forever.</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="doRestoreButton">
+            <property name="text">
+             <string>Restore this image</string>
+            </property>
+            <property name="icon">
+             <iconset theme="document-new">
+              <normaloff>.</normaloff>.</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>400</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </item>
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>tTitleLabel</class>
-   <extends>QLabel</extends>
-   <header location="global">ttitlelabel.h</header>
-   <slots>
-    <signal>backButtonClicked()</signal>
-   </slots>
-  </customwidget>
   <customwidget>
    <class>tStackedWidget</class>
    <extends>QStackedWidget</extends>
@@ -329,6 +400,14 @@ Once the disc in the drive is erased, all the data on it will be gone forever.</
    <container>1</container>
    <slots>
     <signal>switchingFrame(int)</signal>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>tTitleLabel</class>
+   <extends>QLabel</extends>
+   <header location="global">ttitlelabel.h</header>
+   <slots>
+    <signal>backButtonClicked()</signal>
    </slots>
   </customwidget>
  </customwidgets>

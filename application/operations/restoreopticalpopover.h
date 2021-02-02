@@ -53,9 +53,15 @@ class RestoreOpticalPopover : public QWidget {
 
         void on_titleLabel_2_backButtonClicked();
 
+        void on_titleLabel_3_backButtonClicked();
+
+        void on_doRestoreButtonOptical_clicked();
+
     private:
         Ui::RestoreOpticalPopover* ui;
         RestoreOpticalPopoverPrivate* d;
+
+        void performRestoreOperation();
 };
 
 #endif // RESTOREOPTICALPOPOVER_H
