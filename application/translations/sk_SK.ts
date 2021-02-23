@@ -890,7 +890,6 @@
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.ui" line="218"/>
-        <location filename="../operations/restoreopticalpopover.ui" line="286"/>
         <location filename="../operations/restoreopticalpopover.ui" line="365"/>
         <source>Restore this image</source>
         <translation type="unfinished"></translation>
@@ -905,6 +904,11 @@
         <source>The disc in the drive is not blank. To restore an image to the disc, the disc will need to be erased.
 
 Once the disc in the drive is erased, all the data on it will be gone forever.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="286"/>
+        <source>Erase and Restore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

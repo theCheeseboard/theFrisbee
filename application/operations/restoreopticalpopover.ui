@@ -283,7 +283,7 @@ Once the disc in the drive is erased, all the data on it will be gone forever.</
           <item>
            <widget class="QPushButton" name="doRestoreButtonOptical">
             <property name="text">
-             <string>Restore this image</string>
+             <string>Erase and Restore</string>
             </property>
             <property name="icon">
              <iconset theme="document-new">

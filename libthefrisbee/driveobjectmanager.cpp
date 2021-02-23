@@ -99,6 +99,27 @@ QList<DiskObject*> DriveObjectManager::filesystemDisks() {
     return disks;
 }
 
+QList<DiskObject*> DriveObjectManager::opticalDisks() {
+    QList<DiskObject*> disks = instance()->d->objects.values();
+    QSet<DiskObject*> notOpticalDisks;
+
+    for (DiskObject* disk : disks) {
+        BlockInterface* block = disk->interface<BlockInterface>();
+        if (block && block->hintIgnore()) {
+            notOpticalDisks.insert(disk);
+            continue;
+        }
+
+        if (!block->drive() || !block->drive()->isOpticalDrive()) notOpticalDisks.insert(disk);
+    }
+
+    for (DiskObject* disk : notOpticalDisks) {
+        disks.removeOne(disk);
+    }
+
+    return disks;
+}
+
 DiskObject* DriveObjectManager::diskForPath(QDBusObjectPath path) {
     return instance()->d->objects.value(path);
 }
