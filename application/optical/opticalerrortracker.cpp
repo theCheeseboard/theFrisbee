@@ -81,7 +81,7 @@ void OpticalErrorTracker::sendLine(QString line) {
 
         QList<int> senseBytes;
         senseBytes.reserve(senseBytesString.length());
-        for (QString senseByte : senseBytesString) {
+        for (const QString& senseByte : qAsConst(senseBytesString)) {
             senseBytes.append(senseByte.toInt(nullptr, 16));
         }
 

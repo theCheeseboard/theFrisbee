@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN" "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
+<policyconfig>
+  <vendor>Victor Tran</vendor>
+  <vendor_url>https://vicr123.com/</vendor_url>
+
+  <action id="com.vicr123.trigger-uevent">
+    <description>Trigger reload of a drive</description>
+    <message>Authentication is required to trigger reload of a drive</message>
+    <defaults>
+      <allow_any>no</allow_any>
+      <allow_inactive>no</allow_inactive>
+      <allow_active>yes</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/lib/libthefrisbee/trigger-uevent.sh</annotate>
+  </action>
+
+</policyconfig>

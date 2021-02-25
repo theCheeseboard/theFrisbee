@@ -44,6 +44,8 @@ class BlockInterface : public DiskInterface {
         QString blockName();
         quint64 size();
 
+        tPromise<void>* triggerReload();
+
         DriveInterface* drive();
 
         tPromise<void>* format(QString type, QVariantMap options);

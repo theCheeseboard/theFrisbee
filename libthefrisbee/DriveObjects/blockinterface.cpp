@@ -84,6 +84,21 @@ quint64 BlockInterface::size() {
     return d->size;
 }
 
+tPromise<void>* BlockInterface::triggerReload() {
+    return TPROMISE_CREATE_SAME_THREAD(void, {
+        QProcess* proc = new QProcess();
+        connect(proc, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, [ = ](int exitCode, QProcess::ExitStatus status) {
+            Q_UNUSED(status)
+            if (exitCode == 0) {
+                res();
+            } else {
+                rej("Process returned code " + QString::number(exitCode));
+            }
+        });
+        proc->start("pkexec", {"/usr/lib/libthefrisbee/trigger-uevent.sh", d->name});
+    });
+}
+
 DriveInterface* BlockInterface::drive() {
     return DriveObjectManager::driveForPath(d->drive);
 }

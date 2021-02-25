@@ -51,8 +51,16 @@ unix {
     module.files = qt_frisbee.pri
     module.path = $$[QMAKE_MKSPECS]/modules
 
-    INSTALLS += target translations headers driveobjectheaders module
+    trigger.files = trigger-uevent.sh
+    trigger.path = $$[QT_INSTALL_LIBS]/libthefrisbee
+
+    polkit.files = com.vicr123.trigger-uevent.policy
+    polkit.path = /usr/share/polkit-1/actions
+
+    INSTALLS += target translations headers driveobjectheaders module trigger polkit
 }
 
 DISTFILES += \
-    qt_frisbee.pri
+    com.vicr123.trigger-uevent.policy \
+    qt_frisbee.pri \
+    trigger-uevent.sh

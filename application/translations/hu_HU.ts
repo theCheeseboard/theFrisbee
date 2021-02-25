@@ -181,22 +181,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="201"/>
-        <source>Ejecting Disc</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="209"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="210"/>
         <source>%1 Erased</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="215"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="216"/>
         <source>Erased Disc</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="216"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="217"/>
         <source>The disc in %1 has been erased.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -817,22 +812,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="228"/>
-        <source>Ejecting Disc</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="236"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="237"/>
         <source>Restore Complete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="242"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="243"/>
         <source>Restored Disc</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="243"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="244"/>
         <source>The disc in %1 has been restored.</source>
         <translation type="unfinished"></translation>
     </message>

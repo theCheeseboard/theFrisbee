@@ -225,11 +225,12 @@ void RestoreOpticalJob::runNextStage() {
             break;
         }
         case 2: {
-            d->description = tr("Ejecting Disc");
-            emit descriptionChanged(d->description);
+//            d->description = tr("Ejecting Disc");
+//            emit descriptionChanged(d->description);
 
-            //Eject the disc
-            d->disk->interface<BlockInterface>()->drive()->eject()->then([ = ] {
+//            //Eject the disc
+//            d->disk->interface<BlockInterface>()->drive()->eject()->then([ = ] {
+            d->disk->interface<BlockInterface>()->triggerReload()->then([ = ] {
                 d->state = Finished;
                 emit stateChanged(Finished);
 
