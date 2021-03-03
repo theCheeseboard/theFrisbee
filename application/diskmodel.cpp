@@ -23,6 +23,8 @@
 #include <DriveObjects/diskobject.h>
 #include <DriveObjects/blockinterface.h>
 #include <DriveObjects/partitiontableinterface.h>
+#include <DriveObjects/encryptedinterface.h>
+#include <DriveObjects/partitioninterface.h>
 
 struct DiskModelPrivate {
     QMap<DiskObject*, QModelIndex> indices;
@@ -49,8 +51,13 @@ QModelIndex DiskModel::index(int row, int column, const QModelIndex& parent) con
     } else {
         DiskObject* parentDisk = static_cast<DiskObject*>(parent.internalPointer());
         PartitionTableInterface* partitionTable = parentDisk->interface<PartitionTableInterface>();
+        EncryptedInterface* encrypted = parentDisk->interface<EncryptedInterface>();
         if (partitionTable) {
             QModelIndex index = createIndex(row, column, partitionTable->partitions().value(row));
+            d->indices.insert(static_cast<DiskObject*>(index.internalPointer()), index);
+            return index;
+        } else if (encrypted && encrypted->cleartextDevice()) {
+            QModelIndex index = createIndex(row, column, encrypted->cleartextDevice());
             d->indices.insert(static_cast<DiskObject*>(index.internalPointer()), index);
             return index;
         }
@@ -60,16 +67,30 @@ QModelIndex DiskModel::index(int row, int column, const QModelIndex& parent) con
 }
 
 QModelIndex DiskModel::parent(const QModelIndex& index) const {
-    for (int row = 0; row < rowCount(); row++) {
-        QModelIndex checkingIndex = this->index(row, 0, QModelIndex());
-        DiskObject* disk = static_cast<DiskObject*>(checkingIndex.internalPointer());
-        PartitionTableInterface* partitionTable = disk->interface<PartitionTableInterface>();
-        if (partitionTable) {
-            if (partitionTable->partitions().contains(static_cast<DiskObject*>(index.internalPointer()))) {
-                return checkingIndex;
-            }
+    DiskObject* candidateDisk = nullptr;
+    DiskObject* disk = static_cast<DiskObject*>(index.internalPointer());
+    PartitionInterface* partition = disk->interface<PartitionInterface>();
+    if (disk->interface<BlockInterface>()->cryptoBackingDevice()) {
+        candidateDisk = disk->interface<BlockInterface>()->cryptoBackingDevice();
+    } else if (partition && partition->parentTable()) {
+        candidateDisk = disk->interface<PartitionInterface>()->parentTable();
+    }
+
+    QList<QModelIndex> parents;
+    parents.append(QModelIndex());
+
+    while (!parents.isEmpty()) {
+        QModelIndex checkingIndex = parents.takeFirst();
+        if (checkingIndex.isValid()) {
+            DiskObject* disk = static_cast<DiskObject*>(checkingIndex.internalPointer());
+            if (disk == candidateDisk) return checkingIndex;
+        }
+
+        for (int row = 0; row < rowCount(checkingIndex); row++) {
+            parents.append(this->index(row, 0, checkingIndex));
         }
     }
+
     return QModelIndex();
 }
 
@@ -77,8 +98,15 @@ int DiskModel::rowCount(const QModelIndex& parent) const {
     if (parent.isValid()) {
         DiskObject* parentDisk = static_cast<DiskObject*>(parent.internalPointer());
         PartitionTableInterface* partitionTable = parentDisk->interface<PartitionTableInterface>();
+        EncryptedInterface* encrypted = parentDisk->interface<EncryptedInterface>();
         if (partitionTable) {
             return partitionTable->partitions().count();
+        } else if (encrypted) {
+            if (encrypted->cleartextDevice()) {
+                return 1;
+            } else {
+                return 0;
+            }
         } else {
             return 0;
         }
@@ -105,8 +133,8 @@ QVariant DiskModel::data(const QModelIndex& index, int role) const {
 }
 
 void DiskModel::updateList() {
-    emit beginResetModel();
-    emit endResetModel();
+    beginResetModel();
+    endResetModel();
 //    emit dataChanged(index(0), index(rowCount()));
 //    for (int row = 0; row < rowCount(); row++) {
 //        emit dataChanged(index(0, 0, index(row)), index(rowCount(index(row)), 0, index(row)));
