@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string notr="true">Form</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -115,7 +115,8 @@
              <string>View Jobs</string>
             </property>
             <property name="icon">
-             <iconset theme="arrow-right"/>
+             <iconset theme="arrow-right">
+              <normaloff>.</normaloff>.</iconset>
             </property>
            </widget>
           </item>
@@ -240,7 +241,7 @@
       <item>
        <widget class="QPushButton" name="imageButton">
         <property name="text">
-         <string>Image</string>
+         <string extracomment="A verb: &quot;Create Image&quot;">Image</string>
         </property>
        </widget>
       </item>

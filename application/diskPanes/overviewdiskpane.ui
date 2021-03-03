@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string notr="true">Form</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_2">
    <item>
@@ -64,7 +64,8 @@
         <string>Detach</string>
        </property>
        <property name="icon">
-        <iconset theme="media-eject"/>
+        <iconset theme="media-eject">
+         <normaloff>.</normaloff>.</iconset>
        </property>
       </widget>
      </item>

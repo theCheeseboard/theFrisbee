@@ -4,11 +4,6 @@
 <context>
     <name>DiskPane</name>
     <message>
-        <location filename="../diskpane.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../diskpane.ui" line="35"/>
         <source>Title</source>
         <translation type="unfinished"></translation>
@@ -29,27 +24,28 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskpane.ui" line="229"/>
+        <location filename="../diskpane.ui" line="230"/>
         <source>Check</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskpane.ui" line="236"/>
+        <location filename="../diskpane.ui" line="237"/>
         <source>Edit Partitions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskpane.ui" line="243"/>
+        <location filename="../diskpane.ui" line="244"/>
         <source>Image</source>
+        <extracomment>A verb: &quot;Create Image&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskpane.ui" line="250"/>
+        <location filename="../diskpane.ui" line="251"/>
         <source>Restore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskpane.ui" line="270"/>
+        <location filename="../diskpane.ui" line="271"/>
         <source>Erase</source>
         <translation type="unfinished"></translation>
     </message>
@@ -199,11 +195,6 @@
 <context>
     <name>EraseCdRwJobProgress</name>
     <message>
-        <location filename="../jobs/progress/erasecdrwjobprogress.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../jobs/progress/erasecdrwjobprogress.cpp" line="38"/>
         <source>Erase %1</source>
         <translation type="unfinished"></translation>
@@ -211,11 +202,6 @@
 </context>
 <context>
     <name>EraseOpticalPopover</name>
-    <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../operations/eraseopticalpopover.ui" line="54"/>
         <location filename="../operations/eraseopticalpopover.ui" line="150"/>
@@ -261,11 +247,6 @@
 </context>
 <context>
     <name>ErasePartitionPopover</name>
-    <message>
-        <location filename="../operations/erasepartitionpopover.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../operations/erasepartitionpopover.ui" line="57"/>
         <location filename="../operations/erasepartitionpopover.ui" line="153"/>
@@ -352,11 +333,6 @@
 <context>
     <name>ErasePartitionTablePopover</name>
     <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../operations/erasepartitiontablepopover.ui" line="57"/>
         <location filename="../operations/erasepartitiontablepopover.ui" line="158"/>
         <source>Erase Disk</source>
@@ -406,11 +382,6 @@
 </context>
 <context>
     <name>ImagePopover</name>
-    <message>
-        <location filename="../operations/imagepopover.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../operations/imagepopover.ui" line="35"/>
         <source>Image Disk</source>
@@ -516,11 +487,6 @@
 <context>
     <name>OverviewDiskPane</name>
     <message>
-        <location filename="../diskPanes/overviewdiskpane.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../diskPanes/overviewdiskpane.ui" line="20"/>
         <source>Icon</source>
         <translation type="unfinished"></translation>
@@ -537,17 +503,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskPanes/overviewdiskpane.ui" line="74"/>
+        <location filename="../diskPanes/overviewdiskpane.ui" line="75"/>
         <source>Unmount</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskPanes/overviewdiskpane.ui" line="85"/>
+        <location filename="../diskPanes/overviewdiskpane.ui" line="86"/>
         <source>Mount</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskPanes/overviewdiskpane.ui" line="96"/>
+        <location filename="../diskPanes/overviewdiskpane.ui" line="97"/>
         <source>Eject</source>
         <translation type="unfinished"></translation>
     </message>
@@ -655,11 +621,6 @@
 <context>
     <name>PartitionPopover</name>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../operations/partitionpopover.ui" line="35"/>
         <source>Edit Partitions</source>
         <translation type="unfinished"></translation>
@@ -736,11 +697,6 @@
 </context>
 <context>
     <name>RestoreDiskJobProgress</name>
-    <message>
-        <location filename="../jobs/progress/restorediskjobprogress.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../jobs/progress/restorediskjobprogress.cpp" line="38"/>
         <source>Restore to %1</source>
@@ -830,11 +786,6 @@
 <context>
     <name>RestoreOpticalJobProgress</name>
     <message>
-        <location filename="../jobs/progress/restoreopticaljobprogress.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../jobs/progress/restoreopticaljobprogress.cpp" line="38"/>
         <source>Restore to %1</source>
         <translation type="unfinished"></translation>
@@ -842,11 +793,6 @@
 </context>
 <context>
     <name>RestoreOpticalPopover</name>
-    <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../operations/restoreopticalpopover.ui" line="73"/>
         <source>RESTORE OPTIONS</source>
