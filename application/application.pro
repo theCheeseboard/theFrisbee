@@ -66,6 +66,8 @@ FORMS += \
     operations/partitionpopover.ui \
     operations/restoreopticalpopover.ui
 
+DESKTOP_FILE = com.vicr123.thefrisbee.desktop
+
 unix:!macx {
     # Include the-libs build tools
     include(/usr/share/the-libs/pri/buildmaster.pri)
@@ -79,16 +81,13 @@ unix:!macx {
 
     target.path = /usr/bin
 
-    desktop.path = /usr/share/applications
-    desktop.files = com.vicr123.thefrisbee.desktop
-
     icon.path = /usr/share/icons/hicolor/scalable/apps/
     icon.files = icons/thefrisbee.svg
 
     defaults.files = defaults.conf
     defaults.path = /etc/theSuite/theFrisbee/
 
-    INSTALLS += target desktop icon defaults
+    INSTALLS += target icon defaults
 }
 
 unix:!macx: LIBS += -L$$OUT_PWD/../libthefrisbee/ -lthefrisbee

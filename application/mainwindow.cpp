@@ -29,6 +29,7 @@
 #include <QMenu>
 #include <tlogger.h>
 #include <QFileDialog>
+#include <QPainter>
 #include <thelpmenu.h>
 #include "diskmodel.h"
 #include "diskpane.h"
@@ -76,13 +77,14 @@ MainWindow::MainWindow(QWidget* parent)
             ui->stackedWidget->setCurrentWidget(disk);
         }
     });
+
+    ui->topWidget->installEventFilter(this);
 }
 
 MainWindow::~MainWindow() {
     delete ui;
     delete d;
 }
-
 
 void MainWindow::on_actionMountImage_triggered() {
     QFileDialog* dialog = new QFileDialog(this);
@@ -106,3 +108,13 @@ void MainWindow::on_actionMountImage_triggered() {
 void MainWindow::on_actionExit_triggered() {
     QApplication::exit();
 }
+
+bool MainWindow::eventFilter(QObject* watched, QEvent* event) {
+    if (watched == ui->topWidget && event->type() == QEvent::Paint) {
+        QPainter painter(ui->topWidget);
+        painter.setPen(theLibsGlobal::lineColor(this->palette().color(QPalette::WindowText)));
+        painter.drawLine(SC_DPI(400), 0, SC_DPI(400), ui->topWidget->height());
+    }
+    return false;
+}
+

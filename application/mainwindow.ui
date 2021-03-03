@@ -39,9 +39,6 @@
     </property>
     <item>
      <widget class="QWidget" name="topWidget" native="true">
-      <property name="autoFillBackground">
-       <bool>true</bool>
-      </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <property name="spacing">
         <number>0</number>
@@ -198,20 +195,20 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>tTitleLabel</class>
-   <extends>QLabel</extends>
-   <header location="global">ttitlelabel.h</header>
-   <slots>
-    <signal>backButtonClicked()</signal>
-   </slots>
-  </customwidget>
-  <customwidget>
    <class>tStackedWidget</class>
    <extends>QStackedWidget</extends>
    <header location="global">tstackedwidget.h</header>
    <container>1</container>
    <slots>
     <signal>switchingFrame(int)</signal>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>tTitleLabel</class>
+   <extends>QLabel</extends>
+   <header location="global">ttitlelabel.h</header>
+   <slots>
+    <signal>backButtonClicked()</signal>
    </slots>
   </customwidget>
  </customwidgets>

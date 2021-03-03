@@ -44,5 +44,7 @@ class MainWindow : public QMainWindow {
     private:
         Ui::MainWindow* ui;
         MainWindowPrivate* d;
+
+        bool eventFilter(QObject* watched, QEvent* event);
 };
 #endif // MAINWINDOW_H

@@ -37,6 +37,8 @@ class FilesystemInterface : public DiskInterface {
 
         tPromise<void>* mount();
         tPromise<void>* unmount();
+        tPromise<bool>* check(QVariantMap options = {});
+        tPromise<bool>* repair(QVariantMap options = {});
 
     signals:
 

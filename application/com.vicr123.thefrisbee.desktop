@@ -2,9 +2,10 @@
 [Desktop Entry]
 Type=Application
 Version=1.0
-Name=theFrisbee
+Name[]=theFrisbee
 GenericName=Disk Management
-GenericName[vi]=Quản lý ổ đĩa
+GenericName[]=Quản lý ổ đĩa
 Categories=System;
 Exec=thefrisbee
 Icon=thefrisbee
+StartupWMClass=theFrisbee

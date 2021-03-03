@@ -53,7 +53,7 @@ QByteArrayList FilesystemInterface::mountPoints() {
 }
 
 tPromise<void>* FilesystemInterface::mount() {
-    return tPromise<void>::runOnSameThread([ = ](tPromiseFunctions<void>::SuccessFunction res, tPromiseFunctions<void>::FailureFunction rej) {
+    return TPROMISE_CREATE_SAME_THREAD(void, {
         QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Mount");
         message.setArguments({QVariantMap()});
         QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
@@ -69,7 +69,7 @@ tPromise<void>* FilesystemInterface::mount() {
 }
 
 tPromise<void>* FilesystemInterface::unmount() {
-    return tPromise<void>::runOnSameThread([ = ](tPromiseFunctions<void>::SuccessFunction res, tPromiseFunctions<void>::FailureFunction rej) {
+    return TPROMISE_CREATE_SAME_THREAD(void, {
         QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Unmount");
         message.setArguments({QVariantMap()});
         QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
@@ -78,6 +78,38 @@ tPromise<void>* FilesystemInterface::unmount() {
                 rej(watcher->error().message());
             } else {
                 res();
+            }
+            watcher->deleteLater();
+        });
+    });
+}
+
+tPromise<bool>* FilesystemInterface::check(QVariantMap options) {
+    return TPROMISE_CREATE_SAME_THREAD(bool, {
+        QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Check");
+        message.setArguments({options});
+        QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
+            if (watcher->isError()) {
+                rej(watcher->error().message());
+            } else {
+                res(watcher->reply().arguments().first().toBool());
+            }
+            watcher->deleteLater();
+        });
+    });
+}
+
+tPromise<bool>* FilesystemInterface::repair(QVariantMap options) {
+    return TPROMISE_CREATE_SAME_THREAD(bool, {
+        QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Repair");
+        message.setArguments({options});
+        QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
+            if (watcher->isError()) {
+                rej(watcher->error().message());
+            } else {
+                res(watcher->reply().arguments().first().toBool());
             }
             watcher->deleteLater();
         });

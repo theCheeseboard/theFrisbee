@@ -267,8 +267,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitionpopover.ui" line="91"/>
-        <source>ERASE OPTIONS</source>
+        <location filename="../operations/erasepartitionpopover.ui" line="57"/>
+        <location filename="../operations/erasepartitionpopover.ui" line="153"/>
+        <source>Erase Partition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/erasepartitionpopover.ui" line="67"/>
+        <location filename="../operations/erasepartitionpopover.ui" line="186"/>
+        <source>Erase this partition</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -277,9 +284,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitionpopover.ui" line="57"/>
-        <location filename="../operations/erasepartitionpopover.ui" line="153"/>
-        <source>Erase Partition</source>
+        <location filename="../operations/erasepartitionpopover.ui" line="91"/>
+        <source>ERASE OPTIONS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -295,12 +301,6 @@
     <message>
         <location filename="../operations/erasepartitionpopover.ui" line="176"/>
         <source>There&apos;s no going back after this. Once the partition is erased, all the data on the partition is gone forever.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/erasepartitionpopover.ui" line="67"/>
-        <location filename="../operations/erasepartitionpopover.ui" line="186"/>
-        <source>Erase this partition</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -460,22 +460,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="140"/>
+        <location filename="../mainwindow.ui" line="137"/>
         <source>Disks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="183"/>
+        <location filename="../mainwindow.ui" line="180"/>
         <source>Exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="186"/>
+        <location filename="../mainwindow.ui" line="183"/>
         <source>Ctrl+Q</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="195"/>
+        <location filename="../mainwindow.ui" line="192"/>
         <source>Attach Image</source>
         <translation type="unfinished"></translation>
     </message>
@@ -848,12 +848,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="251"/>
-        <location filename="../operations/restoreopticalpopover.cpp" line="57"/>
-        <source>Restore Disc</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../operations/restoreopticalpopover.ui" line="73"/>
         <source>RESTORE OPTIONS</source>
         <translation type="unfinished"></translation>
@@ -882,6 +876,12 @@
         <location filename="../operations/restoreopticalpopover.ui" line="218"/>
         <location filename="../operations/restoreopticalpopover.ui" line="365"/>
         <source>Restore this image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="251"/>
+        <location filename="../operations/restoreopticalpopover.cpp" line="57"/>
+        <source>Restore Disc</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
