@@ -29,6 +29,7 @@ struct EncryptedInterfacePrivate {
 
 EncryptedInterface::EncryptedInterface(QDBusObjectPath path, QObject* parent) : DiskInterface(path, interfaceName(), parent) {
     d = new EncryptedInterfacePrivate();
+    d->path = path;
 
     bindPropertyUpdater("CleartextDevice", [ = ](QVariant value) {
         d->cleartextDevice = value.value<QDBusObjectPath>();

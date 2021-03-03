@@ -36,6 +36,7 @@ struct BlockInterfacePrivate {
     QString idLabel;
     bool hintIgnore;
     bool hintSystem;
+    QDBusObjectPath cryptoBackingDevice;
 };
 
 BlockInterface::BlockInterface(QDBusObjectPath path, QObject* parent) : DiskInterface(path, interfaceName(), parent) {
@@ -60,6 +61,9 @@ BlockInterface::BlockInterface(QDBusObjectPath path, QObject* parent) : DiskInte
     });
     bindPropertyUpdater("HintSystem", [ = ](QVariant value) {
         d->hintSystem = value.toBool();
+    });
+    bindPropertyUpdater("CryptoBackingDevice", [ = ](QVariant value) {
+        d->cryptoBackingDevice = value.value<QDBusObjectPath>();
     });
 }
 
@@ -101,6 +105,10 @@ tPromise<void>* BlockInterface::triggerReload() {
 
 DriveInterface* BlockInterface::drive() {
     return DriveObjectManager::driveForPath(d->drive);
+}
+
+DiskObject* BlockInterface::cryptoBackingDevice() {
+    return DriveObjectManager::diskForPath(d->cryptoBackingDevice);
 }
 
 tPromise<void>* BlockInterface::format(QString type, QVariantMap options) {

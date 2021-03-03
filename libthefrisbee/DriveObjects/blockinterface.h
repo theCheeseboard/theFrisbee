@@ -47,6 +47,7 @@ class BlockInterface : public DiskInterface {
         tPromise<void>* triggerReload();
 
         DriveInterface* drive();
+        DiskObject* cryptoBackingDevice();
 
         tPromise<void>* format(QString type, QVariantMap options);
         tPromise<QIODevice*>* open(OpenMode mode, QVariantMap options);

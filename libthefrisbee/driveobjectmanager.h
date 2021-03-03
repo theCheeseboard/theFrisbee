@@ -36,6 +36,7 @@ class DriveObjectManager : public QObject {
         static DriveObjectManager* instance();
         static QList<DiskObject*> rootDisks();
         static QList<DiskObject*> filesystemDisks();
+        static QList<DiskObject*> encryptedDisks();
         static QList<DiskObject*> opticalDisks();
 
         static DiskObject* diskForPath(QDBusObjectPath path);

@@ -25,6 +25,7 @@
 #include "DriveObjects/loopinterface.h"
 #include "DriveObjects/filesysteminterface.h"
 #include "DriveObjects/blockinterface.h"
+#include "DriveObjects/encryptedinterface.h"
 #include <QDebug>
 #include <QTimer>
 
@@ -93,6 +94,28 @@ QList<DiskObject*> DriveObjectManager::filesystemDisks() {
     }
 
     for (DiskObject* disk : notFilesystemDisks) {
+        disks.removeOne(disk);
+    }
+
+    return disks;
+}
+
+QList<DiskObject*> DriveObjectManager::encryptedDisks() {
+    QList<DiskObject*> disks = instance()->d->objects.values();
+    QSet<DiskObject*> notEncryptedDisks;
+
+    for (DiskObject* disk : disks) {
+        BlockInterface* block = disk->interface<BlockInterface>();
+        if (block && block->hintIgnore()) {
+            notEncryptedDisks.insert(disk);
+            continue;
+        }
+
+        EncryptedInterface* encrypted = disk->interface<EncryptedInterface>();
+        if (!encrypted) notEncryptedDisks.insert(disk);
+    }
+
+    for (DiskObject* disk : notEncryptedDisks) {
         disks.removeOne(disk);
     }
 
