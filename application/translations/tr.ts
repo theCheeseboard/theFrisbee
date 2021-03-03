@@ -6,109 +6,109 @@
     <message>
         <location filename="../diskpane.ui" line="35"/>
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation>Başlık</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="83"/>
         <source>JOBS RUNNING</source>
-        <translation type="unfinished"></translation>
+        <translation>İŞ YAPAN İŞLER</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="90"/>
         <source>Some tasks may be unavailable while jobs are currently being run on this item.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu öğe üzerinde işler şu anda çalıştırılırken bazı görevler kullanılamayabilir.</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="115"/>
         <source>View Jobs</source>
-        <translation type="unfinished"></translation>
+        <translation>İşleri Görüntüle</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="230"/>
         <source>Check</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontrol</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="237"/>
         <source>Edit Partitions</source>
-        <translation type="unfinished"></translation>
+        <translation>Bölümleri Düzenle</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="244"/>
         <source>Image</source>
         <extracomment>A verb: &quot;Create Image&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Resim</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="251"/>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>Onarmak</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="271"/>
         <source>Erase</source>
-        <translation type="unfinished"></translation>
+        <translation>Sil</translation>
     </message>
     <message>
         <location filename="../diskpane.cpp" line="80"/>
         <location filename="../diskpane.cpp" line="190"/>
         <source>No Media</source>
-        <translation type="unfinished"></translation>
+        <translation>Medya yok</translation>
     </message>
     <message>
         <location filename="../diskpane.cpp" line="80"/>
         <source>There is no media in the drive to erase.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sürücüde silinecek ortam yok.</translation>
     </message>
     <message>
         <location filename="../diskpane.cpp" line="85"/>
         <source>Disc already blank</source>
-        <translation type="unfinished"></translation>
+        <translation>Disk zaten boş</translation>
     </message>
     <message>
         <location filename="../diskpane.cpp" line="85"/>
         <source>The disc in the drive is already blank. Do you still want to erase it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Sürücüdeki disk zaten boş. Hâlâ silmek istiyor musun?</translation>
     </message>
     <message>
         <location filename="../diskpane.cpp" line="108"/>
         <source>Disc not rewritable</source>
-        <translation type="unfinished"></translation>
+        <translation>Disk yeniden yazılamaz</translation>
     </message>
     <message>
         <location filename="../diskpane.cpp" line="109"/>
         <source>The disc in the drive is not rewritable.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sürücüdeki disk yeniden yazılamaz.</translation>
     </message>
     <message>
         <location filename="../diskpane.cpp" line="110"/>
         <source>Only rewritable discs can be erased. If you need to destroy the data on this disc, you should physically break it in half.</source>
-        <translation type="unfinished"></translation>
+        <translation>Yalnızca yeniden yazılabilir diskler silinebilir. Bu diskteki verileri imha etmeniz gerekirse, onu ikiye bölmelisin.</translation>
     </message>
     <message>
         <location filename="../diskpane.cpp" line="162"/>
         <source>No Partition Table</source>
-        <translation type="unfinished"></translation>
+        <translation>Bölme Tablosu Yok</translation>
     </message>
     <message>
         <location filename="../diskpane.cpp" line="163"/>
         <source>Erase the disk to create a partition table.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bir bölüm tablosu oluşturmak için diski silin.</translation>
     </message>
     <message>
         <location filename="../diskpane.cpp" line="190"/>
         <source>There is no media in the drive to restore to.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sürücüde geri yüklenecek ortam yok.</translation>
     </message>
     <message>
         <location filename="../diskpane.cpp" line="211"/>
         <source>Disc not writable</source>
-        <translation type="unfinished"></translation>
+        <translation>Disk yazılabilir değil</translation>
     </message>
     <message>
         <location filename="../diskpane.cpp" line="211"/>
         <source>The disc in the drive is not writable.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sürücüdeki disk yazılabilir değil.</translation>
     </message>
 </context>
 <context>
@@ -116,80 +116,80 @@
     <message>
         <location filename="../jobs/erasecdrwjob.cpp" line="51"/>
         <source>CD-RW</source>
-        <translation type="unfinished"></translation>
+        <translation>CD-RW</translation>
     </message>
     <message>
         <location filename="../jobs/erasecdrwjob.cpp" line="54"/>
         <source>DVD-RW</source>
-        <translation type="unfinished"></translation>
+        <translation>DVD-RW</translation>
     </message>
     <message>
         <location filename="../jobs/erasecdrwjob.cpp" line="58"/>
         <source>DVD+RW</source>
-        <translation type="unfinished"></translation>
+        <translation>DVD+RW</translation>
     </message>
     <message>
         <location filename="../jobs/erasecdrwjob.cpp" line="61"/>
         <source>BD-RE</source>
-        <translation type="unfinished"></translation>
+        <translation>BD-RE</translation>
     </message>
     <message>
         <location filename="../jobs/erasecdrwjob.cpp" line="64"/>
         <source>Unknown</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilinmeyen</translation>
     </message>
     <message>
         <location filename="../jobs/erasecdrwjob.cpp" line="68"/>
         <source>Waiting for other jobs to finish</source>
-        <translation type="unfinished"></translation>
+        <translation>Diğer işlerin bitmesini bekliyorum</translation>
     </message>
     <message>
         <location filename="../jobs/erasecdrwjob.cpp" line="104"/>
         <source>Unmounting Disc</source>
-        <translation type="unfinished"></translation>
+        <translation>Şu Anda Diskin İndeksi Kaldırılıyor</translation>
     </message>
     <message>
         <location filename="../jobs/erasecdrwjob.cpp" line="129"/>
         <location filename="../jobs/erasecdrwjob.cpp" line="179"/>
         <source>Failed to erase %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 silinemedi</translation>
     </message>
     <message>
         <location filename="../jobs/erasecdrwjob.cpp" line="135"/>
         <location filename="../jobs/erasecdrwjob.cpp" line="186"/>
         <source>Couldn&apos;t Erase Disc</source>
-        <translation type="unfinished"></translation>
+        <translation>Disk Silinemedi</translation>
     </message>
     <message>
         <location filename="../jobs/erasecdrwjob.cpp" line="136"/>
         <location filename="../jobs/erasecdrwjob.cpp" line="187"/>
         <source>The disc in %1 could not be erased.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 içindeki disk silinemedi.</translation>
     </message>
     <message>
         <location filename="../jobs/erasecdrwjob.cpp" line="143"/>
         <source>Erasing %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 siliniyor</translation>
     </message>
     <message>
         <location filename="../jobs/erasecdrwjob.cpp" line="177"/>
         <source>Couldn&apos;t erase %1 because %2.</source>
-        <translation type="unfinished"></translation>
+        <translation>%2 nedeniyle %1 silinemedi.</translation>
     </message>
     <message>
         <location filename="../jobs/erasecdrwjob.cpp" line="210"/>
         <source>%1 Erased</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 Silindi</translation>
     </message>
     <message>
         <location filename="../jobs/erasecdrwjob.cpp" line="216"/>
         <source>Erased Disc</source>
-        <translation type="unfinished"></translation>
+        <translation>Silinen Disk</translation>
     </message>
     <message>
         <location filename="../jobs/erasecdrwjob.cpp" line="217"/>
         <source>The disc in %1 has been erased.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 içindeki disk silindi.</translation>
     </message>
 </context>
 <context>
@@ -197,7 +197,7 @@
     <message>
         <location filename="../jobs/progress/erasecdrwjobprogress.cpp" line="38"/>
         <source>Erase %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1&apos;i sil</translation>
     </message>
 </context>
 <context>
@@ -206,43 +206,43 @@
         <location filename="../operations/eraseopticalpopover.ui" line="54"/>
         <location filename="../operations/eraseopticalpopover.ui" line="150"/>
         <source>Erase Disc</source>
-        <translation type="unfinished"></translation>
+        <translation>Diski silmek</translation>
     </message>
     <message>
         <location filename="../operations/eraseopticalpopover.ui" line="70"/>
         <source>ERASE OPTIONS</source>
-        <translation type="unfinished"></translation>
+        <translation>SİLME SEÇENEKLERİ</translation>
     </message>
     <message>
         <location filename="../operations/eraseopticalpopover.ui" line="77"/>
         <source>Erase Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Silme Tipi</translation>
     </message>
     <message>
         <location filename="../operations/eraseopticalpopover.ui" line="91"/>
         <source>Quick</source>
-        <translation type="unfinished"></translation>
+        <translation>Hızlı bir şekilde</translation>
     </message>
     <message>
         <location filename="../operations/eraseopticalpopover.ui" line="96"/>
         <source>Full</source>
-        <translation type="unfinished"></translation>
+        <translation>Tam</translation>
     </message>
     <message>
         <location filename="../operations/eraseopticalpopover.ui" line="104"/>
         <location filename="../operations/eraseopticalpopover.ui" line="183"/>
         <source>Erase this disc</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu diski sil</translation>
     </message>
     <message>
         <location filename="../operations/eraseopticalpopover.ui" line="166"/>
         <source>THIS IS IT</source>
-        <translation type="unfinished"></translation>
+        <translation>SON BİLDİRİMİNİZ</translation>
     </message>
     <message>
         <location filename="../operations/eraseopticalpopover.ui" line="173"/>
         <source>There&apos;s no going back after this. Once the disc in the drive is erased, all the data on it will be gone forever.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bundan sonra geri dönüş yok. Sürücünün içindeki disk silindikten sonra, üzerindeki tüm veriler sonsuza kadar silinecek ve onu kurtaramayacaksın.</translation>
     </message>
 </context>
 <context>
@@ -251,33 +251,33 @@
         <location filename="../operations/erasepartitionpopover.ui" line="57"/>
         <location filename="../operations/erasepartitionpopover.ui" line="153"/>
         <source>Erase Partition</source>
-        <translation type="unfinished"></translation>
+        <translation>Bölümü Sil</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitionpopover.ui" line="67"/>
         <location filename="../operations/erasepartitionpopover.ui" line="186"/>
         <source>Erase this partition</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu bölümü sil</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitionpopover.ui" line="78"/>
         <source>Filesystem</source>
-        <translation type="unfinished"></translation>
+        <translation>Dosya sistemi</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitionpopover.ui" line="91"/>
         <source>ERASE OPTIONS</source>
-        <translation type="unfinished"></translation>
+        <translation>SİLME SEÇENEKLERİ</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitionpopover.ui" line="108"/>
         <source>Partition Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Bölüm Adı</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitionpopover.ui" line="169"/>
         <source>THIS IS IT</source>
-        <translation type="unfinished"></translation>
+        <translation>SON BİLDİRİMİNİZ</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitionpopover.ui" line="176"/>
