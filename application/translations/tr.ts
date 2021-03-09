@@ -666,33 +666,34 @@
     <message>
         <location filename="../jobs/restorediskjob.cpp" line="49"/>
         <source>Waiting for disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Disk bekliyor</translation>
     </message>
     <message>
         <location filename="../jobs/restorediskjob.cpp" line="63"/>
         <source>Waiting for other jobs to finish</source>
-        <translation type="unfinished"></translation>
+        <translation>Diğer işlerin bitmesini bekliyorum</translation>
     </message>
     <message>
         <location filename="../jobs/restorediskjob.cpp" line="94"/>
         <source>Restoring to the target disk
 %1 of %2 restored</source>
-        <translation type="unfinished"></translation>
+        <translation>Hedef diske geri yükleme
+%1 / %2 geri yüklendi</translation>
     </message>
     <message>
         <location filename="../jobs/restorediskjob.cpp" line="110"/>
         <source>Disk restored successfully</source>
-        <translation type="unfinished"></translation>
+        <translation>Disk başarıyla geri yüklendi</translation>
     </message>
     <message>
         <location filename="../jobs/restorediskjob.cpp" line="123"/>
         <source>Couldn&apos;t open the destination device for writing</source>
-        <translation type="unfinished"></translation>
+        <translation>Yazma için hedef cihaz açılamadı</translation>
     </message>
     <message>
         <location filename="../jobs/restorediskjob.cpp" line="140"/>
         <source>Failed to restore image</source>
-        <translation type="unfinished"></translation>
+        <translation>Görüntü geri yüklenemedi</translation>
     </message>
 </context>
 <context>
@@ -700,7 +701,7 @@
     <message>
         <location filename="../jobs/progress/restorediskjobprogress.cpp" line="38"/>
         <source>Restore to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 konumuna geri yükle</translation>
     </message>
 </context>
 <context>
@@ -708,79 +709,80 @@
     <message>
         <location filename="../jobs/restoreopticaljob.cpp" line="52"/>
         <source>Waiting for restore medium</source>
-        <translation type="unfinished"></translation>
+        <translation>Geri yükleme ortamını bekliyorum</translation>
     </message>
     <message>
         <location filename="../jobs/restoreopticaljob.cpp" line="66"/>
         <source>Waiting for other jobs to finish</source>
-        <translation type="unfinished"></translation>
+        <translation>Diğer işlerin bitmesini bekliyorum</translation>
     </message>
     <message>
         <location filename="../jobs/restoreopticaljob.cpp" line="90"/>
         <source>Failed to restore image</source>
-        <translation type="unfinished"></translation>
+        <translation>Görüntü geri yüklenemedi</translation>
     </message>
     <message>
         <location filename="../jobs/restoreopticaljob.cpp" line="112"/>
         <location filename="../jobs/restoreopticaljob.cpp" line="162"/>
         <source>Preparing to restore</source>
-        <translation type="unfinished"></translation>
+        <translation>Geri yükleme için hazırlanıyor</translation>
     </message>
     <message>
         <location filename="../jobs/restoreopticaljob.cpp" line="129"/>
         <source>Couldn&apos;t restore the disc because %1.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 nedeniyle disk geri yüklenemedi.</translation>
     </message>
     <message>
         <location filename="../jobs/restoreopticaljob.cpp" line="131"/>
         <source>Failed to restore disc</source>
-        <translation type="unfinished"></translation>
+        <translation>Disk geri yüklenemedi</translation>
     </message>
     <message>
         <location filename="../jobs/restoreopticaljob.cpp" line="136"/>
         <source>Couldn&apos;t Restore Disc</source>
-        <translation type="unfinished"></translation>
+        <translation>Disk geri yüklenemedi</translation>
     </message>
     <message>
         <location filename="../jobs/restoreopticaljob.cpp" line="137"/>
         <source>The disc in %1 could not be restored.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 içindeki disk geri yüklenemedi.</translation>
     </message>
     <message>
         <location filename="../jobs/restoreopticaljob.cpp" line="172"/>
         <source>Erasing Disc</source>
-        <translation type="unfinished"></translation>
+        <translation>Disk siliniyor</translation>
     </message>
     <message>
         <location filename="../jobs/restoreopticaljob.cpp" line="178"/>
         <source>Burning Image (%1)
 %2 of %3</source>
-        <translation type="unfinished"></translation>
+        <translation>Görüntü Yazılıyor (%1)
+%2 / %3</translation>
     </message>
     <message>
         <location filename="../jobs/restoreopticaljob.cpp" line="181"/>
         <source>Burning Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Yanan Görüntü</translation>
     </message>
     <message>
         <location filename="../jobs/restoreopticaljob.cpp" line="192"/>
         <source>Finalizing Disc</source>
-        <translation type="unfinished"></translation>
+        <translation>Sonlandırma Diski</translation>
     </message>
     <message>
         <location filename="../jobs/restoreopticaljob.cpp" line="237"/>
         <source>Restore Complete</source>
-        <translation type="unfinished"></translation>
+        <translation>Geri Yükleme Tamamlandı</translation>
     </message>
     <message>
         <location filename="../jobs/restoreopticaljob.cpp" line="243"/>
         <source>Restored Disc</source>
-        <translation type="unfinished"></translation>
+        <translation>Geri Yüklenen Disk</translation>
     </message>
     <message>
         <location filename="../jobs/restoreopticaljob.cpp" line="244"/>
         <source>The disc in %1 has been restored.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 içindeki disk geri yüklendi.</translation>
     </message>
 </context>
 <context>
@@ -788,7 +790,7 @@
     <message>
         <location filename="../jobs/progress/restoreopticaljobprogress.cpp" line="38"/>
         <source>Restore to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 konumuna geri yükle</translation>
     </message>
 </context>
 <context>
@@ -796,82 +798,84 @@
     <message>
         <location filename="../operations/restoreopticalpopover.ui" line="73"/>
         <source>RESTORE OPTIONS</source>
-        <translation type="unfinished"></translation>
+        <translation>GERİ YÜKLEME SEÇENEKLERİ</translation>
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.ui" line="85"/>
         <source>Restore Image File</source>
-        <translation type="unfinished"></translation>
+        <translation>Görüntü Dosyasını Geri Yükle</translation>
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.ui" line="101"/>
         <source>Copy Media</source>
-        <translation type="unfinished"></translation>
+        <translation>Medya Kopyalama</translation>
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.ui" line="156"/>
         <source>Input File</source>
-        <translation type="unfinished"></translation>
+        <translation>Giriş Dosyası</translation>
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.ui" line="166"/>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>Araştır...</translation>
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.ui" line="218"/>
         <location filename="../operations/restoreopticalpopover.ui" line="365"/>
         <source>Restore this image</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu resmi geri yükle</translation>
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.ui" line="251"/>
         <location filename="../operations/restoreopticalpopover.cpp" line="57"/>
         <source>Restore Disc</source>
-        <translation type="unfinished"></translation>
+        <translation>Diski Geri Yükle</translation>
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.ui" line="267"/>
         <source>DISC NOT BLANK</source>
-        <translation type="unfinished"></translation>
+        <translation>DİSK BOŞ DEĞİL</translation>
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.ui" line="274"/>
         <source>The disc in the drive is not blank. To restore an image to the disc, the disc will need to be erased.
 
 Once the disc in the drive is erased, all the data on it will be gone forever.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sürücüdeki disk boş değil. Bir resim diske geri yüklemek için diskin silinmesi gerekir.
+
+Sürücüdeki disk silindikten sonra, üzerindeki tüm veriler sonsuza dek kaybolacaktır.</translation>
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.ui" line="286"/>
         <source>Erase and Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>Sil ve Geri Yükle</translation>
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.ui" line="332"/>
         <location filename="../operations/restoreopticalpopover.cpp" line="59"/>
         <source>Restore to Block</source>
-        <translation type="unfinished"></translation>
+        <translation>Bloğa geri yükle</translation>
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.ui" line="348"/>
         <source>THIS IS IT</source>
-        <translation type="unfinished"></translation>
+        <translation>SON BİLDİRİMİNİZ</translation>
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.ui" line="355"/>
         <source>Restoring to this block will erase it. There&apos;s no going back; once the block is erased, all the data on the block is gone forever.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu bloğa geri yüklemek onu silecektir. Geri dönüş yok; blok silindikten sonra, bloktaki tüm veriler sonsuza dek kaybolur.</translation>
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.cpp" line="100"/>
         <source>Unable to restore same media</source>
-        <translation type="unfinished"></translation>
+        <translation>Aynı medya geri yüklenemiyor</translation>
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.cpp" line="100"/>
         <source>A medium cannot be restored to itself. Select another medium to restore.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bir ortam kendi başına geri yüklenemez. Geri yüklemek için başka bir ortam seçin.</translation>
     </message>
 </context>
 <context>
