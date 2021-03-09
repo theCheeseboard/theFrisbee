@@ -3,8 +3,7 @@
 Type=Application
 Version=1.0
 Name[]=theFrisbee
-GenericName=Disk Management
-GenericName[]=Quản lý ổ đĩa
+GenericName[]=Disk Management
 Categories=System;
 Exec=thefrisbee
 Icon=thefrisbee
