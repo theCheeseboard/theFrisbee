@@ -282,52 +282,52 @@
     <message>
         <location filename="../operations/erasepartitionpopover.ui" line="176"/>
         <source>There&apos;s no going back after this. Once the partition is erased, all the data on the partition is gone forever.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bundan sonra geri gitmek diye bir şey yok. Bölüm silindikten sonra, bölümdeki tüm veriler sonsuza dek kaybolur.</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitionpopover.cpp" line="47"/>
         <source>ext4 (Linux Filesystem)</source>
-        <translation type="unfinished"></translation>
+        <translation>ext4 (Linux dosya sistemi)</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitionpopover.cpp" line="48"/>
         <source>NTFS (Windows Filesystem)</source>
-        <translation type="unfinished"></translation>
+        <translation>NTFS (Windows NT dosya sistemi)</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitionpopover.cpp" line="49"/>
         <source>exFAT (All Systems)</source>
-        <translation type="unfinished"></translation>
+        <translation>exFAT (Tüm sistemler)</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitionpopover.cpp" line="50"/>
         <source>Linux Swap</source>
-        <translation type="unfinished"></translation>
+        <translation>Linux Swap</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitionpopover.cpp" line="51"/>
         <source>XFS (Linux Filesystem)</source>
-        <translation type="unfinished"></translation>
+        <translation>XFS (Linux dosya sistemi)</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitionpopover.cpp" line="52"/>
         <source>BTRFS (Linux Filesystem)</source>
-        <translation type="unfinished"></translation>
+        <translation>BTRFS (Linux dosya sistemi)</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitionpopover.cpp" line="53"/>
         <source>F2FS (Flash Optimised Filesystem)</source>
-        <translation type="unfinished"></translation>
+        <translation>F2FS (Flash optimize edilmiş dosya sistemi)</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitionpopover.cpp" line="54"/>
         <source>FAT (All Systems)</source>
-        <translation type="unfinished"></translation>
+        <translation>FAT (Tüm sistemler)</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitionpopover.cpp" line="55"/>
         <source>Erase Only</source>
-        <translation type="unfinished"></translation>
+        <translation>Sadece Sil</translation>
     </message>
 </context>
 <context>
@@ -336,48 +336,48 @@
         <location filename="../operations/erasepartitiontablepopover.ui" line="57"/>
         <location filename="../operations/erasepartitiontablepopover.ui" line="158"/>
         <source>Erase Disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Diski silmek</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitiontablepopover.ui" line="73"/>
         <source>ERASE OPTIONS</source>
-        <translation type="unfinished"></translation>
+        <translation>SİLME SEÇENEKLERİ</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitiontablepopover.ui" line="80"/>
         <source>Partition Table</source>
-        <translation type="unfinished"></translation>
+        <translation>Bölme Tablosu</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitiontablepopover.ui" line="94"/>
         <source>GPT</source>
-        <translation type="unfinished"></translation>
+        <translation>GPT</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitiontablepopover.ui" line="99"/>
         <source>DOS/MBR</source>
-        <translation type="unfinished"></translation>
+        <translation>DOS/MBR</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitiontablepopover.ui" line="104"/>
         <source>Erase Only</source>
-        <translation type="unfinished"></translation>
+        <translation>Sadece Sil</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitiontablepopover.ui" line="112"/>
         <location filename="../operations/erasepartitiontablepopover.ui" line="191"/>
         <source>Erase this disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu diski sil</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitiontablepopover.ui" line="174"/>
         <source>THIS IS IT</source>
-        <translation type="unfinished"></translation>
+        <translation>SON BİLDİRİMİNİZ</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitiontablepopover.ui" line="181"/>
         <source>There&apos;s no going back after this. Once the disk is erased, all the data on the disk is gone forever.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bundan sonra geri gitmek diye bir şey yok. Disk silindikten sonra, diskteki tüm veriler sonsuza dek kaybolur.</translation>
     </message>
 </context>
 <context>
@@ -385,42 +385,42 @@
     <message>
         <location filename="../operations/imagepopover.ui" line="35"/>
         <source>Image Disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Resim Diski</translation>
     </message>
     <message>
         <location filename="../operations/imagepopover.ui" line="45"/>
         <source>Output File</source>
-        <translation type="unfinished"></translation>
+        <translation>Çıktı Dosyası</translation>
     </message>
     <message>
         <location filename="../operations/imagepopover.ui" line="55"/>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>Araştır...</translation>
     </message>
     <message>
         <location filename="../operations/imagepopover.ui" line="68"/>
         <source>IMAGING OPTIONS</source>
-        <translation type="unfinished"></translation>
+        <translation>GÖRÜNTÜLEME SEÇENEKLERİ</translation>
     </message>
     <message>
         <location filename="../operations/imagepopover.ui" line="75"/>
         <source>Image this disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu diski görüntüle</translation>
     </message>
     <message>
         <location filename="../operations/imagepopover.cpp" line="75"/>
         <source>Disk Imaged</source>
-        <translation type="unfinished"></translation>
+        <translation>Disk Görüntüsü</translation>
     </message>
     <message>
         <location filename="../operations/imagepopover.cpp" line="76"/>
         <source>The disk image has been created</source>
-        <translation type="unfinished"></translation>
+        <translation>Disk görüntüsü oluşturuldu</translation>
     </message>
     <message>
         <location filename="../operations/imagepopover.cpp" line="81"/>
         <source>Couldn&apos;t image disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Görüntü diski açılamadı</translation>
     </message>
 </context>
 <context>
@@ -428,27 +428,27 @@
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>theFrisbee</source>
-        <translation type="unfinished"></translation>
+        <translation>theFrisbee</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="137"/>
         <source>Disks</source>
-        <translation type="unfinished"></translation>
+        <translation>Diskler</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="180"/>
         <source>Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Vazgeç</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="183"/>
         <source>Ctrl+Q</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Q</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="192"/>
         <source>Attach Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Resim Ekle</translation>
     </message>
 </context>
 <context>
@@ -456,32 +456,32 @@
     <message>
         <location filename="../optical/opticalerrortracker.cpp" line="39"/>
         <source>the last time the disc was burned, it was not burned with support for adding extra files</source>
-        <translation type="unfinished"></translation>
+        <translation>disk en son yandığında, ekstra dosya ekleme desteği ile yanmadı</translation>
     </message>
     <message>
         <location filename="../optical/opticalerrortracker.cpp" line="44"/>
         <source>there is no disc in the drive</source>
-        <translation type="unfinished"></translation>
+        <translation>sürücüde disk yok</translation>
     </message>
     <message>
         <location filename="../optical/opticalerrortracker.cpp" line="49"/>
         <source>the drive requires more power to operate</source>
-        <translation type="unfinished"></translation>
+        <translation>sürücü çalıştırmak için daha fazla güç gerektirir</translation>
     </message>
     <message>
         <location filename="../optical/opticalerrortracker.cpp" line="54"/>
         <source>the disc couldn&apos;t be finalized</source>
-        <translation type="unfinished"></translation>
+        <translation>disk sonuçlandırılamadı</translation>
     </message>
     <message>
         <location filename="../optical/opticalerrortracker.cpp" line="59"/>
         <source>the power calibration area is full</source>
-        <translation type="unfinished"></translation>
+        <translation>güç kalibrasyon alanı dolu</translation>
     </message>
     <message>
         <location filename="../optical/opticalerrortracker.cpp" line="60"/>
         <source>the drive can&apos;t calibrate the laser power level for this disc</source>
-        <translation type="unfinished"></translation>
+        <translation>sürücü bu disk için lazer güç seviyesini kalibre edemez</translation>
     </message>
 </context>
 <context>
@@ -489,133 +489,133 @@
     <message>
         <location filename="../diskPanes/overviewdiskpane.ui" line="20"/>
         <source>Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Simge</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.ui" line="40"/>
         <location filename="../diskPanes/overviewdiskpane.ui" line="50"/>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation>MetinEtiketi</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.ui" line="64"/>
         <source>Detach</source>
-        <translation type="unfinished"></translation>
+        <translation>Ayırmak</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.ui" line="75"/>
         <source>Unmount</source>
-        <translation type="unfinished"></translation>
+        <translation>Bağlantıyı kes</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.ui" line="86"/>
         <source>Mount</source>
-        <translation type="unfinished"></translation>
+        <translation>Montaj</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.ui" line="97"/>
         <source>Eject</source>
-        <translation type="unfinished"></translation>
+        <translation>Çıkar</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="75"/>
         <source>Blank Disc</source>
-        <translation type="unfinished"></translation>
+        <translation>Boş Disk</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="80"/>
         <source>CD</source>
-        <translation type="unfinished"></translation>
+        <translation>CD</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="83"/>
         <source>CD-R</source>
-        <translation type="unfinished"></translation>
+        <translation>CD-R</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="86"/>
         <source>CD-RW</source>
-        <translation type="unfinished"></translation>
+        <translation>CD-RW</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="89"/>
         <source>DVD</source>
-        <translation type="unfinished"></translation>
+        <translation>DVD</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="92"/>
         <source>DVD-R</source>
-        <translation type="unfinished"></translation>
+        <translation>DVD-R</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="95"/>
         <source>DVD-RW</source>
-        <translation type="unfinished"></translation>
+        <translation>DVD-RW</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="98"/>
         <source>DVD-RAM</source>
-        <translation type="unfinished"></translation>
+        <translation>DVD-RAM</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="101"/>
         <source>DVD+R</source>
-        <translation type="unfinished"></translation>
+        <translation>DVD+R</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="104"/>
         <source>DVD+RW</source>
-        <translation type="unfinished"></translation>
+        <translation>DVD+RW</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="107"/>
         <source>DVD+R Dual Layer</source>
-        <translation type="unfinished"></translation>
+        <translation>DVD+R Dual Layer</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="110"/>
         <source>DVD+RW Dual Layer</source>
-        <translation type="unfinished"></translation>
+        <translation>DVD+RW Dual Layer</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="113"/>
         <source>BD</source>
-        <translation type="unfinished"></translation>
+        <translation>BD</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="116"/>
         <source>BD-R</source>
-        <translation type="unfinished"></translation>
+        <translation>BD-R</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="119"/>
         <source>BD-RE</source>
-        <translation type="unfinished"></translation>
+        <translation>BD-RE</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="122"/>
         <source>HD-DVD</source>
-        <translation type="unfinished"></translation>
+        <translation>HD-DVD</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="125"/>
         <source>HD-DVD-R</source>
-        <translation type="unfinished"></translation>
+        <translation>HD-DVD-R</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="128"/>
         <source>HD-DVD-RW</source>
-        <translation type="unfinished"></translation>
+        <translation>HD-DVD-RW</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="131"/>
         <source>Magneto Optical</source>
-        <translation type="unfinished"></translation>
+        <translation>Magneto Optical</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="137"/>
         <source>No Disc Inserted</source>
-        <translation type="unfinished"></translation>
+        <translation>Disk Takılı Değil</translation>
     </message>
 </context>
 <context>
@@ -623,42 +623,42 @@
     <message>
         <location filename="../operations/partitionpopover.ui" line="35"/>
         <source>Edit Partitions</source>
-        <translation type="unfinished"></translation>
+        <translation>Bölümleri Düzenle</translation>
     </message>
     <message>
         <location filename="../operations/partitionpopover.ui" line="58"/>
         <source>ACTIONS</source>
-        <translation type="unfinished"></translation>
+        <translation>HAREKETLER</translation>
     </message>
     <message>
         <location filename="../operations/partitionpopover.ui" line="65"/>
         <source>We won&apos;t modify anything until you apply your changes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Değişikliklerinizi uygulayana kadar hiçbir şeyi değiştirmeyeceğiz.</translation>
     </message>
     <message>
         <location filename="../operations/partitionpopover.ui" line="92"/>
         <source>Create New Partition</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeni Bölüm Oluştur</translation>
     </message>
     <message>
         <location filename="../operations/partitionpopover.ui" line="99"/>
         <source>Resize Partition</source>
-        <translation type="unfinished"></translation>
+        <translation>Bölümü Yeniden Boyutlandır</translation>
     </message>
     <message>
         <location filename="../operations/partitionpopover.ui" line="106"/>
         <source>Erase Partition</source>
-        <translation type="unfinished"></translation>
+        <translation>Bölümü Sil</translation>
     </message>
     <message>
         <location filename="../operations/partitionpopover.ui" line="115"/>
         <source>Apply Changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Değişiklikleri Uygula</translation>
     </message>
     <message>
         <location filename="../operations/partitionpopover.ui" line="122"/>
         <source>Start Over</source>
-        <translation type="unfinished"></translation>
+        <translation>Baştan Başla</translation>
     </message>
 </context>
 <context>
