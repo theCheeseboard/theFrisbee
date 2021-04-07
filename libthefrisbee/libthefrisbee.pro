@@ -53,7 +53,7 @@ unix {
     driveobjectheaders.path = $$THELIBS_INSTALL_HEADERS/libthefrisbee/DriveObjects/
 
     module.files = qt_frisbee.pri
-    module.path = $$[QMAKE_MKSPECS]/modules
+    module.path = $$THELIBS_INSTALL_MODULES
 
     trigger.files = trigger-uevent.sh
     trigger.path = $$THELIBS_INSTALL_LIB/libthefrisbee
