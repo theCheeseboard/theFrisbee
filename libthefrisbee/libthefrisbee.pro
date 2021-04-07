@@ -1,5 +1,6 @@
 QT += gui dbus thelib
 TARGET = thefrisbee
+SHARE_APP_NAME = thefrisbee/libthefrisbee
 
 TEMPLATE = lib
 DEFINES += LIBTHEFRISBEE_LIBRARY
@@ -37,27 +38,30 @@ HEADERS += \
 
 # Default rules for deployment.
 unix {
-    target.path = $$[QT_INSTALL_LIBS]
+# Include the-libs build tools
+    equals(THELIBS_BUILDTOOLS_PATH, "") {
+        THELIBS_BUILDTOOLS_PATH = $$[QT_INSTALL_PREFIX]/share/the-libs/pri
+    }
+    include($$THELIBS_BUILDTOOLS_PATH/buildmaster.pri)
+
+    target.path = $$THELIBS_INSTALL_LIB
 
     headers.files = *.h
-    headers.path = $$[QT_INSTALL_HEADERS]/libthefrisbee/
+    headers.path = $$THELIBS_INSTALL_HEADERS/libthefrisbee/
 
     driveobjectheaders.files = DriveObjects/*.h
-    driveobjectheaders.path = $$[QT_INSTALL_HEADERS]/libthefrisbee/DriveObjects/
-
-    translations.files = translations/*.qm
-    translations.path = /usr/share/thefrisbee/libthefrisbee/translations
+    driveobjectheaders.path = $$THELIBS_INSTALL_HEADERS/libthefrisbee/DriveObjects/
 
     module.files = qt_frisbee.pri
     module.path = $$[QMAKE_MKSPECS]/modules
 
     trigger.files = trigger-uevent.sh
-    trigger.path = $$[QT_INSTALL_LIBS]/libthefrisbee
+    trigger.path = $$THELIBS_INSTALL_LIB/libthefrisbee
 
     polkit.files = com.vicr123.trigger-uevent.policy
-    polkit.path = /usr/share/polkit-1/actions
+    polkit.path = $$THELIBS_INSTALL_PREFIX/polkit-1/actions
 
-    INSTALLS += target translations headers driveobjectheaders module trigger polkit
+    INSTALLS += target headers driveobjectheaders module trigger polkit
 }
 
 DISTFILES += \

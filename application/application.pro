@@ -70,22 +70,25 @@ DESKTOP_FILE = com.vicr123.thefrisbee.desktop
 
 unix:!macx {
     # Include the-libs build tools
-    include(/usr/share/the-libs/pri/buildmaster.pri)
+    equals(THELIBS_BUILDTOOLS_PATH, "") {
+        THELIBS_BUILDTOOLS_PATH = $$[QT_INSTALL_PREFIX]/share/the-libs/pri
+    }
+    include($$THELIBS_BUILDTOOLS_PATH/buildmaster.pri)
 
-    DEFINES += SYSTEM_LIBRARY_DIRECTORY=\\\"$$[QT_INSTALL_LIBS]\\\"
+    DEFINES += SYSTEM_LIBRARY_DIRECTORY=\\\"$$THELIBS_INSTALL_LIB\\\"
 
     QT += thelib
     TARGET = thefrisbee
 
     CONFIG += link_pkgconfig
 
-    target.path = /usr/bin
+    target.path = $$THELIBS_INSTALL_BIN
 
-    icon.path = /usr/share/icons/hicolor/scalable/apps/
+    icon.path = $$THELIBS_INSTALL_PREFIX/share/icons/hicolor/scalable/apps/
     icon.files = icons/thefrisbee.svg
 
     defaults.files = defaults.conf
-    defaults.path = /etc/theSuite/theFrisbee/
+    defaults.path = $$THELIBS_INSTALL_SETTINGS/theSuite/theFrisbee/
 
     INSTALLS += target icon defaults
 }
