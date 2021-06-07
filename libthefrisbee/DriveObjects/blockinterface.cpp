@@ -118,7 +118,7 @@ tPromise<void>* BlockInterface::format(QString type, QVariantMap options) {
         QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Format");
         message.setArguments({type, options});
 
-        QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
+        QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message, 300000));
         connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
             if (watcher->isError()) {
                 rej(watcher->error().message());

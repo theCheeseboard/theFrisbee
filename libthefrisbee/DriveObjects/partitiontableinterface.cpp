@@ -79,7 +79,7 @@ tPromise<QDBusObjectPath>* PartitionTableInterface::createPartition(quint64 offs
         QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "CreatePartition");
         message.setArguments({offset, size, type, name, options});
 
-        QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
+        QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message, 300000));
         connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
             if (watcher->isError()) {
                 rej(watcher->error().message());
@@ -95,7 +95,7 @@ tPromise<QDBusObjectPath>* PartitionTableInterface::createPartitionAndFormat(qui
         QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "CreatePartitionAndFormat");
         message.setArguments({offset, size, type, name, options, formatType, formatOptions});
 
-        QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
+        QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message, 300000));
         connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
             if (watcher->isError()) {
                 rej(watcher->error().message());
