@@ -44,6 +44,7 @@ class PartitionInterface : public DiskInterface {
         tPromise<void>* setType(QString type);
         tPromise<void>* setName(QString name);
         tPromise<void>* resize(quint64 size);
+        tPromise<void>* deletePartition(QVariantMap options = {});
 
     signals:
 

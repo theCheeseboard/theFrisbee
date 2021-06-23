@@ -143,3 +143,18 @@ tPromise<void>* PartitionInterface::resize(quint64 size) {
         });
     });
 }
+
+tPromise<void>* PartitionInterface::deletePartition(QVariantMap options) {
+    return tPromise<void>::runOnSameThread([ = ](tPromiseFunctions<void>::SuccessFunction res, tPromiseFunctions<void>::FailureFunction rej) {
+        QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Delete");
+        message.setArguments({options});
+        QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
+            if (watcher->isError()) {
+                rej(watcher->error().message());
+            } else {
+                res();
+            }
+        });
+    });
+}
