@@ -28,6 +28,7 @@ struct PartitionTableInterfacePrivate {
     QDBusObjectPath path;
 
     QList<QDBusObjectPath> partitions;
+    QString type;
 };
 
 PartitionTableInterface::PartitionTableInterface(QDBusObjectPath path, QObject* parent) : DiskInterface(path, interfaceName(), parent) {
@@ -39,6 +40,9 @@ PartitionTableInterface::PartitionTableInterface(QDBusObjectPath path, QObject* 
         d->partitions.clear();
 
         arg >> d->partitions;
+    });
+    bindPropertyUpdater("Type", [ = ](QVariant value) {
+        d->type = value.toString();
     });
 }
 
@@ -72,6 +76,10 @@ QList<DiskObject*> PartitionTableInterface::partitions() {
     });
 
     return diskObjects;
+}
+
+QString PartitionTableInterface::type() {
+    return d->type;
 }
 
 tPromise<QDBusObjectPath>* PartitionTableInterface::createPartition(quint64 offset, quint64 size, QString type, QString name, QVariantMap options) {

@@ -35,6 +35,7 @@ class PartitionTableInterface : public DiskInterface {
         Interfaces interfaceType();
 
         QList<DiskObject*> partitions();
+        QString type();
 
         tPromise<QDBusObjectPath>* createPartition(quint64 offset, quint64 size, QString type, QString name, QVariantMap options);
         tPromise<QDBusObjectPath>* createPartitionAndFormat(quint64 offset, quint64 size, QString type, QString name, QVariantMap options, QString formatType, QVariantMap formatOptions);
