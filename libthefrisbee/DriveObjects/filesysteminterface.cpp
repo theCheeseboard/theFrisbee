@@ -115,3 +115,18 @@ tPromise<bool>* FilesystemInterface::repair(QVariantMap options) {
         });
     });
 }
+
+tPromise<void>* FilesystemInterface::resize(quint64 size) {
+    return tPromise<void>::runOnSameThread([ = ](tPromiseFunctions<void>::SuccessFunction res, tPromiseFunctions<void>::FailureFunction rej) {
+        QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Resize");
+        message.setArguments({size, QVariantMap()});
+        QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message, 86400000));
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
+            if (watcher->isError()) {
+                rej(watcher->error().message());
+            } else {
+                res();
+            }
+        });
+    });
+}

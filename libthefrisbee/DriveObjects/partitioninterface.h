@@ -20,6 +20,7 @@
 #ifndef PARTITIONINTERFACE_H
 #define PARTITIONINTERFACE_H
 
+#include <tpromise.h>
 #include "diskinterface.h"
 
 struct PartitionInterfacePrivate;
@@ -39,6 +40,10 @@ class PartitionInterface : public DiskInterface {
         QString type();
         QString uuid();
         DiskObject* parentTable();
+
+        tPromise<void>* setType(QString type);
+        tPromise<void>* setName(QString name);
+        tPromise<void>* resize(quint64 size);
 
     signals:
 
