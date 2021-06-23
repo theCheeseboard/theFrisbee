@@ -36,6 +36,8 @@ class PartitionInterface : public DiskInterface {
         uint number();
         quint64 size();
         quint64 offset();
+        QString type();
+        QString uuid();
         DiskObject* parentTable();
 
     signals:

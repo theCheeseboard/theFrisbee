@@ -26,6 +26,8 @@ struct PartitionInterfacePrivate {
     uint number;
     quint64 size;
     quint64 offset;
+    QString type;
+    QString uuid;
     QDBusObjectPath parentTable;
 };
 
@@ -46,6 +48,12 @@ PartitionInterface::PartitionInterface(QDBusObjectPath path, QObject* parent) : 
     });
     bindPropertyUpdater("Offset", [ = ](QVariant value) {
         d->offset = value.toUInt();
+    });
+    bindPropertyUpdater("Type", [ = ](QVariant value) {
+        d->type = value.toString();
+    });
+    bindPropertyUpdater("UUID", [ = ](QVariant value) {
+        d->uuid = value.toString();
     });
 }
 
@@ -75,6 +83,14 @@ quint64 PartitionInterface::size() {
 
 quint64 PartitionInterface::offset() {
     return d->offset;
+}
+
+QString PartitionInterface::type() {
+    return d->type;
+}
+
+QString PartitionInterface::uuid() {
+    return d->uuid;
 }
 
 DiskObject* PartitionInterface::parentTable() {
