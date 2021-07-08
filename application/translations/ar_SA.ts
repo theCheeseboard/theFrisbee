@@ -6,59 +6,59 @@
     <message>
         <location filename="../diskpane.ui" line="35"/>
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation>لقب</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="83"/>
         <source>JOBS RUNNING</source>
-        <translation type="unfinished"></translation>
+        <translation>الوظائف قيد التشغيل</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="90"/>
         <source>Some tasks may be unavailable while jobs are currently being run on this item.</source>
-        <translation type="unfinished"></translation>
+        <translation>قد تكون بعض المهام غير متاحة أثناء تشغيل الوظائف حاليًا على هذا العنصر.</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="115"/>
         <source>View Jobs</source>
-        <translation type="unfinished"></translation>
+        <translation>مشاهدة الوظائف</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="230"/>
         <source>Check</source>
-        <translation type="unfinished"></translation>
+        <translation>راجع</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="237"/>
         <source>Edit Partitions</source>
-        <translation type="unfinished"></translation>
+        <translation>تحرير الأقسام</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="244"/>
         <source>Image</source>
         <extracomment>A verb: &quot;Create Image&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>اصنع صورة</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="251"/>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>يعيد</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="271"/>
         <source>Erase</source>
-        <translation type="unfinished"></translation>
+        <translation>أمسح</translation>
     </message>
     <message>
         <location filename="../diskpane.cpp" line="80"/>
         <location filename="../diskpane.cpp" line="190"/>
         <source>No Media</source>
-        <translation type="unfinished"></translation>
+        <translation>لا يوجد وسائط</translation>
     </message>
     <message>
         <location filename="../diskpane.cpp" line="80"/>
         <source>There is no media in the drive to erase.</source>
-        <translation type="unfinished"></translation>
+        <translation>لا توجد وسائط في محرك الأقراص للمسح.</translation>
     </message>
     <message>
         <location filename="../diskpane.cpp" line="85"/>
