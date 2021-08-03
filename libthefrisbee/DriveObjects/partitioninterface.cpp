@@ -46,10 +46,10 @@ PartitionInterface::PartitionInterface(QDBusObjectPath path, QObject* parent) : 
         d->parentTable = value.value<QDBusObjectPath>();
     });
     bindPropertyUpdater("Size", [ = ](QVariant value) {
-        d->size = value.toUInt();
+        d->size = value.toULongLong();
     });
     bindPropertyUpdater("Offset", [ = ](QVariant value) {
-        d->offset = value.toUInt();
+        d->offset = value.toULongLong();
     });
     bindPropertyUpdater("Type", [ = ](QVariant value) {
         d->type = value.toString();

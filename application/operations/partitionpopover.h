@@ -21,11 +21,14 @@
 #define PARTITIONPOPOVER_H
 
 #include <QWidget>
+#include <QVariantMap>
+#include "components/partitionvisualisation.h"
 
 namespace Ui {
     class PartitionPopover;
 }
 
+class tPaintCalculator;
 class DiskObject;
 struct PartitionPopoverPrivate;
 class PartitionPopover : public QWidget {
@@ -35,18 +38,36 @@ class PartitionPopover : public QWidget {
         explicit PartitionPopover(DiskObject* disk, QWidget* parent = nullptr);
         ~PartitionPopover();
 
+        struct PartitionOperation {
+            QString type;
+            QVariantMap data;
+            bool edited = false;
+        };
+
     signals:
         void done();
 
     private slots:
         void on_titleLabel_backButtonClicked();
 
+        void on_deletePartitionButton_clicked();
+
+        void on_applyButton_clicked();
+
+        void on_performApplyButton_clicked();
+
+        void on_partitionName_textEdited(const QString& arg1);
+
+        void on_partitionType_currentIndexChanged(int index);
+
     private:
         Ui::PartitionPopover* ui;
         PartitionPopoverPrivate* d;
 
-        bool eventFilter(QObject* watched, QEvent* event);
         void initialiseState();
+        void commitEdits();
+        void loadEditPage();
+        void updatePartition(PartitionVisualisation::Partition partition);
 };
 
 #endif // PARTITIONPOPOVER_H

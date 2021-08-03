@@ -31,6 +31,7 @@
 #include <QFileDialog>
 #include <QPainter>
 #include <thelpmenu.h>
+#include <tpaintcalculator.h>
 #include "diskmodel.h"
 #include "diskpane.h"
 
@@ -111,9 +112,19 @@ void MainWindow::on_actionExit_triggered() {
 
 bool MainWindow::eventFilter(QObject* watched, QEvent* event) {
     if (watched == ui->topWidget && event->type() == QEvent::Paint) {
-        QPainter painter(ui->topWidget);
-        painter.setPen(theLibsGlobal::lineColor(this->palette().color(QPalette::WindowText)));
-        painter.drawLine(SC_DPI(400), 0, SC_DPI(400), ui->topWidget->height());
+        QPainter* painter = new QPainter(ui->topWidget);
+
+        tPaintCalculator calculator;
+        calculator.setPainter(painter);
+        calculator.setDrawBounds(this->size());
+
+        calculator.addRect(QRectF(SC_DPI(400), 0, 0, ui->topWidget->height()), [ = ](QRectF drawBounds) {
+            painter->setPen(theLibsGlobal::lineColor(this->palette().color(QPalette::WindowText)));
+            painter->drawLine(drawBounds.topLeft(), drawBounds.bottomLeft());
+        });
+
+        calculator.performPaint();
+        delete painter;
     }
     return false;
 }

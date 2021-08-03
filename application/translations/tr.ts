@@ -626,39 +626,121 @@
         <translation>Bölümleri Düzenle</translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="58"/>
+        <location filename="../operations/partitionpopover.ui" line="102"/>
         <source>ACTIONS</source>
         <translation>HAREKETLER</translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="65"/>
-        <source>We won&apos;t modify anything until you apply your changes.</source>
-        <translation>Değişikliklerinizi uygulayana kadar hiçbir şeyi değiştirmeyeceğiz.</translation>
+        <location filename="../operations/partitionpopover.ui" line="109"/>
+        <source>Select a partition to resize or erase it. To add a new partition, click in some empty space.
+
+We won&apos;t modify anything until you apply your changes.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="92"/>
-        <source>Create New Partition</source>
-        <translation>Yeni Bölüm Oluştur</translation>
+        <location filename="../operations/partitionpopover.ui" line="229"/>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="99"/>
-        <source>Resize Partition</source>
-        <translation>Bölümü Yeniden Boyutlandır</translation>
-    </message>
-    <message>
-        <location filename="../operations/partitionpopover.ui" line="106"/>
-        <source>Erase Partition</source>
-        <translation>Bölümü Sil</translation>
-    </message>
-    <message>
-        <location filename="../operations/partitionpopover.ui" line="115"/>
+        <location filename="../operations/partitionpopover.ui" line="259"/>
         <source>Apply Changes</source>
         <translation>Değişiklikleri Uygula</translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="122"/>
-        <source>Start Over</source>
-        <translation>Baştan Başla</translation>
+        <location filename="../operations/partitionpopover.ui" line="150"/>
+        <source>NEW PARTITION</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/partitionpopover.ui" line="157"/>
+        <source>Add New Partition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/partitionpopover.ui" line="206"/>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/partitionpopover.ui" line="219"/>
+        <source>EDIT PARTITION</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/partitionpopover.ui" line="199"/>
+        <source>Delete Partition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/partitionpopover.ui" line="294"/>
+        <source>APPLY CHANGES</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/partitionpopover.ui" line="301"/>
+        <source>Apply Changes to Disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/partitionpopover.cpp" line="62"/>
+        <source>ext4 (Linux Filesystem)</source>
+        <translation type="unfinished">ext4 (Linux dosya sistemi)</translation>
+    </message>
+    <message>
+        <location filename="../operations/partitionpopover.cpp" line="63"/>
+        <source>NTFS (Windows Filesystem)</source>
+        <translation type="unfinished">NTFS (Windows NT dosya sistemi)</translation>
+    </message>
+    <message>
+        <location filename="../operations/partitionpopover.cpp" line="64"/>
+        <source>exFAT (All Systems)</source>
+        <translation type="unfinished">exFAT (Tüm sistemler)</translation>
+    </message>
+    <message>
+        <location filename="../operations/partitionpopover.cpp" line="65"/>
+        <source>Linux Swap</source>
+        <translation type="unfinished">Linux Swap</translation>
+    </message>
+    <message>
+        <location filename="../operations/partitionpopover.cpp" line="66"/>
+        <source>XFS (Linux Filesystem)</source>
+        <translation type="unfinished">XFS (Linux dosya sistemi)</translation>
+    </message>
+    <message>
+        <location filename="../operations/partitionpopover.cpp" line="67"/>
+        <source>BTRFS (Linux Filesystem)</source>
+        <translation type="unfinished">BTRFS (Linux dosya sistemi)</translation>
+    </message>
+    <message>
+        <location filename="../operations/partitionpopover.cpp" line="68"/>
+        <source>F2FS (Flash Optimised Filesystem)</source>
+        <translation type="unfinished">F2FS (Flash optimize edilmiş dosya sistemi)</translation>
+    </message>
+    <message>
+        <location filename="../operations/partitionpopover.cpp" line="70"/>
+        <source>FAT (All Systems)</source>
+        <translation type="unfinished">FAT (Tüm sistemler)</translation>
+    </message>
+    <message>
+        <location filename="../operations/partitionpopover.cpp" line="71"/>
+        <source>EFI System Partition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/partitionpopover.cpp" line="72"/>
+        <source>Extended Boot Partition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/partitionpopover.cpp" line="74"/>
+        <source>Erase Only</source>
+        <translation type="unfinished">Sadece Sil</translation>
+    </message>
+    <message>
+        <location filename="../operations/partitionpopover.cpp" line="98"/>
+        <source>New Partition</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -174,7 +174,7 @@ void DiskPane::on_editPartitionsButton_clicked() {
 
     PartitionPopover* jp = new PartitionPopover(disk);
     tPopover* popover = new tPopover(jp);
-    popover->setPopoverWidth(-1);
+    popover->setPopoverWidth(500);
     popover->setPopoverSide(tPopover::Bottom);
     connect(jp, &PartitionPopover::done, popover, &tPopover::dismiss);
     connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
