@@ -149,6 +149,21 @@
         <source>The disc in the drive is not writable.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../diskpane.cpp" line="267"/>
+        <source>Check this disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../diskpane.cpp" line="268"/>
+        <source>Check this disk for errors?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../diskpane.cpp" line="269"/>
+        <source>Depending on the size of the disk, the check may take a while.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>EditPartitionJob</name>

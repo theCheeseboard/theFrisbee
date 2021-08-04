@@ -259,3 +259,21 @@ void DiskPane::updateLock(bool locked) {
 void DiskPane::on_viewJobsButton_clicked() {
     tJobManager::showJobsPopover(this);
 }
+
+void DiskPane::on_checkButton_clicked() {
+    QMessageBox* box = new QMessageBox();
+    box->setParent(this);
+    box->setWindowModality(Qt::WindowModal);
+    box->setWindowTitle(tr("Check this disk"));
+    box->setText(tr("Check this disk for errors?"));
+    box->setInformativeText(tr("Depending on the size of the disk, the check may take a while."));
+    box->setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    box->setIcon(QMessageBox::Question);
+    connect(box, &QMessageBox::finished, this, [ = ](int result) {
+        if (result == QMessageBox::Yes) {
+            //Check the disk
+        }
+        box->deleteLater();
+    });
+    box->open();
+}

@@ -46,6 +46,8 @@ class DiskPane : public QWidget {
 
         void on_viewJobsButton_clicked();
 
+        void on_checkButton_clicked();
+
     private:
         Ui::DiskPane* ui;
         DiskPanePrivate* d;
