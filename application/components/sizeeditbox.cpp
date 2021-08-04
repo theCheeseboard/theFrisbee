@@ -23,26 +23,34 @@ struct SizeEditBoxPrivate {
     static QMap<QString, quint64> factors;
 };
 
+#define BYTE_FACTOR 1ULL
+#define KILOBYTE_FACTOR 1024ULL
+#define MEGABYTE_FACTOR KILOBYTE_FACTOR * KILOBYTE_FACTOR
+#define GIGABYTE_FACTOR MEGABYTE_FACTOR * KILOBYTE_FACTOR
+#define TERABYTE_FACTOR GIGABYTE_FACTOR * KILOBYTE_FACTOR
+#define PETABYTE_FACTOR TERABYTE_FACTOR * KILOBYTE_FACTOR
+#define EXABYTE_FACTOR PETABYTE_FACTOR * KILOBYTE_FACTOR
+
 QMap<QString, quint64> SizeEditBoxPrivate::factors = {
-    {"B", 1ULL},
-    {"K", 1024ULL},
-    {"KB", 1024ULL},
-    {"KIB", 1024ULL},
-    {"M", 1024 * 1024ULL},
-    {"MB", 1024 * 1024ULL},
-    {"MIB", 1024 * 1024ULL},
-    {"G", 1024 * 1024 * 1024ULL},
-    {"GB", 1024 * 1024 * 1024ULL},
-    {"GIB", 1024 * 1024 * 1024ULL},
-    {"T", 1024 * 1024 * 1024 * 1024ULL},
-    {"TB", 1024 * 1024 * 1024 * 1024ULL},
-    {"TIB", 1024 * 1024 * 1024 * 1024ULL},
-    {"P", 1024 * 1024 * 1024 * 1024 * 1024ULL},
-    {"PB", 1024 * 1024 * 1024 * 1024 * 1024ULL},
-    {"PIB", 1024 * 1024 * 1024 * 1024 * 1024ULL},
-    {"E", 1024 * 1024 * 1024 * 1024 * 1024 * 1024ULL},
-    {"EB", 1024 * 1024 * 1024 * 1024 * 1024 * 1024ULL},
-    {"EIB", 1024 * 1024 * 1024 * 1024 * 1024 * 1024ULL}
+    {"B", BYTE_FACTOR},
+    {"K", KILOBYTE_FACTOR},
+    {"KB", KILOBYTE_FACTOR},
+    {"KIB", KILOBYTE_FACTOR},
+    {"M", MEGABYTE_FACTOR},
+    {"MB", MEGABYTE_FACTOR},
+    {"MIB", MEGABYTE_FACTOR},
+    {"G", GIGABYTE_FACTOR},
+    {"GB", GIGABYTE_FACTOR},
+    {"GIB", GIGABYTE_FACTOR},
+    {"T", TERABYTE_FACTOR},
+    {"TB", TERABYTE_FACTOR},
+    {"TIB", TERABYTE_FACTOR},
+    {"P", PETABYTE_FACTOR},
+    {"PB", PETABYTE_FACTOR},
+    {"PIB", PETABYTE_FACTOR},
+    {"E", EXABYTE_FACTOR},
+    {"EB", EXABYTE_FACTOR},
+    {"EIB", EXABYTE_FACTOR}
 };
 
 SizeEditBox::SizeEditBox(QWidget* parent) : QLineEdit(parent) {
