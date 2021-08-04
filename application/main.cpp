@@ -22,6 +22,7 @@
 #include <QDir>
 #include <tsettings.h>
 #include <tapplication.h>
+#include <tstylemanager.h>
 
 int main(int argc, char* argv[]) {
     tApplication a(argc, argv);
@@ -54,6 +55,8 @@ int main(int argc, char* argv[]) {
 #endif
 
     a.registerCrashTrap();
+
+    tStyleManager::setOverrideStyleForApplication(tStyleManager::ContemporaryDark);
 
     tSettings::registerDefaults(a.applicationDirPath() + "/defaults.conf");
     tSettings::registerDefaults("/etc/theSuite/thefrisbee/defaults.conf");

@@ -1056,7 +1056,7 @@ Sürücüdeki disk silindikten sonra, üzerindeki tüm veriler sonsuza dek kaybo
 <context>
     <name>main</name>
     <message>
-        <location filename="../main.cpp" line="37"/>
+        <location filename="../main.cpp" line="38"/>
         <source>Disk Utility</source>
         <translation type="unfinished"></translation>
     </message>
