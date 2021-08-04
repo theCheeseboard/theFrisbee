@@ -32,8 +32,10 @@
 #include <QPainter>
 #include <thelpmenu.h>
 #include <tpaintcalculator.h>
+#include <tpopover.h>
 #include "diskmodel.h"
 #include "diskpane.h"
+#include "operations/creatediskimagepopover.h"
 
 struct MainWindowPrivate {
     tCsdTools csd;
@@ -59,6 +61,7 @@ MainWindow::MainWindow(QWidget* parent)
     }
 
     QMenu* menu = new QMenu(this);
+    menu->addAction(ui->actionCreate_Disk_Image);
     menu->addAction(ui->actionMountImage);
     menu->addSeparator();
     menu->addMenu(new tHelpMenu(this));
@@ -90,17 +93,18 @@ MainWindow::~MainWindow() {
 void MainWindow::on_actionMountImage_triggered() {
     QFileDialog* dialog = new QFileDialog(this);
     dialog->setAcceptMode(QFileDialog::AcceptOpen);
-    dialog->setNameFilters({"Disk Images (*.img, *.iso)"});
+    dialog->setNameFilters({"Disk Images (*.img *.iso)"});
     dialog->setFileMode(QFileDialog::AnyFile);
     connect(dialog, &QFileDialog::fileSelected, this, [ = ](QString file) {
         QFile f(file);
         f.open(QFile::ReadOnly);
 
         QDBusUnixFileDescriptor fd(f.handle());
-        DriveObjectManager::loopSetup(fd, {})->error([ = ](QString error) {
+        DriveObjectManager::loopSetup(fd, {
+            {"read-only", false}
+        })->error([ = ](QString error) {
             tCritical("LoopSetup") << error;
         });
-
     });
     connect(dialog, &QFileDialog::finished, dialog, &QFileDialog::deleteLater);
     dialog->open();
@@ -127,5 +131,17 @@ bool MainWindow::eventFilter(QObject* watched, QEvent* event) {
         delete painter;
     }
     return false;
+}
+
+
+void MainWindow::on_actionCreate_Disk_Image_triggered() {
+    CreateDiskImagePopover* jp = new CreateDiskImagePopover();
+    tPopover* popover = new tPopover(jp);
+    popover->setPopoverWidth(SC_DPI(-200));
+    popover->setPopoverSide(tPopover::Bottom);
+    connect(jp, &CreateDiskImagePopover::done, popover, &tPopover::dismiss);
+    connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
+    connect(popover, &tPopover::dismissed, jp, &CreateDiskImagePopover::deleteLater);
+    popover->show(this->window());
 }
 

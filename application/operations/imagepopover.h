@@ -40,6 +40,8 @@ class ImagePopover : public QWidget {
 
         void on_titleLabel_backButtonClicked();
 
+        void on_browseButton_clicked();
+
     signals:
         void done();
 

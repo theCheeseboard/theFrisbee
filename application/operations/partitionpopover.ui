@@ -296,12 +296,23 @@ We won't modify anything until you apply your changes.</string>
            </widget>
           </item>
           <item>
+           <widget class="QLabel" name="applyDescription">
+            <property name="text">
+             <string notr="true">TextLabel</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QPushButton" name="performApplyButton">
             <property name="text">
              <string>Apply Changes to Disk</string>
             </property>
             <property name="icon">
-             <iconset theme="dialog-ok"/>
+             <iconset theme="dialog-ok">
+              <normaloff>.</normaloff>.</iconset>
             </property>
            </widget>
           </item>

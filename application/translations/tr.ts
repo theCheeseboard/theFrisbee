@@ -2,6 +2,45 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="tr" sourcelanguage="en_US">
 <context>
+    <name>CreateDiskImagePopover</name>
+    <message>
+        <location filename="../operations/creatediskimagepopover.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/creatediskimagepopover.ui" line="35"/>
+        <location filename="../operations/creatediskimagepopover.ui" line="52"/>
+        <source>Create Disk Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/creatediskimagepopover.ui" line="89"/>
+        <source>Output File</source>
+        <translation type="unfinished">Çıktı Dosyası</translation>
+    </message>
+    <message>
+        <location filename="../operations/creatediskimagepopover.ui" line="96"/>
+        <source>Attach this disk image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/creatediskimagepopover.ui" line="82"/>
+        <source>Disk Image Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/creatediskimagepopover.ui" line="45"/>
+        <source>Browse...</source>
+        <translation type="unfinished">Araştır...</translation>
+    </message>
+    <message>
+        <location filename="../operations/creatediskimagepopover.ui" line="72"/>
+        <source>DISK IMAGE OPTIONS</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>DiskPane</name>
     <message>
         <location filename="../diskpane.ui" line="35"/>
@@ -424,17 +463,17 @@
         <translation>Bu diski görüntüle</translation>
     </message>
     <message>
-        <location filename="../operations/imagepopover.cpp" line="75"/>
+        <location filename="../operations/imagepopover.cpp" line="76"/>
         <source>Disk Imaged</source>
         <translation>Disk Görüntüsü</translation>
     </message>
     <message>
-        <location filename="../operations/imagepopover.cpp" line="76"/>
+        <location filename="../operations/imagepopover.cpp" line="77"/>
         <source>The disk image has been created</source>
         <translation>Disk görüntüsü oluşturuldu</translation>
     </message>
     <message>
-        <location filename="../operations/imagepopover.cpp" line="81"/>
+        <location filename="../operations/imagepopover.cpp" line="82"/>
         <source>Couldn&apos;t image disk</source>
         <translation>Görüntü diski açılamadı</translation>
     </message>
@@ -465,6 +504,16 @@
         <location filename="../mainwindow.ui" line="192"/>
         <source>Attach Image</source>
         <translation>Resim Ekle</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="200"/>
+        <source>Create Disk Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="203"/>
+        <source>Ctrl+N</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -747,7 +796,7 @@ We won&apos;t modify anything until you apply your changes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="301"/>
+        <location filename="../operations/partitionpopover.ui" line="311"/>
         <source>Apply Changes to Disk</source>
         <translation type="unfinished"></translation>
     </message>
@@ -759,6 +808,16 @@ We won&apos;t modify anything until you apply your changes.</source>
     <message>
         <location filename="../operations/partitionpopover.cpp" line="92"/>
         <source>New Partition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/partitionpopover.cpp" line="224"/>
+        <source>Once these changes are applied, you won&apos;t be able to recover any partitions that you&apos;ve deleted easily.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/partitionpopover.cpp" line="227"/>
+        <source>Ready to apply these changes to the disk?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

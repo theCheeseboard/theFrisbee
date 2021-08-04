@@ -11,6 +11,7 @@ CONFIG += c++11
 
 SOURCES += \
     components/partitionvisualisation.cpp \
+    components/sizeeditbox.cpp \
     diskPanes/diskpanecomponent.cpp \
     diskPanes/overviewdiskpane.cpp \
     diskmodel.cpp \
@@ -26,6 +27,7 @@ SOURCES += \
     jobs/restoreopticaljob.cpp \
     main.cpp \
     mainwindow.cpp \
+    operations/creatediskimagepopover.cpp \
     operations/eraseopticalpopover.cpp \
     operations/erasepartitionpopover.cpp \
     operations/erasepartitiontablepopover.cpp \
@@ -37,6 +39,7 @@ SOURCES += \
 
 HEADERS += \
     components/partitionvisualisation.h \
+    components/sizeeditbox.h \
     diskPanes/diskpanecomponent.h \
     diskPanes/overviewdiskpane.h \
     diskmodel.h \
@@ -51,6 +54,7 @@ HEADERS += \
     jobs/restorejob.h \
     jobs/restoreopticaljob.h \
     mainwindow.h \
+    operations/creatediskimagepopover.h \
     operations/eraseopticalpopover.h \
     operations/erasepartitionpopover.h \
     operations/erasepartitiontablepopover.h \
@@ -68,6 +72,7 @@ FORMS += \
     jobs/progress/restorediskjobprogress.ui \
     jobs/progress/restoreopticaljobprogress.ui \
     mainwindow.ui \
+    operations/creatediskimagepopover.ui \
     operations/eraseopticalpopover.ui \
     operations/erasepartitionpopover.ui \
     operations/erasepartitiontablepopover.ui \

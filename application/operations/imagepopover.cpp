@@ -20,6 +20,7 @@
 #include "imagepopover.h"
 #include "ui_imagepopover.h"
 
+#include <QFileDialog>
 #include <DriveObjects/diskobject.h>
 #include <DriveObjects/blockinterface.h>
 
@@ -89,3 +90,16 @@ void ImagePopover::on_imageButton_clicked() {
 void ImagePopover::on_titleLabel_backButtonClicked() {
     emit done();
 }
+
+void ImagePopover::on_browseButton_clicked() {
+    QFileDialog* dialog = new QFileDialog(this);
+    dialog->setAcceptMode(QFileDialog::AcceptSave);
+    dialog->setNameFilters({"Disk Images (*.img *.iso)"});
+    dialog->setFileMode(QFileDialog::AnyFile);
+    connect(dialog, &QFileDialog::fileSelected, this, [ = ](QString file) {
+        ui->outputFileBox->setText(file);
+    });
+    connect(dialog, &QFileDialog::finished, dialog, &QFileDialog::deleteLater);
+    dialog->open();
+}
+

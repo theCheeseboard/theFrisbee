@@ -1,7 +1,7 @@
 /****************************************
  *
  *   INSERT-PROJECT-NAME-HERE - INSERT-GENERIC-NAME-HERE
- *   Copyright (C) 2020 Victor Tran
+ *   Copyright (C) 2021 Victor Tran
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -17,36 +17,34 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef CREATEDISKIMAGEPOPOVER_H
+#define CREATEDISKIMAGEPOPOVER_H
 
-#include <QMainWindow>
+#include <QWidget>
 
-QT_BEGIN_NAMESPACE
 namespace Ui {
-    class MainWindow;
+    class CreateDiskImagePopover;
 }
-QT_END_NAMESPACE
 
-struct MainWindowPrivate;
-class MainWindow : public QMainWindow {
+class CreateDiskImagePopover : public QWidget {
         Q_OBJECT
 
     public:
-        MainWindow(QWidget* parent = nullptr);
-        ~MainWindow();
+        explicit CreateDiskImagePopover(QWidget* parent = nullptr);
+        ~CreateDiskImagePopover();
+
+    signals:
+        void done();
 
     private slots:
-        void on_actionMountImage_triggered();
+        void on_titleLabel_backButtonClicked();
 
-        void on_actionExit_triggered();
+        void on_imageButton_clicked();
 
-        void on_actionCreate_Disk_Image_triggered();
+        void on_browseButton_clicked();
 
     private:
-        Ui::MainWindow* ui;
-        MainWindowPrivate* d;
-
-        bool eventFilter(QObject* watched, QEvent* event);
+        Ui::CreateDiskImagePopover* ui;
 };
-#endif // MAINWINDOW_H
+
+#endif // CREATEDISKIMAGEPOPOVER_H

@@ -1,7 +1,7 @@
 /****************************************
  *
  *   INSERT-PROJECT-NAME-HERE - INSERT-GENERIC-NAME-HERE
- *   Copyright (C) 2020 Victor Tran
+ *   Copyright (C) 2021 Victor Tran
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -17,36 +17,42 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef SIZEEDITBOX_H
+#define SIZEEDITBOX_H
 
-#include <QMainWindow>
+#include <QValidator>
+#include <QLineEdit>
 
-QT_BEGIN_NAMESPACE
-namespace Ui {
-    class MainWindow;
-}
-QT_END_NAMESPACE
-
-struct MainWindowPrivate;
-class MainWindow : public QMainWindow {
+struct SizeEditBoxPrivate;
+class SizeEditBox : public QLineEdit {
         Q_OBJECT
-
     public:
-        MainWindow(QWidget* parent = nullptr);
-        ~MainWindow();
+        explicit SizeEditBox(QWidget* parent = nullptr);
+        ~SizeEditBox();
 
-    private slots:
-        void on_actionMountImage_triggered();
+        bool hasValidSize();
+        quint64 size();
 
-        void on_actionExit_triggered();
-
-        void on_actionCreate_Disk_Image_triggered();
+    signals:
 
     private:
-        Ui::MainWindow* ui;
-        MainWindowPrivate* d;
-
-        bool eventFilter(QObject* watched, QEvent* event);
+        SizeEditBoxPrivate* d;
 };
-#endif // MAINWINDOW_H
+
+struct SizeEditValidatorPrivate;
+class SizeEditValidator : public QValidator {
+        Q_OBJECT
+    public:
+        explicit SizeEditValidator(QObject* parent = nullptr);
+        ~SizeEditValidator();
+
+    private:
+        SizeEditValidatorPrivate* d;
+
+        // QValidator interface
+    public:
+        State validate(QString& input, int& pos) const;
+        void fixup(QString& input) const;
+};
+
+#endif // SIZEEDITBOX_H

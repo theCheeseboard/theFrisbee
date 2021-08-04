@@ -215,6 +215,19 @@ void PartitionPopover::on_applyButton_clicked() {
     ui->visualisation->setSelectedPartition(PartitionVisualisation::Partition());
     d->editing = PartitionVisualisation::Partition();
 
+    bool haveDeleteOperation = false;
+    for (PartitionOperation operation : d->operations) {
+        if (operation.type == "delete") haveDeleteOperation = true;
+    }
+
+    if (haveDeleteOperation) {
+        ui->applyDescription->setText(tr("Once these changes are applied, you won't be able to recover any partitions that you've deleted easily."));
+        ui->performApplyButton->setProperty("type", "destructive");
+    } else {
+        ui->applyDescription->setText(tr("Ready to apply these changes to the disk?"));
+        ui->performApplyButton->setProperty("type", "normal");
+    }
+
     ui->mainStack->setCurrentWidget(ui->applyPage);
     ui->stackedWidget->setCurrentWidget(ui->actionsPage);
 }

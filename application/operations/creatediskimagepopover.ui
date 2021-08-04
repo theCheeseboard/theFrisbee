@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ImagePopover</class>
- <widget class="QWidget" name="ImagePopover">
+ <class>CreateDiskImagePopover</class>
+ <widget class="QWidget" name="CreateDiskImagePopover">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>845</width>
-    <height>627</height>
+    <width>852</width>
+    <height>488</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string notr="true">Form</string>
+   <string>Form</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -32,29 +32,33 @@
    <item>
     <widget class="tTitleLabel" name="titleLabel">
      <property name="text">
-      <string>Image Disk</string>
+      <string>Create Disk Image</string>
      </property>
     </widget>
    </item>
    <item alignment="Qt::AlignHCenter">
     <widget class="QWidget" name="optionsWidget" native="true">
      <layout class="QGridLayout" name="gridLayout">
-      <item row="1" column="0">
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>Output File</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QLineEdit" name="outputFileBox"/>
-      </item>
-      <item row="1" column="2">
+      <item row="2" column="2">
        <widget class="QPushButton" name="browseButton">
         <property name="text">
          <string>Browse...</string>
         </property>
        </widget>
+      </item>
+      <item row="4" column="0" colspan="3">
+       <widget class="QPushButton" name="imageButton">
+        <property name="text">
+         <string>Create Disk Image</string>
+        </property>
+        <property name="icon">
+         <iconset theme="document-new">
+          <normaloff>.</normaloff>.</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1" colspan="2">
+       <widget class="SizeEditBox" name="sizeBox"/>
       </item>
       <item row="0" column="0" colspan="3">
        <widget class="QLabel" name="label">
@@ -65,18 +69,34 @@
          </font>
         </property>
         <property name="text">
-         <string>IMAGING OPTIONS</string>
+         <string>DISK IMAGE OPTIONS</string>
         </property>
        </widget>
       </item>
-      <item row="2" column="0" colspan="3">
-       <widget class="QPushButton" name="imageButton">
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="outputFileBox"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_3">
         <property name="text">
-         <string>Image this disk</string>
+         <string>Disk Image Size</string>
         </property>
-        <property name="icon">
-         <iconset theme="document-new">
-          <normaloff>.</normaloff>.</iconset>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Output File</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0" colspan="3">
+       <widget class="QCheckBox" name="attachCheckbox">
+        <property name="text">
+         <string>Attach this disk image</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -91,7 +111,7 @@
      <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
-       <height>40</height>
+       <height>311</height>
       </size>
      </property>
     </spacer>
@@ -106,6 +126,11 @@
    <slots>
     <signal>backButtonClicked()</signal>
    </slots>
+  </customwidget>
+  <customwidget>
+   <class>SizeEditBox</class>
+   <extends>QLineEdit</extends>
+   <header>components/sizeeditbox.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
