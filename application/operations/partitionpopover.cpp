@@ -30,6 +30,9 @@
 
 #include <tlogger.h>
 #include <tpaintcalculator.h>
+#include <tjobmanager.h>
+#include "partitioninformation.h"
+#include "jobs/editpartitionjob.h"
 
 struct PartitionPopoverPrivate {
     DiskObject* disk;
@@ -58,20 +61,11 @@ PartitionPopover::PartitionPopover(DiskObject* disk, QWidget* parent) :
     ui->titleLabel->setBackButtonShown(true);
 
     QSignalBlocker blocker(ui->partitionType);
-    QStringList supportedFilesystems = DriveObjectManager::supportedFilesystems();
-    if (supportedFilesystems.contains("ext4")) ui->partitionType->addItem(tr("ext4 (Linux Filesystem)"), "ext4");
-    if (supportedFilesystems.contains("ntfs")) ui->partitionType->addItem(tr("NTFS (Windows Filesystem)"), "ntfs");
-    if (supportedFilesystems.contains("exfat")) ui->partitionType->addItem(tr("exFAT (All Systems)"), "exfat");
-    if (supportedFilesystems.contains("swap")) ui->partitionType->addItem(tr("Linux Swap"), "swap");
-    if (supportedFilesystems.contains("xfs")) ui->partitionType->addItem(tr("XFS (Linux Filesystem)"), "xfs");
-    if (supportedFilesystems.contains("btrfs")) ui->partitionType->addItem(tr("BTRFS (Linux Filesystem)"), "btrfs");
-    if (supportedFilesystems.contains("f2fs")) ui->partitionType->addItem(tr("F2FS (Flash Optimised Filesystem)"), "f2fs");
-    if (supportedFilesystems.contains("vfat")) {
-        ui->partitionType->addItem(tr("FAT (All Systems)"), "vfat");
-        ui->partitionType->addItem(tr("EFI System Partition"), "efi");
-        ui->partitionType->addItem(tr("Extended Boot Partition"), "xbl");
+
+    for (QString type : PartitionInformation::availableFormatTypes()) {
+        ui->partitionType->addItem(PartitionInformation::typeName(type), type);
     }
-    ui->partitionType->addItem(tr("Erase Only"), "empty");
+    ui->partitionType->addItem(tr("Leave Empty"), "empty");
 
     ui->visualisation->setFixedHeight(SC_DPI(100));
     initialiseState();
@@ -108,6 +102,7 @@ PartitionPopover::PartitionPopover(DiskObject* disk, QWidget* parent) :
         d->currentOperation.data.insert("name", p.name);
         d->currentOperation.data.insert("size", p.size);
         d->currentOperation.data.insert("offset", p.offset);
+        d->currentOperation.data.insert("internalId", p.id());
         d->currentOperation.data.insert("type", "ext4");
         d->currentOperation.edited = true;
 
@@ -196,10 +191,13 @@ void PartitionPopover::updatePartition(PartitionVisualisation::Partition partiti
 }
 
 void PartitionPopover::on_deletePartitionButton_clicked() {
-    PartitionOperation operation;
-    operation.type = "delete";
-    operation.data.insert("partition", d->editing.id());
-    d->operations.append(operation);
+    //We can just disregard the new partition if we are deleting it
+    if (d->currentOperation.type != "new") {
+        PartitionOperation operation;
+        operation.type = "delete";
+        operation.data.insert("partition", d->editing.id());
+        d->operations.append(operation);
+    }
     d->currentOperation = PartitionPopover::PartitionOperation();
 
     //Update the partition mapping
@@ -223,12 +221,16 @@ void PartitionPopover::on_applyButton_clicked() {
 
 
 void PartitionPopover::on_performApplyButton_clicked() {
-    for (PartitionOperation op : d->operations) {
+    for (const PartitionOperation& op : qAsConst(d->operations)) {
         tDebug("PartitionPopover") << "Operation type: " << op.type;
-        for (QString key : op.data.keys()) {
+        for (const QString& key : op.data.keys()) {
             tDebug("PartitionPopover") << key << " -> " << op.data.value(key).toString();
         }
     }
+
+    EditPartitionJob* job = new EditPartitionJob(d->operations, d->disk);
+    tJobManager::trackJob(job);
+    emit done();
 }
 
 

@@ -21,6 +21,7 @@
 #include "ui_erasepartitionpopover.h"
 
 #include <driveobjectmanager.h>
+#include "partitioninformation.h"
 #include <DriveObjects/diskobject.h>
 #include <DriveObjects/blockinterface.h>
 
@@ -43,15 +44,9 @@ ErasePartitionPopover::ErasePartitionPopover(DiskObject* disk, QWidget* parent) 
     ui->doEraseButton->setProperty("type", "destructive");
     ui->stackedWidget->setCurrentAnimation(tStackedWidget::SlideHorizontal);
 
-    QStringList supportedFilesystems = DriveObjectManager::supportedFilesystems();
-    if (supportedFilesystems.contains("ext4")) ui->filesystemBox->addItem(tr("ext4 (Linux Filesystem)"), "ext4");
-    if (supportedFilesystems.contains("ntfs")) ui->filesystemBox->addItem(tr("NTFS (Windows Filesystem)"), "ntfs");
-    if (supportedFilesystems.contains("exfat")) ui->filesystemBox->addItem(tr("exFAT (All Systems)"), "exfat");
-    if (supportedFilesystems.contains("swap")) ui->filesystemBox->addItem(tr("Linux Swap"), "swap");
-    if (supportedFilesystems.contains("xfs")) ui->filesystemBox->addItem(tr("XFS (Linux Filesystem)"), "xfs");
-    if (supportedFilesystems.contains("btrfs")) ui->filesystemBox->addItem(tr("BTRFS (Linux Filesystem)"), "btrfs");
-    if (supportedFilesystems.contains("f2fs")) ui->filesystemBox->addItem(tr("F2FS (Flash Optimised Filesystem)"), "f2fs");
-    if (supportedFilesystems.contains("vfat")) ui->filesystemBox->addItem(tr("FAT (All Systems)"), "vfat");
+    for (QString type : PartitionInformation::availableFormatTypes()) {
+        ui->filesystemBox->addItem(PartitionInformation::typeName(type), type);
+    }
     ui->filesystemBox->addItem(tr("Erase Only"), "empty");
 
     d->disk = disk;
@@ -75,6 +70,7 @@ void ErasePartitionPopover::on_titleLabel_2_backButtonClicked() {
 }
 
 void ErasePartitionPopover::on_doEraseButton_clicked() {
+    //TODO: Update partition type
     d->disk->interface<BlockInterface>()->format(ui->filesystemBox->currentData().toString(), {
         {"label", ui->labelBox->text()},
         {"no-block", true},

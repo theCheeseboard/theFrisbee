@@ -97,6 +97,8 @@ QModelIndex DiskModel::parent(const QModelIndex& index) const {
 int DiskModel::rowCount(const QModelIndex& parent) const {
     if (parent.isValid()) {
         DiskObject* parentDisk = static_cast<DiskObject*>(parent.internalPointer());
+        if (!parentDisk) return 0;
+
         PartitionTableInterface* partitionTable = parentDisk->interface<PartitionTableInterface>();
         EncryptedInterface* encrypted = parentDisk->interface<EncryptedInterface>();
         if (partitionTable) {

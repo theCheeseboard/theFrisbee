@@ -24,6 +24,7 @@
 
 class DiskObject;
 class tPaintCalculator;
+class EditPartitionJob;
 struct PartitionVisualisationPrivate;
 class PartitionVisualisation : public QWidget {
         Q_OBJECT
@@ -64,10 +65,14 @@ class PartitionVisualisation : public QWidget {
         void emptySpaceClicked(quint64 offset, quint64 availableSpaceAfter);
 
     private:
+        friend EditPartitionJob;
         PartitionVisualisationPrivate* d;
 
         tPaintCalculator calculatePartitions(QPainter* painter);
         QString hitTestPartition(double x);
+
+        static void mapPartition(quint64 id, DiskObject* disk);
+        static DiskObject* mappedDisk(quint64 id);
 
         // QWidget interface
     protected:

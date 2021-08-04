@@ -53,7 +53,8 @@ RestoreOpticalPopover::RestoreOpticalPopover(DiskObject* disk, QWidget* parent) 
     ui->doRestoreButtonOptical->setProperty("type", "destructive");
     ui->diskSelection->setModel(new DiskModel());
 
-    if (d->disk->interface<BlockInterface>()->drive()->isOpticalDrive()) {
+    DriveInterface* drive = d->disk->interface<BlockInterface>()->drive();
+    if (drive && drive->isOpticalDrive()) {
         ui->titleLabel->setText(tr("Restore Disc"));
     } else {
         ui->titleLabel->setText(tr("Restore to Block"));

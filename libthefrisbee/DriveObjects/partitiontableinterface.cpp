@@ -61,7 +61,8 @@ DiskInterface::Interfaces PartitionTableInterface::interfaceType() {
 QList<DiskObject*> PartitionTableInterface::partitions() {
     QList<DiskObject*> diskObjects;
     for (QDBusObjectPath path : d->partitions) {
-        diskObjects.append(DriveObjectManager::diskForPath(path));
+        DiskObject* disk = DriveObjectManager::diskForPath(path);
+        if (disk) diskObjects.append(disk);
     }
 
     std::sort(diskObjects.begin(), diskObjects.end(), [ = ](DiskObject * first, DiskObject * second) {

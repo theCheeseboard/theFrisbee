@@ -122,6 +122,14 @@ QString PartitionVisualisation::hitTestPartition(double x) {
     return "";
 }
 
+void PartitionVisualisation::mapPartition(quint64 id, DiskObject* disk) {
+    PartitionVisualisationPrivate::diskMappings.insert(id, disk);
+}
+
+DiskObject* PartitionVisualisation::mappedDisk(quint64 id) {
+    return PartitionVisualisationPrivate::diskMappings.value(id);
+}
+
 
 void PartitionVisualisation::mousePressEvent(QMouseEvent* event) {
     if (d->currentPartition.isEmpty()) {

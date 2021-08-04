@@ -15,7 +15,9 @@ SOURCES += \
     diskPanes/overviewdiskpane.cpp \
     diskmodel.cpp \
     diskpane.cpp \
+    jobs/editpartitionjob.cpp \
     jobs/erasecdrwjob.cpp \
+    jobs/progress/editpartitionjobprogress.cpp \
     jobs/progress/erasecdrwjobprogress.cpp \
     jobs/progress/restorediskjobprogress.cpp \
     jobs/progress/restoreopticaljobprogress.cpp \
@@ -30,7 +32,8 @@ SOURCES += \
     operations/imagepopover.cpp \
     operations/partitionpopover.cpp \
     operations/restoreopticalpopover.cpp \
-    optical/opticalerrortracker.cpp
+    optical/opticalerrortracker.cpp \
+    partitioninformation.cpp
 
 HEADERS += \
     components/partitionvisualisation.h \
@@ -38,7 +41,9 @@ HEADERS += \
     diskPanes/overviewdiskpane.h \
     diskmodel.h \
     diskpane.h \
+    jobs/editpartitionjob.h \
     jobs/erasecdrwjob.h \
+    jobs/progress/editpartitionjobprogress.h \
     jobs/progress/erasecdrwjobprogress.h \
     jobs/progress/restorediskjobprogress.h \
     jobs/progress/restoreopticaljobprogress.h \
@@ -52,11 +57,13 @@ HEADERS += \
     operations/imagepopover.h \
     operations/partitionpopover.h \
     operations/restoreopticalpopover.h \
-    optical/opticalerrortracker.h
+    optical/opticalerrortracker.h \
+    partitioninformation.h
 
 FORMS += \
     diskPanes/overviewdiskpane.ui \
     diskpane.ui \
+    jobs/progress/editpartitionjobprogress.ui \
     jobs/progress/erasecdrwjobprogress.ui \
     jobs/progress/restorediskjobprogress.ui \
     jobs/progress/restoreopticaljobprogress.ui \

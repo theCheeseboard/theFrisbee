@@ -27,7 +27,7 @@
 #include <DriveObjects/loopinterface.h>
 
 struct OverviewDiskPanePrivate {
-    DiskObject* disk;
+    QPointer<DiskObject> disk;
 };
 
 OverviewDiskPane::OverviewDiskPane(DiskObject* disk, QWidget* parent) :

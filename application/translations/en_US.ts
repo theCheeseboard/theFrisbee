@@ -112,6 +112,62 @@
     </message>
 </context>
 <context>
+    <name>EditPartitionJob</name>
+    <message>
+        <location filename="../jobs/editpartitionjob.cpp" line="50"/>
+        <source>Waiting for other jobs to finish</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../jobs/editpartitionjob.cpp" line="90"/>
+        <source>Partitioning Complete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../jobs/editpartitionjob.cpp" line="96"/>
+        <source>Partitioning Operations Complete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../jobs/editpartitionjob.cpp" line="97"/>
+        <source>Changes to %1 have been applied.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../jobs/editpartitionjob.cpp" line="113"/>
+        <source>Creating partition %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../jobs/editpartitionjob.cpp" line="147"/>
+        <source>Deleting partition %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../jobs/editpartitionjob.cpp" line="166"/>
+        <source>A partition operation failed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../jobs/editpartitionjob.cpp" line="170"/>
+        <source>Partitioning Operations Failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../jobs/editpartitionjob.cpp" line="171"/>
+        <source>Changes to %1 could not be applied. The disk may be in an inconsistent state.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>EditPartitionJobProgress</name>
+    <message>
+        <location filename="../jobs/progress/editpartitionjobprogress.cpp" line="31"/>
+        <source>Partitioning %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>EraseCdRwJob</name>
     <message>
         <location filename="../jobs/erasecdrwjob.cpp" line="51"/>
@@ -285,47 +341,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitionpopover.cpp" line="47"/>
-        <source>ext4 (Linux Filesystem)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/erasepartitionpopover.cpp" line="48"/>
-        <source>NTFS (Windows Filesystem)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/erasepartitionpopover.cpp" line="49"/>
-        <source>exFAT (All Systems)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../operations/erasepartitionpopover.cpp" line="50"/>
-        <source>Linux Swap</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/erasepartitionpopover.cpp" line="51"/>
-        <source>XFS (Linux Filesystem)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/erasepartitionpopover.cpp" line="52"/>
-        <source>BTRFS (Linux Filesystem)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/erasepartitionpopover.cpp" line="53"/>
-        <source>F2FS (Flash Optimised Filesystem)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/erasepartitionpopover.cpp" line="54"/>
-        <source>FAT (All Systems)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/erasepartitionpopover.cpp" line="55"/>
         <source>Erase Only</source>
         <translation type="unfinished"></translation>
     </message>
@@ -619,6 +635,59 @@
     </message>
 </context>
 <context>
+    <name>PartitionInformation</name>
+    <message>
+        <location filename="../partitioninformation.cpp" line="53"/>
+        <source>ext4 (Linux Filesystem)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../partitioninformation.cpp" line="54"/>
+        <source>NTFS (Windows Filesystem)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../partitioninformation.cpp" line="55"/>
+        <source>exFAT (All Systems)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../partitioninformation.cpp" line="56"/>
+        <source>Linux Swap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../partitioninformation.cpp" line="57"/>
+        <source>XFS (Linux Filesystem)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../partitioninformation.cpp" line="58"/>
+        <source>BTRFS (Linux Filesystem)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../partitioninformation.cpp" line="59"/>
+        <source>F2FS (Flash Optimised Filesystem)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../partitioninformation.cpp" line="60"/>
+        <source>FAT (All Systems)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../partitioninformation.cpp" line="61"/>
+        <source>EFI System Partition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../partitioninformation.cpp" line="62"/>
+        <source>Extended Boot Partition</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>PartitionPopover</name>
     <message>
         <location filename="../operations/partitionpopover.ui" line="35"/>
@@ -683,62 +752,12 @@ We won&apos;t modify anything until you apply your changes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.cpp" line="62"/>
-        <source>ext4 (Linux Filesystem)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/partitionpopover.cpp" line="63"/>
-        <source>NTFS (Windows Filesystem)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/partitionpopover.cpp" line="64"/>
-        <source>exFAT (All Systems)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/partitionpopover.cpp" line="65"/>
-        <source>Linux Swap</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/partitionpopover.cpp" line="66"/>
-        <source>XFS (Linux Filesystem)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/partitionpopover.cpp" line="67"/>
-        <source>BTRFS (Linux Filesystem)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../operations/partitionpopover.cpp" line="68"/>
-        <source>F2FS (Flash Optimised Filesystem)</source>
+        <source>Leave Empty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.cpp" line="70"/>
-        <source>FAT (All Systems)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/partitionpopover.cpp" line="71"/>
-        <source>EFI System Partition</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/partitionpopover.cpp" line="72"/>
-        <source>Extended Boot Partition</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/partitionpopover.cpp" line="74"/>
-        <source>Erase Only</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/partitionpopover.cpp" line="98"/>
+        <location filename="../operations/partitionpopover.cpp" line="92"/>
         <source>New Partition</source>
         <translation type="unfinished"></translation>
     </message>
@@ -908,7 +927,7 @@ We won&apos;t modify anything until you apply your changes.</source>
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.ui" line="251"/>
-        <location filename="../operations/restoreopticalpopover.cpp" line="57"/>
+        <location filename="../operations/restoreopticalpopover.cpp" line="58"/>
         <source>Restore Disc</source>
         <translation type="unfinished"></translation>
     </message>
@@ -931,7 +950,7 @@ Once the disc in the drive is erased, all the data on it will be gone forever.</
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.ui" line="332"/>
-        <location filename="../operations/restoreopticalpopover.cpp" line="59"/>
+        <location filename="../operations/restoreopticalpopover.cpp" line="60"/>
         <source>Restore to Block</source>
         <translation type="unfinished"></translation>
     </message>
@@ -946,12 +965,12 @@ Once the disc in the drive is erased, all the data on it will be gone forever.</
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.cpp" line="100"/>
+        <location filename="../operations/restoreopticalpopover.cpp" line="101"/>
         <source>Unable to restore same media</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.cpp" line="100"/>
+        <location filename="../operations/restoreopticalpopover.cpp" line="101"/>
         <source>A medium cannot be restored to itself. Select another medium to restore.</source>
         <translation type="unfinished"></translation>
     </message>

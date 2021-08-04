@@ -186,11 +186,11 @@ void DiskPane::on_restoreButton_clicked() {
     //Determine which type of erasure is the most appropriate for this disk
 
     DriveInterface* drive = d->disk->interface<BlockInterface>()->drive();
-    if (!drive->mediaAvailable()) {
+    if (drive && !drive->mediaAvailable()) {
         QMessageBox::warning(this, tr("No Media"), tr("There is no media in the drive to restore to."));
         return;
     }
-    if (drive->optical()) {
+    if (drive && drive->optical()) {
         QList<DriveInterface::MediaFormat> rewritables = {
             DriveInterface::CdRw,
             DriveInterface::DvdRw,
