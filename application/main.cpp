@@ -33,7 +33,6 @@ int main(int argc, char* argv[]) {
     }
     a.installTranslators();
 
-    a.setApplicationIcon(QIcon::fromTheme("thefrisbee", QIcon(":/icons/thefrisbee.svg")));
     a.setApplicationVersion("1.0");
     a.setGenericName(QApplication::translate("main", "Disk Utility"));
     a.setAboutDialogSplashGraphic(a.aboutDialogSplashGraphicFromSvg(":/icons/aboutsplash.svg"));
@@ -46,10 +45,12 @@ int main(int argc, char* argv[]) {
     a.setApplicationUrl(tApplication::FileBug, QUrl("http://github.com/vicr123/thefrisbee/issues"));
 #ifdef T_BLUEPRINT_BUILD
     a.setApplicationName("theFrisbee Blueprint");
-    a.setDesktopFileName("com.vicr123.thefrisbee-blueprint");
+    a.setDesktopFileName("com.vicr123.thefrisbee_blueprint");
+    a.setApplicationIcon(QIcon(":/icons/thefrisbee-blueprint.svg"));
 #else
     a.setApplicationName("theFrisbee");
     a.setDesktopFileName("com.vicr123.thefrisbee");
+    a.setApplicationIcon(QIcon::fromTheme("com.vicr123.thefrisbee", QIcon(":/icons/thefrisbee.svg")));
 #endif
 
     a.registerCrashTrap();

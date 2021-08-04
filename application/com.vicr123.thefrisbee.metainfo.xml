@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.vicr123.thefrisbee</id>
+  
+  <name>theFrisbee</name>
+  <summary>Disk Management</summary>
+  
+  <metadata_license>CC-BY-SA-4.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <developer_name>Victor Tran</developer_name>
+  
+  <recommends>
+    <control>pointing</control>
+    <control>keyboard</control>
+    <control>touch</control>
+  </recommends>
+  
+  <description>
+    <p>
+      Manage your disks.
+    </p>
+  </description>
+    
+  <launchable type="desktop-id">com.vicr123.thefrisbee.desktop</launchable>
+  <content_rating type="oars-1.1">
+    <content_attribute id="social-info">mild</content_attribute>
+  </content_rating>
+  
+  <provides>
+    <binary>thefrisbee</binary>
+  </provides>
+</component>

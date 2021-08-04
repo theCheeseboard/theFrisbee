@@ -67,6 +67,11 @@ MainWindow::MainWindow(QWidget* parent)
     menu->addMenu(new tHelpMenu(this));
     menu->addAction(ui->actionExit);
 
+#ifdef T_BLUEPRINT_BUILD
+    ui->menuButton->setIcon(QIcon(":/icons/thefrisbee-blueprint.svg"));
+#else
+    ui->menuButton->setIcon(QIcon::fromTheme("com.vicr123.thefrisbee", QIcon(":/icons/thefrisbee.svg")));
+#endif
     ui->menuButton->setIconSize(SC_DPI_T(QSize(24, 24), QSize));
     ui->menuButton->setMenu(menu);
     ui->stackedWidget->setCurrentAnimation(tStackedWidget::Lift);

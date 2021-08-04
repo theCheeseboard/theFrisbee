@@ -1052,7 +1052,7 @@ Once the disc in the drive is erased, all the data on it will be gone forever.</
 <context>
     <name>main</name>
     <message>
-        <location filename="../main.cpp" line="38"/>
+        <location filename="../main.cpp" line="37"/>
         <source>Disk Utility</source>
         <translation type="unfinished"></translation>
     </message>

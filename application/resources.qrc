@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>icons/aboutsplash.svg</file>
         <file>icons/thefrisbee.svg</file>
+        <file>icons/thefrisbee-blueprint.svg</file>
     </qresource>
 </RCC>

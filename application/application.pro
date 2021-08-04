@@ -81,6 +81,7 @@ FORMS += \
     operations/restoreopticalpopover.ui
 
 DESKTOP_FILE = com.vicr123.thefrisbee.desktop
+DESKTOP_FILE_BLUEPRINT = com.vicr123.thefrisbee_blueprint.desktop
 
 unix:!macx {
     # Include the-libs build tools
@@ -98,13 +99,21 @@ unix:!macx {
 
     target.path = $$THELIBS_INSTALL_BIN
 
+    blueprint {
+        metainfo.files = com.vicr123.thefrisbee_blueprint.metainfo.xml
+        icon.files = icons/com.vicr123.thefrisbee_blueprint.svg
+    } else {
+        metainfo.files = com.vicr123.thefrisbee.metainfo.xml
+        icon.files = icons/com.vicr123.thefrisbee.svg
+    }
+
     icon.path = $$THELIBS_INSTALL_PREFIX/share/icons/hicolor/scalable/apps/
-    icon.files = icons/thefrisbee.svg
+    metainfo.path = $$THELIBS_INSTALL_PREFIX/share/metainfo
 
     defaults.files = defaults.conf
     defaults.path = $$THELIBS_INSTALL_SETTINGS/theSuite/theFrisbee/
 
-    INSTALLS += target icon defaults
+    INSTALLS += target icon metainfo defaults
 }
 
 unix:!macx: LIBS += -L$$OUT_PWD/../libthefrisbee/ -lthefrisbee

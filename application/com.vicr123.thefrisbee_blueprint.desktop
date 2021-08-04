@@ -2,9 +2,9 @@
 [Desktop Entry]
 Type=Application
 Version=1.0
-Name[]=theFrisbee
+Name[]=theFrisbee Blueprint
 GenericName[]=Disk Management
 Categories=System;
 Exec=thefrisbee
-Icon=com.vicr123.thefrisbee
-StartupWMClass=theFrisbee
+Icon=com.vicr123.thefrisbee_blueprint
+StartupWMClass=theFrisbee Blueprint
