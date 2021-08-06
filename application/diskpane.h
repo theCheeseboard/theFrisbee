@@ -55,6 +55,7 @@ class DiskPane : public QWidget {
         void updateComponents();
         void updateButtons();
         void updateLock(bool locked);
+        bool ensureOpticalUtilitiesInstalled();
 };
 
 #endif // DISKPANE_H

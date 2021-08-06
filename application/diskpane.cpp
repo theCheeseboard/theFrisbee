@@ -20,10 +20,13 @@
 #include "diskpane.h"
 #include "ui_diskpane.h"
 
+#include <tapplication.h>
 #include <DriveObjects/diskobject.h>
 #include <DriveObjects/partitioninterface.h>
 #include <DriveObjects/blockinterface.h>
 #include <DriveObjects/driveinterface.h>
+#include <DriveObjects/partitiontableinterface.h>
+#include <DriveObjects/filesysteminterface.h>
 #include <QMessageBox>
 #include <tpopover.h>
 #include <ttoast.h>
@@ -81,6 +84,8 @@ void DiskPane::on_eraseButton_clicked() {
             return;
         }
         if (drive->optical()) {
+            if (!this->ensureOpticalUtilitiesInstalled()) return;
+
             if (drive->opticalBlank()) {
                 if (QMessageBox::warning(this, tr("Disc already blank"), tr("The disc in the drive is already blank. Do you still want to erase it?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::No) == QMessageBox::No) return;
             }
@@ -118,7 +123,28 @@ void DiskPane::on_eraseButton_clicked() {
         }
     }
 
+    //Ensure this is not the root disk
+    bool warnRoot = false;
+    if (d->disk->isInterfaceAvailable(DiskInterface::Filesystem)) {
+        for (const QByteArray& mountPoint : d->disk->interface<FilesystemInterface>()->mountPoints()) {
+            if (mountPoint == "/") warnRoot = true;
+        }
+    } else if (d->disk->isInterfaceAvailable(DiskInterface::PartitionTable)) {
+        for (DiskObject* partition : d->disk->interface<PartitionTableInterface>()->partitions()) {
+            if (partition->isInterfaceAvailable(DiskInterface::Filesystem)) {
+                for (const QByteArray& mountPoint : partition->interface<FilesystemInterface>()->mountPoints()) {
+                    if (mountPoint == "/") warnRoot = true;
+                }
+            }
+        }
+    }
+
+    if (warnRoot) {
+        if (QMessageBox::warning(this, tr("System Disk"), tr("This is a system disk. Erasing it may cause your device to stop working altogether. Do you still want to erase it?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::No) == QMessageBox::No) return;
+    }
+
     if (d->disk->isInterfaceAvailable(DiskInterface::Partition)) {
+
         ErasePartitionPopover* jp = new ErasePartitionPopover(d->disk);
         tPopover* popover = new tPopover(jp);
         popover->setPopoverWidth(SC_DPI(-200));
@@ -191,6 +217,8 @@ void DiskPane::on_restoreButton_clicked() {
         return;
     }
     if (drive && drive->optical()) {
+        if (!this->ensureOpticalUtilitiesInstalled()) return;
+
         QList<DriveInterface::MediaFormat> rewritables = {
             DriveInterface::CdRw,
             DriveInterface::DvdRw,
@@ -254,6 +282,30 @@ void DiskPane::updateButtons() {
 
 void DiskPane::updateLock(bool locked) {
     ui->jobsRunningWidget->setExpanded(locked);
+}
+
+bool DiskPane::ensureOpticalUtilitiesInstalled() {
+    if (QStandardPaths::findExecutable("cdrecord").isEmpty()) {
+        QMessageBox* box = new QMessageBox();
+        box->setParent(this);
+        box->setWindowTitle(tr("Optical tools unavailable"));
+        box->setWindowModality(Qt::WindowModal);
+        box->setIcon(QMessageBox::Warning);
+        connect(box, &QMessageBox::finished, this, [ = ] {
+            box->deleteLater();
+        });
+
+        if (tApplication::currentPlatform() == tApplication::Flatpak) {
+            box->setText(tr("theFrisbee can't write to optical discs when installed as a Flatpak."));
+        } else {
+            box->setText(tr("Your system does not have the necessary tools installed to write to optical discs."));
+            box->setInformativeText(tr("You'll need to install either cdrtools or cdrkit using your system's package manager."));
+        }
+        box->open();
+        return false;
+    }
+
+    return true;
 }
 
 void DiskPane::on_viewJobsButton_clicked() {

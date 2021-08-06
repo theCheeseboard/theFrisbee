@@ -89,78 +89,108 @@
         <translation>أمسح</translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="80"/>
-        <location filename="../diskpane.cpp" line="190"/>
+        <location filename="../diskpane.cpp" line="83"/>
+        <location filename="../diskpane.cpp" line="216"/>
         <source>No Media</source>
         <translation>لا يوجد وسائط</translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="80"/>
+        <location filename="../diskpane.cpp" line="83"/>
         <source>There is no media in the drive to erase.</source>
         <translation>لا توجد وسائط في محرك الأقراص للمسح.</translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="85"/>
+        <location filename="../diskpane.cpp" line="90"/>
         <source>Disc already blank</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="85"/>
+        <location filename="../diskpane.cpp" line="90"/>
         <source>The disc in the drive is already blank. Do you still want to erase it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="108"/>
+        <location filename="../diskpane.cpp" line="113"/>
         <source>Disc not rewritable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="109"/>
+        <location filename="../diskpane.cpp" line="114"/>
         <source>The disc in the drive is not rewritable.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="110"/>
+        <location filename="../diskpane.cpp" line="115"/>
         <source>Only rewritable discs can be erased. If you need to destroy the data on this disc, you should physically break it in half.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="162"/>
+        <location filename="../diskpane.cpp" line="143"/>
+        <source>System Disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../diskpane.cpp" line="143"/>
+        <source>This is a system disk. Erasing it may cause your device to stop working altogether. Do you still want to erase it?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../diskpane.cpp" line="188"/>
         <source>No Partition Table</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="163"/>
+        <location filename="../diskpane.cpp" line="189"/>
         <source>Erase the disk to create a partition table.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="190"/>
+        <location filename="../diskpane.cpp" line="216"/>
         <source>There is no media in the drive to restore to.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="211"/>
+        <location filename="../diskpane.cpp" line="239"/>
         <source>Disc not writable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="211"/>
+        <location filename="../diskpane.cpp" line="239"/>
         <source>The disc in the drive is not writable.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="267"/>
+        <location filename="../diskpane.cpp" line="291"/>
+        <source>Optical tools unavailable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../diskpane.cpp" line="299"/>
+        <source>theFrisbee can&apos;t write to optical discs when installed as a Flatpak.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../diskpane.cpp" line="301"/>
+        <source>Your system does not have the necessary tools installed to write to optical discs.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../diskpane.cpp" line="302"/>
+        <source>You&apos;ll need to install either cdrtools or cdrkit using your system&apos;s package manager.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../diskpane.cpp" line="319"/>
         <source>Check this disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="268"/>
+        <location filename="../diskpane.cpp" line="320"/>
         <source>Check this disk for errors?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="269"/>
+        <location filename="../diskpane.cpp" line="321"/>
         <source>Depending on the size of the disk, the check may take a while.</source>
         <translation type="unfinished"></translation>
     </message>
