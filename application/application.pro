@@ -27,6 +27,7 @@ SOURCES += \
     jobs/restoreopticaljob.cpp \
     main.cpp \
     mainwindow.cpp \
+    operationmanager.cpp \
     operations/creatediskimagepopover.cpp \
     operations/eraseopticalpopover.cpp \
     operations/erasepartitionpopover.cpp \
@@ -54,6 +55,7 @@ HEADERS += \
     jobs/restorejob.h \
     jobs/restoreopticaljob.h \
     mainwindow.h \
+    operationmanager.h \
     operations/creatediskimagepopover.h \
     operations/eraseopticalpopover.h \
     operations/erasepartitionpopover.h \

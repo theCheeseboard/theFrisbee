@@ -48,149 +48,68 @@
         <translation>Başlık</translation>
     </message>
     <message>
-        <location filename="../diskpane.ui" line="83"/>
+        <location filename="../diskpane.ui" line="82"/>
         <source>JOBS RUNNING</source>
         <translation>İŞ YAPAN İŞLER</translation>
     </message>
     <message>
-        <location filename="../diskpane.ui" line="90"/>
+        <location filename="../diskpane.ui" line="89"/>
         <source>Some tasks may be unavailable while jobs are currently being run on this item.</source>
         <translation>Bu öğe üzerinde işler şu anda çalıştırılırken bazı görevler kullanılamayabilir.</translation>
     </message>
     <message>
-        <location filename="../diskpane.ui" line="115"/>
+        <location filename="../diskpane.ui" line="114"/>
         <source>View Jobs</source>
         <translation>İşleri Görüntüle</translation>
     </message>
     <message>
-        <location filename="../diskpane.ui" line="230"/>
+        <location filename="../diskpane.ui" line="232"/>
         <source>Check</source>
         <translation>Kontrol</translation>
     </message>
     <message>
-        <location filename="../diskpane.ui" line="237"/>
+        <location filename="../diskpane.ui" line="239"/>
         <source>Edit Partitions</source>
         <translation>Bölümleri Düzenle</translation>
     </message>
     <message>
-        <location filename="../diskpane.ui" line="244"/>
+        <location filename="../diskpane.ui" line="246"/>
         <source>Image</source>
         <extracomment>A verb: &quot;Create Image&quot;</extracomment>
         <translation>Resim</translation>
     </message>
     <message>
-        <location filename="../diskpane.ui" line="251"/>
+        <location filename="../diskpane.ui" line="253"/>
         <source>Restore</source>
         <translation>Onarmak</translation>
     </message>
     <message>
-        <location filename="../diskpane.ui" line="271"/>
+        <location filename="../diskpane.ui" line="273"/>
         <source>Erase</source>
         <translation>Sil</translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="83"/>
-        <location filename="../diskpane.cpp" line="216"/>
-        <source>No Media</source>
-        <translation>Medya yok</translation>
-    </message>
-    <message>
-        <location filename="../diskpane.cpp" line="83"/>
-        <source>There is no media in the drive to erase.</source>
-        <translation>Sürücüde silinecek ortam yok.</translation>
-    </message>
-    <message>
-        <location filename="../diskpane.cpp" line="90"/>
-        <source>Disc already blank</source>
-        <translation>Disk zaten boş</translation>
-    </message>
-    <message>
-        <location filename="../diskpane.cpp" line="90"/>
-        <source>The disc in the drive is already blank. Do you still want to erase it?</source>
-        <translation>Sürücüdeki disk zaten boş. Hâlâ silmek istiyor musun?</translation>
-    </message>
-    <message>
-        <location filename="../diskpane.cpp" line="113"/>
-        <source>Disc not rewritable</source>
-        <translation>Disk yeniden yazılamaz</translation>
-    </message>
-    <message>
-        <location filename="../diskpane.cpp" line="114"/>
-        <source>The disc in the drive is not rewritable.</source>
-        <translation>Sürücüdeki disk yeniden yazılamaz.</translation>
-    </message>
-    <message>
-        <location filename="../diskpane.cpp" line="115"/>
-        <source>Only rewritable discs can be erased. If you need to destroy the data on this disc, you should physically break it in half.</source>
-        <translation>Yalnızca yeniden yazılabilir diskler silinebilir. Bu diskteki verileri imha etmeniz gerekirse, onu ikiye bölmelisin.</translation>
-    </message>
-    <message>
-        <location filename="../diskpane.cpp" line="143"/>
-        <source>System Disk</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../diskpane.cpp" line="143"/>
-        <source>This is a system disk. Erasing it may cause your device to stop working altogether. Do you still want to erase it?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../diskpane.cpp" line="188"/>
+        <location filename="../diskpane.cpp" line="95"/>
         <source>No Partition Table</source>
         <translation>Bölme Tablosu Yok</translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="189"/>
+        <location filename="../diskpane.cpp" line="96"/>
         <source>Erase the disk to create a partition table.</source>
         <translation>Bir bölüm tablosu oluşturmak için diski silin.</translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="216"/>
-        <source>There is no media in the drive to restore to.</source>
-        <translation>Sürücüde geri yüklenecek ortam yok.</translation>
-    </message>
-    <message>
-        <location filename="../diskpane.cpp" line="239"/>
-        <source>Disc not writable</source>
-        <translation>Disk yazılabilir değil</translation>
-    </message>
-    <message>
-        <location filename="../diskpane.cpp" line="239"/>
-        <source>The disc in the drive is not writable.</source>
-        <translation>Sürücüdeki disk yazılabilir değil.</translation>
-    </message>
-    <message>
-        <location filename="../diskpane.cpp" line="291"/>
-        <source>Optical tools unavailable</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../diskpane.cpp" line="299"/>
-        <source>theFrisbee can&apos;t write to optical discs when installed as a Flatpak.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../diskpane.cpp" line="301"/>
-        <source>Your system does not have the necessary tools installed to write to optical discs.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../diskpane.cpp" line="302"/>
-        <source>You&apos;ll need to install either cdrtools or cdrkit using your system&apos;s package manager.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../diskpane.cpp" line="319"/>
+        <location filename="../diskpane.cpp" line="164"/>
         <source>Check this disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="320"/>
+        <location filename="../diskpane.cpp" line="165"/>
         <source>Check this disk for errors?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="321"/>
+        <location filename="../diskpane.cpp" line="166"/>
         <source>Depending on the size of the disk, the check may take a while.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -558,6 +477,105 @@
     <message>
         <location filename="../mainwindow.ui" line="203"/>
         <source>Ctrl+N</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>OperationManager</name>
+    <message>
+        <location filename="../operationmanager.cpp" line="50"/>
+        <source>Erase a block device</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operationmanager.cpp" line="51"/>
+        <source>Create an image of a block device</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operationmanager.cpp" line="52"/>
+        <source>Restore an image back to a block device or disc</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operationmanager.cpp" line="92"/>
+        <location filename="../operationmanager.cpp" line="181"/>
+        <source>No Media</source>
+        <translation type="unfinished">Medya yok</translation>
+    </message>
+    <message>
+        <location filename="../operationmanager.cpp" line="92"/>
+        <source>There is no media in the drive to erase.</source>
+        <translation type="unfinished">Sürücüde silinecek ortam yok.</translation>
+    </message>
+    <message>
+        <location filename="../operationmanager.cpp" line="99"/>
+        <source>Disc already blank</source>
+        <translation type="unfinished">Disk zaten boş</translation>
+    </message>
+    <message>
+        <location filename="../operationmanager.cpp" line="99"/>
+        <source>The disc in the drive is already blank. Do you still want to erase it?</source>
+        <translation type="unfinished">Sürücüdeki disk zaten boş. Hâlâ silmek istiyor musun?</translation>
+    </message>
+    <message>
+        <location filename="../operationmanager.cpp" line="122"/>
+        <source>Disc not rewritable</source>
+        <translation type="unfinished">Disk yeniden yazılamaz</translation>
+    </message>
+    <message>
+        <location filename="../operationmanager.cpp" line="123"/>
+        <source>The disc in the drive is not rewritable.</source>
+        <translation type="unfinished">Sürücüdeki disk yeniden yazılamaz.</translation>
+    </message>
+    <message>
+        <location filename="../operationmanager.cpp" line="124"/>
+        <source>Only rewritable discs can be erased. If you need to destroy the data on this disc, you should physically break it in half.</source>
+        <translation type="unfinished">Yalnızca yeniden yazılabilir diskler silinebilir. Bu diskteki verileri imha etmeniz gerekirse, onu ikiye bölmelisin.</translation>
+    </message>
+    <message>
+        <location filename="../operationmanager.cpp" line="152"/>
+        <source>System Disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operationmanager.cpp" line="152"/>
+        <source>This is a system disk. Erasing it may cause your device to stop working altogether. Do you still want to erase it?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operationmanager.cpp" line="181"/>
+        <source>There is no media in the drive to restore to.</source>
+        <translation type="unfinished">Sürücüde geri yüklenecek ortam yok.</translation>
+    </message>
+    <message>
+        <location filename="../operationmanager.cpp" line="204"/>
+        <source>Disc not writable</source>
+        <translation type="unfinished">Disk yazılabilir değil</translation>
+    </message>
+    <message>
+        <location filename="../operationmanager.cpp" line="204"/>
+        <source>The disc in the drive is not writable.</source>
+        <translation type="unfinished">Sürücüdeki disk yazılabilir değil.</translation>
+    </message>
+    <message>
+        <location filename="../operationmanager.cpp" line="233"/>
+        <source>Optical tools unavailable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operationmanager.cpp" line="241"/>
+        <source>theFrisbee can&apos;t write to optical discs when installed as a Flatpak.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operationmanager.cpp" line="243"/>
+        <source>Your system does not have the necessary tools installed to write to optical discs.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operationmanager.cpp" line="244"/>
+        <source>You&apos;ll need to install either cdrtools or cdrkit using your system&apos;s package manager.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1086,8 +1104,55 @@ Sürücüdeki disk silindikten sonra, üzerindeki tüm veriler sonsuza dek kaybo
 <context>
     <name>main</name>
     <message>
-        <location filename="../main.cpp" line="38"/>
+        <location filename="../main.cpp" line="41"/>
+        <location filename="../main.cpp" line="74"/>
         <source>Disk Utility</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="77"/>
+        <source>The operation to perform. Valid operations:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="78"/>
+        <source>The device to perform the operation on</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="90"/>
+        <source>invalid operation %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="91"/>
+        <location filename="../main.cpp" line="99"/>
+        <location filename="../main.cpp" line="107"/>
+        <location filename="../main.cpp" line="120"/>
+        <source>Usage: %1 [options] [operation device].</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="92"/>
+        <location filename="../main.cpp" line="100"/>
+        <location filename="../main.cpp" line="108"/>
+        <location filename="../main.cpp" line="121"/>
+        <source>%1 -h for more information.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="98"/>
+        <source>missing device</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="106"/>
+        <source>too many arguments</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="119"/>
+        <source>invalid device</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

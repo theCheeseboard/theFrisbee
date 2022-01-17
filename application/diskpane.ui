@@ -75,7 +75,6 @@
          <widget class="QLabel" name="label">
           <property name="font">
            <font>
-            <weight>75</weight>
             <bold>true</bold>
            </font>
           </property>
@@ -154,7 +153,7 @@
         <x>0</x>
         <y>0</y>
         <width>609</width>
-        <height>355</height>
+        <height>366</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -226,6 +225,9 @@
       </property>
       <item>
        <widget class="QPushButton" name="checkButton">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>Check</string>
         </property>

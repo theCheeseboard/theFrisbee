@@ -20,9 +20,12 @@
 #include "mainwindow.h"
 
 #include <QDir>
+#include <QCommandLineParser>
 #include <tsettings.h>
 #include <tapplication.h>
 #include <tstylemanager.h>
+#include <driveobjectmanager.h>
+#include "operationmanager.h"
 
 int main(int argc, char* argv[]) {
     tApplication a(argc, argv);
@@ -61,8 +64,66 @@ int main(int argc, char* argv[]) {
     tSettings::registerDefaults(a.applicationDirPath() + "/defaults.conf");
     tSettings::registerDefaults("/etc/theSuite/thefrisbee/defaults.conf");
 
+    //Build the string to show in help about operations
+    QStringList operationsString;
+    for (int operation = OperationManager::Erase; operation <= OperationManager::LastOperation; operation++) {
+        operationsString.append(QStringLiteral("    %1 - %2").arg(OperationManager::operationForOperation(static_cast<OperationManager::DiskOperation>(operation)), OperationManager::descriptionForOperation(static_cast<OperationManager::DiskOperation>(operation))));
+    }
+
+    QCommandLineParser parser;
+    parser.setApplicationDescription(QApplication::translate("main", "Disk Utility"));
+    QCommandLineOption helpOption = parser.addHelpOption();
+    QCommandLineOption versionOption = parser.addVersionOption();
+    parser.addPositionalArgument("operation", QStringLiteral("%1\n%2").arg(QApplication::translate("main", "The operation to perform. Valid operations:"), operationsString.join("\n")), "[operation");
+    parser.addPositionalArgument("device", QApplication::translate("main", "The device to perform the operation on"), "device]");
+    parser.process(a);
+
     MainWindow w;
     w.show();
+
+    if (parser.positionalArguments().length() > 0) {
+        QTextStream err(stderr);
+
+        QString operation = parser.positionalArguments().at(0);
+        if (!OperationManager::isValidOperation(operation)) {
+            //Error
+            err << "thefrisbee: " + QApplication::translate("main", "invalid operation %1").arg(operation) + "\n";
+            err << QApplication::translate("main", "Usage: %1 [options] [operation device].").arg(a.arguments().first()) + "\n";
+            err << "       " + QApplication::translate("main", "%1 -h for more information.").arg(a.arguments().first()) + "\n";
+            return 1;
+        }
+
+        if (parser.positionalArguments().length() == 1) {
+            //Error
+            err << "thefrisbee: " + QApplication::translate("main", "missing device") + "\n";
+            err << QApplication::translate("main", "Usage: %1 [options] [operation device].").arg(a.arguments().first()) + "\n";
+            err << "       " + QApplication::translate("main", "%1 -h for more information.").arg(a.arguments().first()) + "\n";
+            return 1;
+        }
+
+        if (parser.positionalArguments().length() > 2) {
+            //Error
+            err << "thefrisbee: " + QApplication::translate("main", "too many arguments") + "\n";
+            err << QApplication::translate("main", "Usage: %1 [options] [operation device].").arg(a.arguments().first()) + "\n";
+            err << "       " + QApplication::translate("main", "%1 -h for more information.").arg(a.arguments().first()) + "\n";
+            return 1;
+        }
+
+        QString device = parser.positionalArguments().at(1);
+        DiskObject* disk = nullptr;
+        disk = DriveObjectManager::diskByBlockName(device);
+        if (disk == nullptr) disk = DriveObjectManager::diskForPath(QDBusObjectPath(device));
+
+        if (disk == nullptr) {
+            //Error
+            err << "thefrisbee: " + QApplication::translate("main", "invalid device") + "\n";
+            err << QApplication::translate("main", "Usage: %1 [options] [operation device].").arg(a.arguments().first()) + "\n";
+            err << "       " + QApplication::translate("main", "%1 -h for more information.").arg(a.arguments().first()) + "\n";
+            return 1;
+        }
+
+        OperationManager::showDiskOperationUi(&w, OperationManager::operationForString(operation), disk);
+    }
 
     return a.exec();
 }
