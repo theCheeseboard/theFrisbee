@@ -12,32 +12,32 @@
         <location filename="../operations/creatediskimagepopover.ui" line="35"/>
         <location filename="../operations/creatediskimagepopover.ui" line="52"/>
         <source>Create Disk Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Tạo ảnh đĩa</translation>
     </message>
     <message>
         <location filename="../operations/creatediskimagepopover.ui" line="45"/>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>Duyệt...</translation>
     </message>
     <message>
         <location filename="../operations/creatediskimagepopover.ui" line="72"/>
         <source>DISK IMAGE OPTIONS</source>
-        <translation type="unfinished"></translation>
+        <translation>TÙY CHỌN ẢNH ĐĨA</translation>
     </message>
     <message>
         <location filename="../operations/creatediskimagepopover.ui" line="82"/>
         <source>Disk Image Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Kích cỡ ảnh đĩa</translation>
     </message>
     <message>
         <location filename="../operations/creatediskimagepopover.ui" line="89"/>
         <source>Output File</source>
-        <translation type="unfinished"></translation>
+        <translation>Tệp xuất ra</translation>
     </message>
     <message>
         <location filename="../operations/creatediskimagepopover.ui" line="96"/>
         <source>Attach this disk image</source>
-        <translation type="unfinished"></translation>
+        <translation>Gắn ảnh đĩa này</translation>
     </message>
 </context>
 <context>
@@ -45,63 +45,63 @@
     <message>
         <location filename="../diskpane.ui" line="35"/>
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiêu đề</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="82"/>
         <source>JOBS RUNNING</source>
-        <translation type="unfinished"></translation>
+        <translation>HOẠT ĐỘNG ĐANG CHẠY</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="89"/>
         <source>Some tasks may be unavailable while jobs are currently being run on this item.</source>
-        <translation type="unfinished"></translation>
+        <translation>Một số tác vụ có thể không sản khi hoạt động khác đang chạy trên mục này.</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="114"/>
         <source>View Jobs</source>
-        <translation type="unfinished"></translation>
+        <translation>Xem hoạt động</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="232"/>
         <source>Check</source>
-        <translation type="unfinished"></translation>
+        <translation>Kiểm tra</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="239"/>
         <source>Edit Partitions</source>
-        <translation type="unfinished"></translation>
+        <translation>Sửa phân vùng</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="246"/>
         <source>Image</source>
         <extracomment>A verb: &quot;Create Image&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Tạo ảnh đĩa</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="253"/>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>Khôi phục</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="273"/>
         <source>Erase</source>
-        <translation type="unfinished"></translation>
+        <translation>Xóa</translation>
     </message>
     <message>
         <location filename="../diskpane.cpp" line="130"/>
         <source>Check this disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Kiểm tra đĩa này</translation>
     </message>
     <message>
         <location filename="../diskpane.cpp" line="131"/>
         <source>Check this disk for errors?</source>
-        <translation type="unfinished"></translation>
+        <translation>Kiểm tra đĩa này cho lổi?</translation>
     </message>
     <message>
         <location filename="../diskpane.cpp" line="132"/>
         <source>Depending on the size of the disk, the check may take a while.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dựa trên kích cỡ đĩa này, hoạt động kiểm tra có thể mất thời gian.</translation>
     </message>
 </context>
 <context>
@@ -109,37 +109,37 @@
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>theFrisbee</source>
-        <translation type="unfinished"></translation>
+        <translation>theFrisbee</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="137"/>
         <source>Disks</source>
-        <translation type="unfinished"></translation>
+        <translation>Đĩa</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="180"/>
         <source>Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Thoát</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="183"/>
         <source>Ctrl+Q</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Q</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="192"/>
         <source>Attach Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Gắn ảnh đĩa</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="200"/>
         <source>Create Disk Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Tạo ảnh đĩa</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="203"/>
         <source>Ctrl+N</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+N</translation>
     </message>
 </context>
 <context>
@@ -158,122 +158,122 @@
     <message>
         <location filename="../diskPanes/overviewdiskpane.ui" line="64"/>
         <source>Detach</source>
-        <translation type="unfinished"></translation>
+        <translation>Tháo</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.ui" line="75"/>
         <source>Unmount</source>
-        <translation type="unfinished"></translation>
+        <translation>Tháo</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.ui" line="86"/>
         <source>Mount</source>
-        <translation type="unfinished"></translation>
+        <translation>Gắn</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.ui" line="97"/>
         <source>Eject</source>
-        <translation type="unfinished"></translation>
+        <translation>Nhổ ra</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="75"/>
         <source>Blank Disc</source>
-        <translation type="unfinished"></translation>
+        <translation>Đĩa trống</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="80"/>
         <source>CD</source>
-        <translation type="unfinished"></translation>
+        <translation>CD</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="83"/>
         <source>CD-R</source>
-        <translation type="unfinished"></translation>
+        <translation>CD-R</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="86"/>
         <source>CD-RW</source>
-        <translation type="unfinished"></translation>
+        <translation>CD-RW</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="89"/>
         <source>DVD</source>
-        <translation type="unfinished"></translation>
+        <translation>DVD</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="92"/>
         <source>DVD-R</source>
-        <translation type="unfinished"></translation>
+        <translation>DVD-R</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="95"/>
         <source>DVD-RW</source>
-        <translation type="unfinished"></translation>
+        <translation>DVD-RW</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="98"/>
         <source>DVD-RAM</source>
-        <translation type="unfinished"></translation>
+        <translation>DVD-RAM</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="101"/>
         <source>DVD+R</source>
-        <translation type="unfinished"></translation>
+        <translation>DVD+R</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="104"/>
         <source>DVD+RW</source>
-        <translation type="unfinished"></translation>
+        <translation>DVD+RW</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="107"/>
         <source>DVD+R Dual Layer</source>
-        <translation type="unfinished"></translation>
+        <translation>DVD+R Kép Hai Lớp</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="110"/>
         <source>DVD+RW Dual Layer</source>
-        <translation type="unfinished"></translation>
+        <translation>DVD+RW Kép Hai Lớp</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="113"/>
         <source>BD</source>
-        <translation type="unfinished"></translation>
+        <translation>BD</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="116"/>
         <source>BD-R</source>
-        <translation type="unfinished"></translation>
+        <translation>BD-R</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="119"/>
         <source>BD-RE</source>
-        <translation type="unfinished"></translation>
+        <translation>BD-RE</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="122"/>
         <source>HD-DVD</source>
-        <translation type="unfinished"></translation>
+        <translation>HD-DVD</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="125"/>
         <source>HD-DVD-R</source>
-        <translation type="unfinished"></translation>
+        <translation>HD-DVD R</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="128"/>
         <source>HD-DVD-RW</source>
-        <translation type="unfinished"></translation>
+        <translation>HD-DVD-RW</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="131"/>
         <source>Magneto Optical</source>
-        <translation type="unfinished"></translation>
+        <translation>Magneto Optical</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="137"/>
         <source>No Disc Inserted</source>
-        <translation type="unfinished"></translation>
+        <translation>Không có đĩa</translation>
     </message>
 </context>
 <context>
@@ -282,22 +282,22 @@
         <location filename="../main.cpp" line="41"/>
         <location filename="../main.cpp" line="74"/>
         <source>Disk Utility</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiện ích ở đĩa</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="77"/>
         <source>The operation to perform. Valid operations:</source>
-        <translation type="unfinished"></translation>
+        <translation>Hoạt động để thực hiện. Hoạt động hợp lệ:</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="78"/>
         <source>The device to perform the operation on</source>
-        <translation type="unfinished"></translation>
+        <translation>Thiết bị để thực hiện hoạt động trên</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="90"/>
         <source>invalid operation %1</source>
-        <translation type="unfinished"></translation>
+        <translation>hoạt động không hợp lệ %1</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="91"/>
@@ -305,7 +305,7 @@
         <location filename="../main.cpp" line="107"/>
         <location filename="../main.cpp" line="120"/>
         <source>Usage: %1 [options] [operation device].</source>
-        <translation type="unfinished"></translation>
+        <translation>Sử dụng: %1 [options] [operation device].</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="92"/>
@@ -313,22 +313,22 @@
         <location filename="../main.cpp" line="108"/>
         <location filename="../main.cpp" line="121"/>
         <source>%1 -h for more information.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 -h để biết thêm thông tin.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="98"/>
         <source>missing device</source>
-        <translation type="unfinished"></translation>
+        <translation>thiếu thiết bị</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="106"/>
         <source>too many arguments</source>
-        <translation type="unfinished"></translation>
+        <translation>quá nhiều đối số</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="119"/>
         <source>invalid device</source>
-        <translation type="unfinished"></translation>
+        <translation>thiết bị không hợp lệ</translation>
     </message>
 </context>
 </TS>
