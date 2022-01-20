@@ -10,77 +10,25 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    components/partitionvisualisation.cpp \
-    components/sizeeditbox.cpp \
     diskPanes/diskpanecomponent.cpp \
     diskPanes/overviewdiskpane.cpp \
-    diskmodel.cpp \
     diskpane.cpp \
-    jobs/editpartitionjob.cpp \
-    jobs/erasecdrwjob.cpp \
-    jobs/progress/editpartitionjobprogress.cpp \
-    jobs/progress/erasecdrwjobprogress.cpp \
-    jobs/progress/restorediskjobprogress.cpp \
-    jobs/progress/restoreopticaljobprogress.cpp \
-    jobs/restorediskjob.cpp \
-    jobs/restorejob.cpp \
-    jobs/restoreopticaljob.cpp \
     main.cpp \
     mainwindow.cpp \
-    operationmanager.cpp \
-    operations/creatediskimagepopover.cpp \
-    operations/eraseopticalpopover.cpp \
-    operations/erasepartitionpopover.cpp \
-    operations/erasepartitiontablepopover.cpp \
-    operations/imagepopover.cpp \
-    operations/partitionpopover.cpp \
-    operations/restoreopticalpopover.cpp \
-    optical/opticalerrortracker.cpp \
-    partitioninformation.cpp
+    operations/creatediskimagepopover.cpp
 
 HEADERS += \
-    components/partitionvisualisation.h \
-    components/sizeeditbox.h \
     diskPanes/diskpanecomponent.h \
     diskPanes/overviewdiskpane.h \
-    diskmodel.h \
     diskpane.h \
-    jobs/editpartitionjob.h \
-    jobs/erasecdrwjob.h \
-    jobs/progress/editpartitionjobprogress.h \
-    jobs/progress/erasecdrwjobprogress.h \
-    jobs/progress/restorediskjobprogress.h \
-    jobs/progress/restoreopticaljobprogress.h \
-    jobs/restorediskjob.h \
-    jobs/restorejob.h \
-    jobs/restoreopticaljob.h \
     mainwindow.h \
-    operationmanager.h \
-    operations/creatediskimagepopover.h \
-    operations/eraseopticalpopover.h \
-    operations/erasepartitionpopover.h \
-    operations/erasepartitiontablepopover.h \
-    operations/imagepopover.h \
-    operations/partitionpopover.h \
-    operations/restoreopticalpopover.h \
-    optical/opticalerrortracker.h \
-    partitioninformation.h
+    operations/creatediskimagepopover.h
 
 FORMS += \
     diskPanes/overviewdiskpane.ui \
     diskpane.ui \
-    jobs/progress/editpartitionjobprogress.ui \
-    jobs/progress/erasecdrwjobprogress.ui \
-    jobs/progress/restorediskjobprogress.ui \
-    jobs/progress/restoreopticaljobprogress.ui \
     mainwindow.ui \
-    operations/creatediskimagepopover.ui \
-    operations/eraseopticalpopover.ui \
-    operations/erasepartitionpopover.ui \
-    operations/erasepartitiontablepopover.ui \
-    operations/imagepopover.ui \
-    operations/partitionpopover.ui \
-    operations/restoreopticalpopover.ui
+    operations/creatediskimagepopover.ui
 
 DESKTOP_FILE = com.vicr123.thefrisbee.desktop
 DESKTOP_FILE_BLUEPRINT = com.vicr123.thefrisbee_blueprint.desktop

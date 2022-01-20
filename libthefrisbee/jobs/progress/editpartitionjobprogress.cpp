@@ -28,7 +28,7 @@ EditPartitionJobProgress::EditPartitionJobProgress(EditPartitionJob* job, QWidge
     ui(new Ui::EditPartitionJobProgress) {
     ui->setupUi(this);
 
-    ui->titleLabel->setText(tr("Partitioning %1").arg(QLocale().quoteString(job->disk()->displayName())).toUpper());
+    ui->titleLabel->setText(tr("Partitioning %1").arg(QLocale().quoteString(job->displayName())).toUpper());
 
     connect(job, &EditPartitionJob::descriptionChanged, ui->descriptionLabel, &QLabel::setText);
     ui->descriptionLabel->setText(job->description());

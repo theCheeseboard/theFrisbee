@@ -17,30 +17,32 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#ifndef ERASECDRWJOB_H
-#define ERASECDRWJOB_H
+#ifndef RESTOREDISKJOB_H
+#define RESTOREDISKJOB_H
 
-#include <tjob.h>
+#include "restorejob.h"
 
-struct EraseCdRwJobPrivate;
+struct RestoreDiskJobPrivate;
 class DiskObject;
-class EraseCdRwJob : public tJob {
+class RestoreDiskJob : public RestoreJob {
         Q_OBJECT
     public:
-        explicit EraseCdRwJob(DiskObject* disk, bool quick, QObject* parent = nullptr);
-        ~EraseCdRwJob();
+        explicit RestoreDiskJob(DiskObject* disk, QObject* parent = nullptr);
+        ~RestoreDiskJob();
+
+        void startRestore(QIODevice* source, quint64 dataSize);
+        void cancel();
 
         DiskObject* disk();
 
         QString description();
+        QString displayName();
 
     signals:
         void descriptionChanged(QString description);
 
     private:
-        EraseCdRwJobPrivate* d;
-
-        void runNextStage();
+        RestoreDiskJobPrivate* d;
 
         // tJob interface
     public:
@@ -50,4 +52,4 @@ class EraseCdRwJob : public tJob {
         QWidget* makeProgressWidget();
 };
 
-#endif // ERASECDRWJOB_H
+#endif // RestoreDiskJob_H

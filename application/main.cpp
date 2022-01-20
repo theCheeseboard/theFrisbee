@@ -25,7 +25,7 @@
 #include <tapplication.h>
 #include <tstylemanager.h>
 #include <driveobjectmanager.h>
-#include "operationmanager.h"
+#include "diskoperationmanager.h"
 
 int main(int argc, char* argv[]) {
     tApplication a(argc, argv);
@@ -66,8 +66,8 @@ int main(int argc, char* argv[]) {
 
     //Build the string to show in help about operations
     QStringList operationsString;
-    for (int operation = OperationManager::Erase; operation <= OperationManager::LastOperation; operation++) {
-        operationsString.append(QStringLiteral("    %1 - %2").arg(OperationManager::operationForOperation(static_cast<OperationManager::DiskOperation>(operation)), OperationManager::descriptionForOperation(static_cast<OperationManager::DiskOperation>(operation))));
+    for (int operation = DiskOperationManager::Erase; operation <= DiskOperationManager::LastOperation; operation++) {
+        operationsString.append(QStringLiteral("    %1 - %2").arg(DiskOperationManager::operationForOperation(static_cast<DiskOperationManager::DiskOperation>(operation)), DiskOperationManager::descriptionForOperation(static_cast<DiskOperationManager::DiskOperation>(operation))));
     }
 
     QCommandLineParser parser;
@@ -85,7 +85,7 @@ int main(int argc, char* argv[]) {
         QTextStream err(stderr);
 
         QString operation = parser.positionalArguments().at(0);
-        if (!OperationManager::isValidOperation(operation)) {
+        if (!DiskOperationManager::isValidOperation(operation)) {
             //Error
             err << "thefrisbee: " + QApplication::translate("main", "invalid operation %1").arg(operation) + "\n";
             err << QApplication::translate("main", "Usage: %1 [options] [operation device].").arg(a.arguments().first()) + "\n";
@@ -122,7 +122,7 @@ int main(int argc, char* argv[]) {
             return 1;
         }
 
-        OperationManager::showDiskOperationUi(&w, OperationManager::operationForString(operation), disk);
+        DiskOperationManager::showDiskOperationUi(&w, DiskOperationManager::operationForString(operation), disk);
     }
 
     return a.exec();

@@ -17,43 +17,49 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#include "erasecdrwjobprogress.h"
-#include "ui_erasecdrwjobprogress.h"
+#include "restoreopticaljobprogress.h"
+#include "ui_restoreopticaljobprogress.h"
 
-#include "../erasecdrwjob.h"
 #include <DriveObjects/diskobject.h>
+#include "../restoreopticaljob.h"
 
-struct EraseCdRwJobProgressPrivate {
-    EraseCdRwJob* job;
+struct RestoreOpticalJobProgressPrivate {
+    RestoreOpticalJob* job;
 };
 
-EraseCdRwJobProgress::EraseCdRwJobProgress(EraseCdRwJob* job, QWidget* parent) :
+RestoreOpticalJobProgress::RestoreOpticalJobProgress(RestoreOpticalJob* job, QWidget* parent) :
     QWidget(parent),
-    ui(new Ui::EraseCdRwJobProgress) {
+    ui(new Ui::RestoreOpticalJobProgress) {
     ui->setupUi(this);
 
-    d = new EraseCdRwJobProgressPrivate();
+    d = new RestoreOpticalJobProgressPrivate();
     d->job = job;
 
-    ui->titleLabel->setText(tr("Erase %1").arg(job->disk()->displayName()).toUpper());
+    ui->titleLabel->setText(tr("Restore to %1").arg(job->displayName()).toUpper());
 
-    connect(job, &EraseCdRwJob::stateChanged, this, [ = ](EraseCdRwJob::State state) {
+    connect(job, &RestoreOpticalJob::stateChanged, this, [ = ](RestoreOpticalJob::State state) {
         updateState();
     });
-    connect(job, &EraseCdRwJob::descriptionChanged, ui->statusLabel, &QLabel::setText);
+    connect(job, &RestoreOpticalJob::totalProgressChanged, this, [ = ](quint64 totalProgress) {
+        ui->progressBar->setMaximum(totalProgress);
+    });
+    connect(job, &RestoreOpticalJob::progressChanged, this, [ = ](quint64 progress) {
+        ui->progressBar->setValue(progress);
+    });
+    connect(job, &RestoreOpticalJob::descriptionChanged, ui->statusLabel, &QLabel::setText);
     updateState();
     ui->statusLabel->setText(job->description());
 }
 
-EraseCdRwJobProgress::~EraseCdRwJobProgress() {
+RestoreOpticalJobProgress::~RestoreOpticalJobProgress() {
     delete ui;
 }
 
-void EraseCdRwJobProgress::updateState() {
+void RestoreOpticalJobProgress::updateState() {
     switch (d->job->state()) {
         case tJob::Processing:
-            ui->progressBar->setMaximum(0);
-            ui->progressBar->setValue(0);
+            ui->progressBar->setMaximum(d->job->totalProgress());
+            ui->progressBar->setValue(d->job->progress());
             break;
         case tJob::Finished:
             ui->progressBar->setMaximum(1);

@@ -35,6 +35,7 @@ struct EraseCdRwJobPrivate {
 
     QString discType;
     QString description;
+    QString displayName;
 
     int stage = 0;
 
@@ -45,6 +46,7 @@ EraseCdRwJob::EraseCdRwJob(DiskObject* disk, bool quick, QObject* parent) : tJob
     d = new EraseCdRwJobPrivate();
     d->disk = disk;
     d->quick = quick;
+    d->displayName = disk->displayName();
 
     switch (disk->interface<BlockInterface>()->drive()->media()) {
         case DriveInterface::CdRw:
@@ -93,9 +95,11 @@ QString EraseCdRwJob::description() {
     return d->description;
 }
 
-void EraseCdRwJob::runNextStage() {
-    QString displayName = d->disk->displayName();
+QString EraseCdRwJob::displayName() {
+    return d->displayName;
+}
 
+void EraseCdRwJob::runNextStage() {
     d->stage++;
     switch (d->stage) {
         case 1: {
@@ -133,7 +137,7 @@ void EraseCdRwJob::runNextStage() {
 
                 tNotification* notification = new tNotification();
                 notification->setSummary(tr("Couldn't Erase Disc"));
-                notification->setText(tr("The disc in %1 could not be erased.").arg(displayName));
+                notification->setText(tr("The disc in %1 could not be erased.").arg(d->displayName));
                 notification->post();
             });
 
@@ -184,7 +188,7 @@ void EraseCdRwJob::runNextStage() {
 
                     tNotification* notification = new tNotification();
                     notification->setSummary(tr("Couldn't Erase Disc"));
-                    notification->setText(tr("The disc in %1 could not be erased.").arg(displayName));
+                    notification->setText(tr("The disc in %1 could not be erased.").arg(d->displayName));
                     notification->post();
                 }
                 emit progressChanged(1);
@@ -214,7 +218,7 @@ void EraseCdRwJob::runNextStage() {
 
                 tNotification* notification = new tNotification();
                 notification->setSummary(tr("Erased Disc"));
-                notification->setText(tr("The disc in %1 has been erased.").arg(displayName));
+                notification->setText(tr("The disc in %1 has been erased.").arg(d->displayName));
                 notification->post();
             });
             break;

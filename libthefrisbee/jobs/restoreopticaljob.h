@@ -36,6 +36,7 @@ class RestoreOpticalJob : public RestoreJob {
         DiskObject* disk();
 
         QString description();
+        QString displayName();
 
     signals:
         void descriptionChanged(QString description);

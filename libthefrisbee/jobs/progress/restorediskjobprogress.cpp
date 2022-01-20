@@ -35,7 +35,7 @@ RestoreDiskJobProgress::RestoreDiskJobProgress(RestoreDiskJob* job, QWidget* par
     d = new RestoreDiskJobProgressPrivate();
     d->job = job;
 
-    ui->titleLabel->setText(tr("Restore to %1").arg(job->disk()->displayName()).toUpper());
+    ui->titleLabel->setText(tr("Restore to %1").arg(job->displayName()).toUpper());
 
     connect(job, &RestoreDiskJob::stateChanged, this, [ = ](RestoreDiskJob::State state) {
         updateState();

@@ -31,15 +31,9 @@
 #include <tpopover.h>
 #include <ttoast.h>
 #include <tjobmanager.h>
-#include "operations/erasepartitiontablepopover.h"
-#include "operations/erasepartitionpopover.h"
-#include "operations/imagepopover.h"
-#include "operations/partitionpopover.h"
-#include "operations/eraseopticalpopover.h"
-#include "operations/restoreopticalpopover.h"
 #include "diskPanes/diskpanecomponent.h"
 #include "diskPanes/overviewdiskpane.h"
-#include "operationmanager.h"
+#include "diskoperationmanager.h"
 
 struct DiskPanePrivate {
     DiskObject* disk;
@@ -76,47 +70,19 @@ DiskPane::~DiskPane() {
 }
 
 void DiskPane::on_eraseButton_clicked() {
-    OperationManager::showDiskOperationUi(this->window(), OperationManager::Erase, d->disk);
+    DiskOperationManager::showDiskOperationUi(this->window(), DiskOperationManager::Erase, d->disk);
 }
 
 void DiskPane::on_imageButton_clicked() {
-    OperationManager::showDiskOperationUi(this->window(), OperationManager::Image, d->disk);
+    DiskOperationManager::showDiskOperationUi(this->window(), DiskOperationManager::Image, d->disk);
 }
 
 void DiskPane::on_editPartitionsButton_clicked() {
-    DiskObject* disk;
-
-    if (d->disk->isInterfaceAvailable(DiskInterface::Partition)) {
-        disk = d->disk->interface<PartitionInterface>()->parentTable();
-    } else if (d->disk->isInterfaceAvailable(DiskInterface::PartitionTable)) {
-        disk = d->disk;
-    } else {
-        tToast* toast = new tToast();
-        toast->setTitle(tr("No Partition Table"));
-        toast->setText(tr("Erase the disk to create a partition table."));
-        toast->setActions({
-            {"erase", "Erase Disk"}
-        });
-        connect(toast, &tToast::dismissed, toast, &tToast::deleteLater);
-        connect(toast, &tToast::actionClicked, this, [ = ](QString key) {
-            if (key == "erase") ui->eraseButton->click();
-        });
-        toast->show(this->window());
-        return;
-    }
-
-    PartitionPopover* jp = new PartitionPopover(disk);
-    tPopover* popover = new tPopover(jp);
-    popover->setPopoverWidth(500);
-    popover->setPopoverSide(tPopover::Bottom);
-    connect(jp, &PartitionPopover::done, popover, &tPopover::dismiss);
-    connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
-    connect(popover, &tPopover::dismissed, jp, &PartitionPopover::deleteLater);
-    popover->show(this->window());
+    DiskOperationManager::showDiskOperationUi(this->window(), DiskOperationManager::Partition, d->disk);
 }
 
 void DiskPane::on_restoreButton_clicked() {
-    OperationManager::showDiskOperationUi(this->window(), OperationManager::Restore, d->disk);
+    DiskOperationManager::showDiskOperationUi(this->window(), DiskOperationManager::Restore, d->disk);
 }
 
 void DiskPane::updateComponents() {

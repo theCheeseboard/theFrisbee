@@ -35,6 +35,7 @@ struct RestoreOpticalJobPrivate {
     QIODevice* source;
     quint64 dataSize;
     DiskObject* disk;
+    QString displayName;
 
     QProcess* burnProcess;
     quint64 writtenBytes = 0;
@@ -48,6 +49,7 @@ struct RestoreOpticalJobPrivate {
 RestoreOpticalJob::RestoreOpticalJob(DiskObject* disk, QObject* parent) : RestoreJob(parent) {
     d = new RestoreOpticalJobPrivate();
     d->disk = disk;
+    d->displayName = d->disk->displayName();
 
     d->description = tr("Waiting for restore medium");
 }
@@ -102,9 +104,11 @@ QString RestoreOpticalJob::description() {
     return d->description;
 }
 
-void RestoreOpticalJob::runNextStage() {
-    QString displayName = d->disk->displayName();
+QString RestoreOpticalJob::displayName() {
+    return d->displayName;
+}
 
+void RestoreOpticalJob::runNextStage() {
     d->stage++;
     switch (d->stage) {
         case 1: {
@@ -134,7 +138,7 @@ void RestoreOpticalJob::runNextStage() {
 
                     tNotification* notification = new tNotification();
                     notification->setSummary(tr("Couldn't Restore Disc"));
-                    notification->setText(tr("The disc in %1 could not be restored.").arg(displayName));
+                    notification->setText(tr("The disc in %1 could not be restored.").arg(d->displayName));
                     notification->post();
 
                     tCritical("OpticalRestore") << "Restore operation failed";
@@ -241,7 +245,7 @@ void RestoreOpticalJob::runNextStage() {
 
                 tNotification* notification = new tNotification();
                 notification->setSummary(tr("Restored Disc"));
-                notification->setText(tr("The disc in %1 has been restored.").arg(displayName));
+                notification->setText(tr("The disc in %1 has been restored.").arg(d->displayName));
                 notification->post();
             });
             break;

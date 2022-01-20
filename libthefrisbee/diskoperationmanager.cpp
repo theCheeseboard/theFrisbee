@@ -18,72 +18,78 @@
  *
  * *************************************/
 
-#include "operationmanager.h"
+#include "diskoperationmanager.h"
 
 #include <DriveObjects/blockinterface.h>
 #include <DriveObjects/driveinterface.h>
 #include <DriveObjects/filesysteminterface.h>
+#include <DriveObjects/partitioninterface.h>
 #include <DriveObjects/partitiontableinterface.h>
 
 #include <QMessageBox>
 #include <tapplication.h>
 #include <tpopover.h>
+#include <ttoast.h>
 
 #include <operations/eraseopticalpopover.h>
 #include <operations/erasepartitionpopover.h>
 #include <operations/erasepartitiontablepopover.h>
 #include <operations/imagepopover.h>
+#include <operations/partitionpopover.h>
 #include <operations/restoreopticalpopover.h>
 
 struct OperationManagerPrivate {
-    static QMap<OperationManager::DiskOperation, QString> operations;
-    static QMap<OperationManager::DiskOperation, QString> operationDescriptions;
+    static QMap<DiskOperationManager::DiskOperation, QString> operations;
+    static QMap<DiskOperationManager::DiskOperation, QString> operationDescriptions;
 };
 
-QMap<OperationManager::DiskOperation, QString> OperationManagerPrivate::operations = {
-    {OperationManager::Erase, "erase"},
-    {OperationManager::Image, "image"},
-    {OperationManager::Restore, "restore"}
+QMap<DiskOperationManager::DiskOperation, QString> OperationManagerPrivate::operations = {
+    {DiskOperationManager::Erase, "erase"},
+    {DiskOperationManager::Image, "image"},
+    {DiskOperationManager::Restore, "restore"},
+    {DiskOperationManager::Partition, "partition"}
 };
 
-QMap<OperationManager::DiskOperation, QString> OperationManagerPrivate::operationDescriptions = {
-    {OperationManager::Erase, OperationManager::tr("Erase a block device")},
-    {OperationManager::Image, OperationManager::tr("Create an image of a block device")},
-    {OperationManager::Restore, OperationManager::tr("Restore an image back to a block device or disc")}
+QMap<DiskOperationManager::DiskOperation, QString> OperationManagerPrivate::operationDescriptions = {
+    {DiskOperationManager::Erase, DiskOperationManager::tr("Erase a block device")},
+    {DiskOperationManager::Image, DiskOperationManager::tr("Create an image of a block device")},
+    {DiskOperationManager::Restore, DiskOperationManager::tr("Restore an image back to a block device or disc")},
+    {DiskOperationManager::Partition, DiskOperationManager::tr("Edit partitions on a filesystem")}
 };
 
-OperationManager::DiskOperation OperationManager::operationForString(QString operationString) {
+DiskOperationManager::DiskOperation DiskOperationManager::operationForString(QString operationString) {
     return OperationManagerPrivate::operations.key(operationString);
 }
 
-QString OperationManager::operationForOperation(DiskOperation operation) {
+QString DiskOperationManager::operationForOperation(DiskOperation operation) {
     return OperationManagerPrivate::operations.value(operation);
 }
 
-QString OperationManager::descriptionForOperation(DiskOperation operation) {
+QString DiskOperationManager::descriptionForOperation(DiskOperation operation) {
     return OperationManagerPrivate::operationDescriptions.value(operation);
 }
 
-bool OperationManager::isValidOperation(QString operationString) {
+bool DiskOperationManager::isValidOperation(QString operationString) {
     return OperationManagerPrivate::operations.values().contains(operationString);
 }
 
-void OperationManager::showDiskOperationUi(QWidget* parent, DiskOperation operation, DiskObject* disk) {
+void DiskOperationManager::showDiskOperationUi(QWidget* parent, DiskOperation operation, DiskObject* disk) {
     switch (operation) {
-        case OperationManager::Erase:
+        case DiskOperationManager::Erase:
             showEraseOperationUi(parent, disk);
             break;
-        case OperationManager::Restore:
+        case DiskOperationManager::Restore:
             showRestoreOperationUi(parent, disk);
             break;
-        case OperationManager::Image:
+        case DiskOperationManager::Image:
             showImageOperationUi(parent, disk);
             break;
-
+        case DiskOperationManager::Partition:
+            showPartitionOperationUi(parent, disk);
     }
 }
 
-void OperationManager::showEraseOperationUi(QWidget* parent, DiskObject* disk) {
+void DiskOperationManager::showEraseOperationUi(QWidget* parent, DiskObject* disk) {
     //Determine which type of erasure is the most appropriate for this disk
 
     DriveInterface* drive = disk->interface<BlockInterface>()->drive();
@@ -173,7 +179,7 @@ void OperationManager::showEraseOperationUi(QWidget* parent, DiskObject* disk) {
     }
 }
 
-void OperationManager::showRestoreOperationUi(QWidget* parent, DiskObject* disk) {
+void DiskOperationManager::showRestoreOperationUi(QWidget* parent, DiskObject* disk) {
     //Determine which type of erasure is the most appropriate for this disk
 
     DriveInterface* drive = disk->interface<BlockInterface>()->drive();
@@ -215,7 +221,7 @@ void OperationManager::showRestoreOperationUi(QWidget* parent, DiskObject* disk)
     }
 }
 
-void OperationManager::showImageOperationUi(QWidget* parent, DiskObject* disk) {
+void DiskOperationManager::showImageOperationUi(QWidget* parent, DiskObject* disk) {
     ImagePopover* jp = new ImagePopover(disk);
     tPopover* popover = new tPopover(jp);
     popover->setPopoverWidth(SC_DPI(-200));
@@ -226,7 +232,39 @@ void OperationManager::showImageOperationUi(QWidget* parent, DiskObject* disk) {
     popover->show(parent->window());
 }
 
-bool OperationManager::ensureOpticalUtilitiesInstalled(QWidget* parent) {
+void DiskOperationManager::showPartitionOperationUi(QWidget* parent, DiskObject* disk) {
+    DiskObject* partitionDisk;
+
+    if (disk->isInterfaceAvailable(DiskInterface::Partition)) {
+        partitionDisk = disk->interface<PartitionInterface>()->parentTable();
+    } else if (disk->isInterfaceAvailable(DiskInterface::PartitionTable)) {
+        partitionDisk = disk;
+    } else {
+        tToast* toast = new tToast();
+        toast->setTitle(tr("No Partition Table"));
+        toast->setText(tr("Erase the disk to create a partition table."));
+        toast->setActions({
+            {"erase", "Erase Disk"}
+        });
+        connect(toast, &tToast::dismissed, toast, &tToast::deleteLater);
+        connect(toast, &tToast::actionClicked, parent, [ = ](QString key) {
+            if (key == "erase") showEraseOperationUi(parent, disk);
+        });
+        toast->show(parent->window());
+        return;
+    }
+
+    PartitionPopover* jp = new PartitionPopover(partitionDisk);
+    tPopover* popover = new tPopover(jp);
+    popover->setPopoverWidth(500);
+    popover->setPopoverSide(tPopover::Bottom);
+    connect(jp, &PartitionPopover::done, popover, &tPopover::dismiss);
+    connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
+    connect(popover, &tPopover::dismissed, jp, &PartitionPopover::deleteLater);
+    popover->show(parent->window());
+}
+
+bool DiskOperationManager::ensureOpticalUtilitiesInstalled(QWidget* parent) {
     if (QStandardPaths::findExecutable("cdrecord").isEmpty()) {
         QMessageBox* box = new QMessageBox();
         box->setParent(parent);

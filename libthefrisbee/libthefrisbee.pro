@@ -1,4 +1,4 @@
-QT += gui dbus thelib
+QT += gui widgets dbus thelib
 TARGET = thefrisbee
 SHARE_APP_NAME = thefrisbee/libthefrisbee
 
@@ -21,7 +21,28 @@ SOURCES += \
     DriveObjects/loopinterface.cpp \
     DriveObjects/partitioninterface.cpp \
     DriveObjects/partitiontableinterface.cpp \
-    driveobjectmanager.cpp
+    components/partitionvisualisation.cpp \
+    components/sizeeditbox.cpp \
+    diskmodel.cpp \
+    diskoperationmanager.cpp \
+    driveobjectmanager.cpp \
+    jobs/editpartitionjob.cpp \
+    jobs/erasecdrwjob.cpp \
+    jobs/progress/editpartitionjobprogress.cpp \
+    jobs/progress/erasecdrwjobprogress.cpp \
+    jobs/progress/restorediskjobprogress.cpp \
+    jobs/progress/restoreopticaljobprogress.cpp \
+    jobs/restorediskjob.cpp \
+    jobs/restorejob.cpp \
+    jobs/restoreopticaljob.cpp \
+    operations/eraseopticalpopover.cpp \
+    operations/erasepartitionpopover.cpp \
+    operations/erasepartitiontablepopover.cpp \
+    operations/imagepopover.cpp \
+    operations/partitionpopover.cpp \
+    operations/restoreopticalpopover.cpp \
+    optical/opticalerrortracker.cpp \
+    partitioninformation.cpp
 
 HEADERS += \
     DriveObjects/blockinterface.h \
@@ -33,8 +54,29 @@ HEADERS += \
     DriveObjects/loopinterface.h \
     DriveObjects/partitioninterface.h \
     DriveObjects/partitiontableinterface.h \
+    components/partitionvisualisation.h \
+    components/sizeeditbox.h \
+    diskmodel.h \
+    diskoperationmanager.h \
+    jobs/editpartitionjob.h \
+    jobs/erasecdrwjob.h \
+    jobs/progress/editpartitionjobprogress.h \
+    jobs/progress/erasecdrwjobprogress.h \
+    jobs/progress/restorediskjobprogress.h \
+    jobs/progress/restoreopticaljobprogress.h \
+    jobs/restorediskjob.h \
+    jobs/restorejob.h \
+    jobs/restoreopticaljob.h \
     libthefrisbee_global.h \
-    driveobjectmanager.h
+    driveobjectmanager.h \
+    operations/eraseopticalpopover.h \
+    operations/erasepartitionpopover.h \
+    operations/erasepartitiontablepopover.h \
+    operations/imagepopover.h \
+    operations/partitionpopover.h \
+    operations/restoreopticalpopover.h \
+    optical/opticalerrortracker.h \
+    partitioninformation.h
 
 # Default rules for deployment.
 unix {
@@ -68,3 +110,15 @@ DISTFILES += \
     com.vicr123.trigger-uevent.policy \
     qt_frisbee.pri \
     trigger-uevent.sh
+
+FORMS += \
+    jobs/progress/editpartitionjobprogress.ui \
+    jobs/progress/erasecdrwjobprogress.ui \
+    jobs/progress/restorediskjobprogress.ui \
+    jobs/progress/restoreopticaljobprogress.ui \
+    operations/eraseopticalpopover.ui \
+    operations/erasepartitionpopover.ui \
+    operations/erasepartitiontablepopover.ui \
+    operations/imagepopover.ui \
+    operations/partitionpopover.ui \
+    operations/restoreopticalpopover.ui

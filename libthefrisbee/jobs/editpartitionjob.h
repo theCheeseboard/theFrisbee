@@ -34,6 +34,8 @@ class EditPartitionJob : public tJob {
         DiskObject* disk();
         QString description();
 
+        QString displayName();
+
     signals:
         void descriptionChanged(QString description);
 

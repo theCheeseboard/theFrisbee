@@ -37,6 +37,7 @@ struct RestoreDiskJobPrivate {
     DiskObject* disk;
 
     QString description;
+    QString displayName;
 
     tJob::State state;
     int stage = 0;
@@ -45,6 +46,7 @@ struct RestoreDiskJobPrivate {
 RestoreDiskJob::RestoreDiskJob(DiskObject* disk, QObject* parent) : RestoreJob(parent) {
     d = new RestoreDiskJobPrivate();
     d->disk = disk;
+    d->displayName = disk->displayName();
 
     d->description = tr("Waiting for disk");
 }
@@ -91,7 +93,7 @@ void RestoreDiskJob::startRestore(QIODevice* source, quint64 dataSize) {
                     d->progress = read;
                     emit progressChanged(d->progress);
 
-                    d->description = tr("Restoring to the target disk\n%1 of %2 restored").arg(QLocale().formattedDataSize(read), QLocale().formattedDataSize(dataSize));
+                    d->description = tr("Restoring to %1\n%2 of %3 restored").arg(QLocale().quoteString(d->displayName), QLocale().formattedDataSize(read), QLocale().formattedDataSize(dataSize));
                     emit descriptionChanged(d->description);
                 }
 
@@ -150,6 +152,10 @@ DiskObject* RestoreDiskJob::disk() {
 
 QString RestoreDiskJob::description() {
     return d->description;
+}
+
+QString RestoreDiskJob::displayName() {
+    return d->displayName;
 }
 
 quint64 RestoreDiskJob::progress() {

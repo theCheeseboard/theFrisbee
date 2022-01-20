@@ -17,22 +17,23 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#ifndef OPERATIONMANAGER_H
-#define OPERATIONMANAGER_H
+#ifndef DISKOPERATIONMANAGER_H
+#define DISKOPERATIONMANAGER_H
 
 #include <QWidget>
 #include <DriveObjects/diskobject.h>
 
-class OperationManager : public QObject {
+class DiskOperationManager : public QObject {
         Q_OBJECT
     public:
-        OperationManager() = delete;
+        DiskOperationManager() = delete;
 
         enum DiskOperation : int {
             Erase,
             Restore,
             Image,
-            LastOperation = Image
+            Partition,
+            LastOperation = Partition
         };
 
         static DiskOperation operationForString(QString operationString);
@@ -48,6 +49,7 @@ class OperationManager : public QObject {
         static void showEraseOperationUi(QWidget* parent, DiskObject* disk);
         static void showRestoreOperationUi(QWidget* parent, DiskObject* disk);
         static void showImageOperationUi(QWidget* parent, DiskObject* disk);
+        static void showPartitionOperationUi(QWidget* parent, DiskObject* disk);
 };
 
-#endif // OPERATIONMANAGER_H
+#endif // DISKOPERATIONMANAGER_H

@@ -80,6 +80,10 @@ QString EditPartitionJob::description() {
     return d->description;
 }
 
+QString EditPartitionJob::displayName() {
+    return d->displayName;
+}
+
 void EditPartitionJob::processNextOperation() {
     emit progressChanged(++d->progress);
 
