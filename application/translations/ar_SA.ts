@@ -4,11 +4,6 @@
 <context>
     <name>CreateDiskImagePopover</name>
     <message>
-        <location filename="../operations/creatediskimagepopover.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../operations/creatediskimagepopover.ui" line="35"/>
         <location filename="../operations/creatediskimagepopover.ui" line="52"/>
         <source>Create Disk Image</source>
@@ -20,22 +15,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/creatediskimagepopover.ui" line="72"/>
+        <location filename="../operations/creatediskimagepopover.ui" line="71"/>
         <source>DISK IMAGE OPTIONS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/creatediskimagepopover.ui" line="82"/>
+        <location filename="../operations/creatediskimagepopover.ui" line="81"/>
         <source>Disk Image Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/creatediskimagepopover.ui" line="89"/>
+        <location filename="../operations/creatediskimagepopover.ui" line="88"/>
         <source>Output File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/creatediskimagepopover.ui" line="96"/>
+        <location filename="../operations/creatediskimagepopover.ui" line="95"/>
         <source>Attach this disk image</source>
         <translation type="unfinished"></translation>
     </message>
@@ -144,17 +139,6 @@
 </context>
 <context>
     <name>OverviewDiskPane</name>
-    <message>
-        <location filename="../diskPanes/overviewdiskpane.ui" line="20"/>
-        <source>Icon</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../diskPanes/overviewdiskpane.ui" line="40"/>
-        <location filename="../diskPanes/overviewdiskpane.ui" line="50"/>
-        <source>TextLabel</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.ui" line="64"/>
         <source>Detach</source>
@@ -279,54 +263,54 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="../main.cpp" line="41"/>
-        <location filename="../main.cpp" line="74"/>
+        <location filename="../main.cpp" line="43"/>
+        <location filename="../main.cpp" line="76"/>
         <source>Disk Utility</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="77"/>
+        <location filename="../main.cpp" line="79"/>
         <source>The operation to perform. Valid operations:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="78"/>
+        <location filename="../main.cpp" line="80"/>
         <source>The device to perform the operation on</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="90"/>
+        <location filename="../main.cpp" line="92"/>
         <source>invalid operation %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="91"/>
-        <location filename="../main.cpp" line="99"/>
-        <location filename="../main.cpp" line="107"/>
-        <location filename="../main.cpp" line="120"/>
+        <location filename="../main.cpp" line="93"/>
+        <location filename="../main.cpp" line="101"/>
+        <location filename="../main.cpp" line="109"/>
+        <location filename="../main.cpp" line="122"/>
         <source>Usage: %1 [options] [operation device].</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="92"/>
-        <location filename="../main.cpp" line="100"/>
-        <location filename="../main.cpp" line="108"/>
-        <location filename="../main.cpp" line="121"/>
+        <location filename="../main.cpp" line="94"/>
+        <location filename="../main.cpp" line="102"/>
+        <location filename="../main.cpp" line="110"/>
+        <location filename="../main.cpp" line="123"/>
         <source>%1 -h for more information.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="98"/>
+        <location filename="../main.cpp" line="100"/>
         <source>missing device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="106"/>
+        <location filename="../main.cpp" line="108"/>
         <source>too many arguments</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="119"/>
+        <location filename="../main.cpp" line="121"/>
         <source>invalid device</source>
         <translation type="unfinished"></translation>
     </message>

@@ -17,7 +17,7 @@
    <item>
     <widget class="QLabel" name="iconLabel">
      <property name="text">
-      <string>Icon</string>
+      <string notr="true">Icon</string>
      </property>
     </widget>
    </item>
@@ -37,7 +37,7 @@
         </font>
        </property>
        <property name="text">
-        <string>TextLabel</string>
+        <string notr="true">TextLabel</string>
        </property>
       </widget>
      </item>
@@ -47,7 +47,7 @@
         <bool>false</bool>
        </property>
        <property name="text">
-        <string>TextLabel</string>
+        <string notr="true">TextLabel</string>
        </property>
       </widget>
      </item>
