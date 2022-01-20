@@ -21,8 +21,9 @@
 #define PARTITIONINFORMATION_H
 
 #include <QObject>
+#include "libthefrisbee_global.h"
 
-class PartitionInformation : public QObject {
+class LIBTHEFRISBEE_EXPORT PartitionInformation : public QObject {
         Q_OBJECT
     public:
         static QStringList availableFormatTypes();

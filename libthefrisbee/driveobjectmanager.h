@@ -24,11 +24,12 @@
 #include <QDBusObjectPath>
 #include <tpromise.h>
 #include <QDBusUnixFileDescriptor>
+#include "libthefrisbee_global.h"
 
 struct DriveObjectManagerPrivate;
 class DiskObject;
 class DriveInterface;
-class DriveObjectManager : public QObject {
+class LIBTHEFRISBEE_EXPORT DriveObjectManager : public QObject {
         Q_OBJECT
     public:
         explicit DriveObjectManager(QObject* parent = nullptr);

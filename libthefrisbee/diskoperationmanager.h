@@ -22,8 +22,9 @@
 
 #include <QWidget>
 #include <DriveObjects/diskobject.h>
+#include "libthefrisbee_global.h"
 
-class DiskOperationManager : public QObject {
+class LIBTHEFRISBEE_EXPORT DiskOperationManager : public QObject {
         Q_OBJECT
     public:
         DiskOperationManager() = delete;

@@ -21,9 +21,10 @@
 #define DISKMODEL_H
 
 #include <QAbstractItemModel>
+#include "libthefrisbee_global.h"
 
 struct DiskModelPrivate;
-class DiskModel : public QAbstractItemModel {
+class LIBTHEFRISBEE_EXPORT DiskModel : public QAbstractItemModel {
         Q_OBJECT
 
     public:

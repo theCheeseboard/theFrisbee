@@ -28,4 +28,6 @@
 #  define LIBTHEFRISBEE_EXPORT Q_DECL_IMPORT
 #endif
 
+#define LIBTHEFRISBEE_TRANSLATOR "thefrisbee/libthefrisbee"
+
 #endif // LIBTHEFRISBEE_GLOBAL_H
