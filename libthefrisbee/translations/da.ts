@@ -6,12 +6,12 @@
     <message>
         <location filename="../DriveObjects/diskobject.cpp" line="111"/>
         <source>Loop Device</source>
-        <translation type="unfinished"></translation>
+        <translation>Loopenhed</translation>
     </message>
     <message>
         <location filename="../DriveObjects/diskobject.cpp" line="114"/>
         <source>Block Device</source>
-        <translation type="unfinished"></translation>
+        <translation>Blokenhed</translation>
     </message>
 </context>
 <context>
@@ -19,113 +19,113 @@
     <message>
         <location filename="../diskoperationmanager.cpp" line="54"/>
         <source>Erase a block device</source>
-        <translation type="unfinished"></translation>
+        <translation>Slet en blokenhed</translation>
     </message>
     <message>
         <location filename="../diskoperationmanager.cpp" line="55"/>
         <source>Create an image of a block device</source>
-        <translation type="unfinished"></translation>
+        <translation>Lav et snapshot af en blokenhed</translation>
     </message>
     <message>
         <location filename="../diskoperationmanager.cpp" line="56"/>
         <source>Restore an image back to a block device or disc</source>
-        <translation type="unfinished"></translation>
+        <translation>Gendan et snapshot til en blokenhed eller disk</translation>
     </message>
     <message>
         <location filename="../diskoperationmanager.cpp" line="57"/>
         <source>Edit partitions on a filesystem</source>
-        <translation type="unfinished"></translation>
+        <translation>Rediger partitioner på et filsystem</translation>
     </message>
     <message>
         <location filename="../diskoperationmanager.cpp" line="98"/>
         <location filename="../diskoperationmanager.cpp" line="187"/>
         <source>No Media</source>
-        <translation type="unfinished"></translation>
+        <translation>Ingen disk</translation>
     </message>
     <message>
         <location filename="../diskoperationmanager.cpp" line="98"/>
         <source>There is no media in the drive to erase.</source>
-        <translation type="unfinished"></translation>
+        <translation>Der er ikke nogen disk i drevet at formatere.</translation>
     </message>
     <message>
         <location filename="../diskoperationmanager.cpp" line="105"/>
         <source>Disc already blank</source>
-        <translation type="unfinished"></translation>
+        <translation>Disk allerede blank</translation>
     </message>
     <message>
         <location filename="../diskoperationmanager.cpp" line="105"/>
         <source>The disc in the drive is already blank. Do you still want to erase it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Disken i drevet er allerede blank. Ønsker du stadig at formatere den?</translation>
     </message>
     <message>
         <location filename="../diskoperationmanager.cpp" line="128"/>
         <source>Disc not rewritable</source>
-        <translation type="unfinished"></translation>
+        <translation>Disk ikke skrivbar</translation>
     </message>
     <message>
         <location filename="../diskoperationmanager.cpp" line="129"/>
         <source>The disc in the drive is not rewritable.</source>
-        <translation type="unfinished"></translation>
+        <translation>Disken i drevet er ikke skrivbar.</translation>
     </message>
     <message>
         <location filename="../diskoperationmanager.cpp" line="130"/>
         <source>Only rewritable discs can be erased. If you need to destroy the data on this disc, you should physically break it in half.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kun skrivbare diske kan formateres. Hvis du er nødt til at ødelægge dataene på disken, så burde du fysisk rive den i to.</translation>
     </message>
     <message>
         <location filename="../diskoperationmanager.cpp" line="158"/>
         <source>System Disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Systemdisk</translation>
     </message>
     <message>
         <location filename="../diskoperationmanager.cpp" line="158"/>
         <source>This is a system disk. Erasing it may cause your device to stop working altogether. Do you still want to erase it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Dette er en systemdisk. Formatering af den kan forhindre din enhed i at fungere. Ønsker du stadig at formatere den?</translation>
     </message>
     <message>
         <location filename="../diskoperationmanager.cpp" line="187"/>
         <source>There is no media in the drive to restore to.</source>
-        <translation type="unfinished"></translation>
+        <translation>Der er ingen disk i drevet at gendanne til.</translation>
     </message>
     <message>
         <location filename="../diskoperationmanager.cpp" line="210"/>
         <source>Disc not writable</source>
-        <translation type="unfinished"></translation>
+        <translation>Disk ikke skrivbar</translation>
     </message>
     <message>
         <location filename="../diskoperationmanager.cpp" line="210"/>
         <source>The disc in the drive is not writable.</source>
-        <translation type="unfinished"></translation>
+        <translation>Disken i drevet er ikke skrivbar.</translation>
     </message>
     <message>
         <location filename="../diskoperationmanager.cpp" line="244"/>
         <source>No Partition Table</source>
-        <translation type="unfinished"></translation>
+        <translation>Ingen partitionstabel</translation>
     </message>
     <message>
         <location filename="../diskoperationmanager.cpp" line="245"/>
         <source>Erase the disk to create a partition table.</source>
-        <translation type="unfinished"></translation>
+        <translation>Formater disken for at lave en partitionstabel.</translation>
     </message>
     <message>
         <location filename="../diskoperationmanager.cpp" line="271"/>
         <source>Optical tools unavailable</source>
-        <translation type="unfinished"></translation>
+        <translation>Optiske værktøjer utilgængelige</translation>
     </message>
     <message>
         <location filename="../diskoperationmanager.cpp" line="279"/>
         <source>theFrisbee can&apos;t write to optical discs when installed as a Flatpak.</source>
-        <translation type="unfinished"></translation>
+        <translation>theFrisbee kan ikke skrive til optiske diske, da den er installeret med Flatpak.</translation>
     </message>
     <message>
         <location filename="../diskoperationmanager.cpp" line="281"/>
         <source>Your system does not have the necessary tools installed to write to optical discs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dit system har ikke de nødvendige programmer installeret til at skrive til optiske diske.</translation>
     </message>
     <message>
         <location filename="../diskoperationmanager.cpp" line="282"/>
         <source>You&apos;ll need to install either cdrtools or cdrkit using your system&apos;s package manager.</source>
-        <translation type="unfinished"></translation>
+        <translation>Du er nødt til at installere enten cdrtools eller cdrkit med dit system&apos;s package manager.</translation>
     </message>
 </context>
 <context>
@@ -133,47 +133,47 @@
     <message>
         <location filename="../jobs/editpartitionjob.cpp" line="50"/>
         <source>Waiting for other jobs to finish</source>
-        <translation type="unfinished"></translation>
+        <translation>Venter på at andre opgaver bliver færdige</translation>
     </message>
     <message>
         <location filename="../jobs/editpartitionjob.cpp" line="94"/>
         <source>Partitioning Complete</source>
-        <translation type="unfinished"></translation>
+        <translation>Partitionering færdig</translation>
     </message>
     <message>
         <location filename="../jobs/editpartitionjob.cpp" line="100"/>
         <source>Partitioning Operations Complete</source>
-        <translation type="unfinished"></translation>
+        <translation>Partitionerings-opgaver færdige</translation>
     </message>
     <message>
         <location filename="../jobs/editpartitionjob.cpp" line="101"/>
         <source>Changes to %1 have been applied.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ændringer til %1 er blevet fuldført.</translation>
     </message>
     <message>
         <location filename="../jobs/editpartitionjob.cpp" line="117"/>
         <source>Creating partition %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Laver partition %1</translation>
     </message>
     <message>
         <location filename="../jobs/editpartitionjob.cpp" line="151"/>
         <source>Deleting partition %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Sletter partition %1</translation>
     </message>
     <message>
         <location filename="../jobs/editpartitionjob.cpp" line="170"/>
         <source>A partition operation failed.</source>
-        <translation type="unfinished"></translation>
+        <translation>En partitions-opgave fejlede.</translation>
     </message>
     <message>
         <location filename="../jobs/editpartitionjob.cpp" line="174"/>
         <source>Partitioning Operations Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Partitions-opgave fejlede</translation>
     </message>
     <message>
         <location filename="../jobs/editpartitionjob.cpp" line="175"/>
         <source>Changes to %1 could not be applied. The disk may be in an inconsistent state.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ændringer til %1 kunne ikke fuldføres. Disken kan være korrupteret.</translation>
     </message>
 </context>
 <context>
@@ -181,7 +181,7 @@
     <message>
         <location filename="../jobs/progress/editpartitionjobprogress.cpp" line="31"/>
         <source>Partitioning %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Partitionerer %1</translation>
     </message>
 </context>
 <context>
@@ -189,80 +189,80 @@
     <message>
         <location filename="../jobs/erasecdrwjob.cpp" line="53"/>
         <source>CD-RW</source>
-        <translation type="unfinished"></translation>
+        <translation>CD-RW</translation>
     </message>
     <message>
         <location filename="../jobs/erasecdrwjob.cpp" line="56"/>
         <source>DVD-RW</source>
-        <translation type="unfinished"></translation>
+        <translation>DVD-RW</translation>
     </message>
     <message>
         <location filename="../jobs/erasecdrwjob.cpp" line="60"/>
         <source>DVD+RW</source>
-        <translation type="unfinished"></translation>
+        <translation>DVD+RW</translation>
     </message>
     <message>
         <location filename="../jobs/erasecdrwjob.cpp" line="63"/>
         <source>BD-RE</source>
-        <translation type="unfinished"></translation>
+        <translation>BD-RE</translation>
     </message>
     <message>
         <location filename="../jobs/erasecdrwjob.cpp" line="66"/>
         <source>Unknown</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukendt</translation>
     </message>
     <message>
         <location filename="../jobs/erasecdrwjob.cpp" line="70"/>
         <source>Waiting for other jobs to finish</source>
-        <translation type="unfinished"></translation>
+        <translation>Venter på at andre opgaver bliver færdige</translation>
     </message>
     <message>
         <location filename="../jobs/erasecdrwjob.cpp" line="108"/>
         <source>Unmounting Disc</source>
-        <translation type="unfinished"></translation>
+        <translation>Afmonterer disk</translation>
     </message>
     <message>
         <location filename="../jobs/erasecdrwjob.cpp" line="133"/>
         <location filename="../jobs/erasecdrwjob.cpp" line="183"/>
         <source>Failed to erase %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunne ikke formatere %1</translation>
     </message>
     <message>
         <location filename="../jobs/erasecdrwjob.cpp" line="139"/>
         <location filename="../jobs/erasecdrwjob.cpp" line="190"/>
         <source>Couldn&apos;t Erase Disc</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunne ikke formatere disk</translation>
     </message>
     <message>
         <location filename="../jobs/erasecdrwjob.cpp" line="140"/>
         <location filename="../jobs/erasecdrwjob.cpp" line="191"/>
         <source>The disc in %1 could not be erased.</source>
-        <translation type="unfinished"></translation>
+        <translation>Disken i %1 kunne ikke formateres.</translation>
     </message>
     <message>
         <location filename="../jobs/erasecdrwjob.cpp" line="147"/>
         <source>Erasing %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Formaterer %1</translation>
     </message>
     <message>
         <location filename="../jobs/erasecdrwjob.cpp" line="181"/>
         <source>Couldn&apos;t erase %1 because %2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunne ikke formatere %1 på grund af %2.</translation>
     </message>
     <message>
         <location filename="../jobs/erasecdrwjob.cpp" line="214"/>
         <source>%1 Erased</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 formateret</translation>
     </message>
     <message>
         <location filename="../jobs/erasecdrwjob.cpp" line="220"/>
         <source>Erased Disc</source>
-        <translation type="unfinished"></translation>
+        <translation>Disk formateret</translation>
     </message>
     <message>
         <location filename="../jobs/erasecdrwjob.cpp" line="221"/>
         <source>The disc in %1 has been erased.</source>
-        <translation type="unfinished"></translation>
+        <translation>Disken i %1 er blevet formateret.</translation>
     </message>
 </context>
 <context>
@@ -270,7 +270,7 @@
     <message>
         <location filename="../jobs/progress/erasecdrwjobprogress.cpp" line="38"/>
         <source>Erase %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Formater %1</translation>
     </message>
 </context>
 <context>
@@ -279,43 +279,43 @@
         <location filename="../operations/eraseopticalpopover.ui" line="54"/>
         <location filename="../operations/eraseopticalpopover.ui" line="150"/>
         <source>Erase Disc</source>
-        <translation type="unfinished"></translation>
+        <translation>Formater disk</translation>
     </message>
     <message>
         <location filename="../operations/eraseopticalpopover.ui" line="70"/>
         <source>ERASE OPTIONS</source>
-        <translation type="unfinished"></translation>
+        <translation>FORMATERINGS-INSTILLINGER</translation>
     </message>
     <message>
         <location filename="../operations/eraseopticalpopover.ui" line="77"/>
         <source>Erase Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Formateringstype</translation>
     </message>
     <message>
         <location filename="../operations/eraseopticalpopover.ui" line="91"/>
         <source>Quick</source>
-        <translation type="unfinished"></translation>
+        <translation>Hurtig</translation>
     </message>
     <message>
         <location filename="../operations/eraseopticalpopover.ui" line="96"/>
         <source>Full</source>
-        <translation type="unfinished"></translation>
+        <translation>Fuld</translation>
     </message>
     <message>
         <location filename="../operations/eraseopticalpopover.ui" line="104"/>
         <location filename="../operations/eraseopticalpopover.ui" line="183"/>
         <source>Erase this disc</source>
-        <translation type="unfinished"></translation>
+        <translation>Formater denne disk</translation>
     </message>
     <message>
         <location filename="../operations/eraseopticalpopover.ui" line="166"/>
         <source>THIS IS IT</source>
-        <translation type="unfinished"></translation>
+        <translation>SIDSTE CHANCE</translation>
     </message>
     <message>
         <location filename="../operations/eraseopticalpopover.ui" line="173"/>
         <source>There&apos;s no going back after this. Once the disc in the drive is erased, all the data on it will be gone forever.</source>
-        <translation type="unfinished"></translation>
+        <translation>Du kan ikke gå tilbage efter dette. Når disken i drevet er formateret, vil alle dataene på den være væk for evigt.</translation>
     </message>
 </context>
 <context>
