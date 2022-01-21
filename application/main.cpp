@@ -44,7 +44,7 @@ int main(int argc, char* argv[]) {
     a.setAboutDialogSplashGraphic(a.aboutDialogSplashGraphicFromSvg(":/icons/aboutsplash.svg"));
     a.setApplicationLicense(tApplication::Gpl3OrLater);
     a.setCopyrightHolder("Victor Tran");
-    a.setCopyrightYear("2020");
+    a.setCopyrightYear("2022");
     a.setOrganizationName("theSuite");
 //    a.setApplicationUrl(tApplication::HelpContents, QUrl("https://help.vicr123.com/docs/thefrisbee/intro"));
     a.setApplicationUrl(tApplication::Sources, QUrl("http://github.com/vicr123/thefrisbee"));
