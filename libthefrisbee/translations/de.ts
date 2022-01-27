@@ -6,12 +6,12 @@
     <message>
         <location filename="../DriveObjects/diskobject.cpp" line="111"/>
         <source>Loop Device</source>
-        <translation type="unfinished"></translation>
+        <translation>Loopgerät</translation>
     </message>
     <message>
         <location filename="../DriveObjects/diskobject.cpp" line="114"/>
         <source>Block Device</source>
-        <translation type="unfinished"></translation>
+        <translation>Blockgerät</translation>
     </message>
 </context>
 <context>
@@ -19,33 +19,33 @@
     <message>
         <location filename="../diskoperationmanager.cpp" line="54"/>
         <source>Erase a block device</source>
-        <translation type="unfinished"></translation>
+        <translation>Ein Loopgerät löschen</translation>
     </message>
     <message>
         <location filename="../diskoperationmanager.cpp" line="55"/>
         <source>Create an image of a block device</source>
-        <translation type="unfinished"></translation>
+        <translation>Image eines Blöckgerätes erstellen</translation>
     </message>
     <message>
         <location filename="../diskoperationmanager.cpp" line="56"/>
         <source>Restore an image back to a block device or disc</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Image auf einem Blockgerät wiederherstellen</translation>
     </message>
     <message>
         <location filename="../diskoperationmanager.cpp" line="57"/>
         <source>Edit partitions on a filesystem</source>
-        <translation type="unfinished"></translation>
+        <translation>Partitionen auf einem Dateisystem bearbeiten</translation>
     </message>
     <message>
         <location filename="../diskoperationmanager.cpp" line="98"/>
         <location filename="../diskoperationmanager.cpp" line="187"/>
         <source>No Media</source>
-        <translation type="unfinished"></translation>
+        <translation>Keine Medien</translation>
     </message>
     <message>
         <location filename="../diskoperationmanager.cpp" line="98"/>
         <source>There is no media in the drive to erase.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Es gibt keine zu löschenden Medien auf dem Gerät.</translation>
     </message>
     <message>
         <location filename="../diskoperationmanager.cpp" line="105"/>
