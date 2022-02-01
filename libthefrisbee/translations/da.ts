@@ -19,7 +19,7 @@
     <message>
         <location filename="../diskoperationmanager.cpp" line="54"/>
         <source>Erase a block device</source>
-        <translation>Slet en blokenhed</translation>
+        <translation>Formater en blokenhed</translation>
     </message>
     <message>
         <location filename="../diskoperationmanager.cpp" line="55"/>
@@ -324,43 +324,43 @@
         <location filename="../operations/erasepartitionpopover.ui" line="57"/>
         <location filename="../operations/erasepartitionpopover.ui" line="153"/>
         <source>Erase Partition</source>
-        <translation type="unfinished"></translation>
+        <translation>Formater partition</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitionpopover.ui" line="67"/>
         <location filename="../operations/erasepartitionpopover.ui" line="186"/>
         <source>Erase this partition</source>
-        <translation type="unfinished"></translation>
+        <translation>Formater denne partition</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitionpopover.ui" line="78"/>
         <source>Filesystem</source>
-        <translation type="unfinished"></translation>
+        <translation>Filsystem</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitionpopover.ui" line="91"/>
         <source>ERASE OPTIONS</source>
-        <translation type="unfinished"></translation>
+        <translation>FORMATERINGSINDSTILLINGER</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitionpopover.ui" line="108"/>
         <source>Partition Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Partitions-navn</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitionpopover.ui" line="169"/>
         <source>THIS IS IT</source>
-        <translation type="unfinished"></translation>
+        <translation>DET ER NU</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitionpopover.ui" line="176"/>
         <source>There&apos;s no going back after this. Once the partition is erased, all the data on the partition is gone forever.</source>
-        <translation type="unfinished"></translation>
+        <translation>Du kan ikke vende tilbage efter dette. Når partitionen er formateret, så vil alt data på den være væk for evigt.</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitionpopover.cpp" line="50"/>
         <source>Erase Only</source>
-        <translation type="unfinished"></translation>
+        <translation>Intet filsystem</translation>
     </message>
 </context>
 <context>
@@ -369,48 +369,48 @@
         <location filename="../operations/erasepartitiontablepopover.ui" line="57"/>
         <location filename="../operations/erasepartitiontablepopover.ui" line="158"/>
         <source>Erase Disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Formater disk</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitiontablepopover.ui" line="73"/>
         <source>ERASE OPTIONS</source>
-        <translation type="unfinished"></translation>
+        <translation>FORMATERINGSINDSTILLINGER</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitiontablepopover.ui" line="80"/>
         <source>Partition Table</source>
-        <translation type="unfinished"></translation>
+        <translation>Partitionstabel</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitiontablepopover.ui" line="94"/>
         <source>GPT</source>
-        <translation type="unfinished"></translation>
+        <translation>GPT</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitiontablepopover.ui" line="99"/>
         <source>DOS/MBR</source>
-        <translation type="unfinished"></translation>
+        <translation>DOS/MBR</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitiontablepopover.ui" line="104"/>
         <source>Erase Only</source>
-        <translation type="unfinished"></translation>
+        <translation>Formater kun</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitiontablepopover.ui" line="112"/>
         <location filename="../operations/erasepartitiontablepopover.ui" line="191"/>
         <source>Erase this disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Formater denne disk</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitiontablepopover.ui" line="174"/>
         <source>THIS IS IT</source>
-        <translation type="unfinished"></translation>
+        <translation>DET ER NU</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitiontablepopover.ui" line="181"/>
         <source>There&apos;s no going back after this. Once the disk is erased, all the data on the disk is gone forever.</source>
-        <translation type="unfinished"></translation>
+        <translation>Du kan ikke vende tilbage efter dette. Når disken er formateret, så vil alt data på den være væk for evigt.</translation>
     </message>
 </context>
 <context>
@@ -418,42 +418,42 @@
     <message>
         <location filename="../operations/imagepopover.ui" line="35"/>
         <source>Image Disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Snapshot af disk</translation>
     </message>
     <message>
         <location filename="../operations/imagepopover.ui" line="45"/>
         <source>Output File</source>
-        <translation type="unfinished"></translation>
+        <translation>Output-fil</translation>
     </message>
     <message>
         <location filename="../operations/imagepopover.ui" line="55"/>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>Gennemse...</translation>
     </message>
     <message>
         <location filename="../operations/imagepopover.ui" line="68"/>
         <source>IMAGING OPTIONS</source>
-        <translation type="unfinished"></translation>
+        <translation>SNAPSHOT-INDSTILLINGER</translation>
     </message>
     <message>
         <location filename="../operations/imagepopover.ui" line="75"/>
         <source>Image this disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Tag snapshot</translation>
     </message>
     <message>
         <location filename="../operations/imagepopover.cpp" line="76"/>
         <source>Disk Imaged</source>
-        <translation type="unfinished"></translation>
+        <translation>Snapshot af disk er taget</translation>
     </message>
     <message>
         <location filename="../operations/imagepopover.cpp" line="77"/>
         <source>The disk image has been created</source>
-        <translation type="unfinished"></translation>
+        <translation>Snapshottet er blevet lavet</translation>
     </message>
     <message>
         <location filename="../operations/imagepopover.cpp" line="82"/>
         <source>Couldn&apos;t image disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunne ikke tage snapshot af disk</translation>
     </message>
 </context>
 <context>
@@ -461,32 +461,32 @@
     <message>
         <location filename="../optical/opticalerrortracker.cpp" line="39"/>
         <source>the last time the disc was burned, it was not burned with support for adding extra files</source>
-        <translation type="unfinished"></translation>
+        <translation>DIsken er blevet brændt på en måde der ikke understøtter tilføjelse af filer</translation>
     </message>
     <message>
         <location filename="../optical/opticalerrortracker.cpp" line="44"/>
         <source>there is no disc in the drive</source>
-        <translation type="unfinished"></translation>
+        <translation>Der er ingen disk i drevet</translation>
     </message>
     <message>
         <location filename="../optical/opticalerrortracker.cpp" line="49"/>
         <source>the drive requires more power to operate</source>
-        <translation type="unfinished"></translation>
+        <translation>Drevet modtager ikke nok strøm</translation>
     </message>
     <message>
         <location filename="../optical/opticalerrortracker.cpp" line="54"/>
         <source>the disc couldn&apos;t be finalized</source>
-        <translation type="unfinished"></translation>
+        <translation>Operationen kunne ikke færdiggøres</translation>
     </message>
     <message>
         <location filename="../optical/opticalerrortracker.cpp" line="59"/>
         <source>the power calibration area is full</source>
-        <translation type="unfinished"></translation>
+        <translation>Laserkalibrerings-område er fuld</translation>
     </message>
     <message>
         <location filename="../optical/opticalerrortracker.cpp" line="60"/>
         <source>the drive can&apos;t calibrate the laser power level for this disc</source>
-        <translation type="unfinished"></translation>
+        <translation>Drevet kan ikke kalibrere laserstyrken for denne disk</translation>
     </message>
 </context>
 <context>
@@ -494,52 +494,52 @@
     <message>
         <location filename="../partitioninformation.cpp" line="53"/>
         <source>ext4 (Linux Filesystem)</source>
-        <translation type="unfinished"></translation>
+        <translation>ext4 (Linux-filsystem)</translation>
     </message>
     <message>
         <location filename="../partitioninformation.cpp" line="54"/>
         <source>NTFS (Windows Filesystem)</source>
-        <translation type="unfinished"></translation>
+        <translation>NTFS (Windows-filsystem)</translation>
     </message>
     <message>
         <location filename="../partitioninformation.cpp" line="55"/>
         <source>exFAT (All Systems)</source>
-        <translation type="unfinished"></translation>
+        <translation>exFAT (Alle systemer)</translation>
     </message>
     <message>
         <location filename="../partitioninformation.cpp" line="56"/>
         <source>Linux Swap</source>
-        <translation type="unfinished"></translation>
+        <translation>Linux-swap</translation>
     </message>
     <message>
         <location filename="../partitioninformation.cpp" line="57"/>
         <source>XFS (Linux Filesystem)</source>
-        <translation type="unfinished"></translation>
+        <translation>XFS (Linux-filsystem)</translation>
     </message>
     <message>
         <location filename="../partitioninformation.cpp" line="58"/>
         <source>BTRFS (Linux Filesystem)</source>
-        <translation type="unfinished"></translation>
+        <translation>BTRFS (Linux-filsystem)</translation>
     </message>
     <message>
         <location filename="../partitioninformation.cpp" line="59"/>
         <source>F2FS (Flash Optimised Filesystem)</source>
-        <translation type="unfinished"></translation>
+        <translation>F2FS (Flash-optimeret filsystem)</translation>
     </message>
     <message>
         <location filename="../partitioninformation.cpp" line="60"/>
         <source>FAT (All Systems)</source>
-        <translation type="unfinished"></translation>
+        <translation>FAT (Alle systemer)</translation>
     </message>
     <message>
         <location filename="../partitioninformation.cpp" line="61"/>
         <source>EFI System Partition</source>
-        <translation type="unfinished"></translation>
+        <translation>EFI-system-partition</translation>
     </message>
     <message>
         <location filename="../partitioninformation.cpp" line="62"/>
         <source>Extended Boot Partition</source>
-        <translation type="unfinished"></translation>
+        <translation>Udvidet boot-partition</translation>
     </message>
 </context>
 <context>
@@ -547,84 +547,86 @@
     <message>
         <location filename="../operations/partitionpopover.ui" line="35"/>
         <source>Edit Partitions</source>
-        <translation type="unfinished"></translation>
+        <translation>Rediger partitioner</translation>
     </message>
     <message>
         <location filename="../operations/partitionpopover.ui" line="102"/>
         <source>ACTIONS</source>
-        <translation type="unfinished"></translation>
+        <translation>OPERATIONER</translation>
     </message>
     <message>
         <location filename="../operations/partitionpopover.ui" line="109"/>
         <source>Select a partition to resize or erase it. To add a new partition, click in some empty space.
 
 We won&apos;t modify anything until you apply your changes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vælg en partition for at ændre dens størrelse eller fjerne den. For at tilføje en ny partition, klik et sted hvor der ikke ligger en anden.
+
+Vi vil ikke ændre noget indtil du bekræfter dine ændringer.</translation>
     </message>
     <message>
         <location filename="../operations/partitionpopover.ui" line="150"/>
         <source>NEW PARTITION</source>
-        <translation type="unfinished"></translation>
+        <translation>NY PARTITION</translation>
     </message>
     <message>
         <location filename="../operations/partitionpopover.ui" line="157"/>
         <source>Add New Partition</source>
-        <translation type="unfinished"></translation>
+        <translation>Tilføj ny partition</translation>
     </message>
     <message>
         <location filename="../operations/partitionpopover.ui" line="199"/>
         <source>Delete Partition</source>
-        <translation type="unfinished"></translation>
+        <translation>Slet partition</translation>
     </message>
     <message>
         <location filename="../operations/partitionpopover.ui" line="206"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Navn</translation>
     </message>
     <message>
         <location filename="../operations/partitionpopover.ui" line="219"/>
         <source>EDIT PARTITION</source>
-        <translation type="unfinished"></translation>
+        <translation>REDIGER PARTITION</translation>
     </message>
     <message>
         <location filename="../operations/partitionpopover.ui" line="229"/>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Type</translation>
     </message>
     <message>
         <location filename="../operations/partitionpopover.ui" line="259"/>
         <source>Apply Changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Anvend ændringer</translation>
     </message>
     <message>
         <location filename="../operations/partitionpopover.ui" line="294"/>
         <source>APPLY CHANGES</source>
-        <translation type="unfinished"></translation>
+        <translation>ANVEND ÆNDRINGER</translation>
     </message>
     <message>
         <location filename="../operations/partitionpopover.ui" line="311"/>
         <source>Apply Changes to Disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Bekræft ændringer</translation>
     </message>
     <message>
         <location filename="../operations/partitionpopover.cpp" line="68"/>
         <source>Leave Empty</source>
-        <translation type="unfinished"></translation>
+        <translation>Gør tom</translation>
     </message>
     <message>
         <location filename="../operations/partitionpopover.cpp" line="92"/>
         <source>New Partition</source>
-        <translation type="unfinished"></translation>
+        <translation>Ny partition</translation>
     </message>
     <message>
         <location filename="../operations/partitionpopover.cpp" line="224"/>
         <source>Once these changes are applied, you won&apos;t be able to recover any partitions that you&apos;ve deleted easily.</source>
-        <translation type="unfinished"></translation>
+        <translation>Når ændringerne er skrevet, vil du ikke nemt kunne gendanne partitioner som du har slettet.</translation>
     </message>
     <message>
         <location filename="../operations/partitionpopover.cpp" line="227"/>
         <source>Ready to apply these changes to the disk?</source>
-        <translation type="unfinished"></translation>
+        <translation>Er du sikker?</translation>
     </message>
 </context>
 <context>
@@ -632,33 +634,34 @@ We won&apos;t modify anything until you apply your changes.</source>
     <message>
         <location filename="../jobs/restorediskjob.cpp" line="51"/>
         <source>Waiting for disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Venter på disk</translation>
     </message>
     <message>
         <location filename="../jobs/restorediskjob.cpp" line="65"/>
         <source>Waiting for other jobs to finish</source>
-        <translation type="unfinished"></translation>
+        <translation>Venter på at andre opgaver bliver færdige</translation>
     </message>
     <message>
         <location filename="../jobs/restorediskjob.cpp" line="96"/>
         <source>Restoring to %1
 %2 of %3 restored</source>
-        <translation type="unfinished"></translation>
+        <translation>Gendanner til %1
+%2 ud af %3 gendannet</translation>
     </message>
     <message>
         <location filename="../jobs/restorediskjob.cpp" line="112"/>
         <source>Disk restored successfully</source>
-        <translation type="unfinished"></translation>
+        <translation>Disk gendannet succesfuldt</translation>
     </message>
     <message>
         <location filename="../jobs/restorediskjob.cpp" line="125"/>
         <source>Couldn&apos;t open the destination device for writing</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunne ikke åbne destinationsenhed til at skrive</translation>
     </message>
     <message>
         <location filename="../jobs/restorediskjob.cpp" line="142"/>
         <source>Failed to restore image</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunne ikke gendanne snapshot</translation>
     </message>
 </context>
 <context>
@@ -666,7 +669,7 @@ We won&apos;t modify anything until you apply your changes.</source>
     <message>
         <location filename="../jobs/progress/restorediskjobprogress.cpp" line="38"/>
         <source>Restore to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Gendan til %1</translation>
     </message>
 </context>
 <context>
@@ -674,79 +677,80 @@ We won&apos;t modify anything until you apply your changes.</source>
     <message>
         <location filename="../jobs/restoreopticaljob.cpp" line="54"/>
         <source>Waiting for restore medium</source>
-        <translation type="unfinished"></translation>
+        <translation>Venter på gendannelsesmedie</translation>
     </message>
     <message>
         <location filename="../jobs/restoreopticaljob.cpp" line="68"/>
         <source>Waiting for other jobs to finish</source>
-        <translation type="unfinished"></translation>
+        <translation>Venter på at andre opgaver bliver færdige</translation>
     </message>
     <message>
         <location filename="../jobs/restoreopticaljob.cpp" line="92"/>
         <source>Failed to restore image</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunne ikke gendanne snapshot</translation>
     </message>
     <message>
         <location filename="../jobs/restoreopticaljob.cpp" line="116"/>
         <location filename="../jobs/restoreopticaljob.cpp" line="166"/>
         <source>Preparing to restore</source>
-        <translation type="unfinished"></translation>
+        <translation>Forbereder gendannelse</translation>
     </message>
     <message>
         <location filename="../jobs/restoreopticaljob.cpp" line="133"/>
         <source>Couldn&apos;t restore the disc because %1.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunne ikke gendanne disk på grund af %1.</translation>
     </message>
     <message>
         <location filename="../jobs/restoreopticaljob.cpp" line="135"/>
         <source>Failed to restore disc</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunne ikke gendanne disk</translation>
     </message>
     <message>
         <location filename="../jobs/restoreopticaljob.cpp" line="140"/>
         <source>Couldn&apos;t Restore Disc</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunne ikke gendanne disk</translation>
     </message>
     <message>
         <location filename="../jobs/restoreopticaljob.cpp" line="141"/>
         <source>The disc in %1 could not be restored.</source>
-        <translation type="unfinished"></translation>
+        <translation>Disken i %1 kunne ikke gendannes.</translation>
     </message>
     <message>
         <location filename="../jobs/restoreopticaljob.cpp" line="176"/>
         <source>Erasing Disc</source>
-        <translation type="unfinished"></translation>
+        <translation>Formaterer disk</translation>
     </message>
     <message>
         <location filename="../jobs/restoreopticaljob.cpp" line="182"/>
         <source>Burning Image (%1)
 %2 of %3</source>
-        <translation type="unfinished"></translation>
+        <translation>Brænder snapshot (%1)
+%2 ud af %3</translation>
     </message>
     <message>
         <location filename="../jobs/restoreopticaljob.cpp" line="185"/>
         <source>Burning Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Brænder snapshot</translation>
     </message>
     <message>
         <location filename="../jobs/restoreopticaljob.cpp" line="196"/>
         <source>Finalizing Disc</source>
-        <translation type="unfinished"></translation>
+        <translation>Færdiggør disk</translation>
     </message>
     <message>
         <location filename="../jobs/restoreopticaljob.cpp" line="241"/>
         <source>Restore Complete</source>
-        <translation type="unfinished"></translation>
+        <translation>Gendannelse færdig</translation>
     </message>
     <message>
         <location filename="../jobs/restoreopticaljob.cpp" line="247"/>
         <source>Restored Disc</source>
-        <translation type="unfinished"></translation>
+        <translation>Disk gendannet</translation>
     </message>
     <message>
         <location filename="../jobs/restoreopticaljob.cpp" line="248"/>
         <source>The disc in %1 has been restored.</source>
-        <translation type="unfinished"></translation>
+        <translation>Disken i %1 er blevet gendannet.</translation>
     </message>
 </context>
 <context>
@@ -754,7 +758,7 @@ We won&apos;t modify anything until you apply your changes.</source>
     <message>
         <location filename="../jobs/progress/restoreopticaljobprogress.cpp" line="38"/>
         <source>Restore to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Gendan til %1</translation>
     </message>
 </context>
 <context>
@@ -762,82 +766,84 @@ We won&apos;t modify anything until you apply your changes.</source>
     <message>
         <location filename="../operations/restoreopticalpopover.ui" line="73"/>
         <source>RESTORE OPTIONS</source>
-        <translation type="unfinished"></translation>
+        <translation>GENDANNELSESINDSTILLINGER</translation>
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.ui" line="85"/>
         <source>Restore Image File</source>
-        <translation type="unfinished"></translation>
+        <translation>Gendan snapshot</translation>
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.ui" line="101"/>
         <source>Copy Media</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopier medie</translation>
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.ui" line="156"/>
         <source>Input File</source>
-        <translation type="unfinished"></translation>
+        <translation>Input-fil</translation>
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.ui" line="166"/>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>Gennemse...</translation>
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.ui" line="218"/>
         <location filename="../operations/restoreopticalpopover.ui" line="365"/>
         <source>Restore this image</source>
-        <translation type="unfinished"></translation>
+        <translation>Gendan snapshot</translation>
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.ui" line="251"/>
         <location filename="../operations/restoreopticalpopover.cpp" line="58"/>
         <source>Restore Disc</source>
-        <translation type="unfinished"></translation>
+        <translation>Gendan disk</translation>
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.ui" line="267"/>
         <source>DISC NOT BLANK</source>
-        <translation type="unfinished"></translation>
+        <translation>DISK IKKE BLANK</translation>
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.ui" line="274"/>
         <source>The disc in the drive is not blank. To restore an image to the disc, the disc will need to be erased.
 
 Once the disc in the drive is erased, all the data on it will be gone forever.</source>
-        <translation type="unfinished"></translation>
+        <translation>Disken i drevet er ikke blank. For at gendanne et snapshot til disken, skal disken formateres først.
+
+Når disken i drevet er formateret, vil alt data på den være væk for evigt.</translation>
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.ui" line="286"/>
         <source>Erase and Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>Formater og gendan</translation>
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.ui" line="332"/>
         <location filename="../operations/restoreopticalpopover.cpp" line="60"/>
         <source>Restore to Block</source>
-        <translation type="unfinished"></translation>
+        <translation>Formater til blokenhed</translation>
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.ui" line="348"/>
         <source>THIS IS IT</source>
-        <translation type="unfinished"></translation>
+        <translation>DET ER NU</translation>
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.ui" line="355"/>
         <source>Restoring to this block will erase it. There&apos;s no going back; once the block is erased, all the data on the block is gone forever.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gendannelse til denne blok vil formatere den. Når blokken er formateret, så vil alt data på den være væk for evigt.</translation>
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.cpp" line="101"/>
         <source>Unable to restore same media</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan ikke gendanne til samme medie</translation>
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.cpp" line="101"/>
         <source>A medium cannot be restored to itself. Select another medium to restore.</source>
-        <translation type="unfinished"></translation>
+        <translation>Et medie kan ikke gendannes til sig selv. Vælg et andet medie at gendanne.</translation>
     </message>
 </context>
 </TS>
