@@ -7,32 +7,32 @@
         <location filename="../operations/creatediskimagepopover.ui" line="35"/>
         <location filename="../operations/creatediskimagepopover.ui" line="52"/>
         <source>Create Disk Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Lav snapshot</translation>
     </message>
     <message>
         <location filename="../operations/creatediskimagepopover.ui" line="45"/>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>Gennemse...</translation>
     </message>
     <message>
         <location filename="../operations/creatediskimagepopover.ui" line="71"/>
         <source>DISK IMAGE OPTIONS</source>
-        <translation type="unfinished"></translation>
+        <translation>SNAPSHOT-INDSTILLINGER</translation>
     </message>
     <message>
         <location filename="../operations/creatediskimagepopover.ui" line="81"/>
         <source>Disk Image Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Snapshot-størrelse</translation>
     </message>
     <message>
         <location filename="../operations/creatediskimagepopover.ui" line="88"/>
         <source>Output File</source>
-        <translation type="unfinished"></translation>
+        <translation>Output-fil</translation>
     </message>
     <message>
         <location filename="../operations/creatediskimagepopover.ui" line="95"/>
         <source>Attach this disk image</source>
-        <translation type="unfinished"></translation>
+        <translation>Synkroniser med snapshot-fil</translation>
     </message>
 </context>
 <context>
@@ -40,63 +40,63 @@
     <message>
         <location filename="../diskpane.ui" line="35"/>
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation>Navn</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="82"/>
         <source>JOBS RUNNING</source>
-        <translation type="unfinished"></translation>
+        <translation>NUVÆRENDE OPGAVER</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="89"/>
         <source>Some tasks may be unavailable while jobs are currently being run on this item.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nogle muligheder kan være utilgængelige mens opgaver køres på denne enhed.</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="114"/>
         <source>View Jobs</source>
-        <translation type="unfinished"></translation>
+        <translation>Vis opgaver</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="232"/>
         <source>Check</source>
-        <translation type="unfinished"></translation>
+        <translation>Tjek</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="239"/>
         <source>Edit Partitions</source>
-        <translation type="unfinished"></translation>
+        <translation>Rediger partitioner</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="246"/>
         <source>Image</source>
         <extracomment>A verb: &quot;Create Image&quot;</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Snapshot</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="253"/>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>Gendan</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="273"/>
         <source>Erase</source>
-        <translation type="unfinished"></translation>
+        <translation>Formater</translation>
     </message>
     <message>
         <location filename="../diskpane.cpp" line="130"/>
         <source>Check this disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Tjek denne disk</translation>
     </message>
     <message>
         <location filename="../diskpane.cpp" line="131"/>
         <source>Check this disk for errors?</source>
-        <translation type="unfinished"></translation>
+        <translation>Tjek denne disk for fejl?</translation>
     </message>
     <message>
         <location filename="../diskpane.cpp" line="132"/>
         <source>Depending on the size of the disk, the check may take a while.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dette kan tage lang tid på store diske.</translation>
     </message>
 </context>
 <context>
@@ -104,37 +104,37 @@
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>theFrisbee</source>
-        <translation type="unfinished"></translation>
+        <translation>theFrisbee</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="137"/>
         <source>Disks</source>
-        <translation type="unfinished"></translation>
+        <translation>Diske</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="180"/>
         <source>Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Luk</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="183"/>
         <source>Ctrl+Q</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Q</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="192"/>
         <source>Attach Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Synkroniser med snapshot-fil</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="200"/>
         <source>Create Disk Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Lav snapshot</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="203"/>
         <source>Ctrl+N</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+N</translation>
     </message>
 </context>
 <context>
@@ -142,122 +142,122 @@
     <message>
         <location filename="../diskPanes/overviewdiskpane.ui" line="64"/>
         <source>Detach</source>
-        <translation type="unfinished"></translation>
+        <translation>Stop synkronisering</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.ui" line="75"/>
         <source>Unmount</source>
-        <translation type="unfinished"></translation>
+        <translation>Afmonter</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.ui" line="86"/>
         <source>Mount</source>
-        <translation type="unfinished"></translation>
+        <translation>Monter</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.ui" line="97"/>
         <source>Eject</source>
-        <translation type="unfinished"></translation>
+        <translation>Skub ud</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="75"/>
         <source>Blank Disc</source>
-        <translation type="unfinished"></translation>
+        <translation>Blank disk</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="80"/>
         <source>CD</source>
-        <translation type="unfinished"></translation>
+        <translation>CD</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="83"/>
         <source>CD-R</source>
-        <translation type="unfinished"></translation>
+        <translation>CD-R</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="86"/>
         <source>CD-RW</source>
-        <translation type="unfinished"></translation>
+        <translation>CD-RW</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="89"/>
         <source>DVD</source>
-        <translation type="unfinished"></translation>
+        <translation>DVD</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="92"/>
         <source>DVD-R</source>
-        <translation type="unfinished"></translation>
+        <translation>DVD-R</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="95"/>
         <source>DVD-RW</source>
-        <translation type="unfinished"></translation>
+        <translation>DVD-RW</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="98"/>
         <source>DVD-RAM</source>
-        <translation type="unfinished"></translation>
+        <translation>DVD-RAM</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="101"/>
         <source>DVD+R</source>
-        <translation type="unfinished"></translation>
+        <translation>DVD+R</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="104"/>
         <source>DVD+RW</source>
-        <translation type="unfinished"></translation>
+        <translation>DVD+RW</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="107"/>
         <source>DVD+R Dual Layer</source>
-        <translation type="unfinished"></translation>
+        <translation>DVD+R Dual Layer</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="110"/>
         <source>DVD+RW Dual Layer</source>
-        <translation type="unfinished"></translation>
+        <translation>DVD+RW Dual Layer</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="113"/>
         <source>BD</source>
-        <translation type="unfinished"></translation>
+        <translation>BD</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="116"/>
         <source>BD-R</source>
-        <translation type="unfinished"></translation>
+        <translation>BD-R</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="119"/>
         <source>BD-RE</source>
-        <translation type="unfinished"></translation>
+        <translation>BD-RE</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="122"/>
         <source>HD-DVD</source>
-        <translation type="unfinished"></translation>
+        <translation>HD-DVD</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="125"/>
         <source>HD-DVD-R</source>
-        <translation type="unfinished"></translation>
+        <translation>HD-DVD-R</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="128"/>
         <source>HD-DVD-RW</source>
-        <translation type="unfinished"></translation>
+        <translation>HD-DVD-RW</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="131"/>
         <source>Magneto Optical</source>
-        <translation type="unfinished"></translation>
+        <translation>Magneto-optisk</translation>
     </message>
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="137"/>
         <source>No Disc Inserted</source>
-        <translation type="unfinished"></translation>
+        <translation>Ingen disk i drev</translation>
     </message>
 </context>
 <context>
@@ -266,22 +266,22 @@
         <location filename="../main.cpp" line="43"/>
         <location filename="../main.cpp" line="76"/>
         <source>Disk Utility</source>
-        <translation type="unfinished"></translation>
+        <translation>Diskværktøj</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="79"/>
         <source>The operation to perform. Valid operations:</source>
-        <translation type="unfinished"></translation>
+        <translation>Operationen der skal udføres. Gyldige operationer:</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="80"/>
         <source>The device to perform the operation on</source>
-        <translation type="unfinished"></translation>
+        <translation>Enheden som operationen skal udføres på</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="92"/>
         <source>invalid operation %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ugyldig operation %1</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="93"/>
@@ -289,7 +289,7 @@
         <location filename="../main.cpp" line="109"/>
         <location filename="../main.cpp" line="122"/>
         <source>Usage: %1 [options] [operation device].</source>
-        <translation type="unfinished"></translation>
+        <translation>Anvendelse: %1 [indstillinger] [enhed].</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="94"/>
@@ -297,22 +297,22 @@
         <location filename="../main.cpp" line="110"/>
         <location filename="../main.cpp" line="123"/>
         <source>%1 -h for more information.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 -h for mere information.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="100"/>
         <source>missing device</source>
-        <translation type="unfinished"></translation>
+        <translation>Manglende enhed</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="108"/>
         <source>too many arguments</source>
-        <translation type="unfinished"></translation>
+        <translation>For mange parametre</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="121"/>
         <source>invalid device</source>
-        <translation type="unfinished"></translation>
+        <translation>Ugyldig enhed</translation>
     </message>
 </context>
 </TS>
