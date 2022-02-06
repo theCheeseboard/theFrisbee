@@ -273,7 +273,7 @@
          <string>Erase</string>
         </property>
         <property name="icon">
-         <iconset theme="edit-delete">
+         <iconset theme="media-harddisk-erase">
           <normaloff>.</normaloff>.</iconset>
         </property>
        </widget>

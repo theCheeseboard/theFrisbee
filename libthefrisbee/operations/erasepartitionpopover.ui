@@ -67,7 +67,7 @@
              <string>Erase this partition</string>
             </property>
             <property name="icon">
-             <iconset theme="edit-delete">
+             <iconset theme="media-harddisk-erase">
               <normaloff>.</normaloff>.</iconset>
             </property>
            </widget>
@@ -83,7 +83,6 @@
            <widget class="QLabel" name="label">
             <property name="font">
              <font>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -161,7 +160,6 @@
            <widget class="QLabel" name="label_3">
             <property name="font">
              <font>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -186,7 +184,7 @@
              <string>Erase this partition</string>
             </property>
             <property name="icon">
-             <iconset theme="edit-delete">
+             <iconset theme="media-harddisk-erase">
               <normaloff>.</normaloff>.</iconset>
             </property>
            </widget>
@@ -215,20 +213,20 @@
  </widget>
  <customwidgets>
   <customwidget>
+   <class>tTitleLabel</class>
+   <extends>QLabel</extends>
+   <header location="global">ttitlelabel.h</header>
+   <slots>
+    <signal>backButtonClicked()</signal>
+   </slots>
+  </customwidget>
+  <customwidget>
    <class>tStackedWidget</class>
    <extends>QStackedWidget</extends>
    <header location="global">tstackedwidget.h</header>
    <container>1</container>
    <slots>
     <signal>switchingFrame(int)</signal>
-   </slots>
-  </customwidget>
-  <customwidget>
-   <class>tTitleLabel</class>
-   <extends>QLabel</extends>
-   <header location="global">ttitlelabel.h</header>
-   <slots>
-    <signal>backButtonClicked()</signal>
    </slots>
   </customwidget>
  </customwidgets>

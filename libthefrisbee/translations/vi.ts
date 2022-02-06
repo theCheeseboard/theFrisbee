@@ -277,43 +277,43 @@
     <name>EraseOpticalPopover</name>
     <message>
         <location filename="../operations/eraseopticalpopover.ui" line="54"/>
-        <location filename="../operations/eraseopticalpopover.ui" line="150"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="149"/>
         <source>Erase Disc</source>
         <translation>Xóa đĩa</translation>
     </message>
     <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="70"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="69"/>
         <source>ERASE OPTIONS</source>
         <translation>TÙY CHỌN XÓA</translation>
     </message>
     <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="77"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="76"/>
         <source>Erase Type</source>
         <translation>Kiểu xóa</translation>
     </message>
     <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="91"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="90"/>
         <source>Quick</source>
         <translation>Nhanh</translation>
     </message>
     <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="96"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="95"/>
         <source>Full</source>
         <translation>Hoàn toàn</translation>
     </message>
     <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="104"/>
-        <location filename="../operations/eraseopticalpopover.ui" line="183"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="103"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="181"/>
         <source>Erase this disc</source>
         <translation>Xóa đĩa này</translation>
     </message>
     <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="166"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="164"/>
         <source>THIS IS IT</source>
         <translation>SẴN SÀNG CHƯA?</translation>
     </message>
     <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="173"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="171"/>
         <source>There&apos;s no going back after this. Once the disc in the drive is erased, all the data on it will be gone forever.</source>
         <translation>Bạn không thể quay lại sau điểm này. Sau khi đĩa trong ổ bị xóa, các dữ liệu trên nó sẽ bị mất vĩnh viễn.</translation>
     </message>
@@ -322,13 +322,13 @@
     <name>ErasePartitionPopover</name>
     <message>
         <location filename="../operations/erasepartitionpopover.ui" line="57"/>
-        <location filename="../operations/erasepartitionpopover.ui" line="153"/>
+        <location filename="../operations/erasepartitionpopover.ui" line="152"/>
         <source>Erase Partition</source>
         <translation>Xóa phân vùng</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitionpopover.ui" line="67"/>
-        <location filename="../operations/erasepartitionpopover.ui" line="186"/>
+        <location filename="../operations/erasepartitionpopover.ui" line="184"/>
         <source>Erase this partition</source>
         <translation>Xóa phân vùng này</translation>
     </message>
@@ -338,22 +338,22 @@
         <translation>Hệ thống tệp</translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitionpopover.ui" line="91"/>
+        <location filename="../operations/erasepartitionpopover.ui" line="90"/>
         <source>ERASE OPTIONS</source>
         <translation>TÙY CHỌN XÓA</translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitionpopover.ui" line="108"/>
+        <location filename="../operations/erasepartitionpopover.ui" line="107"/>
         <source>Partition Name</source>
         <translation>Tên phân vùng</translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitionpopover.ui" line="169"/>
+        <location filename="../operations/erasepartitionpopover.ui" line="167"/>
         <source>THIS IS IT</source>
         <translation>SẴN SÀNG CHƯA?</translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitionpopover.ui" line="176"/>
+        <location filename="../operations/erasepartitionpopover.ui" line="174"/>
         <source>There&apos;s no going back after this. Once the partition is erased, all the data on the partition is gone forever.</source>
         <translation>Bạn không thể quay lại sau điểm này. Sau khi phân vùng bị xóa, các dữ liệu trên nó sẽ bị mất vĩnh viễn.</translation>
     </message>
@@ -367,48 +367,48 @@
     <name>ErasePartitionTablePopover</name>
     <message>
         <location filename="../operations/erasepartitiontablepopover.ui" line="57"/>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="158"/>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="157"/>
         <source>Erase Disk</source>
         <translation>Xóa đĩa</translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="73"/>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="72"/>
         <source>ERASE OPTIONS</source>
         <translation>TÙY CHỌN XÓA</translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="80"/>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="79"/>
         <source>Partition Table</source>
         <translation>Bảng phân vùng</translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="94"/>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="93"/>
         <source>GPT</source>
         <translation>GPT</translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="99"/>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="98"/>
         <source>DOS/MBR</source>
         <translation>DOS/MBR</translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="104"/>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="103"/>
         <source>Erase Only</source>
         <translation>Chỉ xóa</translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="112"/>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="191"/>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="111"/>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="189"/>
         <source>Erase this disk</source>
         <translation>Xóa đĩa này</translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="174"/>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="172"/>
         <source>THIS IS IT</source>
         <translation>SẴN SÀNG CHƯA?</translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="181"/>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="179"/>
         <source>There&apos;s no going back after this. Once the disk is erased, all the data on the disk is gone forever.</source>
         <translation>Bạn không thể quay lại sau điểm này. Sau khi đĩa này bị xóa, các dữ liệu trên nó sẽ bị mất vĩnh viễn.</translation>
     </message>
@@ -431,12 +431,12 @@
         <translation>Duyệt...</translation>
     </message>
     <message>
-        <location filename="../operations/imagepopover.ui" line="68"/>
+        <location filename="../operations/imagepopover.ui" line="67"/>
         <source>IMAGING OPTIONS</source>
         <translation>TÙY CHỌN ẢNH ĐĨA</translation>
     </message>
     <message>
-        <location filename="../operations/imagepopover.ui" line="75"/>
+        <location filename="../operations/imagepopover.ui" line="74"/>
         <source>Image this disk</source>
         <translation>Tạo ảnh đĩa từ đĩa này</translation>
     </message>
@@ -764,49 +764,49 @@ Chúng tôi sẽ không sửa đổi bất cứ điều gì cho đến khi bạn
 <context>
     <name>RestoreOpticalPopover</name>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="73"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="72"/>
         <source>RESTORE OPTIONS</source>
         <translation>TÙY CHỌN KHÔI PHỤC</translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="85"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="84"/>
         <source>Restore Image File</source>
         <translation>Khôi phục tệp ảnh đĩa</translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="101"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="100"/>
         <source>Copy Media</source>
         <translation>Chép phương tiện</translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="156"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="155"/>
         <source>Input File</source>
         <translation>Tệp khôi phục</translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="166"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="165"/>
         <source>Browse...</source>
         <translation>Duyệt...</translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="218"/>
-        <location filename="../operations/restoreopticalpopover.ui" line="365"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="217"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="362"/>
         <source>Restore this image</source>
         <translation>Khôi phục ảnh đĩa này</translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="251"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="250"/>
         <location filename="../operations/restoreopticalpopover.cpp" line="58"/>
         <source>Restore Disc</source>
         <translation>Khôi phục đĩa</translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="267"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="265"/>
         <source>DISC NOT BLANK</source>
         <translation>ĐĨA KHÔNG TRỐNG</translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="274"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="272"/>
         <source>The disc in the drive is not blank. To restore an image to the disc, the disc will need to be erased.
 
 Once the disc in the drive is erased, all the data on it will be gone forever.</source>
@@ -815,23 +815,23 @@ Once the disc in the drive is erased, all the data on it will be gone forever.</
 Sau khi đĩa trong ổ bị xóa, các tệp trên nó sẽ bị mất mãi mãi.</translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="286"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="284"/>
         <source>Erase and Restore</source>
         <translation>Xóa và Khôi Phục</translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="332"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="330"/>
         <location filename="../operations/restoreopticalpopover.cpp" line="60"/>
         <source>Restore to Block</source>
         <translation>Khôi phục vào thiết bị khối</translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="348"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="345"/>
         <source>THIS IS IT</source>
         <translation>SẴN SÀNG CHƯA?</translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="355"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="352"/>
         <source>Restoring to this block will erase it. There&apos;s no going back; once the block is erased, all the data on the block is gone forever.</source>
         <translation>Khi bạn khôi phục ảnh đĩa này, bạn sẽ xóa thiết bị khối. Bạn không thể hoàn tác hoạt động này; khi thiết bị khỏi bị xóa, các dữ liệu trên nó sẽ bị mất mãi mãi.</translation>
     </message>

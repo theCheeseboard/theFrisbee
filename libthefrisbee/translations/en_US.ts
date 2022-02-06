@@ -277,43 +277,43 @@
     <name>EraseOpticalPopover</name>
     <message>
         <location filename="../operations/eraseopticalpopover.ui" line="54"/>
-        <location filename="../operations/eraseopticalpopover.ui" line="150"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="149"/>
         <source>Erase Disc</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="70"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="69"/>
         <source>ERASE OPTIONS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="77"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="76"/>
         <source>Erase Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="91"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="90"/>
         <source>Quick</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="96"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="95"/>
         <source>Full</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="104"/>
-        <location filename="../operations/eraseopticalpopover.ui" line="183"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="103"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="181"/>
         <source>Erase this disc</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="166"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="164"/>
         <source>THIS IS IT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="173"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="171"/>
         <source>There&apos;s no going back after this. Once the disc in the drive is erased, all the data on it will be gone forever.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -322,13 +322,13 @@
     <name>ErasePartitionPopover</name>
     <message>
         <location filename="../operations/erasepartitionpopover.ui" line="57"/>
-        <location filename="../operations/erasepartitionpopover.ui" line="153"/>
+        <location filename="../operations/erasepartitionpopover.ui" line="152"/>
         <source>Erase Partition</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../operations/erasepartitionpopover.ui" line="67"/>
-        <location filename="../operations/erasepartitionpopover.ui" line="186"/>
+        <location filename="../operations/erasepartitionpopover.ui" line="184"/>
         <source>Erase this partition</source>
         <translation type="unfinished"></translation>
     </message>
@@ -338,22 +338,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitionpopover.ui" line="91"/>
+        <location filename="../operations/erasepartitionpopover.ui" line="90"/>
         <source>ERASE OPTIONS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitionpopover.ui" line="108"/>
+        <location filename="../operations/erasepartitionpopover.ui" line="107"/>
         <source>Partition Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitionpopover.ui" line="169"/>
+        <location filename="../operations/erasepartitionpopover.ui" line="167"/>
         <source>THIS IS IT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitionpopover.ui" line="176"/>
+        <location filename="../operations/erasepartitionpopover.ui" line="174"/>
         <source>There&apos;s no going back after this. Once the partition is erased, all the data on the partition is gone forever.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -367,48 +367,48 @@
     <name>ErasePartitionTablePopover</name>
     <message>
         <location filename="../operations/erasepartitiontablepopover.ui" line="57"/>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="158"/>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="157"/>
         <source>Erase Disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="73"/>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="72"/>
         <source>ERASE OPTIONS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="80"/>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="79"/>
         <source>Partition Table</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="94"/>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="93"/>
         <source>GPT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="99"/>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="98"/>
         <source>DOS/MBR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="104"/>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="103"/>
         <source>Erase Only</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="112"/>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="191"/>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="111"/>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="189"/>
         <source>Erase this disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="174"/>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="172"/>
         <source>THIS IS IT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="181"/>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="179"/>
         <source>There&apos;s no going back after this. Once the disk is erased, all the data on the disk is gone forever.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -431,12 +431,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/imagepopover.ui" line="68"/>
+        <location filename="../operations/imagepopover.ui" line="67"/>
         <source>IMAGING OPTIONS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/imagepopover.ui" line="75"/>
+        <location filename="../operations/imagepopover.ui" line="74"/>
         <source>Image this disk</source>
         <translation type="unfinished"></translation>
     </message>
@@ -760,72 +760,72 @@ We won&apos;t modify anything until you apply your changes.</source>
 <context>
     <name>RestoreOpticalPopover</name>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="73"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="72"/>
         <source>RESTORE OPTIONS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="85"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="84"/>
         <source>Restore Image File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="101"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="100"/>
         <source>Copy Media</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="156"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="155"/>
         <source>Input File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="166"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="165"/>
         <source>Browse...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="218"/>
-        <location filename="../operations/restoreopticalpopover.ui" line="365"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="217"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="362"/>
         <source>Restore this image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="251"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="250"/>
         <location filename="../operations/restoreopticalpopover.cpp" line="58"/>
         <source>Restore Disc</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="267"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="265"/>
         <source>DISC NOT BLANK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="274"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="272"/>
         <source>The disc in the drive is not blank. To restore an image to the disc, the disc will need to be erased.
 
 Once the disc in the drive is erased, all the data on it will be gone forever.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="286"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="284"/>
         <source>Erase and Restore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="332"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="330"/>
         <location filename="../operations/restoreopticalpopover.cpp" line="60"/>
         <source>Restore to Block</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="348"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="345"/>
         <source>THIS IS IT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="355"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="352"/>
         <source>Restoring to this block will erase it. There&apos;s no going back; once the block is erased, all the data on the block is gone forever.</source>
         <translation type="unfinished"></translation>
     </message>
