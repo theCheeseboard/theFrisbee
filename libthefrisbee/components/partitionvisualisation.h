@@ -43,7 +43,7 @@ class PartitionVisualisation : public QWidget {
                 void setDisk(DiskObject* disk);
                 DiskObject* disk();
 
-                bool operator==(const Partition& other);
+                bool operator==(const Partition& other) const;
 
                 quint64 id();
 

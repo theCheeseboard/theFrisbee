@@ -184,7 +184,7 @@ void PartitionPopover::loadEditPage() {
     }
 }
 
-void PartitionPopover::updatePartition(PartitionVisualisation::Partition partition) {
+void PartitionPopover::updatePartition(const PartitionVisualisation::Partition partition) {
     QList<PartitionVisualisation::Partition> plist = ui->visualisation->partitions();
     plist.replace(plist.indexOf(partition), partition);
     ui->visualisation->setPartitions(plist);

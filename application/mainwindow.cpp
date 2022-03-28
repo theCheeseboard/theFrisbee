@@ -128,7 +128,7 @@ bool MainWindow::eventFilter(QObject* watched, QEvent* event) {
         calculator.setDrawBounds(this->size());
 
         calculator.addRect(QRectF(SC_DPI(400), 0, 0, ui->topWidget->height()), [ = ](QRectF drawBounds) {
-            painter->setPen(theLibsGlobal::lineColor(this->palette().color(QPalette::WindowText)));
+            painter->setPen(libContemporaryCommon::lineColor(this->palette().color(QPalette::WindowText)));
             painter->drawLine(drawBounds.topLeft(), drawBounds.bottomLeft());
         });
 

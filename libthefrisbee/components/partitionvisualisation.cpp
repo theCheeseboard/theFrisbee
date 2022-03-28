@@ -194,7 +194,7 @@ DiskObject* PartitionVisualisation::Partition::disk() {
     return PartitionVisualisationPrivate::diskMappings.value(this->internalId, nullptr);
 }
 
-bool PartitionVisualisation::Partition::operator==(const Partition& other) {
+bool PartitionVisualisation::Partition::operator==(const Partition& other) const {
     return other.internalId == this->internalId;
 }
 

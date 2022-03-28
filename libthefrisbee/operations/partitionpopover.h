@@ -67,7 +67,7 @@ class PartitionPopover : public QWidget {
         void initialiseState();
         void commitEdits();
         void loadEditPage();
-        void updatePartition(PartitionVisualisation::Partition partition);
+        void updatePartition(const PartitionVisualisation::Partition partition);
 };
 
 #endif // PARTITIONPOPOVER_H

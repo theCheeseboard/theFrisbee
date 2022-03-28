@@ -39,7 +39,7 @@ int main(int argc, char* argv[]) {
 
     a.addLibraryTranslator(LIBTHEFRISBEE_TRANSLATOR);
 
-    a.setApplicationVersion("1.0");
+    a.setApplicationVersion("2.0");
     a.setGenericName(QApplication::translate("main", "Disk Utility"));
     a.setAboutDialogSplashGraphic(a.aboutDialogSplashGraphicFromSvg(":/icons/aboutsplash.svg"));
     a.setApplicationLicense(tApplication::Gpl3OrLater);
