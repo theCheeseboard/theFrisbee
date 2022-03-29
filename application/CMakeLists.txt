@@ -2,23 +2,8 @@ cmake_minimum_required(VERSION 3.21.0)
 
 project(thefrisbee VERSION 1.0.0 LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTOUIC ON)
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-include(GNUInstallDirs)
-
-if(CMAKE_VERSION VERSION_LESS "3.7.0")
-    set(CMAKE_INCLUDE_CURRENT_DIR ON)
-endif()
-
 find_package(Qt6 REQUIRED COMPONENTS Widgets DBus)
 find_package(libcontemporary REQUIRED)
-#cntp_generate_translations(${CMAKE_CURRENT_LIST_DIR})
-
-add_compile_definitions(SYSTEM_LIBRARY_DIRECTORY="${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}")
 
 set(SOURCES
         diskPanes/diskpanecomponent.cpp
@@ -43,14 +28,17 @@ set(HEADERS
         operations/creatediskimagepopover.h)
 
 add_executable(thefrisbee ${SOURCES} ${HEADERS})
+
 set_target_properties(thefrisbee PROPERTIES
         MACOSX_BUNDLE TRUE
         CNTP_DATA_SUBDIR thefrisbee)
 
+cntp_init(thefrisbee 17)
 cntp_translate(thefrisbee)
 
 target_link_libraries(thefrisbee Qt6::Widgets Qt6::DBus libcontemporary libthefrisbee)
 target_include_directories(thefrisbee PUBLIC ../libthefrisbee/)
+cntp_target_install_desktop_file_switch(thefrisbee com.vicr123.thefrisbee.desktop com.vicr123.thefrisbee_blueprint.desktop)
 
 install(TARGETS thefrisbee
         RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}

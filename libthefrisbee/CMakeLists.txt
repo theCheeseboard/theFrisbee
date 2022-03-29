@@ -2,23 +2,9 @@ cmake_minimum_required(VERSION 3.4.0)
 
 project(lib VERSION 1.0.0 LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTOUIC ON)
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-include(GNUInstallDirs)
-include(CMakePackageConfigHelpers)
-
-if(CMAKE_VERSION VERSION_LESS "3.7.0")
-    set(CMAKE_INCLUDE_CURRENT_DIR ON)
-endif()
-
 find_package(Qt6 REQUIRED COMPONENTS Widgets DBus)
 find_package(libcontemporary)
 
-add_compile_definitions(SYSTEM_LIBRARY_DIRECTORY="${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}")
 add_compile_definitions(LIBCONTEMPORARY_LIBRARY)
 
 set(SOURCES
@@ -60,6 +46,7 @@ file(GLOB DRIVEOBJECT_HEADERS DriveObjects/*.h)
 set(HEADERS ${ROOT_HEADERS} ${DRIVEOBJECT_HEADERS})
 
 add_library(libthefrisbee SHARED ${SOURCES} ${HEADERS})
+cntp_init(libthefrisbee 17)
 set_target_properties(libthefrisbee PROPERTIES
         OUTPUT_NAME thefrisbee
         FRAMEWORK TRUE
