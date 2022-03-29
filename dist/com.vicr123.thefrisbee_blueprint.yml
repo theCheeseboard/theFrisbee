@@ -1,6 +1,6 @@
 app-id: com.vicr123.thefrisbee_blueprint
 runtime: org.kde.Platform
-runtime-version: '5.15'
+runtime-version: '6.2'
 sdk: org.kde.Sdk
 command: thefrisbee
 finish-args:
@@ -13,30 +13,22 @@ cleanup:
   - '/share/man'
   - '/share/the-libs'
   - '/bin/mmc-tool'
-  - '/bin/tltrdesktop'
+  - '/bin/cntp-trdesktop'
   - '/lib/debug'
   - '/lib/pkgconfig'
 modules:
-  - name: the-libs
-    buildsystem: qmake
+  - name: libcontemporary
+    buildsystem: cmake-ninja
     sources:
       - type: git
-        url: https://github.com/vicr123/the-libs
+        url: https://github.com/vicr123/libcontemporary
         branch: blueprint
   - name: contemporary
-    buildsystem: qmake
-    config-opts:
-      - THELIBS_BUILDTOOLS_PATH = /app/share/the-libs/pri
-      - THELIBS_INSTALL_QT_PLUGINS = /app/lib/qt/plugins
-      - '-after'
-      - QT -= thelib
-      - QT += dbus
-      - LIBS += -L/app/lib -lthe-libs
-      - INCLUDEPATH += /app/include/the-libs
+    buildsystem: cmake-ninja
     sources:
       - type: git
         url: https://github.com/vicr123/contemporary-theme
-        branch: master
+        branch: blueprint
   - name: contemporary-icons
     buildsystem: simple
     build-commands:
@@ -47,16 +39,8 @@ modules:
         url: https://github.com/vicr123/contemporary-icons
         branch: blueprint
   - name: thefrisbee
-    buildsystem: qmake
+    buildsystem: cmake-ninja
     builddir: true
-    config-opts:
-      - THELIBS_BUILDTOOLS_PATH = /app/share/the-libs/pri
-      - THELIBS_INSTALL_SETTINGS = /app/etc
-      - '-after'
-      - QT -= thelib
-      - QT += dbus
-      - LIBS += -L/app/lib -lthe-libs
-      - INCLUDEPATH += /app/include/the-libs
     sources:
       - type: git
         url: https://github.com/vicr123/thefrisbee
