@@ -52,8 +52,7 @@ set_target_properties(libthefrisbee PROPERTIES
         OUTPUT_NAME thefrisbee
         FRAMEWORK TRUE
         MACOSX_FRAMEWORK_IDENTIFIER com.vicr123.libthefrisbee
-        VERSION 1.0.0
-        PUBLIC_HEADER "${HEADERS}")
+        VERSION 1.0.0)
 
 target_link_libraries(libthefrisbee Qt6::Widgets Qt6::DBus libcontemporary)
 
@@ -64,8 +63,7 @@ ELSE()
 ENDIF()
 
 configure_package_config_file(libthefrisbeeConfig.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/libthefrisbeeConfig.cmake
-        INSTALL_DESTINATION ${CMAKECONFIG_INSTALL_DIR}
-        PATH_VARS HEADER_INSTALL_DIR LIBRARY_INSTALL_DIR)
+        INSTALL_DESTINATION ${CMAKECONFIG_INSTALL_DIR})
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libthefrisbeeConfig.cmake
         DESTINATION ${CMAKECONFIG_INSTALL_DIR})
