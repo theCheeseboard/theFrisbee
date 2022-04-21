@@ -35,10 +35,13 @@ set_target_properties(thefrisbee PROPERTIES
 
 cntp_init(thefrisbee 17)
 cntp_translate(thefrisbee)
+cntp_target_name(thefrisbee "theFrisbee")
+cntp_target_desktop_file(thefrisbee
+    DESKTOP_FILE com.vicr123.thefrisbee.desktop
+    BLUEPRINT_DESKTOP_FILE com.vicr123.thefrisbee_blueprint.desktop)
 
 target_link_libraries(thefrisbee Qt6::Widgets Qt6::DBus libcontemporary libthefrisbee)
 target_include_directories(thefrisbee PUBLIC ../libthefrisbee/)
-cntp_target_install_desktop_file_switch(thefrisbee com.vicr123.thefrisbee.desktop com.vicr123.thefrisbee_blueprint.desktop)
 
 install(TARGETS thefrisbee
         RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}

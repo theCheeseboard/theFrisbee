@@ -2,7 +2,7 @@ app-id: com.vicr123.thefrisbee_blueprint
 runtime: org.kde.Platform
 runtime-version: '6.2'
 sdk: org.kde.Sdk
-command: thefrisbee
+command: thefrisbee-blueprint
 finish-args:
   - --socket=wayland
   - --socket=fallback-x11
