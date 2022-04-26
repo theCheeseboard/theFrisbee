@@ -36,6 +36,8 @@ set_target_properties(thefrisbee PROPERTIES
 cntp_init(thefrisbee 17)
 cntp_translate(thefrisbee)
 cntp_target_name(thefrisbee "theFrisbee")
+cntp_app_icon(thefrisbee
+    BASEICON icons/baseicon.svg)
 cntp_target_desktop_file(thefrisbee
     DESKTOP_FILE com.vicr123.thefrisbee.desktop
     BLUEPRINT_DESKTOP_FILE com.vicr123.thefrisbee_blueprint.desktop)
