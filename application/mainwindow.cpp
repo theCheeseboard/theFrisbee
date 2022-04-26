@@ -20,30 +20,30 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include <tjobmanager.h>
-#include <driveobjectmanager.h>
-#include <DriveObjects/diskobject.h>
-#include <DriveObjects/blockinterface.h>
-#include <tcsdtools.h>
-#include <taboutdialog.h>
-#include <QMenu>
-#include <tlogger.h>
-#include <QFileDialog>
-#include <QPainter>
-#include <thelpmenu.h>
-#include <tpaintcalculator.h>
-#include <tpopover.h>
 #include "diskmodel.h"
 #include "diskpane.h"
 #include "operations/creatediskimagepopover.h"
+#include <DriveObjects/blockinterface.h>
+#include <DriveObjects/diskobject.h>
+#include <QFileDialog>
+#include <QMenu>
+#include <QPainter>
+#include <driveobjectmanager.h>
+#include <taboutdialog.h>
+#include <tapplication.h>
+#include <tcsdtools.h>
+#include <thelpmenu.h>
+#include <tjobmanager.h>
+#include <tlogger.h>
+#include <tpaintcalculator.h>
+#include <tpopover.h>
 
 struct MainWindowPrivate {
-    tCsdTools csd;
+        tCsdTools csd;
 };
 
-MainWindow::MainWindow(QWidget* parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow) {
+MainWindow::MainWindow(QWidget* parent) :
+    QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
 
     DriveObjectManager::instance();
@@ -67,11 +67,7 @@ MainWindow::MainWindow(QWidget* parent)
     menu->addMenu(new tHelpMenu(this));
     menu->addAction(ui->actionExit);
 
-#ifdef T_BLUEPRINT_BUILD
-    ui->menuButton->setIcon(QIcon(":/icons/thefrisbee-blueprint.svg"));
-#else
-    ui->menuButton->setIcon(QIcon::fromTheme("com.vicr123.thefrisbee", QIcon(":/icons/thefrisbee.svg")));
-#endif
+    ui->menuButton->setIcon(tApplication::applicationIcon());
     ui->menuButton->setIconSize(SC_DPI_T(QSize(24, 24), QSize));
     ui->menuButton->setMenu(menu);
     ui->stackedWidget->setCurrentAnimation(tStackedWidget::Lift);
@@ -79,7 +75,7 @@ MainWindow::MainWindow(QWidget* parent)
     ui->leftWidget->setFixedWidth(SC_DPI(400));
 
     ui->diskList->setModel(new DiskModel());
-    connect(ui->diskList->selectionModel(), &QItemSelectionModel::currentChanged, this, [ = ](QModelIndex current, QModelIndex previous) {
+    connect(ui->diskList->selectionModel(), &QItemSelectionModel::currentChanged, this, [=](QModelIndex current, QModelIndex previous) {
         if (current.isValid()) {
             DiskPane* disk = new DiskPane(static_cast<DiskObject*>(current.internalPointer()));
             ui->stackedWidget->addWidget(disk);
@@ -100,16 +96,17 @@ void MainWindow::on_actionMountImage_triggered() {
     dialog->setAcceptMode(QFileDialog::AcceptOpen);
     dialog->setNameFilters({"Disk Images (*.img *.iso)"});
     dialog->setFileMode(QFileDialog::AnyFile);
-    connect(dialog, &QFileDialog::fileSelected, this, [ = ](QString file) {
+    connect(dialog, &QFileDialog::fileSelected, this, [=](QString file) {
         QFile f(file);
         f.open(QFile::ReadOnly);
 
         QDBusUnixFileDescriptor fd(f.handle());
         DriveObjectManager::loopSetup(fd, {
-            {"read-only", false}
-        })->error([ = ](QString error) {
-            tCritical("LoopSetup") << error;
-        });
+                                              {"read-only", false}
+        })
+            ->error([=](QString error) {
+                tCritical("LoopSetup") << error;
+            });
     });
     connect(dialog, &QFileDialog::finished, dialog, &QFileDialog::deleteLater);
     dialog->open();
@@ -127,7 +124,7 @@ bool MainWindow::eventFilter(QObject* watched, QEvent* event) {
         calculator.setPainter(painter);
         calculator.setDrawBounds(this->size());
 
-        calculator.addRect(QRectF(SC_DPI(400), 0, 0, ui->topWidget->height()), [ = ](QRectF drawBounds) {
+        calculator.addRect(QRectF(SC_DPI(400), 0, 0, ui->topWidget->height()), [=](QRectF drawBounds) {
             painter->setPen(libContemporaryCommon::lineColor(this->palette().color(QPalette::WindowText)));
             painter->drawLine(drawBounds.topLeft(), drawBounds.bottomLeft());
         });
@@ -137,7 +134,6 @@ bool MainWindow::eventFilter(QObject* watched, QEvent* event) {
     }
     return false;
 }
-
 
 void MainWindow::on_actionCreate_Disk_Image_triggered() {
     CreateDiskImagePopover* jp = new CreateDiskImagePopover();
@@ -149,4 +145,3 @@ void MainWindow::on_actionCreate_Disk_Image_triggered() {
     connect(popover, &tPopover::dismissed, jp, &CreateDiskImagePopover::deleteLater);
     popover->show(this->window());
 }
-

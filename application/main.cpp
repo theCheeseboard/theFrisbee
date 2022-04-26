@@ -19,13 +19,13 @@
  * *************************************/
 #include "mainwindow.h"
 
-#include <QDir>
-#include <QCommandLineParser>
-#include <tsettings.h>
-#include <tapplication.h>
-#include <tstylemanager.h>
-#include <driveobjectmanager.h>
 #include "diskoperationmanager.h"
+#include <QCommandLineParser>
+#include <QDir>
+#include <driveobjectmanager.h>
+#include <tapplication.h>
+#include <tsettings.h>
+#include <tstylemanager.h>
 
 int main(int argc, char* argv[]) {
     tApplication a(argc, argv);
@@ -46,27 +46,16 @@ int main(int argc, char* argv[]) {
     a.setCopyrightHolder("Victor Tran");
     a.setCopyrightYear("2022");
     a.setOrganizationName("theSuite");
-//    a.setApplicationUrl(tApplication::HelpContents, QUrl("https://help.vicr123.com/docs/thefrisbee/intro"));
     a.setApplicationUrl(tApplication::Sources, QUrl("http://github.com/vicr123/thefrisbee"));
     a.setApplicationUrl(tApplication::FileBug, QUrl("http://github.com/vicr123/thefrisbee/issues"));
-#ifdef T_BLUEPRINT_BUILD
-    a.setApplicationName("theFrisbee Blueprint");
-    a.setDesktopFileName("com.vicr123.thefrisbee_blueprint");
-    a.setApplicationIcon(QIcon(":/icons/thefrisbee-blueprint.svg"));
-#else
-    a.setApplicationName("theFrisbee");
-    a.setDesktopFileName("com.vicr123.thefrisbee");
-    a.setApplicationIcon(QIcon::fromTheme("com.vicr123.thefrisbee", QIcon(":/icons/thefrisbee.svg")));
-#endif
+    a.setApplicationName(T_APPMETA_READABLE_NAME);
+    a.setDesktopFileName(T_APPMETA_DESKTOP_ID);
 
     a.registerCrashTrap();
 
     tStyleManager::setOverrideStyleForApplication(tStyleManager::ContemporaryDark);
 
-    tSettings::registerDefaults(a.applicationDirPath() + "/defaults.conf");
-    tSettings::registerDefaults("/etc/theSuite/thefrisbee/defaults.conf");
-
-    //Build the string to show in help about operations
+    // Build the string to show in help about operations
     QStringList operationsString;
     for (int operation = DiskOperationManager::Erase; operation <= DiskOperationManager::LastOperation; operation++) {
         operationsString.append(QStringLiteral("    %1 - %2").arg(DiskOperationManager::operationForOperation(static_cast<DiskOperationManager::DiskOperation>(operation)), DiskOperationManager::descriptionForOperation(static_cast<DiskOperationManager::DiskOperation>(operation))));
@@ -88,7 +77,7 @@ int main(int argc, char* argv[]) {
 
         QString operation = parser.positionalArguments().at(0);
         if (!DiskOperationManager::isValidOperation(operation)) {
-            //Error
+            // Error
             err << "thefrisbee: " + QApplication::translate("main", "invalid operation %1").arg(operation) + "\n";
             err << QApplication::translate("main", "Usage: %1 [options] [operation device].").arg(a.arguments().first()) + "\n";
             err << "       " + QApplication::translate("main", "%1 -h for more information.").arg(a.arguments().first()) + "\n";
@@ -96,7 +85,7 @@ int main(int argc, char* argv[]) {
         }
 
         if (parser.positionalArguments().length() == 1) {
-            //Error
+            // Error
             err << "thefrisbee: " + QApplication::translate("main", "missing device") + "\n";
             err << QApplication::translate("main", "Usage: %1 [options] [operation device].").arg(a.arguments().first()) + "\n";
             err << "       " + QApplication::translate("main", "%1 -h for more information.").arg(a.arguments().first()) + "\n";
@@ -104,7 +93,7 @@ int main(int argc, char* argv[]) {
         }
 
         if (parser.positionalArguments().length() > 2) {
-            //Error
+            // Error
             err << "thefrisbee: " + QApplication::translate("main", "too many arguments") + "\n";
             err << QApplication::translate("main", "Usage: %1 [options] [operation device].").arg(a.arguments().first()) + "\n";
             err << "       " + QApplication::translate("main", "%1 -h for more information.").arg(a.arguments().first()) + "\n";
@@ -117,7 +106,7 @@ int main(int argc, char* argv[]) {
         if (disk == nullptr) disk = DriveObjectManager::diskForPath(QDBusObjectPath(device));
 
         if (disk == nullptr) {
-            //Error
+            // Error
             err << "thefrisbee: " + QApplication::translate("main", "invalid device") + "\n";
             err << QApplication::translate("main", "Usage: %1 [options] [operation device].").arg(a.arguments().first()) + "\n";
             err << "       " + QApplication::translate("main", "%1 -h for more information.").arg(a.arguments().first()) + "\n";
