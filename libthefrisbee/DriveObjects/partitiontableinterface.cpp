@@ -19,29 +19,33 @@
  * *************************************/
 #include "partitiontableinterface.h"
 
-#include <QDBusArgument>
-#include "driveobjectmanager.h"
 #include "diskobject.h"
+#include "driveobjectmanager.h"
 #include "partitioninterface.h"
+#include <QDBusArgument>
+#include <QDBusConnection>
+#include <QDBusMessage>
+#include <QDBusPendingCallWatcher>
 
 struct PartitionTableInterfacePrivate {
-    QDBusObjectPath path;
+        QDBusObjectPath path;
 
-    QList<QDBusObjectPath> partitions;
-    QString type;
+        QList<QDBusObjectPath> partitions;
+        QString type;
 };
 
-PartitionTableInterface::PartitionTableInterface(QDBusObjectPath path, QObject* parent) : DiskInterface(path, interfaceName(), parent) {
+PartitionTableInterface::PartitionTableInterface(QDBusObjectPath path, QObject* parent) :
+    DiskInterface(path, interfaceName(), parent) {
     d = new PartitionTableInterfacePrivate();
     d->path = path;
 
-    bindPropertyUpdater("Partitions", [ = ](QVariant value) {
+    bindPropertyUpdater("Partitions", [=](QVariant value) {
         QDBusArgument arg = value.value<QDBusArgument>();
         d->partitions.clear();
 
         arg >> d->partitions;
     });
-    bindPropertyUpdater("Type", [ = ](QVariant value) {
+    bindPropertyUpdater("Type", [=](QVariant value) {
         d->type = value.toString();
     });
 }
@@ -65,7 +69,7 @@ QList<DiskObject*> PartitionTableInterface::partitions() {
         if (disk) diskObjects.append(disk);
     }
 
-    std::sort(diskObjects.begin(), diskObjects.end(), [ = ](DiskObject * first, DiskObject * second) {
+    std::sort(diskObjects.begin(), diskObjects.end(), [=](DiskObject* first, DiskObject* second) {
         PartitionInterface* partitionFirst = first->interface<PartitionInterface>();
         PartitionInterface* partitionSecond = second->interface<PartitionInterface>();
         if (partitionFirst && partitionSecond) {
@@ -89,7 +93,7 @@ tPromise<QDBusObjectPath>* PartitionTableInterface::createPartition(quint64 offs
         message.setArguments({offset, size, type, name, options});
 
         QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message, 300000));
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
             if (watcher->isError()) {
                 rej(watcher->error().message());
             } else {
@@ -105,7 +109,7 @@ tPromise<QDBusObjectPath>* PartitionTableInterface::createPartitionAndFormat(qui
         message.setArguments({offset, size, type, name, options, formatType, formatOptions});
 
         QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message, 300000));
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
             if (watcher->isError()) {
                 rej(watcher->error().message());
             } else {

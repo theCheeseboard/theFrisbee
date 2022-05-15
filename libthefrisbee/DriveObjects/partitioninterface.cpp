@@ -20,41 +20,45 @@
 #include "partitioninterface.h"
 
 #include "driveobjectmanager.h"
+#include <QDBusConnection>
+#include <QDBusMessage>
+#include <QDBusPendingCallWatcher>
 
 struct PartitionInterfacePrivate {
-    QDBusObjectPath path;
-    QString name;
-    uint number;
-    quint64 size;
-    quint64 offset;
-    QString type;
-    QString uuid;
-    QDBusObjectPath parentTable;
+        QDBusObjectPath path;
+        QString name;
+        uint number;
+        quint64 size;
+        quint64 offset;
+        QString type;
+        QString uuid;
+        QDBusObjectPath parentTable;
 };
 
-PartitionInterface::PartitionInterface(QDBusObjectPath path, QObject* parent) : DiskInterface(path, interfaceName(),  parent) {
+PartitionInterface::PartitionInterface(QDBusObjectPath path, QObject* parent) :
+    DiskInterface(path, interfaceName(), parent) {
     d = new PartitionInterfacePrivate();
     d->path = path;
 
-    bindPropertyUpdater("Name", [ = ](QVariant value) {
+    bindPropertyUpdater("Name", [=](QVariant value) {
         d->name = value.toString();
     });
-    bindPropertyUpdater("Number", [ = ](QVariant value) {
+    bindPropertyUpdater("Number", [=](QVariant value) {
         d->number = value.toUInt();
     });
-    bindPropertyUpdater("Table", [ = ](QVariant value) {
+    bindPropertyUpdater("Table", [=](QVariant value) {
         d->parentTable = value.value<QDBusObjectPath>();
     });
-    bindPropertyUpdater("Size", [ = ](QVariant value) {
+    bindPropertyUpdater("Size", [=](QVariant value) {
         d->size = value.toULongLong();
     });
-    bindPropertyUpdater("Offset", [ = ](QVariant value) {
+    bindPropertyUpdater("Offset", [=](QVariant value) {
         d->offset = value.toULongLong();
     });
-    bindPropertyUpdater("Type", [ = ](QVariant value) {
+    bindPropertyUpdater("Type", [=](QVariant value) {
         d->type = value.toString();
     });
-    bindPropertyUpdater("UUID", [ = ](QVariant value) {
+    bindPropertyUpdater("UUID", [=](QVariant value) {
         d->uuid = value.toString();
     });
 }
@@ -100,11 +104,11 @@ DiskObject* PartitionInterface::parentTable() {
 }
 
 tPromise<void>* PartitionInterface::setType(QString type) {
-    return tPromise<void>::runOnSameThread([ = ](tPromiseFunctions<void>::SuccessFunction res, tPromiseFunctions<void>::FailureFunction rej) {
+    return tPromise<void>::runOnSameThread([=](tPromiseFunctions<void>::SuccessFunction res, tPromiseFunctions<void>::FailureFunction rej) {
         QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "SetType");
         message.setArguments({type, QVariantMap()});
         QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
             if (watcher->isError()) {
                 rej(watcher->error().message());
             } else {
@@ -115,11 +119,11 @@ tPromise<void>* PartitionInterface::setType(QString type) {
 }
 
 tPromise<void>* PartitionInterface::setName(QString name) {
-    return tPromise<void>::runOnSameThread([ = ](tPromiseFunctions<void>::SuccessFunction res, tPromiseFunctions<void>::FailureFunction rej) {
+    return tPromise<void>::runOnSameThread([=](tPromiseFunctions<void>::SuccessFunction res, tPromiseFunctions<void>::FailureFunction rej) {
         QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "SetName");
         message.setArguments({name, QVariantMap()});
         QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
             if (watcher->isError()) {
                 rej(watcher->error().message());
             } else {
@@ -130,11 +134,11 @@ tPromise<void>* PartitionInterface::setName(QString name) {
 }
 
 tPromise<void>* PartitionInterface::resize(quint64 size) {
-    return tPromise<void>::runOnSameThread([ = ](tPromiseFunctions<void>::SuccessFunction res, tPromiseFunctions<void>::FailureFunction rej) {
+    return tPromise<void>::runOnSameThread([=](tPromiseFunctions<void>::SuccessFunction res, tPromiseFunctions<void>::FailureFunction rej) {
         QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Resize");
         message.setArguments({size, QVariantMap()});
         QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message, 86400000));
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
             if (watcher->isError()) {
                 rej(watcher->error().message());
             } else {
@@ -145,11 +149,11 @@ tPromise<void>* PartitionInterface::resize(quint64 size) {
 }
 
 tPromise<void>* PartitionInterface::deletePartition(QVariantMap options) {
-    return tPromise<void>::runOnSameThread([ = ](tPromiseFunctions<void>::SuccessFunction res, tPromiseFunctions<void>::FailureFunction rej) {
+    return tPromise<void>::runOnSameThread([=](tPromiseFunctions<void>::SuccessFunction res, tPromiseFunctions<void>::FailureFunction rej) {
         QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Delete");
         message.setArguments({options});
         QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
             if (watcher->isError()) {
                 rej(watcher->error().message());
             } else {

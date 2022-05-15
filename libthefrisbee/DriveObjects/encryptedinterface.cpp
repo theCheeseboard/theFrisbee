@@ -20,18 +20,22 @@
 #include "encryptedinterface.h"
 
 #include "driveobjectmanager.h"
+#include <QDBusConnection>
+#include <QDBusMessage>
+#include <QDBusPendingCallWatcher>
 
 struct EncryptedInterfacePrivate {
-    QDBusObjectPath path;
+        QDBusObjectPath path;
 
-    QDBusObjectPath cleartextDevice;
+        QDBusObjectPath cleartextDevice;
 };
 
-EncryptedInterface::EncryptedInterface(QDBusObjectPath path, QObject* parent) : DiskInterface(path, interfaceName(), parent) {
+EncryptedInterface::EncryptedInterface(QDBusObjectPath path, QObject* parent) :
+    DiskInterface(path, interfaceName(), parent) {
     d = new EncryptedInterfacePrivate();
     d->path = path;
 
-    bindPropertyUpdater("CleartextDevice", [ = ](QVariant value) {
+    bindPropertyUpdater("CleartextDevice", [=](QVariant value) {
         d->cleartextDevice = value.value<QDBusObjectPath>();
     });
 }
@@ -53,7 +57,7 @@ tPromise<DiskObject*>* EncryptedInterface::unlock(QString passphrase, QVariantMa
         QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Unlock");
         message.setArguments({passphrase, options});
         QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
             if (watcher->isError()) {
                 rej(watcher->error().message());
             } else {
@@ -70,7 +74,7 @@ tPromise<void>* EncryptedInterface::lock(QVariantMap options) {
         QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Lock");
         message.setArguments({options});
         QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
             if (watcher->isError()) {
                 rej(watcher->error().message());
             } else {

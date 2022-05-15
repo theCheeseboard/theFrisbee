@@ -20,13 +20,16 @@
 #include "driveinterface.h"
 
 #include <QDBusConnection>
+#include <QDBusMessage>
+#include <QDBusPendingCallWatcher>
 
 struct DriveInterfacePrivate {
-    QDBusObjectPath path;
-    QVariantMap properties;
+        QDBusObjectPath path;
+        QVariantMap properties;
 };
 
-DriveInterface::DriveInterface(QDBusObjectPath path, QObject* parent) : QObject(parent) {
+DriveInterface::DriveInterface(QDBusObjectPath path, QObject* parent) :
+    QObject(parent) {
     d = new DriveInterfacePrivate();
     d->path = path;
 
@@ -82,11 +85,11 @@ bool DriveInterface::ejectable() {
 }
 
 tPromise<void>* DriveInterface::eject() {
-    return tPromise<void>::runOnSameThread([ = ](tPromiseFunctions<void>::SuccessFunction res, tPromiseFunctions<void>::FailureFunction rej) {
+    return tPromise<void>::runOnSameThread([=](tPromiseFunctions<void>::SuccessFunction res, tPromiseFunctions<void>::FailureFunction rej) {
         QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), "org.freedesktop.UDisks2.Drive", "Eject");
         message.setArguments({QVariantMap()});
         QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
             if (watcher->isError()) {
                 rej(watcher->error().message());
             } else {
@@ -113,37 +116,37 @@ void DriveInterface::propertiesChanged(QString interface, QVariantMap changedPro
 
 DriveInterface::MediaFormat DriveInterface::getMediaFormat(QString format) {
     QMap<QString, MediaFormat> formats = {
-        {"thumb", Thumb},
-        {"flash", Flash},
-        {"flash_cf", CompactFlash},
-        {"flash_ms", MemoryStick},
-        {"flash_sm", SmartMedia},
-        {"flash_sd", Sd},
-        {"flash_sdhc", SdHC},
-        {"flash_sdxc", SdXC},
-        {"flash_mmc", MMC},
-        {"floppy", Floppy},
-        {"floppy_zip", Zip},
-        {"floppy_jaz", Jaz},
-        {"optical", Optical},
-        {"optical_cd", Cd},
-        {"optical_cd_r", CdR},
-        {"optical_cd_rw", CdRw},
-        {"optical_dvd", Dvd},
-        {"optical_dvd_r", DvdR},
-        {"optical_dvd_rw", DvdRw},
-        {"optical_dvd_ram", DvdRam},
-        {"optical_dvd_plus_r", DvdPR},
-        {"optical_dvd_plus_rw", DvdPRw},
-        {"optical_dvd_plus_r_dl", DvdPRDl},
-        {"optical_dvd_plus_rw_dl", DvdPRwDl},
-        {"optical_bd", Bd},
-        {"optical_bd_r", BdR},
-        {"optical_bd_re", BdRe},
-        {"optical_hddvd", HdDvd},
-        {"optical_hddvd_r", HdDvdR},
-        {"optical_hddvd_rw", HdDvdRw},
-        {"optical_mo", MagnetoOptical}
+        {"thumb",                  Thumb         },
+        {"flash",                  Flash         },
+        {"flash_cf",               CompactFlash  },
+        {"flash_ms",               MemoryStick   },
+        {"flash_sm",               SmartMedia    },
+        {"flash_sd",               Sd            },
+        {"flash_sdhc",             SdHC          },
+        {"flash_sdxc",             SdXC          },
+        {"flash_mmc",              MMC           },
+        {"floppy",                 Floppy        },
+        {"floppy_zip",             Zip           },
+        {"floppy_jaz",             Jaz           },
+        {"optical",                Optical       },
+        {"optical_cd",             Cd            },
+        {"optical_cd_r",           CdR           },
+        {"optical_cd_rw",          CdRw          },
+        {"optical_dvd",            Dvd           },
+        {"optical_dvd_r",          DvdR          },
+        {"optical_dvd_rw",         DvdRw         },
+        {"optical_dvd_ram",        DvdRam        },
+        {"optical_dvd_plus_r",     DvdPR         },
+        {"optical_dvd_plus_rw",    DvdPRw        },
+        {"optical_dvd_plus_r_dl",  DvdPRDl       },
+        {"optical_dvd_plus_rw_dl", DvdPRwDl      },
+        {"optical_bd",             Bd            },
+        {"optical_bd_r",           BdR           },
+        {"optical_bd_re",          BdRe          },
+        {"optical_hddvd",          HdDvd         },
+        {"optical_hddvd_r",        HdDvdR        },
+        {"optical_hddvd_rw",       HdDvdRw       },
+        {"optical_mo",             MagnetoOptical}
     };
 
     return formats.value(format, Unknown);

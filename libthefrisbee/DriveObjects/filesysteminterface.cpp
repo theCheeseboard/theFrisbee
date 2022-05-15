@@ -19,17 +19,23 @@
  * *************************************/
 #include "filesysteminterface.h"
 
-struct FilesystemInterfacePrivate {
-    QDBusObjectPath path;
+#include <QDBusArgument>
+#include <QDBusConnection>
+#include <QDBusMessage>
+#include <QDBusPendingCallWatcher>
 
-    QByteArrayList mountPoints;
+struct FilesystemInterfacePrivate {
+        QDBusObjectPath path;
+
+        QByteArrayList mountPoints;
 };
 
-FilesystemInterface::FilesystemInterface(QDBusObjectPath path, QObject* parent) : DiskInterface(path, interfaceName(), parent) {
+FilesystemInterface::FilesystemInterface(QDBusObjectPath path, QObject* parent) :
+    DiskInterface(path, interfaceName(), parent) {
     d = new FilesystemInterfacePrivate();
     d->path = path;
 
-    bindPropertyUpdater("MountPoints", [ = ](QVariant value) {
+    bindPropertyUpdater("MountPoints", [=](QVariant value) {
         QDBusArgument mountPoints = value.value<QDBusArgument>();
         d->mountPoints.clear();
         mountPoints >> d->mountPoints;
@@ -57,7 +63,7 @@ tPromise<void>* FilesystemInterface::mount() {
         QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Mount");
         message.setArguments({QVariantMap()});
         QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
             if (watcher->isError()) {
                 rej(watcher->error().message());
             } else {
@@ -73,7 +79,7 @@ tPromise<void>* FilesystemInterface::unmount() {
         QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Unmount");
         message.setArguments({QVariantMap()});
         QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
             if (watcher->isError()) {
                 rej(watcher->error().message());
             } else {
@@ -89,7 +95,7 @@ tPromise<bool>* FilesystemInterface::check(QVariantMap options) {
         QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Check");
         message.setArguments({options});
         QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
             if (watcher->isError()) {
                 rej(watcher->error().message());
             } else {
@@ -105,7 +111,7 @@ tPromise<bool>* FilesystemInterface::repair(QVariantMap options) {
         QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Repair");
         message.setArguments({options});
         QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
             if (watcher->isError()) {
                 rej(watcher->error().message());
             } else {
@@ -117,11 +123,11 @@ tPromise<bool>* FilesystemInterface::repair(QVariantMap options) {
 }
 
 tPromise<void>* FilesystemInterface::resize(quint64 size) {
-    return tPromise<void>::runOnSameThread([ = ](tPromiseFunctions<void>::SuccessFunction res, tPromiseFunctions<void>::FailureFunction rej) {
+    return tPromise<void>::runOnSameThread([=](tPromiseFunctions<void>::SuccessFunction res, tPromiseFunctions<void>::FailureFunction rej) {
         QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Resize");
         message.setArguments({size, QVariantMap()});
         QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message, 86400000));
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
             if (watcher->isError()) {
                 rej(watcher->error().message());
             } else {

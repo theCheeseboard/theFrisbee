@@ -19,16 +19,21 @@
  * *************************************/
 #include "loopinterface.h"
 
+#include <QDBusConnection>
+#include <QDBusMessage>
+#include <QDBusPendingCallWatcher>
+
 struct LoopInterfacePrivate {
-    QDBusObjectPath path;
-    QByteArray backingFile;
+        QDBusObjectPath path;
+        QByteArray backingFile;
 };
 
-LoopInterface::LoopInterface(QDBusObjectPath path, QObject* parent) : DiskInterface(path, interfaceName(), parent) {
+LoopInterface::LoopInterface(QDBusObjectPath path, QObject* parent) :
+    DiskInterface(path, interfaceName(), parent) {
     d = new LoopInterfacePrivate();
     d->path = path;
 
-    bindPropertyUpdater("BackingFile", [ = ](QVariant value) {
+    bindPropertyUpdater("BackingFile", [=](QVariant value) {
         d->backingFile = value.toByteArray();
         emit backingFileChanged();
     });
@@ -41,7 +46,6 @@ LoopInterface::~LoopInterface() {
 QString LoopInterface::interfaceName() {
     return QStringLiteral("org.freedesktop.UDisks2.Loop");
 }
-
 
 LoopInterface::Interfaces LoopInterface::interfaceType() {
     return Loop;
@@ -56,7 +60,7 @@ tPromise<void>* LoopInterface::detach() {
         QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Delete");
         message.setArguments({QVariantMap()});
         QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
             if (watcher->isError()) {
                 rej(watcher->error().message());
             } else {
