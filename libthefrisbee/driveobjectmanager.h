@@ -20,11 +20,12 @@
 #ifndef DRIVEOBJECTMANAGER_H
 #define DRIVEOBJECTMANAGER_H
 
-#include <QObject>
-#include <QDBusObjectPath>
-#include <tpromise.h>
-#include <QDBusUnixFileDescriptor>
 #include "libthefrisbee_global.h"
+#include <QDBusObjectPath>
+#include <QDBusUnixFileDescriptor>
+#include <QObject>
+#include <Task>
+#include <tpromise.h>
 
 struct DriveObjectManagerPrivate;
 class DiskObject;
@@ -46,7 +47,7 @@ class LIBTHEFRISBEE_EXPORT DriveObjectManager : public QObject {
 
         static QStringList supportedFilesystems();
 
-        static tPromise<QDBusObjectPath>* loopSetup(QDBusUnixFileDescriptor fd, QVariantMap options);
+        static QCoro::Task<QDBusObjectPath> loopSetup(QDBusUnixFileDescriptor fd, QVariantMap options);
 
     public slots:
         void updateInterfaces();

@@ -19,26 +19,27 @@
  * *************************************/
 #include "partitionvisualisation.h"
 
-#include <QPainter>
 #include <QMouseEvent>
+#include <QPainter>
 #include <QRandomGenerator64>
 #include <tpaintcalculator.h>
 
 struct PartitionVisualisationPrivate {
-    quint64 diskSize = 0;
-    QList<PartitionVisualisation::Partition> currentPartitions;
+        quint64 diskSize = 0;
+        QList<PartitionVisualisation::Partition> currentPartitions;
 
-    QString currentPartition;
-    PartitionVisualisation::Partition selectedPartition;
+        QString currentPartition;
+        PartitionVisualisation::Partition selectedPartition;
 
-    static quint64 internalPartitionIds;
-    static QMap<quint64, DiskObject*> diskMappings;
+        static quint64 internalPartitionIds;
+        static QMap<quint64, DiskObject*> diskMappings;
 };
 
 quint64 PartitionVisualisationPrivate::internalPartitionIds = 1;
 QMap<quint64, DiskObject*> PartitionVisualisationPrivate::diskMappings = QMap<quint64, DiskObject*>();
 
-PartitionVisualisation::PartitionVisualisation(QWidget* parent) : QWidget(parent) {
+PartitionVisualisation::PartitionVisualisation(QWidget* parent) :
+    QWidget(parent) {
     d = new PartitionVisualisationPrivate();
     this->setMouseTracking(true);
 }
@@ -79,7 +80,7 @@ tPaintCalculator PartitionVisualisation::calculatePartitions(QPainter* painter) 
     calculator.setPainter(painter);
     calculator.setDrawBounds(QRectF(0, 0, this->width(), this->height()));
 
-    calculator.addRect(QRectF(0, 0, this->width(), this->height()), [ = ](QRectF drawBounds) {
+    calculator.addRect(QRectF(0, 0, this->width(), this->height()), [=](QRectF drawBounds) {
         painter->fillRect(drawBounds, Qt::black);
     });
 
@@ -96,7 +97,7 @@ tPaintCalculator PartitionVisualisation::calculatePartitions(QPainter* painter) 
         partitionRect.setHeight(this->height());
 
         QString rectName = QString::number(i);
-        calculator.addRect(rectName, partitionRect, [ = ](QRectF drawBounds) {
+        calculator.addRect(rectName, partitionRect, [painter, this, rectName, p](QRectF drawBounds) {
             QColor col = p.color;
             if (d->currentPartition == rectName) col = p.color.lighter();
             if (d->selectedPartition == p) col = p.color.darker();
@@ -130,24 +131,23 @@ DiskObject* PartitionVisualisation::mappedDisk(quint64 id) {
     return PartitionVisualisationPrivate::diskMappings.value(id);
 }
 
-
 void PartitionVisualisation::mousePressEvent(QMouseEvent* event) {
     if (d->currentPartition.isEmpty()) {
         double factor = this->width() / (double) d->diskSize;
-        int ltrPos = event->localPos().x();
+        int ltrPos = event->position().x();
         if (this->layoutDirection() == Qt::RightToLeft) ltrPos = this->width() - ltrPos;
         quint64 offset = ltrPos / factor;
 
-        //See if there is a partition to the left and snap to it if so
-        QString previousPartition = hitTestPartition(event->localPos().x() + (this->layoutDirection() == Qt::LeftToRight ? -5 : 5));
+        // See if there is a partition to the left and snap to it if so
+        QString previousPartition = hitTestPartition(event->position().x() + (this->layoutDirection() == Qt::LeftToRight ? -5 : 5));
         if (!previousPartition.isEmpty()) {
             Partition p = d->currentPartitions.at(previousPartition.toInt());
             offset = p.offset + p.size;
-        } else if (event->localPos().x() < 5) {
+        } else if (event->position().x() < 5) {
             offset = 1024;
         }
 
-        //Find out how much more space is available
+        // Find out how much more space is available
         quint64 endOffset = d->diskSize;
         for (Partition p : d->currentPartitions) {
             if (endOffset > p.offset && p.offset > offset) endOffset = p.offset;
@@ -160,11 +160,10 @@ void PartitionVisualisation::mousePressEvent(QMouseEvent* event) {
 }
 
 void PartitionVisualisation::mouseReleaseEvent(QMouseEvent* event) {
-
 }
 
 void PartitionVisualisation::mouseMoveEvent(QMouseEvent* event) {
-    d->currentPartition = hitTestPartition(event->localPos().x());
+    d->currentPartition = hitTestPartition(event->position().x());
     this->update();
 }
 
@@ -174,7 +173,6 @@ void PartitionVisualisation::paintEvent(QPaintEvent* event) {
     tPaintCalculator calculator = calculatePartitions(&painter);
     calculator.performPaint();
 }
-
 
 void PartitionVisualisation::leaveEvent(QEvent* event) {
     d->currentPartition = "";

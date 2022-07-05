@@ -20,11 +20,11 @@
 #include "restoreopticaljobprogress.h"
 #include "ui_restoreopticaljobprogress.h"
 
-#include <DriveObjects/diskobject.h>
 #include "../restoreopticaljob.h"
+#include <DriveObjects/diskobject.h>
 
 struct RestoreOpticalJobProgressPrivate {
-    RestoreOpticalJob* job;
+        RestoreOpticalJob* job;
 };
 
 RestoreOpticalJobProgress::RestoreOpticalJobProgress(RestoreOpticalJob* job, QWidget* parent) :
@@ -37,13 +37,13 @@ RestoreOpticalJobProgress::RestoreOpticalJobProgress(RestoreOpticalJob* job, QWi
 
     ui->titleLabel->setText(tr("Restore to %1").arg(job->displayName()).toUpper());
 
-    connect(job, &RestoreOpticalJob::stateChanged, this, [ = ](RestoreOpticalJob::State state) {
+    connect(job, &RestoreOpticalJob::stateChanged, this, [this](RestoreOpticalJob::State state) {
         updateState();
     });
-    connect(job, &RestoreOpticalJob::totalProgressChanged, this, [ = ](quint64 totalProgress) {
+    connect(job, &RestoreOpticalJob::totalProgressChanged, this, [this](quint64 totalProgress) {
         ui->progressBar->setMaximum(totalProgress);
     });
-    connect(job, &RestoreOpticalJob::progressChanged, this, [ = ](quint64 progress) {
+    connect(job, &RestoreOpticalJob::progressChanged, this, [this](quint64 progress) {
         ui->progressBar->setValue(progress);
     });
     connect(job, &RestoreOpticalJob::descriptionChanged, ui->statusLabel, &QLabel::setText);

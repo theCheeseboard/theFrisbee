@@ -21,6 +21,7 @@
 #define CREATEDISKIMAGEPOPOVER_H
 
 #include <QWidget>
+#include <Task>
 
 namespace Ui {
     class CreateDiskImagePopover;
@@ -39,7 +40,7 @@ class CreateDiskImagePopover : public QWidget {
     private slots:
         void on_titleLabel_backButtonClicked();
 
-        void on_imageButton_clicked();
+        QCoro::Task<> on_imageButton_clicked();
 
         void on_browseButton_clicked();
 

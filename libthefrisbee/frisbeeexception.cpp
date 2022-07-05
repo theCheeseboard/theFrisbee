@@ -1,7 +1,7 @@
 /****************************************
  *
  *   INSERT-PROJECT-NAME-HERE - INSERT-GENERIC-NAME-HERE
- *   Copyright (C) 2020 Victor Tran
+ *   Copyright (C) 2022 Victor Tran
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -17,35 +17,14 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#ifndef ENCRYPTEDINTERFACE_H
-#define ENCRYPTEDINTERFACE_H
+#include "frisbeeexception.h"
 
-#include "diskinterface.h"
-#include <Task>
-#include <tpromise.h>
+#include <QString>
 
-struct EncryptedInterfacePrivate;
-class EncryptedInterface : public DiskInterface {
-        Q_OBJECT
-    public:
-        explicit EncryptedInterface(QDBusObjectPath path, QObject* parent = nullptr);
-        ~EncryptedInterface();
+FrisbeeException::FrisbeeException(QString response) {
+    m_response = response;
+}
 
-        static QString interfaceName();
-
-        DiskObject* cleartextDevice();
-
-        QCoro::Task<DiskObject*> unlock(QString passphrase, QVariantMap options = {});
-        QCoro::Task<> lock(QVariantMap options = {});
-
-    signals:
-
-    private:
-        EncryptedInterfacePrivate* d;
-
-        // DiskInterface interface
-    public:
-        Interfaces interfaceType();
-};
-
-#endif // ENCRYPTEDINTERFACE_H
+QString FrisbeeException::response() {
+    return m_response;
+}

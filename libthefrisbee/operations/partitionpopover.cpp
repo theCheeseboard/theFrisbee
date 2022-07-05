@@ -20,28 +20,28 @@
 #include "partitionpopover.h"
 #include "ui_partitionpopover.h"
 
+#include <DriveObjects/blockinterface.h>
+#include <DriveObjects/diskobject.h>
+#include <DriveObjects/partitioninterface.h>
+#include <DriveObjects/partitiontableinterface.h>
 #include <QPainter>
 #include <QRandomGenerator>
 #include <driveobjectmanager.h>
-#include <DriveObjects/diskobject.h>
-#include <DriveObjects/blockinterface.h>
-#include <DriveObjects/partitioninterface.h>
-#include <DriveObjects/partitiontableinterface.h>
 
+#include "jobs/editpartitionjob.h"
+#include "partitioninformation.h"
+#include <tjobmanager.h>
 #include <tlogger.h>
 #include <tpaintcalculator.h>
-#include <tjobmanager.h>
-#include "partitioninformation.h"
-#include "jobs/editpartitionjob.h"
 
 struct PartitionPopoverPrivate {
-    DiskObject* disk;
-    QRandomGenerator colorGenerator;
+        DiskObject* disk;
+        QRandomGenerator colorGenerator;
 
-    PartitionVisualisation::Partition editing;
+        PartitionVisualisation::Partition editing;
 
-    QList<PartitionPopover::PartitionOperation> operations;
-    PartitionPopover::PartitionOperation currentOperation;
+        QList<PartitionPopover::PartitionOperation> operations;
+        PartitionPopover::PartitionOperation currentOperation;
 };
 
 PartitionPopover::PartitionPopover(DiskObject* disk, QWidget* parent) :
@@ -70,7 +70,7 @@ PartitionPopover::PartitionPopover(DiskObject* disk, QWidget* parent) :
     ui->visualisation->setFixedHeight(SC_DPI(100));
     initialiseState();
 
-    connect(ui->visualisation, &PartitionVisualisation::partitionClicked, this, [ = ](PartitionVisualisation::Partition partition) {
+    connect(ui->visualisation, &PartitionVisualisation::partitionClicked, this, [this](PartitionVisualisation::Partition partition) {
         if (ui->mainStack->currentWidget() != ui->mainPage) return;
         if (d->editing == partition) return;
         commitEdits();
@@ -84,7 +84,7 @@ PartitionPopover::PartitionPopover(DiskObject* disk, QWidget* parent) :
 
         loadEditPage();
     });
-    connect(ui->visualisation, &PartitionVisualisation::emptySpaceClicked, this, [ = ](quint64 offset, quint64 availableSpaceAfter) {
+    connect(ui->visualisation, &PartitionVisualisation::emptySpaceClicked, this, [this](quint64 offset, quint64 availableSpaceAfter) {
         if (ui->mainStack->currentWidget() != ui->mainPage) return;
         commitEdits();
 
@@ -191,7 +191,7 @@ void PartitionPopover::updatePartition(const PartitionVisualisation::Partition p
 }
 
 void PartitionPopover::on_deletePartitionButton_clicked() {
-    //We can just disregard the new partition if we are deleting it
+    // We can just disregard the new partition if we are deleting it
     if (d->currentOperation.type != "new") {
         PartitionOperation operation;
         operation.type = "delete";
@@ -200,14 +200,13 @@ void PartitionPopover::on_deletePartitionButton_clicked() {
     }
     d->currentOperation = PartitionPopover::PartitionOperation();
 
-    //Update the partition mapping
+    // Update the partition mapping
     QList<PartitionVisualisation::Partition> partitions = ui->visualisation->partitions();
     partitions.removeAll(d->editing);
     ui->visualisation->setPartitions(partitions);
 
     ui->stackedWidget->setCurrentWidget(ui->actionsPage);
 }
-
 
 void PartitionPopover::on_applyButton_clicked() {
     commitEdits();
@@ -232,7 +231,6 @@ void PartitionPopover::on_applyButton_clicked() {
     ui->stackedWidget->setCurrentWidget(ui->actionsPage);
 }
 
-
 void PartitionPopover::on_performApplyButton_clicked() {
     for (const PartitionOperation& op : qAsConst(d->operations)) {
         tDebug("PartitionPopover") << "Operation type: " << op.type;
@@ -246,7 +244,6 @@ void PartitionPopover::on_performApplyButton_clicked() {
     emit done();
 }
 
-
 void PartitionPopover::on_partitionName_textEdited(const QString& arg1) {
     d->currentOperation.data.insert("name", arg1);
     d->currentOperation.edited = true;
@@ -255,9 +252,7 @@ void PartitionPopover::on_partitionName_textEdited(const QString& arg1) {
     updatePartition(d->editing);
 }
 
-
 void PartitionPopover::on_partitionType_currentIndexChanged(int index) {
     d->currentOperation.data.insert("type", ui->partitionType->currentData().toString());
     d->currentOperation.edited = true;
 }
-

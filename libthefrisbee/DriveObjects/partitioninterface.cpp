@@ -20,9 +20,11 @@
 #include "partitioninterface.h"
 
 #include "driveobjectmanager.h"
+#include <QCoroDBusPendingCall>
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusPendingCallWatcher>
+#include <frisbeeexception.h>
 
 struct PartitionInterfacePrivate {
         QDBusObjectPath path;
@@ -40,25 +42,25 @@ PartitionInterface::PartitionInterface(QDBusObjectPath path, QObject* parent) :
     d = new PartitionInterfacePrivate();
     d->path = path;
 
-    bindPropertyUpdater("Name", [=](QVariant value) {
+    bindPropertyUpdater("Name", [this](QVariant value) {
         d->name = value.toString();
     });
-    bindPropertyUpdater("Number", [=](QVariant value) {
+    bindPropertyUpdater("Number", [this](QVariant value) {
         d->number = value.toUInt();
     });
-    bindPropertyUpdater("Table", [=](QVariant value) {
+    bindPropertyUpdater("Table", [this](QVariant value) {
         d->parentTable = value.value<QDBusObjectPath>();
     });
-    bindPropertyUpdater("Size", [=](QVariant value) {
+    bindPropertyUpdater("Size", [this](QVariant value) {
         d->size = value.toULongLong();
     });
-    bindPropertyUpdater("Offset", [=](QVariant value) {
+    bindPropertyUpdater("Offset", [this](QVariant value) {
         d->offset = value.toULongLong();
     });
-    bindPropertyUpdater("Type", [=](QVariant value) {
+    bindPropertyUpdater("Type", [this](QVariant value) {
         d->type = value.toString();
     });
-    bindPropertyUpdater("UUID", [=](QVariant value) {
+    bindPropertyUpdater("UUID", [this](QVariant value) {
         d->uuid = value.toString();
     });
 }
@@ -103,62 +105,34 @@ DiskObject* PartitionInterface::parentTable() {
     return DriveObjectManager::diskForPath(d->parentTable);
 }
 
-tPromise<void>* PartitionInterface::setType(QString type) {
-    return tPromise<void>::runOnSameThread([=](tPromiseFunctions<void>::SuccessFunction res, tPromiseFunctions<void>::FailureFunction rej) {
-        QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "SetType");
-        message.setArguments({type, QVariantMap()});
-        QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
-            if (watcher->isError()) {
-                rej(watcher->error().message());
-            } else {
-                res();
-            }
-        });
-    });
+QCoro::Task<> PartitionInterface::setType(QString type) {
+    QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "SetType");
+    message.setArguments({type, QVariantMap()});
+    auto call = QDBusConnection::systemBus().asyncCall(message);
+    auto reply = co_await call;
+    if (call.isError()) throw FrisbeeException(call.error().message());
 }
 
-tPromise<void>* PartitionInterface::setName(QString name) {
-    return tPromise<void>::runOnSameThread([=](tPromiseFunctions<void>::SuccessFunction res, tPromiseFunctions<void>::FailureFunction rej) {
-        QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "SetName");
-        message.setArguments({name, QVariantMap()});
-        QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
-            if (watcher->isError()) {
-                rej(watcher->error().message());
-            } else {
-                res();
-            }
-        });
-    });
+QCoro::Task<> PartitionInterface::setName(QString name) {
+    QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "SetName");
+    message.setArguments({name, QVariantMap()});
+    auto call = QDBusConnection::systemBus().asyncCall(message);
+    auto reply = co_await call;
+    if (call.isError()) throw FrisbeeException(call.error().message());
 }
 
-tPromise<void>* PartitionInterface::resize(quint64 size) {
-    return tPromise<void>::runOnSameThread([=](tPromiseFunctions<void>::SuccessFunction res, tPromiseFunctions<void>::FailureFunction rej) {
-        QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Resize");
-        message.setArguments({size, QVariantMap()});
-        QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message, 86400000));
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
-            if (watcher->isError()) {
-                rej(watcher->error().message());
-            } else {
-                res();
-            }
-        });
-    });
+QCoro::Task<> PartitionInterface::resize(quint64 size) {
+    QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Resize");
+    message.setArguments({size, QVariantMap()});
+    auto call = QDBusConnection::systemBus().asyncCall(message);
+    auto reply = co_await call;
+    if (call.isError()) throw FrisbeeException(call.error().message());
 }
 
-tPromise<void>* PartitionInterface::deletePartition(QVariantMap options) {
-    return tPromise<void>::runOnSameThread([=](tPromiseFunctions<void>::SuccessFunction res, tPromiseFunctions<void>::FailureFunction rej) {
-        QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Delete");
-        message.setArguments({options});
-        QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
-            if (watcher->isError()) {
-                rej(watcher->error().message());
-            } else {
-                res();
-            }
-        });
-    });
+QCoro::Task<> PartitionInterface::deletePartition(QVariantMap options) {
+    QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Delete");
+    message.setArguments({options});
+    auto call = QDBusConnection::systemBus().asyncCall(message);
+    auto reply = co_await call;
+    if (call.isError()) throw FrisbeeException(call.error().message());
 }

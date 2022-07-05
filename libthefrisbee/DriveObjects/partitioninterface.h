@@ -20,8 +20,9 @@
 #ifndef PARTITIONINTERFACE_H
 #define PARTITIONINTERFACE_H
 
-#include <tpromise.h>
 #include "diskinterface.h"
+#include <Task>
+#include <tpromise.h>
 
 struct PartitionInterfacePrivate;
 class PartitionInterface : public DiskInterface {
@@ -41,10 +42,10 @@ class PartitionInterface : public DiskInterface {
         QString uuid();
         DiskObject* parentTable();
 
-        tPromise<void>* setType(QString type);
-        tPromise<void>* setName(QString name);
-        tPromise<void>* resize(quint64 size);
-        tPromise<void>* deletePartition(QVariantMap options = {});
+        QCoro::Task<> setType(QString type);
+        QCoro::Task<> setName(QString name);
+        QCoro::Task<> resize(quint64 size);
+        QCoro::Task<> deletePartition(QVariantMap options = {});
 
     signals:
 

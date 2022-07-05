@@ -19,9 +19,11 @@
  * *************************************/
 #include "driveinterface.h"
 
+#include <QCoroDBusPendingCall>
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusPendingCallWatcher>
+#include <frisbeeexception.h>
 
 struct DriveInterfacePrivate {
         QDBusObjectPath path;
@@ -84,19 +86,12 @@ bool DriveInterface::ejectable() {
     return d->properties.value("Ejectable").toBool();
 }
 
-tPromise<void>* DriveInterface::eject() {
-    return tPromise<void>::runOnSameThread([=](tPromiseFunctions<void>::SuccessFunction res, tPromiseFunctions<void>::FailureFunction rej) {
-        QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), "org.freedesktop.UDisks2.Drive", "Eject");
-        message.setArguments({QVariantMap()});
-        QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
-            if (watcher->isError()) {
-                rej(watcher->error().message());
-            } else {
-                res();
-            }
-        });
-    });
+QCoro::Task<> DriveInterface::eject() {
+    QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), "org.freedesktop.UDisks2.Drive", "Eject");
+    message.setArguments({QVariantMap()});
+    auto call = QDBusConnection::systemBus().asyncCall(message);
+    auto reply = co_await call;
+    if (call.isError()) throw FrisbeeException(call.error().message());
 }
 
 bool DriveInterface::isRemovable() {

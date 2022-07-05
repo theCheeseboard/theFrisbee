@@ -21,6 +21,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <Task>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -37,7 +38,7 @@ class MainWindow : public QMainWindow {
         ~MainWindow();
 
     private slots:
-        void on_actionMountImage_triggered();
+        QCoro::Task<> on_actionMountImage_triggered();
 
         void on_actionExit_triggered();
 

@@ -39,47 +39,56 @@
     <name>DiskPane</name>
     <message>
         <location filename="../diskpane.ui" line="35"/>
+        <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="219"/>
         <source>Title</source>
         <translation>Navn</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="82"/>
+        <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="220"/>
         <source>JOBS RUNNING</source>
         <translation>NUVÆRENDE OPGAVER</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="89"/>
+        <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="221"/>
         <source>Some tasks may be unavailable while jobs are currently being run on this item.</source>
         <translation>Nogle muligheder kan være utilgængelige mens opgaver køres på denne enhed.</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="114"/>
+        <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="222"/>
         <source>View Jobs</source>
         <translation>Vis opgaver</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="232"/>
+        <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="223"/>
         <source>Check</source>
         <translation>Tjek</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="239"/>
+        <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="224"/>
         <source>Edit Partitions</source>
         <translation>Rediger partitioner</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="246"/>
+        <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="225"/>
         <source>Image</source>
         <extracomment>A verb: &quot;Create Image&quot;</extracomment>
         <translation>Snapshot</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="253"/>
+        <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="226"/>
         <source>Restore</source>
         <translation>Gendan</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="273"/>
+        <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="227"/>
         <source>Erase</source>
         <translation>Formater</translation>
     </message>
@@ -103,36 +112,55 @@
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
+        <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="208"/>
         <source>theFrisbee</source>
         <translation>theFrisbee</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="137"/>
+        <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="219"/>
         <source>Disks</source>
         <translation>Diske</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="180"/>
+        <location filename="../mainwindow.ui" line="185"/>
+        <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="220"/>
+        <source>File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="191"/>
+        <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="221"/>
+        <source>Image</source>
+        <translation type="unfinished">Snapshot</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="205"/>
+        <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="209"/>
         <source>Exit</source>
         <translation>Luk</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="183"/>
+        <location filename="../mainwindow.ui" line="208"/>
+        <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="211"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="192"/>
+        <location filename="../mainwindow.ui" line="217"/>
+        <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="213"/>
         <source>Attach Image</source>
         <translation>Synkroniser med snapshot-fil</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="200"/>
+        <location filename="../mainwindow.ui" line="226"/>
+        <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="214"/>
         <source>Create Disk Image</source>
         <translation>Lav snapshot</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="203"/>
+        <location filename="../mainwindow.ui" line="229"/>
+        <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="216"/>
         <source>Ctrl+N</source>
         <translation>Ctrl+N</translation>
     </message>
@@ -264,53 +292,53 @@
     <name>main</name>
     <message>
         <location filename="../main.cpp" line="43"/>
-        <location filename="../main.cpp" line="76"/>
+        <location filename="../main.cpp" line="65"/>
         <source>Disk Utility</source>
         <translation>Diskværktøj</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="79"/>
+        <location filename="../main.cpp" line="68"/>
         <source>The operation to perform. Valid operations:</source>
         <translation>Operationen der skal udføres. Gyldige operationer:</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="80"/>
+        <location filename="../main.cpp" line="69"/>
         <source>The device to perform the operation on</source>
         <translation>Enheden som operationen skal udføres på</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="92"/>
+        <location filename="../main.cpp" line="81"/>
         <source>invalid operation %1</source>
         <translation>Ugyldig operation %1</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="93"/>
-        <location filename="../main.cpp" line="101"/>
-        <location filename="../main.cpp" line="109"/>
-        <location filename="../main.cpp" line="122"/>
+        <location filename="../main.cpp" line="82"/>
+        <location filename="../main.cpp" line="90"/>
+        <location filename="../main.cpp" line="98"/>
+        <location filename="../main.cpp" line="111"/>
         <source>Usage: %1 [options] [operation device].</source>
         <translation>Anvendelse: %1 [indstillinger] [enhed].</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="94"/>
-        <location filename="../main.cpp" line="102"/>
-        <location filename="../main.cpp" line="110"/>
-        <location filename="../main.cpp" line="123"/>
+        <location filename="../main.cpp" line="83"/>
+        <location filename="../main.cpp" line="91"/>
+        <location filename="../main.cpp" line="99"/>
+        <location filename="../main.cpp" line="112"/>
         <source>%1 -h for more information.</source>
         <translation>%1 -h for mere information.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="100"/>
+        <location filename="../main.cpp" line="89"/>
         <source>missing device</source>
         <translation>Manglende enhed</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="108"/>
+        <location filename="../main.cpp" line="97"/>
         <source>too many arguments</source>
         <translation>For mange parametre</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="121"/>
+        <location filename="../main.cpp" line="110"/>
         <source>invalid device</source>
         <translation>Ugyldig enhed</translation>
     </message>

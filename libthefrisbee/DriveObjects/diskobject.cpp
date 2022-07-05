@@ -19,28 +19,30 @@
  * *************************************/
 #include "diskobject.h"
 
-#include <QTimer>
-#include <QLocale>
+#include <QCoroFuture>
 #include <QIcon>
+#include <QLocale>
+#include <QTimer>
 
-#include "diskinterface.h"
 #include "blockinterface.h"
-#include "filesysteminterface.h"
-#include "partitiontableinterface.h"
-#include "partitioninterface.h"
+#include "diskinterface.h"
 #include "driveinterface.h"
-#include "loopinterface.h"
 #include "encryptedinterface.h"
+#include "filesysteminterface.h"
+#include "loopinterface.h"
+#include "partitioninterface.h"
+#include "partitiontableinterface.h"
 
 struct DiskObjectPrivate {
-    QDBusObjectPath path;
+        QDBusObjectPath path;
 
-    QSemaphore locker{1};
+        QSemaphore locker{1};
 
-    QMap<QString, DiskInterface*> interfaces;
+        QMap<QString, DiskInterface*> interfaces;
 };
 
-DiskObject::DiskObject(QDBusObjectPath path, QObject* parent) : QObject(parent) {
+DiskObject::DiskObject(QDBusObjectPath path, QObject* parent) :
+    QObject(parent) {
     d = new DiskObjectPrivate();
     d->path = path;
 }
@@ -49,27 +51,27 @@ DiskObject::~DiskObject() {
     delete d;
 }
 
-template <> BlockInterface* DiskObject::interface() const {
+template<> BlockInterface* DiskObject::interface() const {
     return static_cast<BlockInterface*>(d->interfaces.value(BlockInterface::interfaceName(), nullptr));
 }
 
-template <> FilesystemInterface* DiskObject::interface() const {
+template<> FilesystemInterface* DiskObject::interface() const {
     return static_cast<FilesystemInterface*>(d->interfaces.value(FilesystemInterface::interfaceName(), nullptr));
 }
 
-template <> PartitionTableInterface* DiskObject::interface() const {
+template<> PartitionTableInterface* DiskObject::interface() const {
     return static_cast<PartitionTableInterface*>(d->interfaces.value(PartitionTableInterface::interfaceName(), nullptr));
 }
 
-template <> PartitionInterface* DiskObject::interface() const {
+template<> PartitionInterface* DiskObject::interface() const {
     return static_cast<PartitionInterface*>(d->interfaces.value(PartitionInterface::interfaceName(), nullptr));
 }
 
-template <> LoopInterface* DiskObject::interface() const {
+template<> LoopInterface* DiskObject::interface() const {
     return static_cast<LoopInterface*>(d->interfaces.value(LoopInterface::interfaceName(), nullptr));
 }
 
-template <> EncryptedInterface* DiskObject::interface() const {
+template<> EncryptedInterface* DiskObject::interface() const {
     return static_cast<EncryptedInterface*>(d->interfaces.value(EncryptedInterface::interfaceName(), nullptr));
 }
 
@@ -179,12 +181,11 @@ void DiskObject::updateInterfaces(QMap<QString, QVariantMap> interfaces) {
         PartitionTableInterface::interfaceName(),
         PartitionInterface::interfaceName(),
         LoopInterface::interfaceName(),
-        EncryptedInterface::interfaceName()
-    };
+        EncryptedInterface::interfaceName()};
 
     for (QString interface : interfaceNames) {
         if (interfaces.contains(interface)) {
-            //Add it to the list of interfaces
+            // Add it to the list of interfaces
 
             DiskInterface* diskInterface;
             if (d->interfaces.contains(interface)) {
@@ -192,17 +193,17 @@ void DiskObject::updateInterfaces(QMap<QString, QVariantMap> interfaces) {
             } else {
                 diskInterface = makeDiskInterface(interface);
                 d->interfaces.insert(interface, diskInterface);
-                QTimer::singleShot(0, [ = ] {
+                QTimer::singleShot(0, [diskInterface, this] {
                     emit interfaceAdded(diskInterface->interfaceType());
                 });
             }
 
             diskInterface->updateProperties(interfaces.value(interface));
         } else {
-            //Remove it from the list of interfaces
+            // Remove it from the list of interfaces
             if (d->interfaces.contains(interface)) {
                 DiskInterface* diskInterface = d->interfaces.take(interface);
-                QTimer::singleShot(0, [ = ] {
+                QTimer::singleShot(0, [diskInterface, this] {
                     emit interfaceRemoved(diskInterface->interfaceType());
                 });
                 diskInterface->deleteLater();
@@ -221,7 +222,6 @@ DiskInterface* DiskObject::makeDiskInterface(QString interface) {
     return nullptr;
 }
 
-
 bool DiskObject::tryLock() {
     bool acquired = d->locker.tryAcquire();
     if (acquired) {
@@ -230,18 +230,11 @@ bool DiskObject::tryLock() {
     return acquired;
 }
 
-tPromise<void>* DiskObject::lock() {
-    return TPROMISE_CREATE_SAME_THREAD(void, {
-        Q_UNUSED(rej);
-        TPROMISE_CREATE_NEW_THREAD(void, {
-            Q_UNUSED(rej);
-            d->locker.acquire();
-            res();
-        })->then([ = ] {
-            emit lockedChanged(isLocked());
-            res();
-        });
+QCoro::Task<> DiskObject::lock() {
+    co_await QtConcurrent::run([this] {
+        d->locker.acquire();
     });
+    emit lockedChanged(isLocked());
 }
 
 void DiskObject::releaseLock() {
@@ -256,4 +249,3 @@ bool DiskObject::isLocked() {
 QDBusObjectPath DiskObject::path() {
     return d->path;
 }
-

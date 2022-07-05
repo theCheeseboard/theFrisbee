@@ -19,31 +19,34 @@
  * *************************************/
 #include "restorediskjob.h"
 
-#include <tlogger.h>
-#include <QProcess>
-#include <tnotification.h>
-#include <DriveObjects/diskobject.h>
-#include <DriveObjects/blockinterface.h>
-#include <DriveObjects/driveinterface.h>
-#include "progress/restorediskjobprogress.h"
 #include "optical/opticalerrortracker.h"
+#include "progress/restorediskjobprogress.h"
+#include <DriveObjects/blockinterface.h>
+#include <DriveObjects/diskobject.h>
+#include <DriveObjects/driveinterface.h>
+#include <QCoroFuture>
+#include <QProcess>
+#include <frisbeeexception.h>
+#include <tlogger.h>
+#include <tnotification.h>
 
 struct RestoreDiskJobPrivate {
-    quint64 progress = 0;
-    quint64 totalProgress = 0;
+        quint64 progress = 0;
+        quint64 totalProgress = 0;
 
-    QIODevice* source;
-    quint64 dataSize;
-    DiskObject* disk;
+        QIODevice* source;
+        quint64 dataSize;
+        DiskObject* disk;
 
-    QString description;
-    QString displayName;
+        QString description;
+        QString displayName;
 
-    tJob::State state;
-    int stage = 0;
+        tJob::State state;
+        int stage = 0;
 };
 
-RestoreDiskJob::RestoreDiskJob(DiskObject* disk, QObject* parent) : RestoreJob(parent) {
+RestoreDiskJob::RestoreDiskJob(DiskObject* disk, QObject* parent) :
+    RestoreJob(parent) {
     d = new RestoreDiskJobPrivate();
     d->disk = disk;
     d->displayName = disk->displayName();
@@ -55,87 +58,83 @@ RestoreDiskJob::~RestoreDiskJob() {
     delete d;
 }
 
-void RestoreDiskJob::startRestore(QIODevice* source, quint64 dataSize) {
-    if (d->stage != 0) return;
+QCoro::Task<> RestoreDiskJob::startRestore(QIODevice* source, quint64 dataSize) {
+    if (d->stage != 0) co_return;
 
     d->source = source;
     d->dataSize = dataSize;
 
-    //Try to acquire the lock
+    // Try to acquire the lock
     d->description = tr("Waiting for other jobs to finish");
     emit descriptionChanged(d->description);
 
-    d->disk->lock()->then([ = ] {
-        connect(this, &RestoreDiskJob::stateChanged, this, [ = ] {
-            //Release the lock
-            if (d->state == Finished || d->state == Failed) {
-                d->disk->releaseLock();
-            }
-        });
+    co_await d->disk->lock();
 
+    connect(this, &RestoreDiskJob::stateChanged, this, [this] {
+        // Release the lock
+        if (d->state == Finished || d->state == Failed) {
+            d->disk->releaseLock();
+        }
+    });
+
+    try {
         BlockInterface* block = d->disk->interface<BlockInterface>();
-        block->open(BlockInterface::Write, {})->then([ = ](QIODevice * ioDevice) {
-            TPROMISE_CREATE_NEW_THREAD(void, {
-                Q_UNUSED(rej);
-                quint64 read = 0;
+        auto ioDevice = co_await block->open(BlockInterface::Write, {});
 
-                QFileDevice* fileDevice = qobject_cast<QFileDevice*>(ioDevice);
-                while (read < dataSize) {
-                    QByteArray buffer = source->read(1048576);
-                    read += buffer.size();
-                    ioDevice->write(buffer);
+        co_await QtConcurrent::run([ioDevice, dataSize, source, this] {
+            quint64 read = 0;
 
-                    if (fileDevice) fileDevice->flush();
+            QFileDevice* fileDevice = qobject_cast<QFileDevice*>(ioDevice);
+            while (read < dataSize) {
+                QByteArray buffer = source->read(1048576);
+                read += buffer.size();
+                ioDevice->write(buffer);
 
-                    d->totalProgress = dataSize;
-                    emit totalProgressChanged(d->totalProgress);
+                if (fileDevice) fileDevice->flush();
 
-                    d->progress = read;
-                    emit progressChanged(d->progress);
-
-                    d->description = tr("Restoring to %1\n%2 of %3 restored").arg(QLocale().quoteString(d->displayName), QLocale().formattedDataSize(read), QLocale().formattedDataSize(dataSize));
-                    emit descriptionChanged(d->description);
-                }
-
-                ioDevice->close();
-
-                res();
-            })->then([ = ] {
-                d->source->close();
-
-                d->totalProgress = 1;
+                d->totalProgress = dataSize;
                 emit totalProgressChanged(d->totalProgress);
 
-                d->progress = 1;
+                d->progress = read;
                 emit progressChanged(d->progress);
 
-                d->description = tr("Disk restored successfully");
+                d->description = tr("Restoring to %1\n%2 of %3 restored").arg(QLocale().quoteString(d->displayName), QLocale().formattedDataSize(read), QLocale().formattedDataSize(dataSize));
                 emit descriptionChanged(d->description);
+            }
 
-                d->state = Finished;
-                emit stateChanged(Finished);
-
-                //TODO: fire a notification
-            });
-        })->error([ = ](QString error) {
-            //Bail out
-            d->state = Failed;
-            emit stateChanged(Failed);
-
-            d->description = tr("Couldn't open the destination device for writing");
-            emit descriptionChanged(d->description);
-
-            tInfo("OpticalRestore") << "Restore operation failed";
-            return;
+            ioDevice->close();
         });
-    });
+
+        d->source->close();
+
+        d->totalProgress = 1;
+        emit totalProgressChanged(d->totalProgress);
+
+        d->progress = 1;
+        emit progressChanged(d->progress);
+
+        d->description = tr("Disk restored successfully");
+        emit descriptionChanged(d->description);
+
+        d->state = Finished;
+        emit stateChanged(Finished);
+    } catch (FrisbeeException& ex) {
+        // Bail out
+        d->state = Failed;
+        emit stateChanged(Failed);
+
+        d->description = tr("Couldn't open the destination device for writing");
+        emit descriptionChanged(d->description);
+
+        tInfo("OpticalRestore") << "Restore operation failed";
+    }
 }
 
 void RestoreDiskJob::cancel() {
     if (d->stage == 0) {
         d->stage = -1;
 
-        //Bail out
+        // Bail out
         d->state = Failed;
         emit stateChanged(Failed);
 

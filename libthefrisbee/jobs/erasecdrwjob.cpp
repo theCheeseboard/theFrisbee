@@ -19,30 +19,32 @@
  * *************************************/
 #include "erasecdrwjob.h"
 
-#include <QProcess>
-#include <tnotification.h>
-#include <DriveObjects/diskobject.h>
-#include <DriveObjects/blockinterface.h>
-#include <DriveObjects/filesysteminterface.h>
-#include <DriveObjects/driveinterface.h>
-#include <tlogger.h>
-#include "progress/erasecdrwjobprogress.h"
 #include "optical/opticalerrortracker.h"
+#include "progress/erasecdrwjobprogress.h"
+#include <DriveObjects/blockinterface.h>
+#include <DriveObjects/diskobject.h>
+#include <DriveObjects/driveinterface.h>
+#include <DriveObjects/filesysteminterface.h>
+#include <QProcess>
+#include <frisbeeexception.h>
+#include <tlogger.h>
+#include <tnotification.h>
 
 struct EraseCdRwJobPrivate {
-    DiskObject* disk;
-    bool quick;
+        DiskObject* disk;
+        bool quick;
 
-    QString discType;
-    QString description;
-    QString displayName;
+        QString discType;
+        QString description;
+        QString displayName;
 
-    int stage = 0;
+        int stage = 0;
 
-    EraseCdRwJob::State state = EraseCdRwJob::Processing;
+        EraseCdRwJob::State state = EraseCdRwJob::Processing;
 };
 
-EraseCdRwJob::EraseCdRwJob(DiskObject* disk, bool quick, QObject* parent) : tJob(parent) {
+EraseCdRwJob::EraseCdRwJob(DiskObject* disk, bool quick, QObject* parent) :
+    tJob(parent) {
     d = new EraseCdRwJobPrivate();
     d->disk = disk;
     d->quick = quick;
@@ -66,13 +68,13 @@ EraseCdRwJob::EraseCdRwJob(DiskObject* disk, bool quick, QObject* parent) : tJob
             d->discType = tr("Unknown");
     }
 
-    //Try to acquire the lock
+    // Try to acquire the lock
     d->description = tr("Waiting for other jobs to finish");
     emit descriptionChanged(d->description);
 
-    d->disk->lock()->then([ = ] {
-        connect(this, &EraseCdRwJob::stateChanged, this, [ = ] {
-            //Release the lock
+    d->disk->lock().then([this] {
+        connect(this, &EraseCdRwJob::stateChanged, this, [this] {
+            // Release the lock
             if (d->state == Finished || d->state == Failed) {
                 d->disk->releaseLock();
             }
@@ -99,115 +101,119 @@ QString EraseCdRwJob::displayName() {
     return d->displayName;
 }
 
-void EraseCdRwJob::runNextStage() {
+QCoro::Task<> EraseCdRwJob::runNextStage() {
     d->stage++;
     switch (d->stage) {
-        case 1: {
-            //Check if the disc needs to be unmounted
+        case 1:
+            {
+                // Check if the disc needs to be unmounted
 
-            d->description = tr("Unmounting Disc");
-            emit descriptionChanged(d->description);
-
-            FilesystemInterface* fs = d->disk->interface<FilesystemInterface>();
-            if (!fs) {
-                //This disc does not have a filesystem so doesn't need to be unmounted
-                runNextStage();
-                return;
-            }
-
-            QByteArrayList mountPoints = fs->mountPoints();
-            if (mountPoints.count() == 0) {
-                //This disc is not mounted
-                runNextStage();
-                return;
-            }
-
-            //Unmount the disc
-            fs->unmount()->then([ = ] {
-                runNextStage();
-            })->error([ = ](QString error) {
-                //Bail out
-                d->state = Failed;
-                emit stateChanged(Failed);
-
-                d->description = tr("Failed to erase %1").arg(d->discType);
+                d->description = tr("Unmounting Disc");
                 emit descriptionChanged(d->description);
 
-                tCritical("OpticalErase") << "Operation failed: Could not unmount";
-
-                tNotification* notification = new tNotification();
-                notification->setSummary(tr("Couldn't Erase Disc"));
-                notification->setText(tr("The disc in %1 could not be erased.").arg(d->displayName));
-                notification->post();
-            });
-
-            break;
-        }
-        case 2: {
-            d->description = tr("Erasing %1").arg(d->discType);
-            emit descriptionChanged(d->description);
-
-            OpticalErrorTracker* errorTracker = new OpticalErrorTracker();
-
-            //Erase the disc
-            QProcess* proc = new QProcess();
-            proc->setProcessChannelMode(QProcess::MergedChannels);
-            connect(proc, &QProcess::readyRead, this, [ = ] {
-                QByteArray peek = proc->peek(1024);
-                while (proc->canReadLine() || peek.contains('\r')) {
-                    QString line;
-                    if (proc->canReadLine()) {
-                        line = proc->readLine();
-                    } else {
-                        line = proc->read(peek.indexOf('\r') + 1);
-                    }
-                    line = line.trimmed();
-
-                    tDebug("OpticalErase") << line;
-                    errorTracker->sendLine(line);
-
-                    peek = proc->peek(1024);
-                }
-            });
-            connect(proc, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, [ = ](int exitCode, QProcess::ExitStatus exitStatus) {
-                Q_UNUSED(exitStatus);
-                if (exitCode == 0) {
+                FilesystemInterface* fs = d->disk->interface<FilesystemInterface>();
+                if (!fs) {
+                    // This disc does not have a filesystem so doesn't need to be unmounted
                     runNextStage();
-                } else {
+                    co_return;
+                }
+
+                QByteArrayList mountPoints = fs->mountPoints();
+                if (mountPoints.count() == 0) {
+                    // This disc is not mounted
+                    runNextStage();
+                    co_return;
+                }
+
+                // Unmount the disc
+                try {
+                    co_await fs->unmount();
+                    runNextStage();
+                } catch (FrisbeeException& ex) {
+                    // Bail out
                     d->state = Failed;
                     emit stateChanged(Failed);
 
-                    if (errorTracker->detectedError()) {
-                        d->description = tr("Couldn't erase %1 because %2.").arg(d->discType, errorTracker->errorReason());
-                    } else {
-                        d->description = tr("Failed to erase %1").arg(d->discType);
-                    }
+                    d->description = tr("Failed to erase %1").arg(d->discType);
                     emit descriptionChanged(d->description);
 
-                    tCritical("OpticalErase") << "Operation failed: cdrecord returned with exit code" << exitCode;
+                    tCritical("OpticalErase") << "Operation failed: Could not unmount";
 
                     tNotification* notification = new tNotification();
                     notification->setSummary(tr("Couldn't Erase Disc"));
                     notification->setText(tr("The disc in %1 could not be erased.").arg(d->displayName));
                     notification->post();
                 }
-                emit progressChanged(1);
-                emit totalProgressChanged(1);
-                proc->deleteLater();
-            });
+                break;
+            }
+        case 2:
+            {
+                d->description = tr("Erasing %1").arg(d->discType);
+                emit descriptionChanged(d->description);
 
-            QStringList cdrecordArgs = {"-v", QStringLiteral("blank=%1").arg(d->quick ? "fast" : "all"), QStringLiteral("dev=%1").arg(d->disk->interface<BlockInterface>()->blockName()), "gracetime=0"};
-            tDebug("OpticalErase") << "Starting cdrecord with arguments" << cdrecordArgs;
-            proc->start("cdrecord", cdrecordArgs);
-            break;
-        }
-        case 3: {
-//            d->description = tr("Ejecting Disc");
-//            emit descriptionChanged(d->description);
+                OpticalErrorTracker* errorTracker = new OpticalErrorTracker();
 
-//            //Eject the disc
-//            d->disk->interface<BlockInterface>()->drive()->eject()->then([ = ] {
-            d->disk->interface<BlockInterface>()->triggerReload()->then([ = ] {
+                // Erase the disc
+                QProcess* proc = new QProcess();
+                proc->setProcessChannelMode(QProcess::MergedChannels);
+                connect(proc, &QProcess::readyRead, this, [=] {
+                    QByteArray peek = proc->peek(1024);
+                    while (proc->canReadLine() || peek.contains('\r')) {
+                        QString line;
+                        if (proc->canReadLine()) {
+                            line = proc->readLine();
+                        } else {
+                            line = proc->read(peek.indexOf('\r') + 1);
+                        }
+                        line = line.trimmed();
+
+                        tDebug("OpticalErase") << line;
+                        errorTracker->sendLine(line);
+
+                        peek = proc->peek(1024);
+                    }
+                });
+                connect(proc, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, [errorTracker, proc, this](int exitCode, QProcess::ExitStatus exitStatus) {
+                    Q_UNUSED(exitStatus);
+                    if (exitCode == 0) {
+                        runNextStage();
+                    } else {
+                        d->state = Failed;
+                        emit stateChanged(Failed);
+
+                        if (errorTracker->detectedError()) {
+                            d->description = tr("Couldn't erase %1 because %2.").arg(d->discType, errorTracker->errorReason());
+                        } else {
+                            d->description = tr("Failed to erase %1").arg(d->discType);
+                        }
+                        emit descriptionChanged(d->description);
+
+                        tCritical("OpticalErase") << "Operation failed: cdrecord returned with exit code" << exitCode;
+
+                        tNotification* notification = new tNotification();
+                        notification->setSummary(tr("Couldn't Erase Disc"));
+                        notification->setText(tr("The disc in %1 could not be erased.").arg(d->displayName));
+                        notification->post();
+                    }
+                    emit progressChanged(1);
+                    emit totalProgressChanged(1);
+                    proc->deleteLater();
+                });
+
+                QStringList cdrecordArgs = {"-v", QStringLiteral("blank=%1").arg(d->quick ? "fast" : "all"), QStringLiteral("dev=%1").arg(d->disk->interface<BlockInterface>()->blockName()), "gracetime=0"};
+                tDebug("OpticalErase") << "Starting cdrecord with arguments" << cdrecordArgs;
+                proc->start("cdrecord", cdrecordArgs);
+                break;
+            }
+        case 3:
+            {
+                //            d->description = tr("Ejecting Disc");
+                //            emit descriptionChanged(d->description);
+
+                //            //Eject the disc
+                //            d->disk->interface<BlockInterface>()->drive()->eject()->then([ = ] {
+                co_await d->disk->interface<BlockInterface>()->triggerReload();
+
                 d->state = Finished;
                 emit stateChanged(Finished);
 
@@ -220,15 +226,13 @@ void EraseCdRwJob::runNextStage() {
                 notification->setSummary(tr("Erased Disc"));
                 notification->setText(tr("The disc in %1 has been erased.").arg(d->displayName));
                 notification->post();
-            });
-            break;
-        }
+                break;
+            }
     }
 }
 
-
 quint64 EraseCdRwJob::progress() {
-    return d->state != Processing; //0 if processing, 1 if not
+    return d->state != Processing; // 0 if processing, 1 if not
 }
 
 quint64 EraseCdRwJob::totalProgress() {

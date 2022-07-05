@@ -20,11 +20,11 @@
 #include "restorediskjobprogress.h"
 #include "ui_restorediskjobprogress.h"
 
-#include <DriveObjects/diskobject.h>
 #include "../restorediskjob.h"
+#include <DriveObjects/diskobject.h>
 
 struct RestoreDiskJobProgressPrivate {
-    RestoreDiskJob* job;
+        RestoreDiskJob* job;
 };
 
 RestoreDiskJobProgress::RestoreDiskJobProgress(RestoreDiskJob* job, QWidget* parent) :
@@ -37,13 +37,13 @@ RestoreDiskJobProgress::RestoreDiskJobProgress(RestoreDiskJob* job, QWidget* par
 
     ui->titleLabel->setText(tr("Restore to %1").arg(job->displayName()).toUpper());
 
-    connect(job, &RestoreDiskJob::stateChanged, this, [ = ](RestoreDiskJob::State state) {
+    connect(job, &RestoreDiskJob::stateChanged, this, [this](RestoreDiskJob::State state) {
         updateState();
     });
-    connect(job, &RestoreDiskJob::totalProgressChanged, this, [ = ](quint64 totalProgress) {
+    connect(job, &RestoreDiskJob::totalProgressChanged, this, [this](quint64 totalProgress) {
         ui->progressBar->setMaximum(totalProgress);
     });
-    connect(job, &RestoreDiskJob::progressChanged, this, [ = ](quint64 progress) {
+    connect(job, &RestoreDiskJob::progressChanged, this, [this](quint64 progress) {
         ui->progressBar->setValue(progress);
     });
     connect(job, &RestoreDiskJob::descriptionChanged, ui->statusLabel, &QLabel::setText);

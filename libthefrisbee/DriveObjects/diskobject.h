@@ -20,10 +20,11 @@
 #ifndef DRIVEOBJECT_H
 #define DRIVEOBJECT_H
 
-#include <QObject>
-#include <QDBusObjectPath>
-#include <tpromise.h>
 #include "diskinterface.h"
+#include <QDBusObjectPath>
+#include <QObject>
+#include <Task>
+#include <tpromise.h>
 
 class DriveObjectManager;
 struct DiskObjectPrivate;
@@ -33,14 +34,14 @@ class DiskObject : public QObject {
         explicit DiskObject(QDBusObjectPath path, QObject* parent = nullptr);
         ~DiskObject();
 
-        template <typename T> T* interface() const;
+        template<typename T> T* interface() const;
         bool isInterfaceAvailable(DiskInterface::Interfaces interface);
 
         QString displayName();
         QIcon icon();
 
         bool tryLock();
-        tPromise<void>* lock();
+        QCoro::Task<> lock();
         void releaseLock();
         bool isLocked();
 

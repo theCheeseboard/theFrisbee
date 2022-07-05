@@ -20,8 +20,9 @@
 #ifndef DRIVEINTERFACE_H
 #define DRIVEINTERFACE_H
 
-#include <QObject>
 #include <QDBusObjectPath>
+#include <QObject>
+#include <Task>
 
 #include <tpromise.h>
 
@@ -84,7 +85,7 @@ class DriveInterface : public QObject {
         bool mediaAvailable();
 
         bool ejectable();
-        tPromise<void>* eject();
+        QCoro::Task<> eject();
 
         bool isRemovable();
 

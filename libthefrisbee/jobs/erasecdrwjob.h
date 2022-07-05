@@ -21,6 +21,7 @@
 #define ERASECDRWJOB_H
 
 #include <tjob.h>
+#include <Task>
 
 struct EraseCdRwJobPrivate;
 class DiskObject;
@@ -41,7 +42,7 @@ class EraseCdRwJob : public tJob {
     private:
         EraseCdRwJobPrivate* d;
 
-        void runNextStage();
+        QCoro::Task<> runNextStage();
 
         // tJob interface
     public:

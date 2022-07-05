@@ -21,6 +21,7 @@
 #define PARTITIONTABLEINTERFACE_H
 
 #include "diskinterface.h"
+#include <Task>
 #include <tpromise.h>
 
 class DiskObject;
@@ -37,8 +38,8 @@ class PartitionTableInterface : public DiskInterface {
         QList<DiskObject*> partitions();
         QString type();
 
-        tPromise<QDBusObjectPath>* createPartition(quint64 offset, quint64 size, QString type, QString name, QVariantMap options);
-        tPromise<QDBusObjectPath>* createPartitionAndFormat(quint64 offset, quint64 size, QString type, QString name, QVariantMap options, QString formatType, QVariantMap formatOptions);
+        QCoro::Task<QDBusObjectPath> createPartition(quint64 offset, quint64 size, QString type, QString name, QVariantMap options);
+        QCoro::Task<QDBusObjectPath> createPartitionAndFormat(quint64 offset, quint64 size, QString type, QString name, QVariantMap options, QString formatType, QVariantMap formatOptions);
 
     signals:
 

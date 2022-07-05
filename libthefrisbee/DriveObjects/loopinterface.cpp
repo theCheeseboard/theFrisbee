@@ -19,9 +19,11 @@
  * *************************************/
 #include "loopinterface.h"
 
+#include <QCoroDBusPendingCall>
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusPendingCallWatcher>
+#include <frisbeeexception.h>
 
 struct LoopInterfacePrivate {
         QDBusObjectPath path;
@@ -33,7 +35,7 @@ LoopInterface::LoopInterface(QDBusObjectPath path, QObject* parent) :
     d = new LoopInterfacePrivate();
     d->path = path;
 
-    bindPropertyUpdater("BackingFile", [=](QVariant value) {
+    bindPropertyUpdater("BackingFile", [this](QVariant value) {
         d->backingFile = value.toByteArray();
         emit backingFileChanged();
     });
@@ -55,19 +57,12 @@ QByteArray LoopInterface::backingFile() {
     return d->backingFile;
 }
 
-tPromise<void>* LoopInterface::detach() {
-    return TPROMISE_CREATE_NEW_THREAD(void, {
-        QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Delete");
-        message.setArguments({QVariantMap()});
-        QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
-            if (watcher->isError()) {
-                rej(watcher->error().message());
-            } else {
-                res();
-            }
-        });
-    });
+QCoro::Task<> LoopInterface::detach() {
+    QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Delete");
+    message.setArguments({QVariantMap()});
+    auto call = QDBusConnection::systemBus().asyncCall(message);
+    auto reply = co_await call;
+    if (call.isError()) throw FrisbeeException(call.error().message());
 }
 
 bool LoopInterface::isAvailable() {

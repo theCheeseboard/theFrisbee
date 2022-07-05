@@ -25,10 +25,12 @@
 #include "operations/creatediskimagepopover.h"
 #include <DriveObjects/blockinterface.h>
 #include <DriveObjects/diskobject.h>
+#include <QCoroSignal>
 #include <QFileDialog>
 #include <QMenu>
 #include <QPainter>
 #include <driveobjectmanager.h>
+#include <frisbeeexception.h>
 #include <taboutdialog.h>
 #include <tapplication.h>
 #include <tcsdtools.h>
@@ -60,6 +62,8 @@ MainWindow::MainWindow(QWidget* parent) :
         ui->rightCsdLayout->addWidget(d->csd.csdBoxForWidget(this));
     }
 
+    ui->menuBar->setVisible(false);
+
     QMenu* menu = new QMenu(this);
     menu->addAction(ui->actionCreate_Disk_Image);
     menu->addAction(ui->actionMountImage);
@@ -75,7 +79,7 @@ MainWindow::MainWindow(QWidget* parent) :
     ui->leftWidget->setFixedWidth(SC_DPI(400));
 
     ui->diskList->setModel(new DiskModel());
-    connect(ui->diskList->selectionModel(), &QItemSelectionModel::currentChanged, this, [=](QModelIndex current, QModelIndex previous) {
+    connect(ui->diskList->selectionModel(), &QItemSelectionModel::currentChanged, this, [this](QModelIndex current, QModelIndex previous) {
         if (current.isValid()) {
             DiskPane* disk = new DiskPane(static_cast<DiskObject*>(current.internalPointer()));
             ui->stackedWidget->addWidget(disk);
@@ -91,25 +95,30 @@ MainWindow::~MainWindow() {
     delete d;
 }
 
-void MainWindow::on_actionMountImage_triggered() {
+QCoro::Task<> MainWindow::on_actionMountImage_triggered() {
     QFileDialog* dialog = new QFileDialog(this);
     dialog->setAcceptMode(QFileDialog::AcceptOpen);
     dialog->setNameFilters({"Disk Images (*.img *.iso)"});
     dialog->setFileMode(QFileDialog::AnyFile);
-    connect(dialog, &QFileDialog::fileSelected, this, [=](QString file) {
-        QFile f(file);
-        f.open(QFile::ReadOnly);
 
-        QDBusUnixFileDescriptor fd(f.handle());
-        DriveObjectManager::loopSetup(fd, {
-                                              {"read-only", false}
-        })
-            ->error([=](QString error) {
-                tCritical("LoopSetup") << error;
-            });
-    });
-    connect(dialog, &QFileDialog::finished, dialog, &QFileDialog::deleteLater);
     dialog->open();
+
+    auto result = co_await qCoro(dialog, &QFileDialog::finished);
+    dialog->deleteLater();
+    if (result == QFileDialog::Rejected) co_return;
+
+    QFile f(dialog->selectedFiles().first());
+    f.open(QFile::ReadOnly);
+
+    QDBusUnixFileDescriptor fd(f.handle());
+    try {
+        auto loopSetupOptions = QVariantMap({
+            {"read-only", false}
+        });
+        co_await DriveObjectManager::loopSetup(fd, loopSetupOptions);
+    } catch (FrisbeeException& ex) {
+        tCritical("LoopSetup") << ex.response();
+    }
 }
 
 void MainWindow::on_actionExit_triggered() {
@@ -124,7 +133,7 @@ bool MainWindow::eventFilter(QObject* watched, QEvent* event) {
         calculator.setPainter(painter);
         calculator.setDrawBounds(this->size());
 
-        calculator.addRect(QRectF(SC_DPI(400), 0, 0, ui->topWidget->height()), [=](QRectF drawBounds) {
+        calculator.addRect(QRectF(SC_DPI(400), 0, 0, ui->topWidget->height()), [painter, this](QRectF drawBounds) {
             painter->setPen(libContemporaryCommon::lineColor(this->palette().color(QPalette::WindowText)));
             painter->drawLine(drawBounds.topLeft(), drawBounds.bottomLeft());
         });

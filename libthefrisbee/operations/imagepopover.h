@@ -21,6 +21,7 @@
 #define IMAGEPOPOVER_H
 
 #include <QWidget>
+#include <Task>
 
 namespace Ui {
     class ImagePopover;
@@ -36,7 +37,7 @@ class ImagePopover : public QWidget {
         ~ImagePopover();
 
     private slots:
-        void on_imageButton_clicked();
+        QCoro::Task<> on_imageButton_clicked();
 
         void on_titleLabel_backButtonClicked();
 

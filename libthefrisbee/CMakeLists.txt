@@ -36,7 +36,8 @@ set(SOURCES
         operations/partitionpopover.cpp
         operations/restoreopticalpopover.cpp
         optical/opticalerrortracker.cpp
-        partitioninformation.cpp)
+        partitioninformation.cpp
+        frisbeeexception.cpp)
 
 file(GLOB ROOT_HEADERS *.h)
 file(GLOB DRIVEOBJECT_HEADERS DriveObjects/*.h)
@@ -44,7 +45,7 @@ file(GLOB DRIVEOBJECT_HEADERS DriveObjects/*.h)
 set(HEADERS ${ROOT_HEADERS} ${DRIVEOBJECT_HEADERS})
 
 add_library(libthefrisbee SHARED ${SOURCES})
-cntp_init(libthefrisbee 17)
+cntp_init(libthefrisbee 20)
 cntp_target_public_headers(libthefrisbee
     DESTINATION_DIRECTORY libthefrisbee
     HEADERS ${HEADERS})

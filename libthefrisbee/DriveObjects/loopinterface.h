@@ -21,6 +21,7 @@
 #define LOOPINTERFACE_H
 
 #include "diskinterface.h"
+#include <Task>
 #include <tpromise.h>
 
 struct LoopInterfacePrivate;
@@ -34,7 +35,7 @@ class LoopInterface : public DiskInterface {
         Interfaces interfaceType();
 
         QByteArray backingFile();
-        tPromise<void>* detach();
+        QCoro::Task<> detach();
 
         bool isAvailable();
 
@@ -43,7 +44,6 @@ class LoopInterface : public DiskInterface {
 
     private:
         LoopInterfacePrivate* d;
-
 };
 
 #endif // LOOPINTERFACE_H

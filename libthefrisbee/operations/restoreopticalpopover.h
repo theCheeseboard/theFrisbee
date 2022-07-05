@@ -21,6 +21,7 @@
 #define RESTOREOPTICALPOPOVER_H
 
 #include <QWidget>
+#include <Task>
 
 namespace Ui {
     class RestoreOpticalPopover;
@@ -61,7 +62,7 @@ class RestoreOpticalPopover : public QWidget {
         Ui::RestoreOpticalPopover* ui;
         RestoreOpticalPopoverPrivate* d;
 
-        void performRestoreOperation();
+        QCoro::Task<> performRestoreOperation();
 };
 
 #endif // RESTOREOPTICALPOPOVER_H

@@ -19,34 +19,35 @@
  * *************************************/
 #include "restoreopticaljob.h"
 
-#include <tlogger.h>
-#include <QProcess>
-#include <tnotification.h>
-#include <DriveObjects/diskobject.h>
-#include <DriveObjects/blockinterface.h>
-#include <DriveObjects/driveinterface.h>
-#include "progress/restoreopticaljobprogress.h"
 #include "optical/opticalerrortracker.h"
+#include "progress/restoreopticaljobprogress.h"
+#include <DriveObjects/blockinterface.h>
+#include <DriveObjects/diskobject.h>
+#include <DriveObjects/driveinterface.h>
+#include <QProcess>
+#include <tlogger.h>
+#include <tnotification.h>
 
 struct RestoreOpticalJobPrivate {
-    quint64 progress = 0;
-    quint64 totalProgress = 0;
+        quint64 progress = 0;
+        quint64 totalProgress = 0;
 
-    QIODevice* source;
-    quint64 dataSize;
-    DiskObject* disk;
-    QString displayName;
+        QIODevice* source;
+        quint64 dataSize;
+        DiskObject* disk;
+        QString displayName;
 
-    QProcess* burnProcess;
-    quint64 writtenBytes = 0;
+        QProcess* burnProcess;
+        quint64 writtenBytes = 0;
 
-    QString description;
+        QString description;
 
-    tJob::State state;
-    int stage = 0;
+        tJob::State state;
+        int stage = 0;
 };
 
-RestoreOpticalJob::RestoreOpticalJob(DiskObject* disk, QObject* parent) : RestoreJob(parent) {
+RestoreOpticalJob::RestoreOpticalJob(DiskObject* disk, QObject* parent) :
+    RestoreJob(parent) {
     d = new RestoreOpticalJobPrivate();
     d->disk = disk;
     d->displayName = d->disk->displayName();
@@ -58,34 +59,34 @@ RestoreOpticalJob::~RestoreOpticalJob() {
     delete d;
 }
 
-void RestoreOpticalJob::startRestore(QIODevice* source, quint64 dataSize) {
-    if (d->stage != 0) return;
+QCoro::Task<> RestoreOpticalJob::startRestore(QIODevice* source, quint64 dataSize) {
+    if (d->stage != 0) co_return;
 
     d->source = source;
     d->dataSize = dataSize;
 
-    //Try to acquire the lock
+    // Try to acquire the lock
     d->description = tr("Waiting for other jobs to finish");
     emit descriptionChanged(d->description);
 
-    d->disk->lock()->then([ = ] {
-        connect(this, &RestoreOpticalJob::stateChanged, this, [ = ] {
-            //Release the lock
-            if (d->state == Finished || d->state == Failed) {
-                d->disk->releaseLock();
-            }
-        });
+    co_await d->disk->lock();
 
-        tInfo("OpticalRestore") << "Restore operation starts";
-        runNextStage();
+    connect(this, &RestoreOpticalJob::stateChanged, this, [this] {
+        // Release the lock
+        if (d->state == Finished || d->state == Failed) {
+            d->disk->releaseLock();
+        }
     });
+
+    tInfo("OpticalRestore") << "Restore operation starts";
+    runNextStage();
 }
 
 void RestoreOpticalJob::cancel() {
     if (d->stage == 0) {
         d->stage = -1;
 
-        //Bail out
+        // Bail out
         d->state = Failed;
         emit stateChanged(Failed);
 
@@ -108,133 +109,129 @@ QString RestoreOpticalJob::displayName() {
     return d->displayName;
 }
 
-void RestoreOpticalJob::runNextStage() {
+QCoro::Task<> RestoreOpticalJob::runNextStage() {
     d->stage++;
     switch (d->stage) {
-        case 1: {
-            //Start restoring the image
-            d->description = tr("Preparing to restore");
-            emit descriptionChanged(d->description);
+        case 1:
+            {
+                // Start restoring the image
+                d->description = tr("Preparing to restore");
+                emit descriptionChanged(d->description);
 
-            OpticalErrorTracker* errorTracker = new OpticalErrorTracker();
+                OpticalErrorTracker* errorTracker = new OpticalErrorTracker();
 
-            d->burnProcess = new QProcess();
-            connect(d->burnProcess, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, [ = ](int exitCode, QProcess::ExitStatus exitStatus) {
-                Q_UNUSED(exitStatus);
-                if (exitCode == 0) {
-                    d->source->close();
+                d->burnProcess = new QProcess();
+                connect(d->burnProcess, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, [errorTracker, this](int exitCode, QProcess::ExitStatus exitStatus) {
+                    Q_UNUSED(exitStatus);
+                    if (exitCode == 0) {
+                        d->source->close();
 
-                    runNextStage();
-                } else {
-                    d->state = Failed;
-                    emit stateChanged(Failed);
-
-                    if (errorTracker->detectedError()) {
-                        d->description = tr("Couldn't restore the disc because %1.").arg(errorTracker->errorReason());
+                        runNextStage();
                     } else {
-                        d->description = tr("Failed to restore disc");
-                    }
-                    emit descriptionChanged(d->description);
+                        d->state = Failed;
+                        emit stateChanged(Failed);
 
-                    tNotification* notification = new tNotification();
-                    notification->setSummary(tr("Couldn't Restore Disc"));
-                    notification->setText(tr("The disc in %1 could not be restored.").arg(d->displayName));
-                    notification->post();
-
-                    tCritical("OpticalRestore") << "Restore operation failed";
-                }
-                emit progressChanged(1);
-                emit totalProgressChanged(1);
-                d->burnProcess->deleteLater();
-                errorTracker->deleteLater();
-            });
-            connect(d->burnProcess, &QProcess::readyRead, this, [ = ] {
-                QByteArray peek = d->burnProcess->peek(1024);
-                while (d->burnProcess->canReadLine() || peek.contains('\r')) {
-                    QString line;
-                    if (d->burnProcess->canReadLine()) {
-                        line = d->burnProcess->readLine();
-                    } else {
-                        line = d->burnProcess->read(peek.indexOf('\r') + 1);
-                    }
-                    line = line.trimmed();
-
-                    tDebug("OpticalRestore") << line;
-                    errorTracker->sendLine(line);
-
-                    if (line.startsWith("Blanking time")) {
-                        d->description = tr("Preparing to restore");
-                        emit descriptionChanged(d->description);
-
-                        d->progress = 0;
-                        emit progressChanged(d->progress);
-
-
-                        d->totalProgress = 0;
-                        emit totalProgressChanged(d->totalProgress);
-                    } else if (line.startsWith("Blanking")) {
-                        d->description = tr("Erasing Disc");
-                        emit descriptionChanged(d->description);
-                    } else if (line.startsWith("Track")) {
-                        QStringList parts = line.split(" ", Qt::SkipEmptyParts);
-                        if (parts.length() >= 5 && parts.at(3) == "of") {
-                            if (parts.length() >= 12) {
-                                d->description = tr("Burning Image (%1)\n%2 of %3").arg(parts.at(11)).arg(QLocale().formattedDataSize(parts.at(2).toULongLong() * 1048576)).arg(QLocale().formattedDataSize(parts.at(4).toULongLong() * 1048576));
-                                emit descriptionChanged(d->description);
-                            } else {
-                                d->description = tr("Burning Image");
-                                emit descriptionChanged(d->description);
-                            }
-
-                            d->totalProgress = parts.at(4).toInt();
-                            emit totalProgressChanged(d->totalProgress);
-
-                            d->progress = parts.at(2).toInt();
-                            emit progressChanged(d->progress);
+                        if (errorTracker->detectedError()) {
+                            d->description = tr("Couldn't restore the disc because %1.").arg(errorTracker->errorReason());
+                        } else {
+                            d->description = tr("Failed to restore disc");
                         }
-                    } else if (line.startsWith("Fixating")) {
-                        d->description = tr("Finalizing Disc");
                         emit descriptionChanged(d->description);
 
-                        d->progress = 0;
-                        emit progressChanged(d->progress);
+                        tNotification* notification = new tNotification();
+                        notification->setSummary(tr("Couldn't Restore Disc"));
+                        notification->setText(tr("The disc in %1 could not be restored.").arg(d->displayName));
+                        notification->post();
 
-
-                        d->totalProgress = 0;
-                        emit totalProgressChanged(d->totalProgress);
+                        tCritical("OpticalRestore") << "Restore operation failed";
                     }
+                    emit progressChanged(1);
+                    emit totalProgressChanged(1);
+                    d->burnProcess->deleteLater();
+                    errorTracker->deleteLater();
+                });
+                connect(d->burnProcess, &QProcess::readyRead, this, [errorTracker, this] {
+                    QByteArray peek = d->burnProcess->peek(1024);
+                    while (d->burnProcess->canReadLine() || peek.contains('\r')) {
+                        QString line;
+                        if (d->burnProcess->canReadLine()) {
+                            line = d->burnProcess->readLine();
+                        } else {
+                            line = d->burnProcess->read(peek.indexOf('\r') + 1);
+                        }
+                        line = line.trimmed();
 
-                    peek = d->burnProcess->peek(1024);
+                        tDebug("OpticalRestore") << line;
+                        errorTracker->sendLine(line);
+
+                        if (line.startsWith("Blanking time")) {
+                            d->description = tr("Preparing to restore");
+                            emit descriptionChanged(d->description);
+
+                            d->progress = 0;
+                            emit progressChanged(d->progress);
+
+                            d->totalProgress = 0;
+                            emit totalProgressChanged(d->totalProgress);
+                        } else if (line.startsWith("Blanking")) {
+                            d->description = tr("Erasing Disc");
+                            emit descriptionChanged(d->description);
+                        } else if (line.startsWith("Track")) {
+                            QStringList parts = line.split(" ", Qt::SkipEmptyParts);
+                            if (parts.length() >= 5 && parts.at(3) == "of") {
+                                if (parts.length() >= 12) {
+                                    d->description = tr("Burning Image (%1)\n%2 of %3").arg(parts.at(11)).arg(QLocale().formattedDataSize(parts.at(2).toULongLong() * 1048576)).arg(QLocale().formattedDataSize(parts.at(4).toULongLong() * 1048576));
+                                    emit descriptionChanged(d->description);
+                                } else {
+                                    d->description = tr("Burning Image");
+                                    emit descriptionChanged(d->description);
+                                }
+
+                                d->totalProgress = parts.at(4).toInt();
+                                emit totalProgressChanged(d->totalProgress);
+
+                                d->progress = parts.at(2).toInt();
+                                emit progressChanged(d->progress);
+                            }
+                        } else if (line.startsWith("Fixating")) {
+                            d->description = tr("Finalizing Disc");
+                            emit descriptionChanged(d->description);
+
+                            d->progress = 0;
+                            emit progressChanged(d->progress);
+
+                            d->totalProgress = 0;
+                            emit totalProgressChanged(d->totalProgress);
+                        }
+
+                        peek = d->burnProcess->peek(1024);
+                    }
+                });
+                connect(d->burnProcess, &QProcess::bytesWritten, this, &RestoreOpticalJob::writeBlock);
+
+                QStringList args;
+                args.append("-v");
+
+                if (!d->disk->interface<BlockInterface>()->drive()->opticalBlank()) {
+                    args.append("blank=fast");
                 }
-            });
-            connect(d->burnProcess, &QProcess::bytesWritten, this, &RestoreOpticalJob::writeBlock);
 
-            QStringList args;
-            args.append("-v");
+                args.append(QStringLiteral("dev=%1").arg(d->disk->interface<BlockInterface>()->blockName()));
+                args.append("gracetime=0");
+                args.append(QStringLiteral("tsize=%1").arg(d->dataSize));
+                args.append("-");
 
-            if (!d->disk->interface<BlockInterface>()->drive()->opticalBlank()) {
-                args.append("blank=fast");
+                tInfo("OpticalErase") << "Starting cdrecord with arguments" << args;
+                d->burnProcess->start("cdrecord", args);
+
+                writeBlock();
+
+                break;
             }
+        case 2:
+            {
+                co_await d->disk->interface<BlockInterface>()->triggerReload();
 
-            args.append(QStringLiteral("dev=%1").arg(d->disk->interface<BlockInterface>()->blockName()));
-            args.append("gracetime=0");
-            args.append(QStringLiteral("tsize=%1").arg(d->dataSize));
-            args.append("-");
-
-            tInfo("OpticalErase") << "Starting cdrecord with arguments" << args;
-            d->burnProcess->start("cdrecord", args);
-
-            writeBlock();
-
-            break;
-        }
-        case 2: {
-//            d->description = tr("Ejecting Disc");
-//            emit descriptionChanged(d->description);
-
-//            //Eject the disc
-//            d->disk->interface<BlockInterface>()->drive()->eject()->then([ = ] {
-            d->disk->interface<BlockInterface>()->triggerReload()->then([ = ] {
                 d->state = Finished;
                 emit stateChanged(Finished);
 
@@ -247,9 +244,8 @@ void RestoreOpticalJob::runNextStage() {
                 notification->setSummary(tr("Restored Disc"));
                 notification->setText(tr("The disc in %1 has been restored.").arg(d->displayName));
                 notification->post();
-            });
-            break;
-        }
+                break;
+            }
     }
 }
 

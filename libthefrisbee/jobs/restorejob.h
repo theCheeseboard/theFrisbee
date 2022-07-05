@@ -20,6 +20,7 @@
 #ifndef RESTOREJOB_H
 #define RESTOREJOB_H
 
+#include <Task>
 #include <tjob.h>
 
 class RestoreJob : public tJob {
@@ -27,7 +28,7 @@ class RestoreJob : public tJob {
     public:
         explicit RestoreJob(QObject* parent = nullptr);
 
-        virtual void startRestore(QIODevice* source, quint64 dataSize) = 0;
+        virtual QCoro::Task<> startRestore(QIODevice* source, quint64 dataSize) = 0;
         virtual void cancel() = 0;
     signals:
 

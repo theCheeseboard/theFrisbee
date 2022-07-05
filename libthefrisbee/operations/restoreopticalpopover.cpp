@@ -20,18 +20,19 @@
 #include "restoreopticalpopover.h"
 #include "ui_restoreopticalpopover.h"
 
-#include "tjobmanager.h"
-#include "jobs/restoreopticaljob.h"
+#include "diskmodel.h"
 #include "jobs/restorediskjob.h"
-#include <QFileDialog>
-#include <QMessageBox>
+#include "jobs/restoreopticaljob.h"
+#include "tjobmanager.h"
+#include <DriveObjects/blockinterface.h>
 #include <DriveObjects/diskobject.h>
 #include <DriveObjects/driveinterface.h>
-#include <DriveObjects/blockinterface.h>
-#include "diskmodel.h"
+#include <QFileDialog>
+#include <QMessageBox>
+#include <frisbeeexception.h>
 
 struct RestoreOpticalPopoverPrivate {
-    DiskObject* disk;
+        DiskObject* disk;
 };
 
 RestoreOpticalPopover::RestoreOpticalPopover(DiskObject* disk, QWidget* parent) :
@@ -87,7 +88,7 @@ void RestoreOpticalPopover::on_browseButton_clicked() {
     dialog->setAcceptMode(QFileDialog::AcceptOpen);
     dialog->setNameFilters({"Disk Images (*.img, *.iso)"});
     dialog->setFileMode(QFileDialog::AnyFile);
-    connect(dialog, &QFileDialog::fileSelected, this, [ = ](QString file) {
+    connect(dialog, &QFileDialog::fileSelected, this, [this](QString file) {
         ui->restoreFileBox->setText(file);
     });
     connect(dialog, &QFileDialog::finished, dialog, &QFileDialog::deleteLater);
@@ -107,7 +108,7 @@ void RestoreOpticalPopover::on_restoreButton_clicked() {
         if (!drive->opticalBlank()) {
             ui->mainStack->setCurrentWidget(ui->confirmOpticalPage);
         } else {
-            //Don't bother confirming
+            // Don't bother confirming
             performRestoreOperation();
         }
     } else {
@@ -131,7 +132,7 @@ void RestoreOpticalPopover::on_doRestoreButtonOptical_clicked() {
     performRestoreOperation();
 }
 
-void RestoreOpticalPopover::performRestoreOperation() {
+QCoro::Task<> RestoreOpticalPopover::performRestoreOperation() {
     RestoreJob* job;
     if (d->disk->interface<BlockInterface>()->drive()->isOpticalDrive()) {
         job = new RestoreOpticalJob(d->disk);
@@ -143,32 +144,31 @@ void RestoreOpticalPopover::performRestoreOperation() {
     emit done();
 
     if (ui->stackedWidget->currentWidget() == ui->restoreFilePage) {
-        //Restore a file
+        // Restore a file
         QFile* file = new QFile(ui->restoreFileBox->text());
         if (!file->open(QFile::ReadOnly)) {
-            //Bail
+            // Bail
             job->cancel();
-            return;
+            co_return;
         }
 
         job->startRestore(file, file->size());
     } else {
-        //Restore a disk
+        // Restore a disk
         DiskObject* disk = static_cast<DiskObject*>(ui->diskSelection->currentIndex().internalPointer());
 
         BlockInterface* block = disk->interface<BlockInterface>();
         if (!block) {
-            //Bail
+            // Bail
             job->cancel();
-            return;
+            co_return;
         }
 
-        block->open(BlockInterface::Read, {})->then([ = ](QIODevice * ioDevice) {
+        try {
+            auto ioDevice = co_await block->open(BlockInterface::Read, {});
             job->startRestore(ioDevice, block->size());
-        })->error([ = ](QString error) {
-            //Bail
+        } catch (FrisbeeException& ex) {
             job->cancel();
-            return;
-        });
+        }
     }
 }

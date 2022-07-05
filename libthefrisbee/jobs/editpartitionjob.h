@@ -21,6 +21,7 @@
 #define EDITPARTITIONJOB_H
 
 #include <tjob.h>
+#include <Task>
 #include "operations/partitionpopover.h"
 
 class DiskObject;
@@ -42,7 +43,7 @@ class EditPartitionJob : public tJob {
     private:
         EditPartitionJobPrivate* d;
 
-        void processNextOperation();
+        QCoro::Task<> processNextOperation();
         void fail();
 
         // tJob interface

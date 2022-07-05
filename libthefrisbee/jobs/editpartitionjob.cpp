@@ -19,40 +19,42 @@
  * *************************************/
 #include "editpartitionjob.h"
 
-#include <tnotification.h>
-#include <driveobjectmanager.h>
-#include <DriveObjects/diskobject.h>
-#include <DriveObjects/partitiontableinterface.h>
-#include <DriveObjects/partitioninterface.h>
-#include <tlogger.h>
-#include "progress/editpartitionjobprogress.h"
-#include "partitioninformation.h"
 #include "components/partitionvisualisation.h"
+#include "partitioninformation.h"
+#include "progress/editpartitionjobprogress.h"
+#include <DriveObjects/diskobject.h>
+#include <DriveObjects/partitioninterface.h>
+#include <DriveObjects/partitiontableinterface.h>
+#include <driveobjectmanager.h>
+#include <frisbeeexception.h>
+#include <tlogger.h>
+#include <tnotification.h>
 
 struct EditPartitionJobPrivate {
-    quint64 progress = 0;
-    quint64 totalProgress = 0;
-    QString description;
-    tJob::State state = tJob::Processing;
+        quint64 progress = 0;
+        quint64 totalProgress = 0;
+        QString description;
+        tJob::State state = tJob::Processing;
 
-    QList<PartitionPopover::PartitionOperation> operations;
-    DiskObject* disk;
-    QString displayName;
+        QList<PartitionPopover::PartitionOperation> operations;
+        DiskObject* disk;
+        QString displayName;
 };
 
-EditPartitionJob::EditPartitionJob(QList<PartitionPopover::PartitionOperation> operations, DiskObject* disk, QObject* parent) : tJob(parent) {
+EditPartitionJob::EditPartitionJob(QList<PartitionPopover::PartitionOperation> operations, DiskObject* disk, QObject* parent) :
+    tJob(parent) {
     d = new EditPartitionJobPrivate();
     d->operations = operations;
     d->disk = disk;
     d->displayName = d->disk->displayName();
 
-    //Try to acquire the lock
+    // Try to acquire the lock
     d->description = tr("Waiting for other jobs to finish");
     emit descriptionChanged(d->description);
 
-    d->disk->lock()->then([ = ] {
-        connect(this, &EditPartitionJob::stateChanged, this, [ = ] {
-            //Release the lock
+    d->disk->lock().then([this] {
+        connect(this, &EditPartitionJob::stateChanged, this, [this] {
+            // Release the lock
             if (d->state == Finished || d->state == Failed) {
                 d->disk->releaseLock();
             }
@@ -84,7 +86,7 @@ QString EditPartitionJob::displayName() {
     return d->displayName;
 }
 
-void EditPartitionJob::processNextOperation() {
+QCoro::Task<> EditPartitionJob::processNextOperation() {
     emit progressChanged(++d->progress);
 
     if (d->operations.isEmpty()) {
@@ -100,19 +102,19 @@ void EditPartitionJob::processNextOperation() {
         notification->setSummary(tr("Partitioning Operations Complete"));
         notification->setText(tr("Changes to %1 have been applied.").arg(d->displayName));
         notification->post();
-        return;
+        co_return;
     }
 
     PartitionTableInterface* table = d->disk->interface<PartitionTableInterface>();
     PartitionPopover::PartitionOperation operation = d->operations.takeFirst();
     if (operation.type == "new") {
-        //Create a new partition
+        // Create a new partition
         QString type = operation.data.value("type").toString();
         QString partType = PartitionInformation::partitionType(type, table->type());
         QString formatType = PartitionInformation::formatType(type);
 
         QString name = operation.data.value("name").toString();
-        if (table->type() == "dos") name = ""; //dos table type does not support names
+        if (table->type() == "dos") name = ""; // dos table type does not support names
 
         d->description = tr("Creating partition %1").arg(QLocale().quoteString(operation.data.value("name").toString()));
         emit descriptionChanged(d->description);
@@ -122,27 +124,28 @@ void EditPartitionJob::processNextOperation() {
         tDebug("EditPartitionJob") << "Partition Type: " << partType;
         tDebug("EditPartitionJob") << "Format Type: " << formatType;
 
-        //TODO: support empty type
+        // TODO: support empty type
 
-        table->createPartitionAndFormat(operation.data.value("offset").toULongLong(), operation.data.value("size").toULongLong(), partType, name, {}, formatType, {})->then([ = ](QDBusObjectPath newPartition) {
+        try {
+            auto newPartition = co_await table->createPartitionAndFormat(operation.data.value("offset").toULongLong(), operation.data.value("size").toULongLong(), partType, name, {}, formatType, {});
             DiskObject* newPartitionObject = DriveObjectManager::diskForPath(newPartition);
             PartitionVisualisation::mapPartition(operation.data.value("internalId").toULongLong(), newPartitionObject);
 
             tDebug("EditPartitionJob") << "Partition Created";
 
             processNextOperation();
-        })->error([ = ](QString error) {
+        } catch (FrisbeeException& ex) {
             tWarn("EditPartitionJob") << "Partition Create Failed";
-            tWarn("EditPartitionJob") << error;
+            tWarn("EditPartitionJob") << ex.response();
 
             fail();
-        });
+        }
     } else if (operation.type == "delete") {
         DiskObject* partition = PartitionVisualisation::mappedDisk(operation.data.value("partition").toULongLong());
         if (!partition) {
             tWarn("EditPartitionJob") << "Partition does not refer to a UDisks object";
             fail();
-            return;
+            co_return;
         }
 
         tDebug("EditPartitionJob") << "Deleting partition:";
@@ -151,15 +154,16 @@ void EditPartitionJob::processNextOperation() {
         d->description = tr("Deleting partition %1").arg(QLocale().quoteString(partition->displayName()));
         emit descriptionChanged(d->description);
 
-        partition->interface<PartitionInterface>()->deletePartition()->then([ = ] {
+        try {
+            co_await partition->interface<PartitionInterface>()->deletePartition();
             tDebug("EditPartitionJob") << "Partition Deleted";
             processNextOperation();
-        })->error([ = ](QString error) {
+        } catch (FrisbeeException& ex) {
             tWarn("EditPartitionJob") << "Partition Delete Failed";
-            tWarn("EditPartitionJob") << error;
+            tWarn("EditPartitionJob") << ex.response();
 
             fail();
-        });
+        }
     }
 }
 

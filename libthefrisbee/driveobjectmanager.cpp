@@ -18,29 +18,32 @@
  *
  * *************************************/
 #include "driveobjectmanager.h"
+#include "frisbeeexception.h"
 
-#include "DriveObjects/diskobject.h"
-#include "DriveObjects/partitiontableinterface.h"
-#include "DriveObjects/driveinterface.h"
-#include "DriveObjects/loopinterface.h"
-#include "DriveObjects/filesysteminterface.h"
 #include "DriveObjects/blockinterface.h"
+#include "DriveObjects/diskobject.h"
+#include "DriveObjects/driveinterface.h"
 #include "DriveObjects/encryptedinterface.h"
+#include "DriveObjects/filesysteminterface.h"
+#include "DriveObjects/loopinterface.h"
+#include "DriveObjects/partitiontableinterface.h"
+#include <QCoroDBusPendingCall>
 #include <QDebug>
 #include <QTimer>
 
-#include <QDBusMessage>
-#include <QDBusConnection>
-#include <QDBusObjectPath>
 #include <QDBusArgument>
+#include <QDBusConnection>
 #include <QDBusInterface>
+#include <QDBusMessage>
+#include <QDBusObjectPath>
 
 struct DriveObjectManagerPrivate {
-    QMap<QDBusObjectPath, DiskObject*> objects;
-    QMap<QDBusObjectPath, DriveInterface*> drives;
+        QMap<QDBusObjectPath, DiskObject*> objects;
+        QMap<QDBusObjectPath, DriveInterface*> drives;
 };
 
-DriveObjectManager::DriveObjectManager(QObject* parent) : QObject(parent) {
+DriveObjectManager::DriveObjectManager(QObject* parent) :
+    QObject(parent) {
     d = new DriveObjectManagerPrivate();
 
     QDBusConnection::systemBus().connect("org.freedesktop.UDisks2", "/org/freedesktop/UDisks2", "org.freedesktop.DBus.ObjectManager", "InterfacesAdded", this, SLOT(updateInterfaces()));
@@ -163,24 +166,19 @@ QStringList DriveObjectManager::supportedFilesystems() {
     return managerInterface.property("SupportedFilesystems").toStringList();
 }
 
-tPromise<QDBusObjectPath>* DriveObjectManager::loopSetup(QDBusUnixFileDescriptor fd, QVariantMap options) {
-    return TPROMISE_CREATE_SAME_THREAD(QDBusObjectPath, {
-        QDBusMessage loopSetup = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", "/org/freedesktop/UDisks2/Manager", "org.freedesktop.UDisks2.Manager", "LoopSetup");
-        loopSetup.setArguments({QVariant::fromValue(fd), options});
-        QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(loopSetup));
-        connect(watcher, &QDBusPendingCallWatcher::finished, [ = ] {
-            if (watcher->isError()) {
-                rej(watcher->error().message());
-            } else {
-                res(watcher->reply().arguments().first().value<QDBusObjectPath>());
-            }
-            watcher->deleteLater();
-        });
-    });
+QCoro::Task<QDBusObjectPath> DriveObjectManager::loopSetup(QDBusUnixFileDescriptor fd, QVariantMap options) {
+    QDBusMessage loopSetup = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", "/org/freedesktop/UDisks2/Manager", "org.freedesktop.UDisks2.Manager", "LoopSetup");
+    loopSetup.setArguments({QVariant::fromValue(fd), options});
+    auto call = QDBusConnection::systemBus().asyncCall(loopSetup);
+    auto reply = co_await call;
+    if (call.isError()) {
+        throw FrisbeeException(call.error().message());
+    } else {
+        co_return reply.arguments().first().value<QDBusObjectPath>();
+    }
 }
 
 void DriveObjectManager::updateInterfaces() {
-
     QDBusMessage managedObjects = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", "/org/freedesktop/UDisks2", "org.freedesktop.DBus.ObjectManager", "GetManagedObjects");
     QMap<QDBusObjectPath, QMap<QString, QVariantMap>> reply;
     QDBusArgument arg = QDBusConnection::systemBus().call(managedObjects).arguments().first().value<QDBusArgument>();
@@ -190,7 +188,7 @@ void DriveObjectManager::updateInterfaces() {
     for (QDBusObjectPath path : reply.keys()) {
         auto interfaces = reply.value(path);
 
-        //Determine which type of object to create
+        // Determine which type of object to create
         if (path.path().startsWith("/org/freedesktop/UDisks2/block_devices")) {
             DiskObject* object;
             if (d->objects.contains(path)) {
@@ -198,7 +196,7 @@ void DriveObjectManager::updateInterfaces() {
             } else {
                 object = new DiskObject(path);
 
-                connect(object, &DiskObject::interfaceAdded, this, [ = ](DiskInterface::Interfaces interface) {
+                connect(object, &DiskObject::interfaceAdded, this, [object, this](DiskInterface::Interfaces interface) {
                     if (interface == DiskInterface::Loop) {
                         LoopInterface* loop = object->interface<LoopInterface>();
                         connect(loop, &LoopInterface::backingFileChanged, this, &DriveObjectManager::rootDisksChanged);
@@ -208,14 +206,14 @@ void DriveObjectManager::updateInterfaces() {
                         emit filesystemDisksChanged();
                     }
                 });
-                connect(object, &DiskObject::interfaceRemoved, this, [ = ](DiskInterface::Interfaces interface) {
+                connect(object, &DiskObject::interfaceRemoved, this, [object, this](DiskInterface::Interfaces interface) {
                     if (interface == DiskInterface::Filesystem) {
                         emit filesystemDisksChanged();
                     }
                 });
 
                 d->objects.insert(path, object);
-                QTimer::singleShot(0, [ = ] {
+                QTimer::singleShot(0, [object, this] {
                     emit diskAdded(object);
                     emit rootDisksChanged();
                     emit filesystemDisksChanged();
@@ -230,7 +228,7 @@ void DriveObjectManager::updateInterfaces() {
             } else {
                 object = new DriveInterface(path);
                 d->drives.insert(path, object);
-                QTimer::singleShot(0, [ = ] {
+                QTimer::singleShot(0, [object, this] {
                     emit driveAdded(object);
                 });
             }
@@ -250,7 +248,7 @@ void DriveObjectManager::updateInterfaces() {
     for (QDBusObjectPath path : gone) {
         if (d->objects.contains(path)) {
             DiskObject* disk = d->objects.take(path);
-            QTimer::singleShot(0, [ = ] {
+            QTimer::singleShot(0, [disk, this] {
                 emit diskRemoved(disk);
                 emit rootDisksChanged();
                 emit filesystemDisksChanged();
@@ -258,7 +256,7 @@ void DriveObjectManager::updateInterfaces() {
             disk->deleteLater();
         } else {
             DriveInterface* drive = d->drives.take(path);
-            QTimer::singleShot(0, [ = ] {
+            QTimer::singleShot(0, [drive, this] {
                 emit driveRemoved(drive);
             });
             drive->deleteLater();

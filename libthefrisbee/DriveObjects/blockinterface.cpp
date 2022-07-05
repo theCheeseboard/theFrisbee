@@ -19,50 +19,54 @@
  * *************************************/
 #include "blockinterface.h"
 
-#include <QDBusMessage>
-#include <QDBusConnection>
-#include <QDBusUnixFileDescriptor>
-#include <QDBusPendingCall>
-#include <QMutex>
 #include "driveobjectmanager.h"
+#include <QCoroDBusPendingCall>
+#include <QCoroSignal>
+#include <QDBusConnection>
+#include <QDBusMessage>
+#include <QDBusPendingCall>
+#include <QDBusUnixFileDescriptor>
+#include <QMutex>
+#include <frisbeeexception.h>
 #include <unistd.h>
 
 struct BlockInterfacePrivate {
-    QDBusObjectPath path;
+        QDBusObjectPath path;
 
-    QString name;
-    quint64 size;
-    QDBusObjectPath drive;
-    QString idLabel;
-    bool hintIgnore;
-    bool hintSystem;
-    QDBusObjectPath cryptoBackingDevice;
+        QString name;
+        quint64 size;
+        QDBusObjectPath drive;
+        QString idLabel;
+        bool hintIgnore;
+        bool hintSystem;
+        QDBusObjectPath cryptoBackingDevice;
 };
 
-BlockInterface::BlockInterface(QDBusObjectPath path, QObject* parent) : DiskInterface(path, interfaceName(), parent) {
+BlockInterface::BlockInterface(QDBusObjectPath path, QObject* parent) :
+    DiskInterface(path, interfaceName(), parent) {
     d = new BlockInterfacePrivate();
     d->path = path;
 
-    bindPropertyUpdater("Device", [ = ](QVariant value) {
+    bindPropertyUpdater("Device", [this](QVariant value) {
         d->name = value.toString();
     });
-    bindPropertyUpdater("Size", [ = ](QVariant value) {
+    bindPropertyUpdater("Size", [this](QVariant value) {
         d->size = value.toULongLong();
         emit sizeChanged(d->size);
     });
-    bindPropertyUpdater("Drive", [ = ](QVariant value) {
+    bindPropertyUpdater("Drive", [this](QVariant value) {
         d->drive = value.value<QDBusObjectPath>();
     });
-    bindPropertyUpdater("IdLabel", [ = ](QVariant value) {
+    bindPropertyUpdater("IdLabel", [this](QVariant value) {
         d->idLabel = value.toString();
     });
-    bindPropertyUpdater("HintIgnore", [ = ](QVariant value) {
+    bindPropertyUpdater("HintIgnore", [this](QVariant value) {
         d->hintIgnore = value.toBool();
     });
-    bindPropertyUpdater("HintSystem", [ = ](QVariant value) {
+    bindPropertyUpdater("HintSystem", [this](QVariant value) {
         d->hintSystem = value.toBool();
     });
-    bindPropertyUpdater("CryptoBackingDevice", [ = ](QVariant value) {
+    bindPropertyUpdater("CryptoBackingDevice", [this](QVariant value) {
         d->cryptoBackingDevice = value.value<QDBusObjectPath>();
     });
 }
@@ -74,7 +78,6 @@ BlockInterface::~BlockInterface() {
 QString BlockInterface::interfaceName() {
     return QStringLiteral("org.freedesktop.UDisks2.Block");
 }
-
 
 BlockInterface::Interfaces BlockInterface::interfaceType() {
     return DiskInterface::Block;
@@ -88,19 +91,13 @@ quint64 BlockInterface::size() {
     return d->size;
 }
 
-tPromise<void>* BlockInterface::triggerReload() {
-    return TPROMISE_CREATE_SAME_THREAD(void, {
-        QProcess* proc = new QProcess();
-        connect(proc, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, [ = ](int exitCode, QProcess::ExitStatus status) {
-            Q_UNUSED(status)
-            if (exitCode == 0) {
-                res();
-            } else {
-                rej("Process returned code " + QString::number(exitCode));
-            }
-        });
-        proc->start("pkexec", {"/usr/lib/libthefrisbee/trigger-uevent.sh", d->name});
-    });
+QCoro::Task<> BlockInterface::triggerReload() {
+    QProcess* proc = new QProcess();
+    proc->start("pkexec", {"/usr/lib/libthefrisbee/trigger-uevent.sh", d->name});
+
+    auto [exitCode, status] = co_await qCoro(proc, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished));
+    proc->deleteLater();
+    if (exitCode != 0) throw FrisbeeException("Process returned code " + QString::number(exitCode));
 }
 
 DriveInterface* BlockInterface::drive() {
@@ -111,25 +108,20 @@ DiskObject* BlockInterface::cryptoBackingDevice() {
     return DriveObjectManager::diskForPath(d->cryptoBackingDevice);
 }
 
-tPromise<void>* BlockInterface::format(QString type, QVariantMap options) {
-    //TODO: Different handling if this is an optical device
+QCoro::Task<> BlockInterface::format(QString type, QVariantMap options) {
+    // TODO: Different handling if this is an optical device
 
-    return TPROMISE_CREATE_SAME_THREAD(void, {
-        QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Format");
-        message.setArguments({type, options});
+    QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Format");
+    message.setArguments({type, options});
 
-        QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message, 300000));
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
-            if (watcher->isError()) {
-                rej(watcher->error().message());
-            } else {
-                res();
-            }
-        });
-    });
+    auto call = QDBusConnection::systemBus().asyncCall(message, 300000);
+    co_await call;
+    if (call.isError()) {
+        throw FrisbeeException(call.error().message());
+    }
 }
 
-tPromise<QIODevice*>* BlockInterface::open(BlockInterface::OpenMode mode, QVariantMap options) {
+QCoro::Task<QIODevice*> BlockInterface::open(BlockInterface::OpenMode mode, QVariantMap options) {
     QFile::OpenMode fileOpenMode;
     QString openMode;
     switch (mode) {
@@ -147,28 +139,28 @@ tPromise<QIODevice*>* BlockInterface::open(BlockInterface::OpenMode mode, QVaria
             break;
     }
 
-    return tPromise<QIODevice*>::runOnNewThread([ = ](tPromiseFunctions<QIODevice*>::SuccessFunction res, tPromiseFunctions<QIODevice*>::FailureFunction rej) {
-        QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "OpenDevice");
-        message.setArguments({openMode, options});
+    QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "OpenDevice");
+    message.setArguments({openMode, options});
 
-        QDBusMessage reply = QDBusConnection::systemBus().call(message);
-        if (reply.type() == QDBusMessage::ErrorMessage) {
-            rej("Could not open");
+    auto call = QDBusConnection::systemBus().asyncCall(message);
+    auto reply = co_await call;
+
+    if (reply.type() == QDBusMessage::ErrorMessage) {
+        throw FrisbeeException("Could not open");
+    } else {
+        QDBusUnixFileDescriptor fdArg = reply.arguments().first().value<QDBusUnixFileDescriptor>();
+        int fd = dup(fdArg.fileDescriptor());
+
+        QFile* file = new QFile();
+        if (file->open(fd, fileOpenMode | QIODevice::Unbuffered, QFile::AutoCloseHandle)) {
+            co_return file;
         } else {
-            QDBusUnixFileDescriptor fdArg = reply.arguments().first().value<QDBusUnixFileDescriptor>();
-            int fd = dup(fdArg.fileDescriptor());
+            file->deleteLater();
 
-            QFile* file = new QFile();
-            if (file->open(fd, fileOpenMode | QIODevice::Unbuffered, QFile::AutoCloseHandle)) {
-                res(file);
-            } else {
-                file->deleteLater();
-
-                close(fd);
-                rej("Could not open file descriptor");
-            }
+            close(fd);
+            throw FrisbeeException("Could not open file descriptor");
         }
-    });
+    }
 }
 
 QString BlockInterface::idLabel() {

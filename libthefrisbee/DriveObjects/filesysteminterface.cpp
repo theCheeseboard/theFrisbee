@@ -19,10 +19,12 @@
  * *************************************/
 #include "filesysteminterface.h"
 
+#include <QCoroDBusPendingCall>
 #include <QDBusArgument>
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusPendingCallWatcher>
+#include <frisbeeexception.h>
 
 struct FilesystemInterfacePrivate {
         QDBusObjectPath path;
@@ -35,7 +37,7 @@ FilesystemInterface::FilesystemInterface(QDBusObjectPath path, QObject* parent) 
     d = new FilesystemInterfacePrivate();
     d->path = path;
 
-    bindPropertyUpdater("MountPoints", [=](QVariant value) {
+    bindPropertyUpdater("MountPoints", [this](QVariant value) {
         QDBusArgument mountPoints = value.value<QDBusArgument>();
         d->mountPoints.clear();
         mountPoints >> d->mountPoints;
@@ -58,81 +60,46 @@ QByteArrayList FilesystemInterface::mountPoints() {
     return d->mountPoints;
 }
 
-tPromise<void>* FilesystemInterface::mount() {
-    return TPROMISE_CREATE_SAME_THREAD(void, {
-        QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Mount");
-        message.setArguments({QVariantMap()});
-        QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
-            if (watcher->isError()) {
-                rej(watcher->error().message());
-            } else {
-                res();
-            }
-            watcher->deleteLater();
-        });
-    });
+QCoro::Task<> FilesystemInterface::mount() {
+    QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Mount");
+    message.setArguments({QVariantMap()});
+    auto call = QDBusConnection::systemBus().asyncCall(message);
+    auto reply = co_await call;
+    if (call.isError()) throw FrisbeeException(call.error().message());
 }
 
-tPromise<void>* FilesystemInterface::unmount() {
-    return TPROMISE_CREATE_SAME_THREAD(void, {
-        QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Unmount");
-        message.setArguments({QVariantMap()});
-        QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
-            if (watcher->isError()) {
-                rej(watcher->error().message());
-            } else {
-                res();
-            }
-            watcher->deleteLater();
-        });
-    });
+QCoro::Task<> FilesystemInterface::unmount() {
+    QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Unmount");
+    message.setArguments({QVariantMap()});
+    auto call = QDBusConnection::systemBus().asyncCall(message);
+    auto reply = co_await call;
+    if (call.isError()) throw FrisbeeException(call.error().message());
 }
 
-tPromise<bool>* FilesystemInterface::check(QVariantMap options) {
-    return TPROMISE_CREATE_SAME_THREAD(bool, {
-        QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Check");
-        message.setArguments({options});
-        QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
-            if (watcher->isError()) {
-                rej(watcher->error().message());
-            } else {
-                res(watcher->reply().arguments().first().toBool());
-            }
-            watcher->deleteLater();
-        });
-    });
+QCoro::Task<bool> FilesystemInterface::check(QVariantMap options) {
+    QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Check");
+    message.setArguments({options});
+    auto call = QDBusConnection::systemBus().asyncCall(message);
+    auto reply = co_await call;
+    if (call.isError()) throw FrisbeeException(call.error().message());
+
+    co_return reply.arguments().first().toBool();
 }
 
-tPromise<bool>* FilesystemInterface::repair(QVariantMap options) {
-    return TPROMISE_CREATE_SAME_THREAD(bool, {
-        QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Repair");
-        message.setArguments({options});
-        QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message));
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
-            if (watcher->isError()) {
-                rej(watcher->error().message());
-            } else {
-                res(watcher->reply().arguments().first().toBool());
-            }
-            watcher->deleteLater();
-        });
-    });
+QCoro::Task<bool> FilesystemInterface::repair(QVariantMap options) {
+    QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Repair");
+    message.setArguments({options});
+    auto call = QDBusConnection::systemBus().asyncCall(message);
+    auto reply = co_await call;
+    if (call.isError()) throw FrisbeeException(call.error().message());
+
+    co_return reply.arguments().first().toBool();
 }
 
-tPromise<void>* FilesystemInterface::resize(quint64 size) {
-    return tPromise<void>::runOnSameThread([=](tPromiseFunctions<void>::SuccessFunction res, tPromiseFunctions<void>::FailureFunction rej) {
-        QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Resize");
-        message.setArguments({size, QVariantMap()});
-        QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message, 86400000));
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
-            if (watcher->isError()) {
-                rej(watcher->error().message());
-            } else {
-                res();
-            }
-        });
-    });
+QCoro::Task<> FilesystemInterface::resize(quint64 size) {
+    QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Resize");
+    message.setArguments({size, QVariantMap()});
+    auto call = QDBusConnection::systemBus().asyncCall(message, 86400000);
+    auto reply = co_await call;
+    if (call.isError()) throw FrisbeeException(call.error().message());
 }

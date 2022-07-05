@@ -1,7 +1,7 @@
 /****************************************
  *
  *   INSERT-PROJECT-NAME-HERE - INSERT-GENERIC-NAME-HERE
- *   Copyright (C) 2020 Victor Tran
+ *   Copyright (C) 2022 Victor Tran
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -17,40 +17,23 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#ifndef RESTOREDISKJOB_H
-#define RESTOREDISKJOB_H
+#ifndef FRISBEEEXCEPTION_H
+#define FRISBEEEXCEPTION_H
 
-#include <Task>
-#include "restorejob.h"
+#include <QException>
+#include <QString>
 
-struct RestoreDiskJobPrivate;
-class DiskObject;
-class RestoreDiskJob : public RestoreJob {
-        Q_OBJECT
+class FrisbeeException : public QException {
     public:
-        explicit RestoreDiskJob(DiskObject* disk, QObject* parent = nullptr);
-        ~RestoreDiskJob();
+        FrisbeeException(QString response);
 
-        QCoro::Task<> startRestore(QIODevice* source, quint64 dataSize);
-        void cancel();
+        QString response();
 
-        DiskObject* disk();
-
-        QString description();
-        QString displayName();
-
-    signals:
-        void descriptionChanged(QString description);
+        void raise() const override { throw *this; }
+        FrisbeeException* clone() const override { return new FrisbeeException(*this); }
 
     private:
-        RestoreDiskJobPrivate* d;
-
-        // tJob interface
-    public:
-        quint64 progress();
-        quint64 totalProgress();
-        State state();
-        QWidget* makeProgressWidget();
+        QString m_response;
 };
 
-#endif // RestoreDiskJob_H
+#endif // FRISBEEEXCEPTION_H

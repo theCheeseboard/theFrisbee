@@ -33,7 +33,7 @@ set_target_properties(thefrisbee PROPERTIES
         MACOSX_BUNDLE TRUE
         CNTP_DATA_SUBDIR thefrisbee)
 
-cntp_init(thefrisbee 17)
+cntp_init(thefrisbee 20)
 cntp_translate(thefrisbee)
 cntp_target_name(thefrisbee "theFrisbee")
 cntp_app_icon(thefrisbee

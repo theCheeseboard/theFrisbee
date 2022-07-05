@@ -20,14 +20,15 @@
 #include "imagepopover.h"
 #include "ui_imagepopover.h"
 
-#include <QFileDialog>
-#include <DriveObjects/diskobject.h>
 #include <DriveObjects/blockinterface.h>
+#include <DriveObjects/diskobject.h>
+#include <QFileDialog>
 
+#include <frisbeeexception.h>
 #include <ttoast.h>
 
 struct ImagePopoverPrivate {
-    DiskObject* disk;
+        DiskObject* disk;
 };
 
 ImagePopover::ImagePopover(DiskObject* disk, QWidget* parent) :
@@ -45,45 +46,39 @@ ImagePopover::~ImagePopover() {
     delete ui;
 }
 
-void ImagePopover::on_imageButton_clicked() {
+QCoro::Task<> ImagePopover::on_imageButton_clicked() {
     QWidget* parent = this->window();
     QString fileName = ui->outputFileBox->text();
     DiskObject* disk = d->disk;
 
-    tPromise<void>::runOnNewThread([ = ](tPromiseFunctions<void>::SuccessFunction res, tPromiseFunctions<void>::FailureFunction rej) {
-        tPromiseResults<QIODevice*> results = d->disk->interface<BlockInterface>()->open(BlockInterface::Read, {})->await();
-        if (results.error.isEmpty()) {
-            QIODevice* device = results.result;
+    try {
+        auto ioDevice = co_await d->disk->interface<BlockInterface>()->open(BlockInterface::Read, {});
+        QFile file(fileName);
+        file.open(QFile::WriteOnly);
 
-            QFile file(fileName);
-            file.open(QFile::WriteOnly);
-
-            quint64 number = 0;
-            while (number < disk->interface<BlockInterface>()->size()) {
-                QByteArray buf = device->read(2048);
-                file.write(buf);
-                number += buf.length();
-            }
-
-            file.close();
-            device->close();
-            res();
-        } else {
-            rej(results.error);
+        quint64 number = 0;
+        while (number < disk->interface<BlockInterface>()->size()) {
+            QByteArray buf = ioDevice->read(2048);
+            file.write(buf);
+            number += buf.length();
         }
-    })->then([ = ] {
+
+        file.close();
+        ioDevice->close();
+
         tToast* toast = new tToast();
         toast->setTitle(tr("Disk Imaged"));
         toast->setText(tr("The disk image has been created"));
         connect(toast, &tToast::dismissed, toast, &tToast::deleteLater);
         toast->show(parent);
-    })->error([ = ](QString error) {
+    } catch (FrisbeeException& ex) {
         tToast* toast = new tToast();
         toast->setTitle(tr("Couldn't image disk"));
-        toast->setText(error);
+        toast->setText(ex.response());
         connect(toast, &tToast::dismissed, toast, &tToast::deleteLater);
         toast->show(parent);
-    });
+    }
+
     emit done();
 }
 
@@ -96,10 +91,9 @@ void ImagePopover::on_browseButton_clicked() {
     dialog->setAcceptMode(QFileDialog::AcceptSave);
     dialog->setNameFilters({"Disk Images (*.img *.iso)"});
     dialog->setFileMode(QFileDialog::AnyFile);
-    connect(dialog, &QFileDialog::fileSelected, this, [ = ](QString file) {
+    connect(dialog, &QFileDialog::fileSelected, this, [this](QString file) {
         ui->outputFileBox->setText(file);
     });
     connect(dialog, &QFileDialog::finished, dialog, &QFileDialog::deleteLater);
     dialog->open();
 }
-

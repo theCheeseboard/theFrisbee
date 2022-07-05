@@ -21,6 +21,7 @@
 #define BLOCKINTERFACE_H
 
 #include "diskinterface.h"
+#include <Task>
 #include <tpromise.h>
 
 struct BlockInterfacePrivate;
@@ -44,13 +45,13 @@ class BlockInterface : public DiskInterface {
         QString blockName();
         quint64 size();
 
-        tPromise<void>* triggerReload();
+        QCoro::Task<> triggerReload();
 
         DriveInterface* drive();
         DiskObject* cryptoBackingDevice();
 
-        tPromise<void>* format(QString type, QVariantMap options);
-        tPromise<QIODevice*>* open(OpenMode mode, QVariantMap options);
+        QCoro::Task<> format(QString type, QVariantMap options);
+        QCoro::Task<QIODevice*> open(OpenMode mode, QVariantMap options);
 
         QString idLabel();
         bool hintIgnore();

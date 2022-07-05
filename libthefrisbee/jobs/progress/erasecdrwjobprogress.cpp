@@ -24,7 +24,7 @@
 #include <DriveObjects/diskobject.h>
 
 struct EraseCdRwJobProgressPrivate {
-    EraseCdRwJob* job;
+        EraseCdRwJob* job;
 };
 
 EraseCdRwJobProgress::EraseCdRwJobProgress(EraseCdRwJob* job, QWidget* parent) :
@@ -37,7 +37,7 @@ EraseCdRwJobProgress::EraseCdRwJobProgress(EraseCdRwJob* job, QWidget* parent) :
 
     ui->titleLabel->setText(tr("Erase %1").arg(job->displayName()).toUpper());
 
-    connect(job, &EraseCdRwJob::stateChanged, this, [ = ](EraseCdRwJob::State state) {
+    connect(job, &EraseCdRwJob::stateChanged, this, [this](EraseCdRwJob::State state) {
         updateState();
     });
     connect(job, &EraseCdRwJob::descriptionChanged, ui->statusLabel, &QLabel::setText);

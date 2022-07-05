@@ -30,7 +30,7 @@ class RestoreOpticalJob : public RestoreJob {
         explicit RestoreOpticalJob(DiskObject* disk, QObject* parent = nullptr);
         ~RestoreOpticalJob();
 
-        void startRestore(QIODevice* source, quint64 dataSize);
+        QCoro::Task<> startRestore(QIODevice* source, quint64 dataSize);
         void cancel();
 
         DiskObject* disk();
@@ -44,7 +44,7 @@ class RestoreOpticalJob : public RestoreJob {
     private:
         RestoreOpticalJobPrivate* d;
 
-        void runNextStage();
+        QCoro::Task<> runNextStage();
         void writeBlock();
 
         // tJob interface

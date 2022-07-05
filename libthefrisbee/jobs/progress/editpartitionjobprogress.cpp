@@ -20,8 +20,8 @@
 #include "editpartitionjobprogress.h"
 #include "ui_editpartitionjobprogress.h"
 
-#include <DriveObjects/diskobject.h>
 #include "../editpartitionjob.h"
+#include <DriveObjects/diskobject.h>
 
 EditPartitionJobProgress::EditPartitionJobProgress(EditPartitionJob* job, QWidget* parent) :
     QWidget(parent),
@@ -33,10 +33,10 @@ EditPartitionJobProgress::EditPartitionJobProgress(EditPartitionJob* job, QWidge
     connect(job, &EditPartitionJob::descriptionChanged, ui->descriptionLabel, &QLabel::setText);
     ui->descriptionLabel->setText(job->description());
 
-    connect(job, &EditPartitionJob::totalProgressChanged, this, [ = ](quint64 totalProgress) {
+    connect(job, &EditPartitionJob::totalProgressChanged, this, [this](quint64 totalProgress) {
         ui->progressBar->setMaximum(totalProgress);
     });
-    connect(job, &EditPartitionJob::progressChanged, this, [ = ](quint64 progress) {
+    connect(job, &EditPartitionJob::progressChanged, this, [this](quint64 progress) {
         ui->progressBar->setValue(progress);
     });
     ui->progressBar->setMaximum(job->totalProgress());

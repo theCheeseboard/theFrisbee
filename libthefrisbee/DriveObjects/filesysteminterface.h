@@ -21,6 +21,7 @@
 #define FILESYSTEMINTERFACE_H
 
 #include "diskinterface.h"
+#include <Task>
 #include <tpromise.h>
 
 struct FilesystemInterfacePrivate;
@@ -35,11 +36,11 @@ class FilesystemInterface : public DiskInterface {
 
         QByteArrayList mountPoints();
 
-        tPromise<void>* mount();
-        tPromise<void>* unmount();
-        tPromise<bool>* check(QVariantMap options = {});
-        tPromise<bool>* repair(QVariantMap options = {});
-        tPromise<void>* resize(quint64 size);
+        QCoro::Task<> mount();
+        QCoro::Task<> unmount();
+        QCoro::Task<bool> check(QVariantMap options = {});
+        QCoro::Task<bool> repair(QVariantMap options = {});
+        QCoro::Task<> resize(quint64 size);
 
     signals:
 

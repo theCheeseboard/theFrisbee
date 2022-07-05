@@ -20,10 +20,11 @@
 #include "creatediskimagepopover.h"
 #include "ui_creatediskimagepopover.h"
 
-#include <QFileDialog>
-#include <QFile>
-#include <driveobjectmanager.h>
 #include <QDBusUnixFileDescriptor>
+#include <QFile>
+#include <QFileDialog>
+#include <driveobjectmanager.h>
+#include <frisbeeexception.h>
 #include <terrorflash.h>
 #include <tlogger.h>
 
@@ -44,11 +45,10 @@ void CreateDiskImagePopover::on_titleLabel_backButtonClicked() {
     emit done();
 }
 
-
-void CreateDiskImagePopover::on_imageButton_clicked() {
+QCoro::Task<> CreateDiskImagePopover::on_imageButton_clicked() {
     if (!ui->sizeBox->hasValidSize()) {
         tErrorFlash::flashError(ui->sizeBox);
-        return;
+        co_return;
     }
 
     QFile file(ui->outputFileBox->text());
@@ -57,11 +57,15 @@ void CreateDiskImagePopover::on_imageButton_clicked() {
 
     if (ui->attachCheckbox->isChecked()) {
         QDBusUnixFileDescriptor fd(file.handle());
-        DriveObjectManager::loopSetup(fd, {
-            {"read-only", false}
-        })->error([ = ](QString error) {
-            tCritical("LoopSetup") << error;
-        });
+
+        try {
+            auto loopSetupOptions = QVariantMap({
+                {"read-only", false}
+            });
+            co_await DriveObjectManager::loopSetup(fd, loopSetupOptions);
+        } catch (FrisbeeException& ex) {
+            tCritical("LoopSetup") << ex.response();
+        }
     } else {
         file.close();
     }
@@ -74,10 +78,9 @@ void CreateDiskImagePopover::on_browseButton_clicked() {
     dialog->setAcceptMode(QFileDialog::AcceptSave);
     dialog->setNameFilters({"Disk Images (*.img *.iso)"});
     dialog->setFileMode(QFileDialog::AnyFile);
-    connect(dialog, &QFileDialog::fileSelected, this, [ = ](QString file) {
+    connect(dialog, &QFileDialog::fileSelected, this, [this](QString file) {
         ui->outputFileBox->setText(file);
     });
     connect(dialog, &QFileDialog::finished, dialog, &QFileDialog::deleteLater);
     dialog->open();
 }
-
