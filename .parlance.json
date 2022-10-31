@@ -1,0 +1,23 @@
+{
+    "name": "theFrisbee",
+    "subprojects": [
+        {
+            "name": "libthefrisbee",
+            "type": "qt",
+            "path": "/libthefrisbee/translations/{lang}.ts",
+            "baseLang": "en_US"
+        },
+        {
+            "name": "theFrisbee Desktop",
+            "type": "qt",
+            "path": "/application/translations/{lang}.ts",
+            "baseLang": "en_US"
+        },
+        {
+            "name": "theFrisbee Desktop File",
+            "type": "webext-json",
+            "path": "/application/translations/desktop/com.vicr123.thefrisbee/{lang}.json",
+            "baseLang": "en"
+        }
+    ]
+}
