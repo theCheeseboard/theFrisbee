@@ -49,7 +49,7 @@
       <source>JOBS RUNNING</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>ייתכן שחלק מהמשימות לא יהיו זמינות בזמן שמשימות אחרות פועלות על פריט זה.</translation>
       <location filename="../diskpane.ui" line="89" />
       <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="221" />
       <source>Some tasks may be unavailable while jobs are currently being run on this item.</source>
@@ -289,18 +289,18 @@
   <context>
     <name>main</name>
     <message>
-      <translation></translation>
+      <translation>כלי לשירות דיסקים</translation>
       <location filename="../main.cpp" line="43" />
       <location filename="../main.cpp" line="65" />
       <source>Disk Utility</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>הפעולה שצריך לבצע. פעולות זמינות:</translation>
       <location filename="../main.cpp" line="68" />
       <source>The operation to perform. Valid operations:</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>ההתקן לביצוע הפעולה עליו</translation>
       <location filename="../main.cpp" line="69" />
       <source>The device to perform the operation on</source>
     </message>

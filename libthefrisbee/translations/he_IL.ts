@@ -720,7 +720,8 @@ We won't modify anything until you apply your changes.</source>
       <source>Erasing Disc</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>צורב תמונה (%1)
+%2 מ-%3</translation>
       <location filename="../jobs/restoreopticaljob.cpp" line="182" />
       <source>Burning Image (%1)
 %2 of %3</source>
@@ -741,7 +742,7 @@ We won't modify anything until you apply your changes.</source>
       <source>Restore Complete</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>הדיסק שוחזר</translation>
       <location filename="../jobs/restoreopticaljob.cpp" line="247" />
       <source>Restored Disc</source>
     </message>
@@ -833,7 +834,7 @@ Once the disc in the drive is erased, all the data on it will be gone forever.</
       <source>Restoring to this block will erase it. There's no going back; once the block is erased, all the data on the block is gone forever.</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>לא ניתן לשחזר את אותה המדיה</translation>
       <location filename="../operations/restoreopticalpopover.cpp" line="101" />
       <source>Unable to restore same media</source>
     </message>
