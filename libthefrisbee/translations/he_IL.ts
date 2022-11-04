@@ -249,17 +249,17 @@
       <source>Couldn't erase %1 because %2.</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>%1 נמחק</translation>
       <location filename="../jobs/erasecdrwjob.cpp" line="214" />
       <source>%1 Erased</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>הדיסק נמחק</translation>
       <location filename="../jobs/erasecdrwjob.cpp" line="220" />
       <source>Erased Disc</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>הדיסק ב-%1 נמחק.</translation>
       <location filename="../jobs/erasecdrwjob.cpp" line="221" />
       <source>The disc in %1 has been erased.</source>
     </message>
@@ -275,33 +275,33 @@
   <context>
     <name>EraseOpticalPopover</name>
     <message>
-      <translation></translation>
+      <translation>מחק דיסק</translation>
       <location filename="../operations/eraseopticalpopover.ui" line="54" />
       <location filename="../operations/eraseopticalpopover.ui" line="149" />
       <source>Erase Disc</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>הגדרות מחיקה</translation>
       <location filename="../operations/eraseopticalpopover.ui" line="69" />
       <source>ERASE OPTIONS</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>סוג מחיקה</translation>
       <location filename="../operations/eraseopticalpopover.ui" line="76" />
       <source>Erase Type</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>מהיר</translation>
       <location filename="../operations/eraseopticalpopover.ui" line="90" />
       <source>Quick</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>מלא</translation>
       <location filename="../operations/eraseopticalpopover.ui" line="95" />
       <source>Full</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>מחק דיסק זה</translation>
       <location filename="../operations/eraseopticalpopover.ui" line="103" />
       <location filename="../operations/eraseopticalpopover.ui" line="181" />
       <source>Erase this disc</source>
@@ -312,7 +312,7 @@
       <source>THIS IS IT</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>אי אפשר לחזור חזרה מזה. אחרי שהדיסק נמחק, כל המידע עליו נעלם לתמיד.</translation>
       <location filename="../operations/eraseopticalpopover.ui" line="171" />
       <source>There's no going back after this. Once the disc in the drive is erased, all the data on it will be gone forever.</source>
     </message>
@@ -357,7 +357,7 @@
       <source>There's no going back after this. Once the partition is erased, all the data on the partition is gone forever.</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>רק מחק</translation>
       <location filename="../operations/erasepartitionpopover.cpp" line="50" />
       <source>Erase Only</source>
     </message>
@@ -365,13 +365,13 @@
   <context>
     <name>ErasePartitionTablePopover</name>
     <message>
-      <translation></translation>
+      <translation>מחק דיסק</translation>
       <location filename="../operations/erasepartitiontablepopover.ui" line="57" />
       <location filename="../operations/erasepartitiontablepopover.ui" line="157" />
       <source>Erase Disk</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>הגדרות מחיקה</translation>
       <location filename="../operations/erasepartitiontablepopover.ui" line="72" />
       <source>ERASE OPTIONS</source>
     </message>
@@ -407,7 +407,7 @@
       <source>THIS IS IT</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>אי אפשר לחזור חזרה מזה. אחרי שהדיסק נמחק, כל המידע עליו נעלם לתמיד.</translation>
       <location filename="../operations/erasepartitiontablepopover.ui" line="179" />
       <source>There's no going back after this. Once the disk is erased, all the data on the disk is gone forever.</source>
     </message>
@@ -425,7 +425,7 @@
       <source>Output File</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>דפדף...</translation>
       <location filename="../operations/imagepopover.ui" line="55" />
       <source>Browse...</source>
     </message>
@@ -463,12 +463,12 @@
       <source>the last time the disc was burned, it was not burned with support for adding extra files</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>אין דיסק בכונן</translation>
       <location filename="../optical/opticalerrortracker.cpp" line="44" />
       <source>there is no disc in the drive</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>הכונן צריך יותר חשמל כדי לפעול</translation>
       <location filename="../optical/opticalerrortracker.cpp" line="49" />
       <source>the drive requires more power to operate</source>
     </message>
@@ -576,7 +576,7 @@ We won't modify anything until you apply your changes.</source>
       <source>Delete Partition</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>שם</translation>
       <location filename="../operations/partitionpopover.ui" line="206" />
       <source>Name</source>
     </message>
@@ -586,7 +586,7 @@ We won't modify anything until you apply your changes.</source>
       <source>EDIT PARTITION</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>סוג</translation>
       <location filename="../operations/partitionpopover.ui" line="229" />
       <source>Type</source>
     </message>
@@ -702,17 +702,17 @@ We won't modify anything until you apply your changes.</source>
       <source>Failed to restore disc</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>לא ניתן לשחזר דיסק</translation>
       <location filename="../jobs/restoreopticaljob.cpp" line="140" />
       <source>Couldn't Restore Disc</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>לא ניתן היה לשחזר את הדיסק ב-%1.</translation>
       <location filename="../jobs/restoreopticaljob.cpp" line="141" />
       <source>The disc in %1 could not be restored.</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>מוחק דיסק</translation>
       <location filename="../jobs/restoreopticaljob.cpp" line="176" />
       <source>Erasing Disc</source>
     </message>
@@ -723,7 +723,7 @@ We won't modify anything until you apply your changes.</source>
 %2 of %3</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>צורב תמונה</translation>
       <location filename="../jobs/restoreopticaljob.cpp" line="185" />
       <source>Burning Image</source>
     </message>
@@ -733,7 +733,7 @@ We won't modify anything until you apply your changes.</source>
       <source>Finalizing Disc</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>השחזור גמור</translation>
       <location filename="../jobs/restoreopticaljob.cpp" line="241" />
       <source>Restore Complete</source>
     </message>
@@ -743,7 +743,7 @@ We won't modify anything until you apply your changes.</source>
       <source>Restored Disc</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>הדיסק ב-%1 שוחזר.</translation>
       <location filename="../jobs/restoreopticaljob.cpp" line="248" />
       <source>The disc in %1 has been restored.</source>
     </message>
@@ -764,7 +764,7 @@ We won't modify anything until you apply your changes.</source>
       <source>RESTORE OPTIONS</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>שחזר קובץ תמונה</translation>
       <location filename="../operations/restoreopticalpopover.ui" line="84" />
       <source>Restore Image File</source>
     </message>
@@ -779,18 +779,18 @@ We won't modify anything until you apply your changes.</source>
       <source>Input File</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>דפדף...</translation>
       <location filename="../operations/restoreopticalpopover.ui" line="165" />
       <source>Browse...</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>שחזר תמונה זו</translation>
       <location filename="../operations/restoreopticalpopover.ui" line="217" />
       <location filename="../operations/restoreopticalpopover.ui" line="362" />
       <source>Restore this image</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>שחזר דיסק</translation>
       <location filename="../operations/restoreopticalpopover.ui" line="250" />
       <location filename="../operations/restoreopticalpopover.cpp" line="58" />
       <source>Restore Disc</source>
@@ -808,7 +808,7 @@ We won't modify anything until you apply your changes.</source>
 Once the disc in the drive is erased, all the data on it will be gone forever.</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>מחק ושחזר</translation>
       <location filename="../operations/restoreopticalpopover.ui" line="284" />
       <source>Erase and Restore</source>
     </message>
