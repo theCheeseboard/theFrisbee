@@ -130,7 +130,7 @@
   <context>
     <name>EditPartitionJob</name>
     <message>
-      <translation>מחכה שמשימות אחרות יסיימו</translation>
+      <translation>ממתין לסיומם של משימות אחרות</translation>
       <location filename="../jobs/editpartitionjob.cpp" line="50" />
       <source>Waiting for other jobs to finish</source>
     </message>
@@ -170,7 +170,7 @@
       <source>Partitioning Operations Failed</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>לא ניתן להחיל שינויים ב-%1. ייתכן שהדיסק נמצא במצב לא עקבי.</translation>
       <location filename="../jobs/editpartitionjob.cpp" line="175" />
       <source>Changes to %1 could not be applied. The disk may be in an inconsistent state.</source>
     </message>
@@ -211,29 +211,29 @@
       <source>Unknown</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>ממתין לסיומם של משימות אחרות</translation>
       <location filename="../jobs/erasecdrwjob.cpp" line="70" />
       <source>Waiting for other jobs to finish</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>מנתק דיסק</translation>
       <location filename="../jobs/erasecdrwjob.cpp" line="108" />
       <source>Unmounting Disc</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>לא ניתן למחוק את %1</translation>
       <location filename="../jobs/erasecdrwjob.cpp" line="133" />
       <location filename="../jobs/erasecdrwjob.cpp" line="183" />
       <source>Failed to erase %1</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>לא ניתן למחוק דיסק</translation>
       <location filename="../jobs/erasecdrwjob.cpp" line="139" />
       <location filename="../jobs/erasecdrwjob.cpp" line="190" />
       <source>Couldn't Erase Disc</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>לא ניתן למחוק את הדיסק ב-%1.</translation>
       <location filename="../jobs/erasecdrwjob.cpp" line="140" />
       <location filename="../jobs/erasecdrwjob.cpp" line="191" />
       <source>The disc in %1 could not be erased.</source>
@@ -312,7 +312,7 @@
       <source>THIS IS IT</source>
     </message>
     <message>
-      <translation>אי אפשר לחזור חזרה מזה. אחרי שהדיסק נמחק, כל המידע עליו נעלם לתמיד.</translation>
+      <translation>אי אפשר לחזור חזרה מזה. אחרי שהדיסק נמחק, כל המידע בתוכו נעלם לתמיד.</translation>
       <location filename="../operations/eraseopticalpopover.ui" line="171" />
       <source>There's no going back after this. Once the disc in the drive is erased, all the data on it will be gone forever.</source>
     </message>
@@ -352,7 +352,7 @@
       <source>THIS IS IT</source>
     </message>
     <message>
-      <translation>אין דרך חזרה אחרי זה. אחרי שהמחיצה נמחקת, כל המידע עליה נעלם לתמיד.</translation>
+      <translation>אין דרך חזרה אחרי זה. אחרי שהמחיצה נמחקת, כל המידע בתוכה נעלם לתמיד.</translation>
       <location filename="../operations/erasepartitionpopover.ui" line="174" />
       <source>There's no going back after this. Once the partition is erased, all the data on the partition is gone forever.</source>
     </message>
@@ -407,7 +407,7 @@
       <source>THIS IS IT</source>
     </message>
     <message>
-      <translation>אי אפשר לחזור חזרה מזה. אחרי שהדיסק נמחק, כל המידע עליו נעלם לתמיד.</translation>
+      <translation>אי אפשר לחזור חזרה מזה. אחרי שהדיסק נמחק, כל המידע בתוכו נעלם לתמיד.</translation>
       <location filename="../operations/erasepartitiontablepopover.ui" line="179" />
       <source>There's no going back after this. Once the disk is erased, all the data on the disk is gone forever.</source>
     </message>
@@ -415,7 +415,7 @@
   <context>
     <name>ImagePopover</name>
     <message>
-      <translation></translation>
+      <translation>צור תמונה</translation>
       <location filename="../operations/imagepopover.ui" line="35" />
       <source>Image Disk</source>
     </message>
@@ -430,27 +430,27 @@
       <source>Browse...</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>הגדרות תמונה</translation>
       <location filename="../operations/imagepopover.ui" line="67" />
       <source>IMAGING OPTIONS</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>צור תמונה של דיסק זה</translation>
       <location filename="../operations/imagepopover.ui" line="74" />
       <source>Image this disk</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>תמונת הדיסק נוצרה</translation>
       <location filename="../operations/imagepopover.cpp" line="76" />
       <source>Disk Imaged</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>תמונת הדיסק נוצרה בהצלחה</translation>
       <location filename="../operations/imagepopover.cpp" line="77" />
       <source>The disk image has been created</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>לא ניתן ליצור תמונה</translation>
       <location filename="../operations/imagepopover.cpp" line="82" />
       <source>Couldn't image disk</source>
     </message>
@@ -458,7 +458,7 @@
   <context>
     <name>OpticalErrorTrackerPrivate</name>
     <message>
-      <translation></translation>
+      <translation>בפעם אחרונה שהדיסק נצרב, הוא לא נצרב עם אפשרות להוסיף קבצים חדשים</translation>
       <location filename="../optical/opticalerrortracker.cpp" line="39" />
       <source>the last time the disc was burned, it was not burned with support for adding extra files</source>
     </message>
@@ -473,17 +473,17 @@
       <source>the drive requires more power to operate</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>לא ניתן לסיים את פעולות הדיסק</translation>
       <location filename="../optical/opticalerrortracker.cpp" line="54" />
       <source>the disc couldn't be finalized</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>אזור כיול הכוח מלא</translation>
       <location filename="../optical/opticalerrortracker.cpp" line="59" />
       <source>the power calibration area is full</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>הכונן לא יכול לכייל את עוצמת הלייזר עבור דיסק זה</translation>
       <location filename="../optical/opticalerrortracker.cpp" line="60" />
       <source>the drive can't calibrate the laser power level for this disc</source>
     </message>
@@ -631,17 +631,18 @@ We won't modify anything until you apply your changes.</source>
   <context>
     <name>RestoreDiskJob</name>
     <message>
-      <translation>מחכה לדיסק</translation>
+      <translation>ממתין לדיסק</translation>
       <location filename="../jobs/restorediskjob.cpp" line="51" />
       <source>Waiting for disk</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>ממתין לסיומם של משימות אחרות</translation>
       <location filename="../jobs/restorediskjob.cpp" line="65" />
       <source>Waiting for other jobs to finish</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>משחזר ל-%1
+%2 מ-%3 שוחזר</translation>
       <location filename="../jobs/restorediskjob.cpp" line="96" />
       <source>Restoring to %1
 %2 of %3 restored</source>
@@ -652,7 +653,7 @@ We won't modify anything until you apply your changes.</source>
       <source>Disk restored successfully</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>לא ניתן לפתוח את התקן היעד לכתיבה</translation>
       <location filename="../jobs/restorediskjob.cpp" line="125" />
       <source>Couldn't open the destination device for writing</source>
     </message>
@@ -673,17 +674,17 @@ We won't modify anything until you apply your changes.</source>
   <context>
     <name>RestoreOpticalJob</name>
     <message>
-      <translation></translation>
+      <translation>ממתין לכונן שחזור</translation>
       <location filename="../jobs/restoreopticaljob.cpp" line="54" />
       <source>Waiting for restore medium</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>ממתין לסיומם של משימות אחרות</translation>
       <location filename="../jobs/restoreopticaljob.cpp" line="68" />
       <source>Waiting for other jobs to finish</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>שיחזור התמונה נכשל</translation>
       <location filename="../jobs/restoreopticaljob.cpp" line="92" />
       <source>Failed to restore image</source>
     </message>
@@ -694,7 +695,7 @@ We won't modify anything until you apply your changes.</source>
       <source>Preparing to restore</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>לא ניתן לשחזר את הדיסק בגלל ש-%1</translation>
       <location filename="../jobs/restoreopticaljob.cpp" line="133" />
       <source>Couldn't restore the disc because %1.</source>
     </message>
@@ -730,7 +731,7 @@ We won't modify anything until you apply your changes.</source>
       <source>Burning Image</source>
     </message>
     <message>
-      <translation>מסיים</translation>
+      <translation>מסיים פעולות הדיסק</translation>
       <location filename="../jobs/restoreopticaljob.cpp" line="196" />
       <source>Finalizing Disc</source>
     </message>
@@ -804,7 +805,7 @@ We won't modify anything until you apply your changes.</source>
     </message>
     <message>
       <translation>הדיסק בכונן לא ריק. כדי לשחזר תמונה לדיסק, הדיסק צריך להיות ריק.
-אחרי שהדיסק נמחק, כל המידע עליו נעלם לתמיד.</translation>
+אחרי שהדיסק נמחק, כל המידע בתוכו נעלם לתמיד.</translation>
       <location filename="../operations/restoreopticalpopover.ui" line="272" />
       <source>The disc in the drive is not blank. To restore an image to the disc, the disc will need to be erased.
 
@@ -816,7 +817,7 @@ Once the disc in the drive is erased, all the data on it will be gone forever.</
       <source>Erase and Restore</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>שחזר לבלוק</translation>
       <location filename="../operations/restoreopticalpopover.ui" line="330" />
       <location filename="../operations/restoreopticalpopover.cpp" line="60" />
       <source>Restore to Block</source>
@@ -827,7 +828,7 @@ Once the disc in the drive is erased, all the data on it will be gone forever.</
       <source>THIS IS IT</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>שיחזור בלוק זה ימחק אותו. אין דרך חזרה; כאשר הבלוק נמחק, כל המידע בתוכו נעלם לתמיד.</translation>
       <location filename="../operations/restoreopticalpopover.ui" line="352" />
       <source>Restoring to this block will erase it. There's no going back; once the block is erased, all the data on the block is gone forever.</source>
     </message>
