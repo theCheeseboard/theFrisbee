@@ -9,7 +9,7 @@
       <source>Create Disk Image</source>
     </message>
     <message>
-      <translation>דפדף...</translation>
+      <translation>עיון...</translation>
       <location filename="../operations/creatediskimagepopover.ui" line="45" />
       <source>Browse...</source>
     </message>
@@ -24,7 +24,7 @@
       <source>Disk Image Size</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>קובץ פלט</translation>
       <location filename="../operations/creatediskimagepopover.ui" line="88" />
       <source>Output File</source>
     </message>
@@ -43,7 +43,7 @@
       <source>Title</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>משימות פועלות</translation>
       <location filename="../diskpane.ui" line="82" />
       <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="220" />
       <source>JOBS RUNNING</source>
@@ -55,13 +55,13 @@
       <source>Some tasks may be unavailable while jobs are currently being run on this item.</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>עיין במשימות</translation>
       <location filename="../diskpane.ui" line="114" />
       <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="222" />
       <source>View Jobs</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>בדוק</translation>
       <location filename="../diskpane.ui" line="232" />
       <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="223" />
       <source>Check</source>
@@ -73,30 +73,30 @@
       <source>Edit Partitions</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>תמונה</translation>
       <location filename="../diskpane.ui" line="246" />
       <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="225" />
       <source>Image</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>שחזר</translation>
       <location filename="../diskpane.ui" line="253" />
       <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="226" />
       <source>Restore</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>מחק</translation>
       <location filename="../diskpane.ui" line="273" />
       <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="227" />
       <source>Erase</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>בדוק דיסק זה</translation>
       <location filename="../diskpane.cpp" line="130" />
       <source>Check this disk</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>בדוק דיסק זה לשגיאות?</translation>
       <location filename="../diskpane.cpp" line="131" />
       <source>Check this disk for errors?</source>
     </message>

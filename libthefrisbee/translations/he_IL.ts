@@ -31,12 +31,12 @@
       <source>Restore an image back to a block device or disc</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>ערוך מחיצות במערכת קבצים</translation>
       <location filename="../diskoperationmanager.cpp" line="57" />
       <source>Edit partitions on a filesystem</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>אין מדיה</translation>
       <location filename="../diskoperationmanager.cpp" line="98" />
       <location filename="../diskoperationmanager.cpp" line="187" />
       <source>No Media</source>
@@ -47,17 +47,17 @@
       <source>There is no media in the drive to erase.</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>דיסק כבר ריק</translation>
       <location filename="../diskoperationmanager.cpp" line="105" />
       <source>Disc already blank</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>הדיסק בכונן כבר ריק. עדיין למחוק אותו?</translation>
       <location filename="../diskoperationmanager.cpp" line="105" />
       <source>The disc in the drive is already blank. Do you still want to erase it?</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>דיסק לא ניתן לכתיבה מחדש</translation>
       <location filename="../diskoperationmanager.cpp" line="128" />
       <source>Disc not rewritable</source>
     </message>
@@ -72,17 +72,17 @@
       <source>Only rewritable discs can be erased. If you need to destroy the data on this disc, you should physically break it in half.</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>דיסק מערכת</translation>
       <location filename="../diskoperationmanager.cpp" line="158" />
       <source>System Disk</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>זהו דיסק מערכת. מחיקת דיסק זה יכול לגרום למכשיר זה להפסיק לעבוד. עדיין למחוק אותו?</translation>
       <location filename="../diskoperationmanager.cpp" line="158" />
       <source>This is a system disk. Erasing it may cause your device to stop working altogether. Do you still want to erase it?</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>אין מדיה בכונן </translation>
       <location filename="../diskoperationmanager.cpp" line="187" />
       <source>There is no media in the drive to restore to.</source>
     </message>
@@ -307,7 +307,7 @@
       <source>Erase this disc</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>אין דרך חזרה</translation>
       <location filename="../operations/eraseopticalpopover.ui" line="164" />
       <source>THIS IS IT</source>
     </message>
@@ -347,7 +347,7 @@
       <source>Partition Name</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>אין דרך חזרה</translation>
       <location filename="../operations/erasepartitionpopover.ui" line="167" />
       <source>THIS IS IT</source>
     </message>
@@ -402,7 +402,7 @@
       <source>Erase this disk</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>אין דרך חזרה</translation>
       <location filename="../operations/erasepartitiontablepopover.ui" line="172" />
       <source>THIS IS IT</source>
     </message>
@@ -425,7 +425,7 @@
       <source>Output File</source>
     </message>
     <message>
-      <translation>דפדף...</translation>
+      <translation>עיון...</translation>
       <location filename="../operations/imagepopover.ui" line="55" />
       <source>Browse...</source>
     </message>
@@ -516,7 +516,7 @@
       <source>XFS (Linux Filesystem)</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>BTRFS (מערכת קבצים של Linux)</translation>
       <location filename="../partitioninformation.cpp" line="58" />
       <source>BTRFS (Linux Filesystem)</source>
     </message>
@@ -526,12 +526,12 @@
       <source>F2FS (Flash Optimised Filesystem)</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>FAT (כל מערכות)</translation>
       <location filename="../partitioninformation.cpp" line="60" />
       <source>FAT (All Systems)</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>EFI מחיצת מערכת</translation>
       <location filename="../partitioninformation.cpp" line="61" />
       <source>EFI System Partition</source>
     </message>
@@ -761,7 +761,7 @@ We won't modify anything until you apply your changes.</source>
   <context>
     <name>RestoreOpticalPopover</name>
     <message>
-      <translation></translation>
+      <translation>אפשרויות שחזור</translation>
       <location filename="../operations/restoreopticalpopover.ui" line="72" />
       <source>RESTORE OPTIONS</source>
     </message>
@@ -771,17 +771,17 @@ We won't modify anything until you apply your changes.</source>
       <source>Restore Image File</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>העתק מדיה</translation>
       <location filename="../operations/restoreopticalpopover.ui" line="100" />
       <source>Copy Media</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>קובץ קלט</translation>
       <location filename="../operations/restoreopticalpopover.ui" line="155" />
       <source>Input File</source>
     </message>
     <message>
-      <translation>דפדף...</translation>
+      <translation>עיון...</translation>
       <location filename="../operations/restoreopticalpopover.ui" line="165" />
       <source>Browse...</source>
     </message>
@@ -798,12 +798,13 @@ We won't modify anything until you apply your changes.</source>
       <source>Restore Disc</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>דיסק לא ריק</translation>
       <location filename="../operations/restoreopticalpopover.ui" line="265" />
       <source>DISC NOT BLANK</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>הדיסק בכונן לא ריק. כדי לשחזר תמונה לדיסק, הדיסק צריך להיות ריק.
+אחרי שהדיסק נמחק, כל המידע עליו נעלם לתמיד.</translation>
       <location filename="../operations/restoreopticalpopover.ui" line="272" />
       <source>The disc in the drive is not blank. To restore an image to the disc, the disc will need to be erased.
 
@@ -821,7 +822,7 @@ Once the disc in the drive is erased, all the data on it will be gone forever.</
       <source>Restore to Block</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>אין דרך חזרה</translation>
       <location filename="../operations/restoreopticalpopover.ui" line="345" />
       <source>THIS IS IT</source>
     </message>
@@ -836,7 +837,7 @@ Once the disc in the drive is erased, all the data on it will be gone forever.</
       <source>Unable to restore same media</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>לא ניתן לשחזר מדיום מעצמו. בחר מדיום אחר לשחזר.</translation>
       <location filename="../operations/restoreopticalpopover.cpp" line="101" />
       <source>A medium cannot be restored to itself. Select another medium to restore.</source>
     </message>
