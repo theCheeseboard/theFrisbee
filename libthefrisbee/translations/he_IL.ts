@@ -3,12 +3,12 @@
   <context>
     <name>DiskObject</name>
     <message>
-      <translation></translation>
+      <translation>התקן מחזורי</translation>
       <location filename="../DriveObjects/diskobject.cpp" line="111" />
       <source>Loop Device</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>התקן בלוק</translation>
       <location filename="../DriveObjects/diskobject.cpp" line="114" />
       <source>Block Device</source>
     </message>
@@ -16,17 +16,17 @@
   <context>
     <name>DiskOperationManager</name>
     <message>
-      <translation></translation>
+      <translation>מחק התקן בלוק</translation>
       <location filename="../diskoperationmanager.cpp" line="54" />
       <source>Erase a block device</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>צור תמונה של התקן בלוק</translation>
       <location filename="../diskoperationmanager.cpp" line="55" />
       <source>Create an image of a block device</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>שחזר תמונה חזרה להתקן בלוק או דיסק</translation>
       <location filename="../diskoperationmanager.cpp" line="56" />
       <source>Restore an image back to a block device or disc</source>
     </message>
@@ -42,7 +42,7 @@
       <source>No Media</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>אין מדיה בכונן כדי למחוק</translation>
       <location filename="../diskoperationmanager.cpp" line="98" />
       <source>There is no media in the drive to erase.</source>
     </message>
@@ -62,12 +62,12 @@
       <source>Disc not rewritable</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>הדיסק בכונן לא ניתן לכתיבה מחדש</translation>
       <location filename="../diskoperationmanager.cpp" line="129" />
       <source>The disc in the drive is not rewritable.</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>ניתן למחוק רק דיסקים שניתנים לכתיבה מחדש. אם עליכם להשמיד את המידע על הדיסק, שברו אותו לשניים.</translation>
       <location filename="../diskoperationmanager.cpp" line="130" />
       <source>Only rewritable discs can be erased. If you need to destroy the data on this disc, you should physically break it in half.</source>
     </message>
@@ -82,17 +82,17 @@
       <source>This is a system disk. Erasing it may cause your device to stop working altogether. Do you still want to erase it?</source>
     </message>
     <message>
-      <translation>אין מדיה בכונן </translation>
+      <translation>אין מדיה בכונן כדי לשחזר</translation>
       <location filename="../diskoperationmanager.cpp" line="187" />
       <source>There is no media in the drive to restore to.</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>דיסק לא ניתן לכתיבה</translation>
       <location filename="../diskoperationmanager.cpp" line="210" />
       <source>Disc not writable</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>הדיסק בכונן לא ניתן לכתיבה</translation>
       <location filename="../diskoperationmanager.cpp" line="210" />
       <source>The disc in the drive is not writable.</source>
     </message>
@@ -102,27 +102,27 @@
       <source>No Partition Table</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>מחק דיסק כדי ליצור טבלת מחיצות</translation>
       <location filename="../diskoperationmanager.cpp" line="245" />
       <source>Erase the disk to create a partition table.</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>כלים אופטיים אינם זמינים</translation>
       <location filename="../diskoperationmanager.cpp" line="271" />
       <source>Optical tools unavailable</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>theFrisbee לא יכול לכתוב בדיסקים אופטיים כאשר הוא מותקן כ-Flatpak</translation>
       <location filename="../diskoperationmanager.cpp" line="279" />
       <source>theFrisbee can't write to optical discs when installed as a Flatpak.</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>למערכת שלך אין את הכלים הדרושים כדי לכתוב בדיסקים אופטיים.</translation>
       <location filename="../diskoperationmanager.cpp" line="281" />
       <source>Your system does not have the necessary tools installed to write to optical discs.</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>עליך להתקין cdrtools או cdrkit עם מנהל החבילות של המערכת שלך.</translation>
       <location filename="../diskoperationmanager.cpp" line="282" />
       <source>You'll need to install either cdrtools or cdrkit using your system's package manager.</source>
     </message>
@@ -130,42 +130,42 @@
   <context>
     <name>EditPartitionJob</name>
     <message>
-      <translation></translation>
+      <translation>מחכה שמשימות אחרות יסיימו</translation>
       <location filename="../jobs/editpartitionjob.cpp" line="50" />
       <source>Waiting for other jobs to finish</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>חלוקה למחיצות גמורה</translation>
       <location filename="../jobs/editpartitionjob.cpp" line="94" />
       <source>Partitioning Complete</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>פעולות מחיצה גמורים</translation>
       <location filename="../jobs/editpartitionjob.cpp" line="100" />
       <source>Partitioning Operations Complete</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>השינויים ל-%1 הוחלו.</translation>
       <location filename="../jobs/editpartitionjob.cpp" line="101" />
       <source>Changes to %1 have been applied.</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>יוצר מחיצה %1.</translation>
       <location filename="../jobs/editpartitionjob.cpp" line="117" />
       <source>Creating partition %1</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>מוחק מחיצה %1.</translation>
       <location filename="../jobs/editpartitionjob.cpp" line="151" />
       <source>Deleting partition %1</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>פעולת מחיצה נכשלה</translation>
       <location filename="../jobs/editpartitionjob.cpp" line="170" />
       <source>A partition operation failed.</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>פעולות מחיצה נכשלו</translation>
       <location filename="../jobs/editpartitionjob.cpp" line="174" />
       <source>Partitioning Operations Failed</source>
     </message>
@@ -178,7 +178,7 @@
   <context>
     <name>EditPartitionJobProgress</name>
     <message>
-      <translation></translation>
+      <translation>מחלק למחיצות את %1</translation>
       <location filename="../jobs/progress/editpartitionjobprogress.cpp" line="31" />
       <source>Partitioning %1</source>
     </message>
@@ -186,27 +186,27 @@
   <context>
     <name>EraseCdRwJob</name>
     <message>
-      <translation></translation>
+      <translation>CD-RW</translation>
       <location filename="../jobs/erasecdrwjob.cpp" line="53" />
       <source>CD-RW</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>DVD-RW</translation>
       <location filename="../jobs/erasecdrwjob.cpp" line="56" />
       <source>DVD-RW</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>DVD+RW</translation>
       <location filename="../jobs/erasecdrwjob.cpp" line="60" />
       <source>DVD+RW</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>BD-RE</translation>
       <location filename="../jobs/erasecdrwjob.cpp" line="63" />
       <source>BD-RE</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>לא ידוע</translation>
       <location filename="../jobs/erasecdrwjob.cpp" line="66" />
       <source>Unknown</source>
     </message>
@@ -239,12 +239,12 @@
       <source>The disc in %1 could not be erased.</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>מוחק %1</translation>
       <location filename="../jobs/erasecdrwjob.cpp" line="147" />
       <source>Erasing %1</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>לא ניתן למחוק %1 בגלל %2.</translation>
       <location filename="../jobs/erasecdrwjob.cpp" line="181" />
       <source>Couldn't erase %1 because %2.</source>
     </message>
@@ -326,23 +326,23 @@
       <source>Erase Partition</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>מחק מחיצה זו</translation>
       <location filename="../operations/erasepartitionpopover.ui" line="67" />
       <location filename="../operations/erasepartitionpopover.ui" line="184" />
       <source>Erase this partition</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>מערכת קבצים</translation>
       <location filename="../operations/erasepartitionpopover.ui" line="78" />
       <source>Filesystem</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>הגדרות מחיקה</translation>
       <location filename="../operations/erasepartitionpopover.ui" line="90" />
       <source>ERASE OPTIONS</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>שם מחיצה</translation>
       <location filename="../operations/erasepartitionpopover.ui" line="107" />
       <source>Partition Name</source>
     </message>
@@ -352,7 +352,7 @@
       <source>THIS IS IT</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>אין דרך חזרה אחרי זה. אחרי שהמחיצה נמחקת, כל המידע עליה נעלם לתמיד.</translation>
       <location filename="../operations/erasepartitionpopover.ui" line="174" />
       <source>There's no going back after this. Once the partition is erased, all the data on the partition is gone forever.</source>
     </message>
@@ -376,27 +376,27 @@
       <source>ERASE OPTIONS</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>טבלת מחיצות</translation>
       <location filename="../operations/erasepartitiontablepopover.ui" line="79" />
       <source>Partition Table</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>GPT</translation>
       <location filename="../operations/erasepartitiontablepopover.ui" line="93" />
       <source>GPT</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>DOS/MBR</translation>
       <location filename="../operations/erasepartitiontablepopover.ui" line="98" />
       <source>DOS/MBR</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>רק מחק</translation>
       <location filename="../operations/erasepartitiontablepopover.ui" line="103" />
       <source>Erase Only</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>מחק דיסק זה</translation>
       <location filename="../operations/erasepartitiontablepopover.ui" line="111" />
       <location filename="../operations/erasepartitiontablepopover.ui" line="189" />
       <source>Erase this disk</source>
@@ -420,7 +420,7 @@
       <source>Image Disk</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>קובץ פלט</translation>
       <location filename="../operations/imagepopover.ui" line="45" />
       <source>Output File</source>
     </message>
@@ -521,7 +521,7 @@
       <source>BTRFS (Linux Filesystem)</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>F2FS (מערכת קבצים מותאמת לפלאש)</translation>
       <location filename="../partitioninformation.cpp" line="59" />
       <source>F2FS (Flash Optimised Filesystem)</source>
     </message>
@@ -536,7 +536,7 @@
       <source>EFI System Partition</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Extended Boot Partition</translation>
       <location filename="../partitioninformation.cpp" line="62" />
       <source>Extended Boot Partition</source>
     </message>
@@ -665,7 +665,7 @@ We won't modify anything until you apply your changes.</source>
   <context>
     <name>RestoreDiskJobProgress</name>
     <message>
-      <translation></translation>
+      <translation>שחזר ל-%1</translation>
       <location filename="../jobs/progress/restorediskjobprogress.cpp" line="38" />
       <source>Restore to %1</source>
     </message>
@@ -688,7 +688,7 @@ We won't modify anything until you apply your changes.</source>
       <source>Failed to restore image</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>מתכונן לשחזור</translation>
       <location filename="../jobs/restoreopticaljob.cpp" line="116" />
       <location filename="../jobs/restoreopticaljob.cpp" line="166" />
       <source>Preparing to restore</source>
@@ -699,7 +699,7 @@ We won't modify anything until you apply your changes.</source>
       <source>Couldn't restore the disc because %1.</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>שחזור הדיסק נכשל</translation>
       <location filename="../jobs/restoreopticaljob.cpp" line="135" />
       <source>Failed to restore disc</source>
     </message>
@@ -730,7 +730,7 @@ We won't modify anything until you apply your changes.</source>
       <source>Burning Image</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>מסיים</translation>
       <location filename="../jobs/restoreopticaljob.cpp" line="196" />
       <source>Finalizing Disc</source>
     </message>
@@ -753,7 +753,7 @@ We won't modify anything until you apply your changes.</source>
   <context>
     <name>RestoreOpticalJobProgress</name>
     <message>
-      <translation></translation>
+      <translation>שחזר ל-%1</translation>
       <location filename="../jobs/progress/restoreopticaljobprogress.cpp" line="38" />
       <source>Restore to %1</source>
     </message>
