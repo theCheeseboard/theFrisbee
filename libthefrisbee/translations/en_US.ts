@@ -4,12 +4,12 @@
 <context>
     <name>DiskObject</name>
     <message>
-        <location filename="../DriveObjects/diskobject.cpp" line="111"/>
+        <location filename="../DriveObjects/diskobject.cpp" line="113"/>
         <source>Loop Device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../DriveObjects/diskobject.cpp" line="114"/>
+        <location filename="../DriveObjects/diskobject.cpp" line="116"/>
         <source>Block Device</source>
         <translation type="unfinished"></translation>
     </message>
@@ -131,47 +131,47 @@
 <context>
     <name>EditPartitionJob</name>
     <message>
-        <location filename="../jobs/editpartitionjob.cpp" line="50"/>
+        <location filename="../jobs/editpartitionjob.cpp" line="52"/>
         <source>Waiting for other jobs to finish</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/editpartitionjob.cpp" line="94"/>
+        <location filename="../jobs/editpartitionjob.cpp" line="96"/>
         <source>Partitioning Complete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/editpartitionjob.cpp" line="100"/>
+        <location filename="../jobs/editpartitionjob.cpp" line="102"/>
         <source>Partitioning Operations Complete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/editpartitionjob.cpp" line="101"/>
+        <location filename="../jobs/editpartitionjob.cpp" line="103"/>
         <source>Changes to %1 have been applied.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/editpartitionjob.cpp" line="117"/>
+        <location filename="../jobs/editpartitionjob.cpp" line="119"/>
         <source>Creating partition %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/editpartitionjob.cpp" line="151"/>
+        <location filename="../jobs/editpartitionjob.cpp" line="154"/>
         <source>Deleting partition %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/editpartitionjob.cpp" line="170"/>
+        <location filename="../jobs/editpartitionjob.cpp" line="174"/>
         <source>A partition operation failed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/editpartitionjob.cpp" line="174"/>
+        <location filename="../jobs/editpartitionjob.cpp" line="178"/>
         <source>Partitioning Operations Failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/editpartitionjob.cpp" line="175"/>
+        <location filename="../jobs/editpartitionjob.cpp" line="179"/>
         <source>Changes to %1 could not be applied. The disk may be in an inconsistent state.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -187,80 +187,80 @@
 <context>
     <name>EraseCdRwJob</name>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="53"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="55"/>
         <source>CD-RW</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="56"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="58"/>
         <source>DVD-RW</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="60"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="62"/>
         <source>DVD+RW</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="63"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="65"/>
         <source>BD-RE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="66"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="68"/>
         <source>Unknown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="70"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="72"/>
         <source>Waiting for other jobs to finish</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="108"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="111"/>
         <source>Unmounting Disc</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="133"/>
-        <location filename="../jobs/erasecdrwjob.cpp" line="183"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="137"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="187"/>
         <source>Failed to erase %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="139"/>
-        <location filename="../jobs/erasecdrwjob.cpp" line="190"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="143"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="194"/>
         <source>Couldn&apos;t Erase Disc</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="140"/>
-        <location filename="../jobs/erasecdrwjob.cpp" line="191"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="144"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="195"/>
         <source>The disc in %1 could not be erased.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="147"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="151"/>
         <source>Erasing %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="181"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="185"/>
         <source>Couldn&apos;t erase %1 because %2.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="214"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="220"/>
         <source>%1 Erased</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="220"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="226"/>
         <source>Erased Disc</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="221"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="227"/>
         <source>The disc in %1 has been erased.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -274,89 +274,7 @@
     </message>
 </context>
 <context>
-    <name>EraseOpticalPopover</name>
-    <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="54"/>
-        <location filename="../operations/eraseopticalpopover.ui" line="149"/>
-        <source>Erase Disc</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="69"/>
-        <source>ERASE OPTIONS</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="76"/>
-        <source>Erase Type</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="90"/>
-        <source>Quick</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="95"/>
-        <source>Full</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="103"/>
-        <location filename="../operations/eraseopticalpopover.ui" line="181"/>
-        <source>Erase this disc</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="164"/>
-        <source>THIS IS IT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="171"/>
-        <source>There&apos;s no going back after this. Once the disc in the drive is erased, all the data on it will be gone forever.</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>ErasePartitionPopover</name>
-    <message>
-        <location filename="../operations/erasepartitionpopover.ui" line="57"/>
-        <location filename="../operations/erasepartitionpopover.ui" line="152"/>
-        <source>Erase Partition</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/erasepartitionpopover.ui" line="67"/>
-        <location filename="../operations/erasepartitionpopover.ui" line="184"/>
-        <source>Erase this partition</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/erasepartitionpopover.ui" line="78"/>
-        <source>Filesystem</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/erasepartitionpopover.ui" line="90"/>
-        <source>ERASE OPTIONS</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/erasepartitionpopover.ui" line="107"/>
-        <source>Partition Name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/erasepartitionpopover.ui" line="167"/>
-        <source>THIS IS IT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/erasepartitionpopover.ui" line="174"/>
-        <source>There&apos;s no going back after this. Once the partition is erased, all the data on the partition is gone forever.</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../operations/erasepartitionpopover.cpp" line="50"/>
         <source>Erase Only</source>
@@ -364,94 +282,19 @@
     </message>
 </context>
 <context>
-    <name>ErasePartitionTablePopover</name>
-    <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="57"/>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="157"/>
-        <source>Erase Disk</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="72"/>
-        <source>ERASE OPTIONS</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="79"/>
-        <source>Partition Table</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="93"/>
-        <source>GPT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="98"/>
-        <source>DOS/MBR</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="103"/>
-        <source>Erase Only</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="111"/>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="189"/>
-        <source>Erase this disk</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="172"/>
-        <source>THIS IS IT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="179"/>
-        <source>There&apos;s no going back after this. Once the disk is erased, all the data on the disk is gone forever.</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>ImagePopover</name>
     <message>
-        <location filename="../operations/imagepopover.ui" line="35"/>
-        <source>Image Disk</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/imagepopover.ui" line="45"/>
-        <source>Output File</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/imagepopover.ui" line="55"/>
-        <source>Browse...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/imagepopover.ui" line="67"/>
-        <source>IMAGING OPTIONS</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/imagepopover.ui" line="74"/>
-        <source>Image this disk</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/imagepopover.cpp" line="76"/>
+        <location filename="../operations/imagepopover.cpp" line="70"/>
         <source>Disk Imaged</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/imagepopover.cpp" line="77"/>
+        <location filename="../operations/imagepopover.cpp" line="71"/>
         <source>The disk image has been created</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/imagepopover.cpp" line="82"/>
+        <location filename="../operations/imagepopover.cpp" line="76"/>
         <source>Couldn&apos;t image disk</source>
         <translation type="unfinished"></translation>
     </message>
@@ -545,68 +388,6 @@
 <context>
     <name>PartitionPopover</name>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="35"/>
-        <source>Edit Partitions</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/partitionpopover.ui" line="102"/>
-        <source>ACTIONS</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/partitionpopover.ui" line="109"/>
-        <source>Select a partition to resize or erase it. To add a new partition, click in some empty space.
-
-We won&apos;t modify anything until you apply your changes.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/partitionpopover.ui" line="150"/>
-        <source>NEW PARTITION</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/partitionpopover.ui" line="157"/>
-        <source>Add New Partition</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/partitionpopover.ui" line="199"/>
-        <source>Delete Partition</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/partitionpopover.ui" line="206"/>
-        <source>Name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/partitionpopover.ui" line="219"/>
-        <source>EDIT PARTITION</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/partitionpopover.ui" line="229"/>
-        <source>Type</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/partitionpopover.ui" line="259"/>
-        <source>Apply Changes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/partitionpopover.ui" line="294"/>
-        <source>APPLY CHANGES</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/partitionpopover.ui" line="311"/>
-        <source>Apply Changes to Disk</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../operations/partitionpopover.cpp" line="68"/>
         <source>Leave Empty</source>
         <translation type="unfinished"></translation>
@@ -617,12 +398,12 @@ We won&apos;t modify anything until you apply your changes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.cpp" line="224"/>
+        <location filename="../operations/partitionpopover.cpp" line="223"/>
         <source>Once these changes are applied, you won&apos;t be able to recover any partitions that you&apos;ve deleted easily.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.cpp" line="227"/>
+        <location filename="../operations/partitionpopover.cpp" line="226"/>
         <source>Ready to apply these changes to the disk?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -630,33 +411,33 @@ We won&apos;t modify anything until you apply your changes.</source>
 <context>
     <name>RestoreDiskJob</name>
     <message>
-        <location filename="../jobs/restorediskjob.cpp" line="51"/>
+        <location filename="../jobs/restorediskjob.cpp" line="54"/>
         <source>Waiting for disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/restorediskjob.cpp" line="65"/>
+        <location filename="../jobs/restorediskjob.cpp" line="68"/>
         <source>Waiting for other jobs to finish</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/restorediskjob.cpp" line="96"/>
+        <location filename="../jobs/restorediskjob.cpp" line="101"/>
         <source>Restoring to %1
 %2 of %3 restored</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/restorediskjob.cpp" line="112"/>
+        <location filename="../jobs/restorediskjob.cpp" line="116"/>
         <source>Disk restored successfully</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/restorediskjob.cpp" line="125"/>
+        <location filename="../jobs/restorediskjob.cpp" line="126"/>
         <source>Couldn&apos;t open the destination device for writing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/restorediskjob.cpp" line="142"/>
+        <location filename="../jobs/restorediskjob.cpp" line="141"/>
         <source>Failed to restore image</source>
         <translation type="unfinished"></translation>
     </message>
@@ -672,79 +453,79 @@ We won&apos;t modify anything until you apply your changes.</source>
 <context>
     <name>RestoreOpticalJob</name>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="54"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="55"/>
         <source>Waiting for restore medium</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="68"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="69"/>
         <source>Waiting for other jobs to finish</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="92"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="93"/>
         <source>Failed to restore image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="116"/>
-        <location filename="../jobs/restoreopticaljob.cpp" line="166"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="118"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="168"/>
         <source>Preparing to restore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="133"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="135"/>
         <source>Couldn&apos;t restore the disc because %1.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="135"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="137"/>
         <source>Failed to restore disc</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="140"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="142"/>
         <source>Couldn&apos;t Restore Disc</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="141"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="143"/>
         <source>The disc in %1 could not be restored.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="176"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="177"/>
         <source>Erasing Disc</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="182"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="183"/>
         <source>Burning Image (%1)
 %2 of %3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="185"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="186"/>
         <source>Burning Image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="196"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="197"/>
         <source>Finalizing Disc</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="241"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="238"/>
         <source>Restore Complete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="247"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="244"/>
         <source>Restored Disc</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="248"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="245"/>
         <source>The disc in %1 has been restored.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -760,82 +541,22 @@ We won&apos;t modify anything until you apply your changes.</source>
 <context>
     <name>RestoreOpticalPopover</name>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="72"/>
-        <source>RESTORE OPTIONS</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="84"/>
-        <source>Restore Image File</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="100"/>
-        <source>Copy Media</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="155"/>
-        <source>Input File</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="165"/>
-        <source>Browse...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="217"/>
-        <location filename="../operations/restoreopticalpopover.ui" line="362"/>
-        <source>Restore this image</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="250"/>
-        <location filename="../operations/restoreopticalpopover.cpp" line="58"/>
+        <location filename="../operations/restoreopticalpopover.cpp" line="59"/>
         <source>Restore Disc</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="265"/>
-        <source>DISC NOT BLANK</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="272"/>
-        <source>The disc in the drive is not blank. To restore an image to the disc, the disc will need to be erased.
-
-Once the disc in the drive is erased, all the data on it will be gone forever.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="284"/>
-        <source>Erase and Restore</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="330"/>
-        <location filename="../operations/restoreopticalpopover.cpp" line="60"/>
+        <location filename="../operations/restoreopticalpopover.cpp" line="61"/>
         <source>Restore to Block</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="345"/>
-        <source>THIS IS IT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="352"/>
-        <source>Restoring to this block will erase it. There&apos;s no going back; once the block is erased, all the data on the block is gone forever.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../operations/restoreopticalpopover.cpp" line="101"/>
+        <location filename="../operations/restoreopticalpopover.cpp" line="102"/>
         <source>Unable to restore same media</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.cpp" line="101"/>
+        <location filename="../operations/restoreopticalpopover.cpp" line="102"/>
         <source>A medium cannot be restored to itself. Select another medium to restore.</source>
         <translation type="unfinished"></translation>
     </message>

@@ -4,12 +4,12 @@
 <context>
     <name>DiskObject</name>
     <message>
-        <location filename="../DriveObjects/diskobject.cpp" line="111"/>
+        <location filename="../DriveObjects/diskobject.cpp" line="113"/>
         <source>Loop Device</source>
         <translation>Thiết bị lặp lại</translation>
     </message>
     <message>
-        <location filename="../DriveObjects/diskobject.cpp" line="114"/>
+        <location filename="../DriveObjects/diskobject.cpp" line="116"/>
         <source>Block Device</source>
         <translation>Thiết bị khối</translation>
     </message>
@@ -131,47 +131,47 @@
 <context>
     <name>EditPartitionJob</name>
     <message>
-        <location filename="../jobs/editpartitionjob.cpp" line="50"/>
+        <location filename="../jobs/editpartitionjob.cpp" line="52"/>
         <source>Waiting for other jobs to finish</source>
         <translation>Đang chờ hoạt động khác kết thúc</translation>
     </message>
     <message>
-        <location filename="../jobs/editpartitionjob.cpp" line="94"/>
+        <location filename="../jobs/editpartitionjob.cpp" line="96"/>
         <source>Partitioning Complete</source>
         <translation>Phân vùng hoàn thành</translation>
     </message>
     <message>
-        <location filename="../jobs/editpartitionjob.cpp" line="100"/>
+        <location filename="../jobs/editpartitionjob.cpp" line="102"/>
         <source>Partitioning Operations Complete</source>
         <translation>Hoạt động phân vùng hoàn thành</translation>
     </message>
     <message>
-        <location filename="../jobs/editpartitionjob.cpp" line="101"/>
+        <location filename="../jobs/editpartitionjob.cpp" line="103"/>
         <source>Changes to %1 have been applied.</source>
         <translation>Các thay đổi chỗ %1 đã áp dụng thành công.</translation>
     </message>
     <message>
-        <location filename="../jobs/editpartitionjob.cpp" line="117"/>
+        <location filename="../jobs/editpartitionjob.cpp" line="119"/>
         <source>Creating partition %1</source>
         <translation>Đang tạo phân vùng %1</translation>
     </message>
     <message>
-        <location filename="../jobs/editpartitionjob.cpp" line="151"/>
+        <location filename="../jobs/editpartitionjob.cpp" line="154"/>
         <source>Deleting partition %1</source>
         <translation>Đang xóa phân vùng %1</translation>
     </message>
     <message>
-        <location filename="../jobs/editpartitionjob.cpp" line="170"/>
+        <location filename="../jobs/editpartitionjob.cpp" line="174"/>
         <source>A partition operation failed.</source>
         <translation>Hoạt động phân vùng không thành công.</translation>
     </message>
     <message>
-        <location filename="../jobs/editpartitionjob.cpp" line="174"/>
+        <location filename="../jobs/editpartitionjob.cpp" line="178"/>
         <source>Partitioning Operations Failed</source>
         <translation>Hoạt động phân vùng không thành công</translation>
     </message>
     <message>
-        <location filename="../jobs/editpartitionjob.cpp" line="175"/>
+        <location filename="../jobs/editpartitionjob.cpp" line="179"/>
         <source>Changes to %1 could not be applied. The disk may be in an inconsistent state.</source>
         <translation>Các thay đổi cho %1 không thể áp dụng. Đĩa có thể ở trạng thái không nhất quán.</translation>
     </message>
@@ -187,80 +187,80 @@
 <context>
     <name>EraseCdRwJob</name>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="53"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="55"/>
         <source>CD-RW</source>
         <translation>CD-RW</translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="56"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="58"/>
         <source>DVD-RW</source>
         <translation>DVD-RW</translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="60"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="62"/>
         <source>DVD+RW</source>
         <translation>DVD+RW</translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="63"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="65"/>
         <source>BD-RE</source>
         <translation>BD-RE</translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="66"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="68"/>
         <source>Unknown</source>
         <translation>Không xác định</translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="70"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="72"/>
         <source>Waiting for other jobs to finish</source>
         <translation>Đang chờ hoạt động khác kết thúc</translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="108"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="111"/>
         <source>Unmounting Disc</source>
         <translation>Đang tháo đĩa</translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="133"/>
-        <location filename="../jobs/erasecdrwjob.cpp" line="183"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="137"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="187"/>
         <source>Failed to erase %1</source>
         <translation>Không thể xóa %1</translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="139"/>
-        <location filename="../jobs/erasecdrwjob.cpp" line="190"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="143"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="194"/>
         <source>Couldn&apos;t Erase Disc</source>
         <translation>Không thể xóa đĩa</translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="140"/>
-        <location filename="../jobs/erasecdrwjob.cpp" line="191"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="144"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="195"/>
         <source>The disc in %1 could not be erased.</source>
         <translation>Đĩa trong %1 không thể bị xóa.</translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="147"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="151"/>
         <source>Erasing %1</source>
         <translation>Đang xóa %1</translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="181"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="185"/>
         <source>Couldn&apos;t erase %1 because %2.</source>
         <translation>Không thể xóa %1 tại vì %2.</translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="214"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="220"/>
         <source>%1 Erased</source>
         <translation>Đã xóa %1</translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="220"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="226"/>
         <source>Erased Disc</source>
         <translation>Đã xóa đĩa</translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="221"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="227"/>
         <source>The disc in %1 has been erased.</source>
         <translation>Đĩa trong %1 đã bị xóa thành công.</translation>
     </message>
@@ -276,86 +276,67 @@
 <context>
     <name>EraseOpticalPopover</name>
     <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="54"/>
-        <location filename="../operations/eraseopticalpopover.ui" line="149"/>
         <source>Erase Disc</source>
-        <translation>Xóa đĩa</translation>
+        <translation type="vanished">Xóa đĩa</translation>
     </message>
     <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="69"/>
         <source>ERASE OPTIONS</source>
-        <translation>TÙY CHỌN XÓA</translation>
+        <translation type="vanished">TÙY CHỌN XÓA</translation>
     </message>
     <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="76"/>
         <source>Erase Type</source>
-        <translation>Kiểu xóa</translation>
+        <translation type="vanished">Kiểu xóa</translation>
     </message>
     <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="90"/>
         <source>Quick</source>
-        <translation>Nhanh</translation>
+        <translation type="vanished">Nhanh</translation>
     </message>
     <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="95"/>
         <source>Full</source>
-        <translation>Hoàn toàn</translation>
+        <translation type="vanished">Hoàn toàn</translation>
     </message>
     <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="103"/>
-        <location filename="../operations/eraseopticalpopover.ui" line="181"/>
         <source>Erase this disc</source>
-        <translation>Xóa đĩa này</translation>
+        <translation type="vanished">Xóa đĩa này</translation>
     </message>
     <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="164"/>
         <source>THIS IS IT</source>
-        <translation>SẴN SÀNG CHƯA?</translation>
+        <translation type="vanished">SẴN SÀNG CHƯA?</translation>
     </message>
     <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="171"/>
         <source>There&apos;s no going back after this. Once the disc in the drive is erased, all the data on it will be gone forever.</source>
-        <translation>Bạn không thể quay lại sau điểm này. Sau khi đĩa trong ổ bị xóa, các dữ liệu trên nó sẽ bị mất vĩnh viễn.</translation>
+        <translation type="vanished">Bạn không thể quay lại sau điểm này. Sau khi đĩa trong ổ bị xóa, các dữ liệu trên nó sẽ bị mất vĩnh viễn.</translation>
     </message>
 </context>
 <context>
     <name>ErasePartitionPopover</name>
     <message>
-        <location filename="../operations/erasepartitionpopover.ui" line="57"/>
-        <location filename="../operations/erasepartitionpopover.ui" line="152"/>
         <source>Erase Partition</source>
-        <translation>Xóa phân vùng</translation>
+        <translation type="vanished">Xóa phân vùng</translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitionpopover.ui" line="67"/>
-        <location filename="../operations/erasepartitionpopover.ui" line="184"/>
         <source>Erase this partition</source>
-        <translation>Xóa phân vùng này</translation>
+        <translation type="vanished">Xóa phân vùng này</translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitionpopover.ui" line="78"/>
         <source>Filesystem</source>
-        <translation>Hệ thống tệp</translation>
+        <translation type="vanished">Hệ thống tệp</translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitionpopover.ui" line="90"/>
         <source>ERASE OPTIONS</source>
-        <translation>TÙY CHỌN XÓA</translation>
+        <translation type="vanished">TÙY CHỌN XÓA</translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitionpopover.ui" line="107"/>
         <source>Partition Name</source>
-        <translation>Tên phân vùng</translation>
+        <translation type="vanished">Tên phân vùng</translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitionpopover.ui" line="167"/>
         <source>THIS IS IT</source>
-        <translation>SẴN SÀNG CHƯA?</translation>
+        <translation type="vanished">SẴN SÀNG CHƯA?</translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitionpopover.ui" line="174"/>
         <source>There&apos;s no going back after this. Once the partition is erased, all the data on the partition is gone forever.</source>
-        <translation>Bạn không thể quay lại sau điểm này. Sau khi phân vùng bị xóa, các dữ liệu trên nó sẽ bị mất vĩnh viễn.</translation>
+        <translation type="vanished">Bạn không thể quay lại sau điểm này. Sau khi phân vùng bị xóa, các dữ liệu trên nó sẽ bị mất vĩnh viễn.</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitionpopover.cpp" line="50"/>
@@ -366,92 +347,76 @@
 <context>
     <name>ErasePartitionTablePopover</name>
     <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="57"/>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="157"/>
         <source>Erase Disk</source>
-        <translation>Xóa đĩa</translation>
+        <translation type="vanished">Xóa đĩa</translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="72"/>
         <source>ERASE OPTIONS</source>
-        <translation>TÙY CHỌN XÓA</translation>
+        <translation type="vanished">TÙY CHỌN XÓA</translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="79"/>
         <source>Partition Table</source>
-        <translation>Bảng phân vùng</translation>
+        <translation type="vanished">Bảng phân vùng</translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="93"/>
         <source>GPT</source>
-        <translation>GPT</translation>
+        <translation type="vanished">GPT</translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="98"/>
         <source>DOS/MBR</source>
-        <translation>DOS/MBR</translation>
+        <translation type="vanished">DOS/MBR</translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="103"/>
         <source>Erase Only</source>
-        <translation>Chỉ xóa</translation>
+        <translation type="vanished">Chỉ xóa</translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="111"/>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="189"/>
         <source>Erase this disk</source>
-        <translation>Xóa đĩa này</translation>
+        <translation type="vanished">Xóa đĩa này</translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="172"/>
         <source>THIS IS IT</source>
-        <translation>SẴN SÀNG CHƯA?</translation>
+        <translation type="vanished">SẴN SÀNG CHƯA?</translation>
     </message>
     <message>
-        <location filename="../operations/erasepartitiontablepopover.ui" line="179"/>
         <source>There&apos;s no going back after this. Once the disk is erased, all the data on the disk is gone forever.</source>
-        <translation>Bạn không thể quay lại sau điểm này. Sau khi đĩa này bị xóa, các dữ liệu trên nó sẽ bị mất vĩnh viễn.</translation>
+        <translation type="vanished">Bạn không thể quay lại sau điểm này. Sau khi đĩa này bị xóa, các dữ liệu trên nó sẽ bị mất vĩnh viễn.</translation>
     </message>
 </context>
 <context>
     <name>ImagePopover</name>
     <message>
-        <location filename="../operations/imagepopover.ui" line="35"/>
         <source>Image Disk</source>
-        <translation>Tạo ảnh đĩa</translation>
+        <translation type="vanished">Tạo ảnh đĩa</translation>
     </message>
     <message>
-        <location filename="../operations/imagepopover.ui" line="45"/>
         <source>Output File</source>
-        <translation>Tệp xuất ra</translation>
+        <translation type="vanished">Tệp xuất ra</translation>
     </message>
     <message>
-        <location filename="../operations/imagepopover.ui" line="55"/>
         <source>Browse...</source>
-        <translation>Duyệt...</translation>
+        <translation type="vanished">Duyệt...</translation>
     </message>
     <message>
-        <location filename="../operations/imagepopover.ui" line="67"/>
         <source>IMAGING OPTIONS</source>
-        <translation>TÙY CHỌN ẢNH ĐĨA</translation>
+        <translation type="vanished">TÙY CHỌN ẢNH ĐĨA</translation>
     </message>
     <message>
-        <location filename="../operations/imagepopover.ui" line="74"/>
         <source>Image this disk</source>
-        <translation>Tạo ảnh đĩa từ đĩa này</translation>
+        <translation type="vanished">Tạo ảnh đĩa từ đĩa này</translation>
     </message>
     <message>
-        <location filename="../operations/imagepopover.cpp" line="76"/>
+        <location filename="../operations/imagepopover.cpp" line="70"/>
         <source>Disk Imaged</source>
         <translation>Ảnh đĩa bị tạo</translation>
     </message>
     <message>
-        <location filename="../operations/imagepopover.cpp" line="77"/>
+        <location filename="../operations/imagepopover.cpp" line="71"/>
         <source>The disk image has been created</source>
         <translation>Ảnh đĩa đã bị tạo thành công</translation>
     </message>
     <message>
-        <location filename="../operations/imagepopover.cpp" line="82"/>
+        <location filename="../operations/imagepopover.cpp" line="76"/>
         <source>Couldn&apos;t image disk</source>
         <translation>Không thể tạo ảnh đĩa</translation>
     </message>
@@ -545,68 +510,56 @@
 <context>
     <name>PartitionPopover</name>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="35"/>
         <source>Edit Partitions</source>
-        <translation>Sửa phân vùng</translation>
+        <translation type="vanished">Sửa phân vùng</translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="102"/>
         <source>ACTIONS</source>
-        <translation>HOẠT ĐỘNG</translation>
+        <translation type="vanished">HOẠT ĐỘNG</translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="109"/>
         <source>Select a partition to resize or erase it. To add a new partition, click in some empty space.
 
 We won&apos;t modify anything until you apply your changes.</source>
-        <translation>Chọn một phân vùng để đổi khích thước hoặc xóa. Để tạo phân vùng mới, nhấn vào chỗ trống.
+        <translation type="vanished">Chọn một phân vùng để đổi khích thước hoặc xóa. Để tạo phân vùng mới, nhấn vào chỗ trống.
 
 Chúng tôi sẽ không sửa đổi bất cứ điều gì cho đến khi bạn áp dụng thay đổi.</translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="150"/>
         <source>NEW PARTITION</source>
-        <translation>PHÂN VÙNG MỚI</translation>
+        <translation type="vanished">PHÂN VÙNG MỚI</translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="157"/>
         <source>Add New Partition</source>
-        <translation>Thêm phân vùng mới</translation>
+        <translation type="vanished">Thêm phân vùng mới</translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="199"/>
         <source>Delete Partition</source>
-        <translation>Xóa phân vùng</translation>
+        <translation type="vanished">Xóa phân vùng</translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="206"/>
         <source>Name</source>
-        <translation>Tên</translation>
+        <translation type="vanished">Tên</translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="219"/>
         <source>EDIT PARTITION</source>
-        <translation>SỬA PHÂN VÙNG</translation>
+        <translation type="vanished">SỬA PHÂN VÙNG</translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="229"/>
         <source>Type</source>
-        <translation>Kiểu</translation>
+        <translation type="vanished">Kiểu</translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="259"/>
         <source>Apply Changes</source>
-        <translation>Áp dụng các thay đổi</translation>
+        <translation type="vanished">Áp dụng các thay đổi</translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="294"/>
         <source>APPLY CHANGES</source>
-        <translation>ÁP DỤNG CÁC THAY ĐỔI</translation>
+        <translation type="vanished">ÁP DỤNG CÁC THAY ĐỔI</translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="311"/>
         <source>Apply Changes to Disk</source>
-        <translation>Áp dụng thay đổi vào đĩa</translation>
+        <translation type="vanished">Áp dụng thay đổi vào đĩa</translation>
     </message>
     <message>
         <location filename="../operations/partitionpopover.cpp" line="68"/>
@@ -619,12 +572,12 @@ Chúng tôi sẽ không sửa đổi bất cứ điều gì cho đến khi bạn
         <translation>Phân vùng mới</translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.cpp" line="224"/>
+        <location filename="../operations/partitionpopover.cpp" line="223"/>
         <source>Once these changes are applied, you won&apos;t be able to recover any partitions that you&apos;ve deleted easily.</source>
         <translation>Sau khi bạn áp dụng các thay đổi này, bạn không có thể khôi phục dễ dàng các phân vùng nào bạn đã xóa.</translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.cpp" line="227"/>
+        <location filename="../operations/partitionpopover.cpp" line="226"/>
         <source>Ready to apply these changes to the disk?</source>
         <translation>Bạn sẵn sàng áp dụng các thay đổi này vào đĩa không?</translation>
     </message>
@@ -632,34 +585,34 @@ Chúng tôi sẽ không sửa đổi bất cứ điều gì cho đến khi bạn
 <context>
     <name>RestoreDiskJob</name>
     <message>
-        <location filename="../jobs/restorediskjob.cpp" line="51"/>
+        <location filename="../jobs/restorediskjob.cpp" line="54"/>
         <source>Waiting for disk</source>
         <translation>Đang chờ đĩa</translation>
     </message>
     <message>
-        <location filename="../jobs/restorediskjob.cpp" line="65"/>
+        <location filename="../jobs/restorediskjob.cpp" line="68"/>
         <source>Waiting for other jobs to finish</source>
         <translation>Đang chờ hoạt động khác kết thúc</translation>
     </message>
     <message>
-        <location filename="../jobs/restorediskjob.cpp" line="96"/>
+        <location filename="../jobs/restorediskjob.cpp" line="101"/>
         <source>Restoring to %1
 %2 of %3 restored</source>
         <translation>Đang khôi phục vào %1
 Được khôi phục %1 trên %2</translation>
     </message>
     <message>
-        <location filename="../jobs/restorediskjob.cpp" line="112"/>
+        <location filename="../jobs/restorediskjob.cpp" line="116"/>
         <source>Disk restored successfully</source>
         <translation>Đĩa bị khôi phục thành công</translation>
     </message>
     <message>
-        <location filename="../jobs/restorediskjob.cpp" line="125"/>
+        <location filename="../jobs/restorediskjob.cpp" line="126"/>
         <source>Couldn&apos;t open the destination device for writing</source>
         <translation>Không thể mở đĩa đầu ra để ghi</translation>
     </message>
     <message>
-        <location filename="../jobs/restorediskjob.cpp" line="142"/>
+        <location filename="../jobs/restorediskjob.cpp" line="141"/>
         <source>Failed to restore image</source>
         <translation>Không thể khôi phục ảnh đĩa</translation>
     </message>
@@ -675,80 +628,80 @@ Chúng tôi sẽ không sửa đổi bất cứ điều gì cho đến khi bạn
 <context>
     <name>RestoreOpticalJob</name>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="54"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="55"/>
         <source>Waiting for restore medium</source>
         <translation>Đang chờ phương tiện khôi phục</translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="68"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="69"/>
         <source>Waiting for other jobs to finish</source>
         <translation>Đang chờ hoạt động khác kết thúc</translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="92"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="93"/>
         <source>Failed to restore image</source>
         <translation>Không thể khôi phục ảnh đĩa</translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="116"/>
-        <location filename="../jobs/restoreopticaljob.cpp" line="166"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="118"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="168"/>
         <source>Preparing to restore</source>
         <translation>Đang chuẩn bị khôi phục</translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="133"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="135"/>
         <source>Couldn&apos;t restore the disc because %1.</source>
         <translation>Không thể khôi phục đĩa tại vì %1.</translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="135"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="137"/>
         <source>Failed to restore disc</source>
         <translation>Không thể khôi phục đĩa</translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="140"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="142"/>
         <source>Couldn&apos;t Restore Disc</source>
         <translation>Không thể khôi phục đĩa</translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="141"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="143"/>
         <source>The disc in %1 could not be restored.</source>
         <translation>Đĩa trong %1 không thể bị khởi phục.</translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="176"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="177"/>
         <source>Erasing Disc</source>
         <translation>Đang xóa đĩa</translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="182"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="183"/>
         <source>Burning Image (%1)
 %2 of %3</source>
         <translation>Đáng ghi ảnh đĩa (%1)
 %2 trên %3</translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="185"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="186"/>
         <source>Burning Image</source>
         <translation>Đáng ghi ảnh đĩa</translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="196"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="197"/>
         <source>Finalizing Disc</source>
         <translation>Đang hoàn thiện đĩa</translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="241"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="238"/>
         <source>Restore Complete</source>
         <translation>Hoạt động khôi phục hoàn thành</translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="247"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="244"/>
         <source>Restored Disc</source>
         <translation>Đã khôi phục đĩa</translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="248"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="245"/>
         <source>The disc in %1 has been restored.</source>
         <translation>Đĩa trong %1 đã bị khởi phục.</translation>
     </message>
@@ -764,84 +717,70 @@ Chúng tôi sẽ không sửa đổi bất cứ điều gì cho đến khi bạn
 <context>
     <name>RestoreOpticalPopover</name>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="72"/>
         <source>RESTORE OPTIONS</source>
-        <translation>TÙY CHỌN KHÔI PHỤC</translation>
+        <translation type="vanished">TÙY CHỌN KHÔI PHỤC</translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="84"/>
         <source>Restore Image File</source>
-        <translation>Khôi phục tệp ảnh đĩa</translation>
+        <translation type="vanished">Khôi phục tệp ảnh đĩa</translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="100"/>
         <source>Copy Media</source>
-        <translation>Chép phương tiện</translation>
+        <translation type="vanished">Chép phương tiện</translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="155"/>
         <source>Input File</source>
-        <translation>Tệp khôi phục</translation>
+        <translation type="vanished">Tệp khôi phục</translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="165"/>
         <source>Browse...</source>
-        <translation>Duyệt...</translation>
+        <translation type="vanished">Duyệt...</translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="217"/>
-        <location filename="../operations/restoreopticalpopover.ui" line="362"/>
         <source>Restore this image</source>
-        <translation>Khôi phục ảnh đĩa này</translation>
+        <translation type="vanished">Khôi phục ảnh đĩa này</translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="250"/>
-        <location filename="../operations/restoreopticalpopover.cpp" line="58"/>
+        <location filename="../operations/restoreopticalpopover.cpp" line="59"/>
         <source>Restore Disc</source>
         <translation>Khôi phục đĩa</translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="265"/>
         <source>DISC NOT BLANK</source>
-        <translation>ĐĨA KHÔNG TRỐNG</translation>
+        <translation type="vanished">ĐĨA KHÔNG TRỐNG</translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="272"/>
         <source>The disc in the drive is not blank. To restore an image to the disc, the disc will need to be erased.
 
 Once the disc in the drive is erased, all the data on it will be gone forever.</source>
-        <translation>Đĩa trong ổ không có trống. Để khôi phục ảnh đĩa này lại đĩa đó, nó sẽ phải bị xóa
+        <translation type="vanished">Đĩa trong ổ không có trống. Để khôi phục ảnh đĩa này lại đĩa đó, nó sẽ phải bị xóa
 
 Sau khi đĩa trong ổ bị xóa, các tệp trên nó sẽ bị mất mãi mãi.</translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="284"/>
         <source>Erase and Restore</source>
-        <translation>Xóa và Khôi Phục</translation>
+        <translation type="vanished">Xóa và Khôi Phục</translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="330"/>
-        <location filename="../operations/restoreopticalpopover.cpp" line="60"/>
+        <location filename="../operations/restoreopticalpopover.cpp" line="61"/>
         <source>Restore to Block</source>
         <translation>Khôi phục vào thiết bị khối</translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="345"/>
         <source>THIS IS IT</source>
-        <translation>SẴN SÀNG CHƯA?</translation>
+        <translation type="vanished">SẴN SÀNG CHƯA?</translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.ui" line="352"/>
         <source>Restoring to this block will erase it. There&apos;s no going back; once the block is erased, all the data on the block is gone forever.</source>
-        <translation>Khi bạn khôi phục ảnh đĩa này, bạn sẽ xóa thiết bị khối. Bạn không thể hoàn tác hoạt động này; khi thiết bị khỏi bị xóa, các dữ liệu trên nó sẽ bị mất mãi mãi.</translation>
+        <translation type="vanished">Khi bạn khôi phục ảnh đĩa này, bạn sẽ xóa thiết bị khối. Bạn không thể hoàn tác hoạt động này; khi thiết bị khỏi bị xóa, các dữ liệu trên nó sẽ bị mất mãi mãi.</translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.cpp" line="101"/>
+        <location filename="../operations/restoreopticalpopover.cpp" line="102"/>
         <source>Unable to restore same media</source>
         <translation>Không thể khôi phục phương tiện vào chính nó</translation>
     </message>
     <message>
-        <location filename="../operations/restoreopticalpopover.cpp" line="101"/>
+        <location filename="../operations/restoreopticalpopover.cpp" line="102"/>
         <source>A medium cannot be restored to itself. Select another medium to restore.</source>
         <translation>Một phương tiện không thể bị khôi phục lại vào chính nó. Vui lòng chọn một phương tiện khác để khôi phục.</translation>
     </message>

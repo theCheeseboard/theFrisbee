@@ -291,54 +291,54 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="../main.cpp" line="43"/>
-        <location filename="../main.cpp" line="65"/>
+        <location filename="../main.cpp" line="38"/>
+        <location filename="../main.cpp" line="60"/>
         <source>Disk Utility</source>
         <translation>Tiện ích ở đĩa</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="68"/>
+        <location filename="../main.cpp" line="63"/>
         <source>The operation to perform. Valid operations:</source>
         <translation>Hoạt động để thực hiện. Hoạt động hợp lệ:</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="69"/>
+        <location filename="../main.cpp" line="64"/>
         <source>The device to perform the operation on</source>
         <translation>Thiết bị để thực hiện hoạt động trên</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="81"/>
+        <location filename="../main.cpp" line="76"/>
         <source>invalid operation %1</source>
         <translation>hoạt động không hợp lệ %1</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="82"/>
-        <location filename="../main.cpp" line="90"/>
-        <location filename="../main.cpp" line="98"/>
-        <location filename="../main.cpp" line="111"/>
+        <location filename="../main.cpp" line="77"/>
+        <location filename="../main.cpp" line="85"/>
+        <location filename="../main.cpp" line="93"/>
+        <location filename="../main.cpp" line="106"/>
         <source>Usage: %1 [options] [operation device].</source>
         <translation>Sử dụng: %1 [options] [operation device].</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="83"/>
-        <location filename="../main.cpp" line="91"/>
-        <location filename="../main.cpp" line="99"/>
-        <location filename="../main.cpp" line="112"/>
+        <location filename="../main.cpp" line="78"/>
+        <location filename="../main.cpp" line="86"/>
+        <location filename="../main.cpp" line="94"/>
+        <location filename="../main.cpp" line="107"/>
         <source>%1 -h for more information.</source>
         <translation>%1 -h để biết thêm thông tin.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="89"/>
+        <location filename="../main.cpp" line="84"/>
         <source>missing device</source>
         <translation>thiếu thiết bị</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="97"/>
+        <location filename="../main.cpp" line="92"/>
         <source>too many arguments</source>
         <translation>quá nhiều đối số</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="110"/>
+        <location filename="../main.cpp" line="105"/>
         <source>invalid device</source>
         <translation>thiết bị không hợp lệ</translation>
     </message>

@@ -29,14 +29,9 @@
 
 int main(int argc, char* argv[]) {
     tApplication a(argc, argv);
+    a.setApplicationShareDir("thefrisbee");
 
-    if (QDir("/usr/share/thefrisbee/").exists()) {
-        a.setShareDir("/usr/share/thefrisbee/");
-    } else if (QDir(QDir::cleanPath(QApplication::applicationDirPath() + "/../share/thefrisbee/")).exists()) {
-        a.setShareDir(QDir::cleanPath(QApplication::applicationDirPath() + "/../share/thefrisbee/"));
-    }
     a.installTranslators();
-
     a.addLibraryTranslator(LIBTHEFRISBEE_TRANSLATOR);
 
     a.setApplicationVersion("2.0");

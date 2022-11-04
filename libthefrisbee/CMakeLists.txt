@@ -45,7 +45,10 @@ file(GLOB DRIVEOBJECT_HEADERS DriveObjects/*.h)
 set(HEADERS ${ROOT_HEADERS} ${DRIVEOBJECT_HEADERS})
 
 add_library(libthefrisbee SHARED ${SOURCES})
+set_target_properties(libthefrisbee PROPERTIES
+        CNTP_DATA_SUBDIR thefrisbee/libthefrisbee)
 cntp_init(libthefrisbee 20)
+cntp_translate(libthefrisbee)
 cntp_target_public_headers(libthefrisbee
     DESTINATION_DIRECTORY libthefrisbee
     HEADERS ${HEADERS})

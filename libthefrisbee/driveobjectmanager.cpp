@@ -58,19 +58,19 @@ DriveObjectManager* DriveObjectManager::instance() {
 
 QList<DiskObject*> DriveObjectManager::rootDisks() {
     QList<DiskObject*> disks = instance()->d->objects.values();
-    QSet<DiskObject*> notRootDisks;
+    QList<DiskObject*> notRootDisks;
 
     for (DiskObject* disk : disks) {
         PartitionTableInterface* partitionTable = disk->interface<PartitionTableInterface>();
         if (partitionTable) {
             for (DiskObject* partition : partitionTable->partitions()) {
-                notRootDisks.insert(partition);
+                notRootDisks.append(partition);
             }
         }
 
         LoopInterface* loop = disk->interface<LoopInterface>();
         if (loop) {
-            if (!loop->isAvailable()) notRootDisks.insert(disk);
+            if (!loop->isAvailable()) notRootDisks.append(disk);
         }
     }
 
