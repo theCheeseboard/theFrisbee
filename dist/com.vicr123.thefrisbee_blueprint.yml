@@ -17,6 +17,12 @@ cleanup:
   - '/lib/debug'
   - '/lib/pkgconfig'
 modules:
+  - name: qcoro
+    buildsystem: cmake-ninja
+    sources:
+      - type: git
+        url: https://github.com/danvratil/qcoro.git
+        branch: v0.6.0
   - name: libcontemporary
     buildsystem: cmake-ninja
     sources:
