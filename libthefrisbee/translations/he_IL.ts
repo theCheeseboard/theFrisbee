@@ -97,7 +97,7 @@
       <source>The disc in the drive is not writable.</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>אין טבלת מחיצות</translation>
       <location filename="../diskoperationmanager.cpp" line="244" />
       <source>No Partition Table</source>
     </message>
@@ -320,7 +320,7 @@
   <context>
     <name>ErasePartitionPopover</name>
     <message>
-      <translation></translation>
+      <translation>מחק מחיצה</translation>
       <location filename="../operations/erasepartitionpopover.ui" line="57" />
       <location filename="../operations/erasepartitionpopover.ui" line="152" />
       <source>Erase Partition</source>
@@ -491,27 +491,27 @@
   <context>
     <name>PartitionInformation</name>
     <message>
-      <translation>ext4 (מערכת קבצים Linux)</translation>
+      <translation>ext4 (מערכת קבצים של Linux)</translation>
       <location filename="../partitioninformation.cpp" line="53" />
       <source>ext4 (Linux Filesystem)</source>
     </message>
     <message>
-      <translation>NTFS (Windows Filesystem)</translation>
+      <translation>NTFS (מערכת קבצים של Windows)</translation>
       <location filename="../partitioninformation.cpp" line="54" />
       <source>NTFS (Windows Filesystem)</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>exFAT (כל מערכות)</translation>
       <location filename="../partitioninformation.cpp" line="55" />
       <source>exFAT (All Systems)</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Linux Swap</translation>
       <location filename="../partitioninformation.cpp" line="56" />
       <source>Linux Swap</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>XFS (מערכת קבצים של Linux)</translation>
       <location filename="../partitioninformation.cpp" line="57" />
       <source>XFS (Linux Filesystem)</source>
     </message>
@@ -623,7 +623,7 @@ We won't modify anything until you apply your changes.</source>
       <source>Once these changes are applied, you won't be able to recover any partitions that you've deleted easily.</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>האם אתם מוכנים להחיל את השינויים לדיסק?</translation>
       <location filename="../operations/partitionpopover.cpp" line="227" />
       <source>Ready to apply these changes to the disk?</source>
     </message>

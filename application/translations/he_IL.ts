@@ -29,7 +29,7 @@
       <source>Output File</source>
     </message>
     <message>
-      <translation>צרף תמונת דיסק זאת</translation>
+      <translation>צרף תמונת דיסק זו</translation>
       <location filename="../operations/creatediskimagepopover.ui" line="95" />
       <source>Attach this disk image</source>
     </message>
@@ -37,7 +37,7 @@
   <context>
     <name>DiskPane</name>
     <message>
-      <translation></translation>
+      <translation>כותרת</translation>
       <location filename="../diskpane.ui" line="35" />
       <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="219" />
       <source>Title</source>
