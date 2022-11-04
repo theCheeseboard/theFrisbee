@@ -491,12 +491,12 @@
   <context>
     <name>PartitionInformation</name>
     <message>
-      <translation></translation>
+      <translation>ext4 (מערכת קבצים Linux)</translation>
       <location filename="../partitioninformation.cpp" line="53" />
       <source>ext4 (Linux Filesystem)</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>NTFS (Windows Filesystem)</translation>
       <location filename="../partitioninformation.cpp" line="54" />
       <source>NTFS (Windows Filesystem)</source>
     </message>
@@ -544,34 +544,36 @@
   <context>
     <name>PartitionPopover</name>
     <message>
-      <translation></translation>
+      <translation>ערוך מחיצות</translation>
       <location filename="../operations/partitionpopover.ui" line="35" />
       <source>Edit Partitions</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>פעולות</translation>
       <location filename="../operations/partitionpopover.ui" line="102" />
       <source>ACTIONS</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>בחר במחיצה כדי לשנות גודלה או למחוק אותה. כדי להוסיף מחיצה, הקליק על מקום ריק.
+
+אנו לא נשנה כלום עד שתחלו את השינויים שלכם.</translation>
       <location filename="../operations/partitionpopover.ui" line="109" />
       <source>Select a partition to resize or erase it. To add a new partition, click in some empty space.
 
 We won't modify anything until you apply your changes.</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>מחיצה חדשה</translation>
       <location filename="../operations/partitionpopover.ui" line="150" />
       <source>NEW PARTITION</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>הוסף מחיצה חדשה</translation>
       <location filename="../operations/partitionpopover.ui" line="157" />
       <source>Add New Partition</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>מחק מחיצה</translation>
       <location filename="../operations/partitionpopover.ui" line="199" />
       <source>Delete Partition</source>
     </message>
@@ -581,7 +583,7 @@ We won't modify anything until you apply your changes.</source>
       <source>Name</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>ערוך מחיצה</translation>
       <location filename="../operations/partitionpopover.ui" line="219" />
       <source>EDIT PARTITION</source>
     </message>
@@ -591,32 +593,32 @@ We won't modify anything until you apply your changes.</source>
       <source>Type</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>החל שינויים</translation>
       <location filename="../operations/partitionpopover.ui" line="259" />
       <source>Apply Changes</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>החל שינויים</translation>
       <location filename="../operations/partitionpopover.ui" line="294" />
       <source>APPLY CHANGES</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>החל שינויים בדיסק</translation>
       <location filename="../operations/partitionpopover.ui" line="311" />
       <source>Apply Changes to Disk</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>השאיר ריק</translation>
       <location filename="../operations/partitionpopover.cpp" line="68" />
       <source>Leave Empty</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>מחיצה חדשה</translation>
       <location filename="../operations/partitionpopover.cpp" line="92" />
       <source>New Partition</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>כאשר תחלו את השינויים שלכם, לא יהיה אפשרי לשחזר מחיצות שמחקתם בקלות.</translation>
       <location filename="../operations/partitionpopover.cpp" line="224" />
       <source>Once these changes are applied, you won't be able to recover any partitions that you've deleted easily.</source>
     </message>
@@ -629,7 +631,7 @@ We won't modify anything until you apply your changes.</source>
   <context>
     <name>RestoreDiskJob</name>
     <message>
-      <translation></translation>
+      <translation>מחכה לדיסק</translation>
       <location filename="../jobs/restorediskjob.cpp" line="51" />
       <source>Waiting for disk</source>
     </message>
@@ -645,7 +647,7 @@ We won't modify anything until you apply your changes.</source>
 %2 of %3 restored</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>דיסק שוחזר בהצלחה</translation>
       <location filename="../jobs/restorediskjob.cpp" line="112" />
       <source>Disk restored successfully</source>
     </message>
@@ -655,7 +657,7 @@ We won't modify anything until you apply your changes.</source>
       <source>Couldn't open the destination device for writing</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>שיחזור תמונה נכשל</translation>
       <location filename="../jobs/restorediskjob.cpp" line="142" />
       <source>Failed to restore image</source>
     </message>
