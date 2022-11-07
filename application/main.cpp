@@ -30,9 +30,8 @@
 int main(int argc, char* argv[]) {
     tApplication a(argc, argv);
     a.setApplicationShareDir("thefrisbee");
-
-    a.installTranslators();
     a.addLibraryTranslator(LIBTHEFRISBEE_TRANSLATOR);
+    a.installTranslators();
 
     a.setApplicationVersion("2.0");
     a.setGenericName(QApplication::translate("main", "Disk Utility"));

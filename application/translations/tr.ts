@@ -168,22 +168,22 @@
 <context>
     <name>OverviewDiskPane</name>
     <message>
-        <location filename="../diskPanes/overviewdiskpane.ui" line="64"/>
+        <location filename="../diskPanes/overviewdiskpane.ui" line="77"/>
         <source>Detach</source>
         <translation>Ayırmak</translation>
     </message>
     <message>
-        <location filename="../diskPanes/overviewdiskpane.ui" line="75"/>
+        <location filename="../diskPanes/overviewdiskpane.ui" line="88"/>
         <source>Unmount</source>
         <translation>Bağlantıyı kes</translation>
     </message>
     <message>
-        <location filename="../diskPanes/overviewdiskpane.ui" line="86"/>
+        <location filename="../diskPanes/overviewdiskpane.ui" line="99"/>
         <source>Mount</source>
         <translation>Montaj</translation>
     </message>
     <message>
-        <location filename="../diskPanes/overviewdiskpane.ui" line="97"/>
+        <location filename="../diskPanes/overviewdiskpane.ui" line="110"/>
         <source>Eject</source>
         <translation>Çıkar</translation>
     </message>
@@ -291,24 +291,32 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="../main.cpp" line="38"/>
-        <location filename="../main.cpp" line="60"/>
+        <location filename="../main.cpp" line="37"/>
+        <location filename="../main.cpp" line="59"/>
         <source>Disk Utility</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="63"/>
+        <location filename="../main.cpp" line="62"/>
         <source>The operation to perform. Valid operations:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="64"/>
+        <location filename="../main.cpp" line="63"/>
         <source>The device to perform the operation on</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="76"/>
+        <location filename="../main.cpp" line="75"/>
         <source>invalid operation %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="76"/>
+        <location filename="../main.cpp" line="84"/>
+        <location filename="../main.cpp" line="92"/>
+        <location filename="../main.cpp" line="105"/>
+        <source>Usage: %1 [options] [operation device].</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -316,29 +324,21 @@
         <location filename="../main.cpp" line="85"/>
         <location filename="../main.cpp" line="93"/>
         <location filename="../main.cpp" line="106"/>
-        <source>Usage: %1 [options] [operation device].</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../main.cpp" line="78"/>
-        <location filename="../main.cpp" line="86"/>
-        <location filename="../main.cpp" line="94"/>
-        <location filename="../main.cpp" line="107"/>
         <source>%1 -h for more information.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="84"/>
+        <location filename="../main.cpp" line="83"/>
         <source>missing device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="92"/>
+        <location filename="../main.cpp" line="91"/>
         <source>too many arguments</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="105"/>
+        <location filename="../main.cpp" line="104"/>
         <source>invalid device</source>
         <translation type="unfinished"></translation>
     </message>

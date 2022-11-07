@@ -72,11 +72,11 @@ MainWindow::MainWindow(QWidget* parent) :
     menu->addAction(ui->actionExit);
 
     ui->menuButton->setIcon(tApplication::applicationIcon());
-    ui->menuButton->setIconSize(SC_DPI_T(QSize(24, 24), QSize));
+    ui->menuButton->setIconSize(SC_DPI_WT(QSize(24, 24), QSize, this));
     ui->menuButton->setMenu(menu);
     ui->stackedWidget->setCurrentAnimation(tStackedWidget::Lift);
 
-    ui->leftWidget->setFixedWidth(SC_DPI(400));
+    ui->leftWidget->setFixedWidth(SC_DPI_W(400, this));
 
     ui->diskList->setModel(new DiskModel());
     connect(ui->diskList->selectionModel(), &QItemSelectionModel::currentChanged, this, [this](QModelIndex current, QModelIndex previous) {
@@ -131,9 +131,9 @@ bool MainWindow::eventFilter(QObject* watched, QEvent* event) {
 
         tPaintCalculator calculator;
         calculator.setPainter(painter);
-        calculator.setDrawBounds(this->size());
+        calculator.setDrawBounds(ui->topWidget->size());
 
-        calculator.addRect(QRectF(SC_DPI(400), 0, 0, ui->topWidget->height()), [painter, this](QRectF drawBounds) {
+        calculator.addRect(QRectF(SC_DPI_W(400, this) + (this->layoutDirection() == Qt::RightToLeft ? 1 : 0), 0, 0, ui->topWidget->height()), [painter, this](QRectF drawBounds) {
             painter->setPen(libContemporaryCommon::lineColor(this->palette().color(QPalette::WindowText)));
             painter->drawLine(drawBounds.topLeft(), drawBounds.bottomLeft());
         });
@@ -147,7 +147,7 @@ bool MainWindow::eventFilter(QObject* watched, QEvent* event) {
 void MainWindow::on_actionCreate_Disk_Image_triggered() {
     CreateDiskImagePopover* jp = new CreateDiskImagePopover();
     tPopover* popover = new tPopover(jp);
-    popover->setPopoverWidth(SC_DPI(-200));
+    popover->setPopoverWidth(SC_DPI_W(-200, this));
     popover->setPopoverSide(tPopover::Bottom);
     connect(jp, &CreateDiskImagePopover::done, popover, &tPopover::dismiss);
     connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
