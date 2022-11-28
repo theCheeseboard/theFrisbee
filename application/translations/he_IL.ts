@@ -1,344 +1,346 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
 <TS version="2.1" language="he_IL">
-  <context>
+<context>
     <name>CreateDiskImagePopover</name>
     <message>
-      <translation>צור תמונת דיסק חדשה</translation>
-      <location filename="../operations/creatediskimagepopover.ui" line="35" />
-      <location filename="../operations/creatediskimagepopover.ui" line="52" />
-      <source>Create Disk Image</source>
+        <location filename="../operations/creatediskimagepopover.ui" line="35"/>
+        <location filename="../operations/creatediskimagepopover.ui" line="52"/>
+        <source>Create Disk Image</source>
+        <translation>צור תמונת דיסק חדשה</translation>
     </message>
     <message>
-      <translation>עיון...</translation>
-      <location filename="../operations/creatediskimagepopover.ui" line="45" />
-      <source>Browse...</source>
+        <location filename="../operations/creatediskimagepopover.ui" line="45"/>
+        <source>Browse...</source>
+        <translation>עיון...</translation>
     </message>
     <message>
-      <translation>הגדרות תמונת דיסק</translation>
-      <location filename="../operations/creatediskimagepopover.ui" line="71" />
-      <source>DISK IMAGE OPTIONS</source>
+        <location filename="../operations/creatediskimagepopover.ui" line="71"/>
+        <source>DISK IMAGE OPTIONS</source>
+        <translation>הגדרות תמונת דיסק</translation>
     </message>
     <message>
-      <translation>גודל תמונת דיסק</translation>
-      <location filename="../operations/creatediskimagepopover.ui" line="81" />
-      <source>Disk Image Size</source>
+        <location filename="../operations/creatediskimagepopover.ui" line="81"/>
+        <source>Disk Image Size</source>
+        <translation>גודל תמונת דיסק</translation>
     </message>
     <message>
-      <translation>קובץ פלט</translation>
-      <location filename="../operations/creatediskimagepopover.ui" line="88" />
-      <source>Output File</source>
+        <location filename="../operations/creatediskimagepopover.ui" line="88"/>
+        <source>Output File</source>
+        <translation>קובץ פלט</translation>
     </message>
     <message>
-      <translation>צרף תמונת דיסק זו</translation>
-      <location filename="../operations/creatediskimagepopover.ui" line="95" />
-      <source>Attach this disk image</source>
+        <location filename="../operations/creatediskimagepopover.ui" line="95"/>
+        <source>Attach this disk image</source>
+        <translation>צרף תמונת דיסק זו</translation>
     </message>
-  </context>
-  <context>
+</context>
+<context>
     <name>DiskPane</name>
     <message>
-      <translation>כותרת</translation>
-      <location filename="../diskpane.ui" line="35" />
-      <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="219" />
-      <source>Title</source>
+        <location filename="../diskpane.ui" line="35"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="219"/>
+        <source>Title</source>
+        <translation>כותרת</translation>
     </message>
     <message>
-      <translation>משימות פועלות</translation>
-      <location filename="../diskpane.ui" line="82" />
-      <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="220" />
-      <source>JOBS RUNNING</source>
+        <location filename="../diskpane.ui" line="82"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="220"/>
+        <source>JOBS RUNNING</source>
+        <translation>משימות פועלות</translation>
     </message>
     <message>
-      <translation>ייתכן שחלק מהמשימות לא יהיו זמינות בזמן שמשימות אחרות פועלות על פריט זה.</translation>
-      <location filename="../diskpane.ui" line="89" />
-      <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="221" />
-      <source>Some tasks may be unavailable while jobs are currently being run on this item.</source>
+        <location filename="../diskpane.ui" line="89"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="221"/>
+        <source>Some tasks may be unavailable while jobs are currently being run on this item.</source>
+        <translation>ייתכן שחלק מהמשימות לא יהיו זמינות בזמן שמשימות אחרות פועלות על פריט זה.</translation>
     </message>
     <message>
-      <translation>עיין במשימות</translation>
-      <location filename="../diskpane.ui" line="114" />
-      <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="222" />
-      <source>View Jobs</source>
+        <location filename="../diskpane.ui" line="114"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="222"/>
+        <source>View Jobs</source>
+        <translation>עיין במשימות</translation>
     </message>
     <message>
-      <translation>בדוק</translation>
-      <location filename="../diskpane.ui" line="232" />
-      <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="223" />
-      <source>Check</source>
+        <location filename="../diskpane.ui" line="232"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="223"/>
+        <source>Check</source>
+        <translation>בדוק</translation>
     </message>
     <message>
-      <translation>ערוך מחיצות</translation>
-      <location filename="../diskpane.ui" line="239" />
-      <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="224" />
-      <source>Edit Partitions</source>
+        <location filename="../diskpane.ui" line="239"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="224"/>
+        <source>Edit Partitions</source>
+        <translation>ערוך מחיצות</translation>
     </message>
     <message>
-      <translation>תמונה</translation>
-      <location filename="../diskpane.ui" line="246" />
-      <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="225" />
-      <source>Image</source>
+        <location filename="../diskpane.ui" line="246"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="225"/>
+        <source>Image</source>
+        <extracomment>A verb: &quot;Create Image&quot;</extracomment>
+        <translation>תמונה</translation>
     </message>
     <message>
-      <translation>שחזר</translation>
-      <location filename="../diskpane.ui" line="253" />
-      <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="226" />
-      <source>Restore</source>
+        <location filename="../diskpane.ui" line="253"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="226"/>
+        <source>Restore</source>
+        <translation>שחזר</translation>
     </message>
     <message>
-      <translation>מחק</translation>
-      <location filename="../diskpane.ui" line="273" />
-      <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="227" />
-      <source>Erase</source>
+        <location filename="../diskpane.ui" line="273"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="227"/>
+        <source>Erase</source>
+        <translation>מחק</translation>
     </message>
     <message>
-      <translation>בדוק דיסק זה</translation>
-      <location filename="../diskpane.cpp" line="130" />
-      <source>Check this disk</source>
+        <location filename="../diskpane.cpp" line="130"/>
+        <source>Check this disk</source>
+        <translation>בדוק דיסק זה</translation>
     </message>
     <message>
-      <translation>בדוק דיסק זה לשגיאות?</translation>
-      <location filename="../diskpane.cpp" line="131" />
-      <source>Check this disk for errors?</source>
+        <location filename="../diskpane.cpp" line="131"/>
+        <source>Check this disk for errors?</source>
+        <translation>בדוק דיסק זה לשגיאות?</translation>
     </message>
     <message>
-      <translation>זמן הבדיקה תלוי על גודל הדיסק.</translation>
-      <location filename="../diskpane.cpp" line="132" />
-      <source>Depending on the size of the disk, the check may take a while.</source>
+        <location filename="../diskpane.cpp" line="132"/>
+        <source>Depending on the size of the disk, the check may take a while.</source>
+        <translation>זמן הבדיקה תלוי על גודל הדיסק.</translation>
     </message>
-  </context>
-  <context>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
-      <translation>theFrisbee</translation>
-      <location filename="../mainwindow.ui" line="14" />
-      <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="208" />
-      <source>theFrisbee</source>
+        <location filename="../mainwindow.ui" line="14"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="208"/>
+        <source>theFrisbee</source>
+        <translation>theFrisbee</translation>
     </message>
     <message>
-      <translation>דיסקים</translation>
-      <location filename="../mainwindow.ui" line="137" />
-      <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="219" />
-      <source>Disks</source>
+        <location filename="../mainwindow.ui" line="137"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="219"/>
+        <source>Disks</source>
+        <translation>דיסקים</translation>
     </message>
     <message>
-      <translation>קובץ</translation>
-      <location filename="../mainwindow.ui" line="185" />
-      <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="220" />
-      <source>File</source>
+        <location filename="../mainwindow.ui" line="185"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="220"/>
+        <source>File</source>
+        <translation>קובץ</translation>
     </message>
     <message>
-      <translation>תמונה</translation>
-      <location filename="../mainwindow.ui" line="191" />
-      <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="221" />
-      <source>Image</source>
+        <location filename="../mainwindow.ui" line="191"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="221"/>
+        <source>Image</source>
+        <translation>תמונה</translation>
     </message>
     <message>
-      <translation>יציאה</translation>
-      <location filename="../mainwindow.ui" line="205" />
-      <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="209" />
-      <source>Exit</source>
+        <location filename="../mainwindow.ui" line="205"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="209"/>
+        <source>Exit</source>
+        <translation>יציאה</translation>
     </message>
     <message>
-      <translation>Ctrl+Q</translation>
-      <location filename="../mainwindow.ui" line="208" />
-      <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="211" />
-      <source>Ctrl+Q</source>
+        <location filename="../mainwindow.ui" line="208"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="211"/>
+        <source>Ctrl+Q</source>
+        <translation>Ctrl+Q</translation>
     </message>
     <message>
-      <translation>צירוף תמונה</translation>
-      <location filename="../mainwindow.ui" line="217" />
-      <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="213" />
-      <source>Attach Image</source>
+        <location filename="../mainwindow.ui" line="217"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="213"/>
+        <source>Attach Image</source>
+        <translation>צירוף תמונה</translation>
     </message>
     <message>
-      <translation>יצירת תמונת דיסק</translation>
-      <location filename="../mainwindow.ui" line="226" />
-      <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="214" />
-      <source>Create Disk Image</source>
+        <location filename="../mainwindow.ui" line="226"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="214"/>
+        <source>Create Disk Image</source>
+        <translation>יצירת תמונת דיסק</translation>
     </message>
     <message>
-      <translation>Ctrl+N</translation>
-      <location filename="../mainwindow.ui" line="229" />
-      <location filename="../../../build-theFrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="216" />
-      <source>Ctrl+N</source>
+        <location filename="../mainwindow.ui" line="229"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="216"/>
+        <source>Ctrl+N</source>
+        <translation>Ctrl+N</translation>
     </message>
-  </context>
-  <context>
+</context>
+<context>
     <name>OverviewDiskPane</name>
     <message>
-      <translation>נתק</translation>
-      <location filename="../diskPanes/overviewdiskpane.ui" line="64" />
-      <source>Detach</source>
+        <location filename="../diskPanes/overviewdiskpane.ui" line="77"/>
+        <source>Detach</source>
+        <translation>נתק</translation>
     </message>
     <message>
-      <translation>נתק</translation>
-      <location filename="../diskPanes/overviewdiskpane.ui" line="75" />
-      <source>Unmount</source>
+        <location filename="../diskPanes/overviewdiskpane.ui" line="88"/>
+        <source>Unmount</source>
+        <translation>נתק</translation>
     </message>
     <message>
-      <translation>טען</translation>
-      <location filename="../diskPanes/overviewdiskpane.ui" line="86" />
-      <source>Mount</source>
+        <location filename="../diskPanes/overviewdiskpane.ui" line="99"/>
+        <source>Mount</source>
+        <translation>טען</translation>
     </message>
     <message>
-      <translation>הוצא</translation>
-      <location filename="../diskPanes/overviewdiskpane.ui" line="97" />
-      <source>Eject</source>
+        <location filename="../diskPanes/overviewdiskpane.ui" line="110"/>
+        <source>Eject</source>
+        <translation>הוצא</translation>
     </message>
     <message>
-      <translation>דיסק ריק</translation>
-      <location filename="../diskPanes/overviewdiskpane.cpp" line="75" />
-      <source>Blank Disc</source>
+        <location filename="../diskPanes/overviewdiskpane.cpp" line="75"/>
+        <source>Blank Disc</source>
+        <translation>דיסק ריק</translation>
     </message>
     <message>
-      <translation>CD</translation>
-      <location filename="../diskPanes/overviewdiskpane.cpp" line="80" />
-      <source>CD</source>
+        <location filename="../diskPanes/overviewdiskpane.cpp" line="80"/>
+        <source>CD</source>
+        <translation>CD</translation>
     </message>
     <message>
-      <translation>CD-R</translation>
-      <location filename="../diskPanes/overviewdiskpane.cpp" line="83" />
-      <source>CD-R</source>
+        <location filename="../diskPanes/overviewdiskpane.cpp" line="83"/>
+        <source>CD-R</source>
+        <translation>CD-R</translation>
     </message>
     <message>
-      <translation>CD-RW</translation>
-      <location filename="../diskPanes/overviewdiskpane.cpp" line="86" />
-      <source>CD-RW</source>
+        <location filename="../diskPanes/overviewdiskpane.cpp" line="86"/>
+        <source>CD-RW</source>
+        <translation>CD-RW</translation>
     </message>
     <message>
-      <translation>DVD</translation>
-      <location filename="../diskPanes/overviewdiskpane.cpp" line="89" />
-      <source>DVD</source>
+        <location filename="../diskPanes/overviewdiskpane.cpp" line="89"/>
+        <source>DVD</source>
+        <translation>DVD</translation>
     </message>
     <message>
-      <translation>DVD-R</translation>
-      <location filename="../diskPanes/overviewdiskpane.cpp" line="92" />
-      <source>DVD-R</source>
+        <location filename="../diskPanes/overviewdiskpane.cpp" line="92"/>
+        <source>DVD-R</source>
+        <translation>DVD-R</translation>
     </message>
     <message>
-      <translation>DVD-RW</translation>
-      <location filename="../diskPanes/overviewdiskpane.cpp" line="95" />
-      <source>DVD-RW</source>
+        <location filename="../diskPanes/overviewdiskpane.cpp" line="95"/>
+        <source>DVD-RW</source>
+        <translation>DVD-RW</translation>
     </message>
     <message>
-      <translation>DVD-RAM</translation>
-      <location filename="../diskPanes/overviewdiskpane.cpp" line="98" />
-      <source>DVD-RAM</source>
+        <location filename="../diskPanes/overviewdiskpane.cpp" line="98"/>
+        <source>DVD-RAM</source>
+        <translation>DVD-RAM</translation>
     </message>
     <message>
-      <translation>DVD+R</translation>
-      <location filename="../diskPanes/overviewdiskpane.cpp" line="101" />
-      <source>DVD+R</source>
+        <location filename="../diskPanes/overviewdiskpane.cpp" line="101"/>
+        <source>DVD+R</source>
+        <translation>DVD+R</translation>
     </message>
     <message>
-      <translation>DVD+RW</translation>
-      <location filename="../diskPanes/overviewdiskpane.cpp" line="104" />
-      <source>DVD+RW</source>
+        <location filename="../diskPanes/overviewdiskpane.cpp" line="104"/>
+        <source>DVD+RW</source>
+        <translation>DVD+RW</translation>
     </message>
     <message>
-      <translation>DVD+R שכבה כפולה</translation>
-      <location filename="../diskPanes/overviewdiskpane.cpp" line="107" />
-      <source>DVD+R Dual Layer</source>
+        <location filename="../diskPanes/overviewdiskpane.cpp" line="107"/>
+        <source>DVD+R Dual Layer</source>
+        <translation>DVD+R שכבה כפולה</translation>
     </message>
     <message>
-      <translation>DVD+RW שכבה כפולה</translation>
-      <location filename="../diskPanes/overviewdiskpane.cpp" line="110" />
-      <source>DVD+RW Dual Layer</source>
+        <location filename="../diskPanes/overviewdiskpane.cpp" line="110"/>
+        <source>DVD+RW Dual Layer</source>
+        <translation>DVD+RW שכבה כפולה</translation>
     </message>
     <message>
-      <translation>BD</translation>
-      <location filename="../diskPanes/overviewdiskpane.cpp" line="113" />
-      <source>BD</source>
+        <location filename="../diskPanes/overviewdiskpane.cpp" line="113"/>
+        <source>BD</source>
+        <translation>BD</translation>
     </message>
     <message>
-      <translation>BD-R</translation>
-      <location filename="../diskPanes/overviewdiskpane.cpp" line="116" />
-      <source>BD-R</source>
+        <location filename="../diskPanes/overviewdiskpane.cpp" line="116"/>
+        <source>BD-R</source>
+        <translation>BD-R</translation>
     </message>
     <message>
-      <translation>BD-RE</translation>
-      <location filename="../diskPanes/overviewdiskpane.cpp" line="119" />
-      <source>BD-RE</source>
+        <location filename="../diskPanes/overviewdiskpane.cpp" line="119"/>
+        <source>BD-RE</source>
+        <translation>BD-RE</translation>
     </message>
     <message>
-      <translation>HD-DVD</translation>
-      <location filename="../diskPanes/overviewdiskpane.cpp" line="122" />
-      <source>HD-DVD</source>
+        <location filename="../diskPanes/overviewdiskpane.cpp" line="122"/>
+        <source>HD-DVD</source>
+        <translation>HD-DVD</translation>
     </message>
     <message>
-      <translation>HD-DVD-R</translation>
-      <location filename="../diskPanes/overviewdiskpane.cpp" line="125" />
-      <source>HD-DVD-R</source>
+        <location filename="../diskPanes/overviewdiskpane.cpp" line="125"/>
+        <source>HD-DVD-R</source>
+        <translation>HD-DVD-R</translation>
     </message>
     <message>
-      <translation>HD-DVD-RW</translation>
-      <location filename="../diskPanes/overviewdiskpane.cpp" line="128" />
-      <source>HD-DVD-RW</source>
+        <location filename="../diskPanes/overviewdiskpane.cpp" line="128"/>
+        <source>HD-DVD-RW</source>
+        <translation>HD-DVD-RW</translation>
     </message>
     <message>
-      <translation>מגנטו-אופטי</translation>
-      <location filename="../diskPanes/overviewdiskpane.cpp" line="131" />
-      <source>Magneto Optical</source>
+        <location filename="../diskPanes/overviewdiskpane.cpp" line="131"/>
+        <source>Magneto Optical</source>
+        <translation>מגנטו-אופטי</translation>
     </message>
     <message>
-      <translation>לא הוכנס דיסק</translation>
-      <location filename="../diskPanes/overviewdiskpane.cpp" line="137" />
-      <source>No Disc Inserted</source>
+        <location filename="../diskPanes/overviewdiskpane.cpp" line="137"/>
+        <source>No Disc Inserted</source>
+        <translation>לא הוכנס דיסק</translation>
     </message>
-  </context>
-  <context>
+</context>
+<context>
     <name>main</name>
     <message>
-      <translation>כלי לשירות דיסקים</translation>
-      <location filename="../main.cpp" line="43" />
-      <location filename="../main.cpp" line="65" />
-      <source>Disk Utility</source>
+        <location filename="../main.cpp" line="37"/>
+        <location filename="../main.cpp" line="59"/>
+        <source>Disk Utility</source>
+        <translation>כלי לשירות דיסקים</translation>
     </message>
     <message>
-      <translation>הפעולה שצריך לבצע. פעולות זמינות:</translation>
-      <location filename="../main.cpp" line="68" />
-      <source>The operation to perform. Valid operations:</source>
+        <location filename="../main.cpp" line="62"/>
+        <source>The operation to perform. Valid operations:</source>
+        <translation>הפעולה שצריך לבצע. פעולות זמינות:</translation>
     </message>
     <message>
-      <translation>ההתקן לביצוע הפעולה עליו</translation>
-      <location filename="../main.cpp" line="69" />
-      <source>The device to perform the operation on</source>
+        <location filename="../main.cpp" line="63"/>
+        <source>The device to perform the operation on</source>
+        <translation>ההתקן לביצוע הפעולה עליו</translation>
     </message>
     <message>
-      <translation>פעולה לא חוקית %1</translation>
-      <location filename="../main.cpp" line="81" />
-      <source>invalid operation %1</source>
+        <location filename="../main.cpp" line="75"/>
+        <source>invalid operation %1</source>
+        <translation>פעולה לא חוקית %1</translation>
     </message>
     <message>
-      <translation>שימוש: %1 [הגדרות] [התקן]</translation>
-      <location filename="../main.cpp" line="82" />
-      <location filename="../main.cpp" line="90" />
-      <location filename="../main.cpp" line="98" />
-      <location filename="../main.cpp" line="111" />
-      <source>Usage: %1 [options] [operation device].</source>
+        <location filename="../main.cpp" line="76"/>
+        <location filename="../main.cpp" line="84"/>
+        <location filename="../main.cpp" line="92"/>
+        <location filename="../main.cpp" line="105"/>
+        <source>Usage: %1 [options] [operation device].</source>
+        <translation>שימוש: %1 [הגדרות] [התקן]</translation>
     </message>
     <message>
-      <translation>%1 -h למידע נוסף.</translation>
-      <location filename="../main.cpp" line="83" />
-      <location filename="../main.cpp" line="91" />
-      <location filename="../main.cpp" line="99" />
-      <location filename="../main.cpp" line="112" />
-      <source>%1 -h for more information.</source>
+        <location filename="../main.cpp" line="77"/>
+        <location filename="../main.cpp" line="85"/>
+        <location filename="../main.cpp" line="93"/>
+        <location filename="../main.cpp" line="106"/>
+        <source>%1 -h for more information.</source>
+        <translation>%1 -h למידע נוסף.</translation>
     </message>
     <message>
-      <translation>התקן חסר</translation>
-      <location filename="../main.cpp" line="89" />
-      <source>missing device</source>
+        <location filename="../main.cpp" line="83"/>
+        <source>missing device</source>
+        <translation>התקן חסר</translation>
     </message>
     <message>
-      <translation>יותר מדי ארגומנטים</translation>
-      <location filename="../main.cpp" line="97" />
-      <source>too many arguments</source>
+        <location filename="../main.cpp" line="91"/>
+        <source>too many arguments</source>
+        <translation>יותר מדי ארגומנטים</translation>
     </message>
     <message>
-      <translation>התקן לא חוקי</translation>
-      <location filename="../main.cpp" line="110" />
-      <source>invalid device</source>
+        <location filename="../main.cpp" line="104"/>
+        <source>invalid device</source>
+        <translation>התקן לא חוקי</translation>
     </message>
-  </context>
+</context>
 </TS>
