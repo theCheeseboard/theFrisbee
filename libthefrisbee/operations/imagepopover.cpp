@@ -22,6 +22,8 @@
 
 #include <DriveObjects/blockinterface.h>
 #include <DriveObjects/diskobject.h>
+#include "jobs/imageblockjob.h"
+#include <tjobmanager.h>
 #include <QFileDialog>
 
 #include <frisbeeexception.h>
@@ -47,39 +49,20 @@ ImagePopover::~ImagePopover() {
 }
 
 QCoro::Task<> ImagePopover::on_imageButton_clicked() {
-    QWidget* parent = this->window();
-    QString fileName = ui->outputFileBox->text();
-    DiskObject* disk = d->disk;
+    auto* job = new ImageBlockJob(d->disk);
 
-    try {
-        auto ioDevice = co_await d->disk->interface<BlockInterface>()->open(BlockInterface::Read, {});
-        QFile file(fileName);
-        file.open(QFile::WriteOnly);
+    tJobManager::trackJob(job);
+    emit done();
 
-        quint64 number = 0;
-        while (number < disk->interface<BlockInterface>()->size()) {
-            QByteArray buf = ioDevice->read(2048);
-            file.write(buf);
-            number += buf.length();
-        }
-
-        file.close();
-        ioDevice->close();
-
-        tToast* toast = new tToast();
-        toast->setTitle(tr("Disk Imaged"));
-        toast->setText(tr("The disk image has been created"));
-        connect(toast, &tToast::dismissed, toast, &tToast::deleteLater);
-        toast->show(parent);
-    } catch (FrisbeeException& ex) {
-        tToast* toast = new tToast();
-        toast->setTitle(tr("Couldn't image disk"));
-        toast->setText(ex.response());
-        connect(toast, &tToast::dismissed, toast, &tToast::deleteLater);
-        toast->show(parent);
+    // Restore a file
+    auto* file = new QFile(ui->outputFileBox->text());
+    if (!file->open(QFile::WriteOnly)) {
+        // Bail
+        job->cancel();
+        co_return;
     }
 
-    emit done();
+    job->startImage(file);
 }
 
 void ImagePopover::on_titleLabel_backButtonClicked() {

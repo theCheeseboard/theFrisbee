@@ -282,20 +282,76 @@
     </message>
 </context>
 <context>
-    <name>ImagePopover</name>
+    <name>ImageBlockJob</name>
     <message>
-        <location filename="../operations/imagepopover.cpp" line="70"/>
-        <source>Disk Imaged</source>
+        <location filename="../jobs/imageblockjob.cpp" line="32"/>
+        <source>Waiting for disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/imagepopover.cpp" line="71"/>
-        <source>The disk image has been created</source>
+        <location filename="../jobs/imageblockjob.cpp" line="47"/>
+        <source>Waiting for other jobs to finish</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/imagepopover.cpp" line="76"/>
-        <source>Couldn&apos;t image disk</source>
+        <location filename="../jobs/imageblockjob.cpp" line="116"/>
+        <source>Disk imaged successfully</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../jobs/imageblockjob.cpp" line="123"/>
+        <source>Imaged Disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../jobs/imageblockjob.cpp" line="124"/>
+        <source>A disk image of %1 has been created.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../jobs/imageblockjob.cpp" line="131"/>
+        <source>Couldn&apos;t open the destination device for reading</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../jobs/imageblockjob.cpp" line="77"/>
+        <location filename="../jobs/imageblockjob.cpp" line="137"/>
+        <source>Couldn&apos;t Image Disc</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../jobs/imageblockjob.cpp" line="71"/>
+        <source>Not enough space to create image file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../jobs/imageblockjob.cpp" line="78"/>
+        <location filename="../jobs/imageblockjob.cpp" line="138"/>
+        <source>Unable to create a disk image of %1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../jobs/imageblockjob.cpp" line="101"/>
+        <source>Imaging %1
+%2 of %3 copied</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../jobs/imageblockjob.cpp" line="152"/>
+        <source>Failed to image</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ImageBlockJobProgress</name>
+    <message>
+        <location filename="../jobs/progress/imageblockjobprogress.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../jobs/progress/imageblockjobprogress.cpp" line="19"/>
+        <source>Image %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -552,7 +608,7 @@
     </message>
     <message>
         <location filename="../operations/restoreopticalpopover.cpp" line="102"/>
-        <source>Unable to restore same media</source>
+        <source>Unable to restore to self</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

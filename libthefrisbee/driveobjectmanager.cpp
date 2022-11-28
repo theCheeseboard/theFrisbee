@@ -40,6 +40,9 @@
 struct DriveObjectManagerPrivate {
         QMap<QDBusObjectPath, DiskObject*> objects;
         QMap<QDBusObjectPath, DriveInterface*> drives;
+
+        QList<DiskObject*> rootDisks;
+        QList<DiskObject*> filesystemDisks;
 };
 
 DriveObjectManager::DriveObjectManager(QObject* parent) :
@@ -57,6 +60,8 @@ DriveObjectManager* DriveObjectManager::instance() {
 }
 
 QList<DiskObject*> DriveObjectManager::rootDisks() {
+    if (!instance()->d->rootDisks.isEmpty()) return instance()->d->rootDisks;
+
     QList<DiskObject*> disks = instance()->d->objects.values();
     QList<DiskObject*> notRootDisks;
 
@@ -78,10 +83,13 @@ QList<DiskObject*> DriveObjectManager::rootDisks() {
         disks.removeOne(disk);
     }
 
+    instance()->d->rootDisks = disks;
     return disks;
 }
 
 QList<DiskObject*> DriveObjectManager::filesystemDisks() {
+    if (!instance()->d->filesystemDisks.isEmpty()) return instance()->d->filesystemDisks;
+
     QList<DiskObject*> disks = instance()->d->objects.values();
     QSet<DiskObject*> notFilesystemDisks;
 
@@ -100,6 +108,7 @@ QList<DiskObject*> DriveObjectManager::filesystemDisks() {
         disks.removeOne(disk);
     }
 
+    instance()->d->filesystemDisks = disks;
     return disks;
 }
 
@@ -179,6 +188,9 @@ QCoro::Task<QDBusObjectPath> DriveObjectManager::loopSetup(QDBusUnixFileDescript
 }
 
 void DriveObjectManager::updateInterfaces() {
+    d->rootDisks.clear();
+    d->filesystemDisks.clear();
+
     QDBusMessage managedObjects = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", "/org/freedesktop/UDisks2", "org.freedesktop.DBus.ObjectManager", "GetManagedObjects");
     QMap<QDBusObjectPath, QMap<QString, QVariantMap>> reply;
     QDBusArgument arg = QDBusConnection::systemBus().call(managedObjects).arguments().first().value<QDBusArgument>();

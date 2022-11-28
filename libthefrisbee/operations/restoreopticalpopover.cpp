@@ -99,7 +99,7 @@ void RestoreOpticalPopover::on_restoreButton_clicked() {
     DiskObject* disk = static_cast<DiskObject*>(ui->diskSelection->currentIndex().internalPointer());
 
     if (ui->stackedWidget->currentWidget() == ui->restoreDiskPage && disk == d->disk) {
-        QMessageBox::warning(this, tr("Unable to restore same media"), tr("A medium cannot be restored to itself. Select another medium to restore."));
+        QMessageBox::warning(this, tr("Unable to restore to self"), tr("A medium cannot be restored to itself. Select another medium to restore."));
         return;
     }
 

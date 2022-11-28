@@ -22,13 +22,15 @@ set(SOURCES
         driveobjectmanager.cpp
         jobs/editpartitionjob.cpp
         jobs/erasecdrwjob.cpp
-        jobs/progress/editpartitionjobprogress.cpp
-        jobs/progress/erasecdrwjobprogress.cpp
-        jobs/progress/restorediskjobprogress.cpp
-        jobs/progress/restoreopticaljobprogress.cpp
-        jobs/restorediskjob.cpp
-        jobs/restorejob.cpp
-        jobs/restoreopticaljob.cpp
+        jobs/progress/editpartitionjobprogress.cpp jobs/progress/editpartitionjobprogress.ui
+        jobs/progress/erasecdrwjobprogress.cpp jobs/progress/erasecdrwjobprogress.ui
+        jobs/progress/restorediskjobprogress.cpp jobs/progress/restorediskjobprogress.ui
+        jobs/progress/restoreopticaljobprogress.cpp jobs/progress/restoreopticaljobprogress.ui
+        jobs/progress/imageblockjobprogress.h jobs/progress/imageblockjobprogress.cpp jobs/progress/imageblockjobprogress.ui
+        jobs/restorediskjob.h jobs/restorediskjob.cpp
+        jobs/restorejob.h jobs/restorejob.cpp
+        jobs/restoreopticaljob.h jobs/restoreopticaljob.cpp
+        jobs/imageblockjob.h jobs/imageblockjob.cpp
         operations/eraseopticalpopover.cpp
         operations/erasepartitionpopover.cpp
         operations/erasepartitiontablepopover.cpp
@@ -44,7 +46,7 @@ file(GLOB DRIVEOBJECT_HEADERS DriveObjects/*.h)
 
 set(HEADERS ${ROOT_HEADERS} ${DRIVEOBJECT_HEADERS})
 
-add_library(libthefrisbee SHARED ${SOURCES})
+add_library(libthefrisbee SHARED ${SOURCES} ${HEADERS})
 set_target_properties(libthefrisbee PROPERTIES
         CNTP_DATA_SUBDIR thefrisbee/libthefrisbee)
 cntp_init(libthefrisbee 20)
