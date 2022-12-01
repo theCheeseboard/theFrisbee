@@ -20,7 +20,7 @@
 #ifndef RESTOREJOB_H
 #define RESTOREJOB_H
 
-#include <Task>
+#include <QCoroTask>
 #include <tjob.h>
 
 class RestoreJob : public tJob {

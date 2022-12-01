@@ -21,7 +21,7 @@
 #define ERASECDRWJOB_H
 
 #include <tjob.h>
-#include <Task>
+#include <QCoroTask>
 
 struct EraseCdRwJobPrivate;
 class DiskObject;

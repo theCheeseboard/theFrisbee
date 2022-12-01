@@ -18,6 +18,13 @@
  *
  * *************************************/
 #include "diskinterface.h"
+#include "DriveObjects/atadriveinterface.h"
+#include "DriveObjects/blockinterface.h"
+#include "DriveObjects/encryptedinterface.h"
+#include "DriveObjects/filesysteminterface.h"
+#include "DriveObjects/loopinterface.h"
+#include "DriveObjects/partitioninterface.h"
+#include "DriveObjects/partitiontableinterface.h"
 
 #include <QDBusConnection>
 
@@ -35,6 +42,18 @@ DiskInterface::DiskInterface(QDBusObjectPath path, QString interface, QObject* p
 
 DiskInterface::~DiskInterface() {
     delete d;
+}
+
+DiskInterface *DiskInterface::makeDiskInterface(QString interface, QDBusObjectPath path)
+{
+    if (interface == BlockInterface::interfaceName()) return new BlockInterface(path);
+    if (interface == FilesystemInterface::interfaceName()) return new FilesystemInterface(path);
+    if (interface == PartitionTableInterface::interfaceName()) return new PartitionTableInterface(path);
+    if (interface == PartitionInterface::interfaceName()) return new PartitionInterface(path);
+    if (interface == LoopInterface::interfaceName()) return new LoopInterface(path);
+    if (interface == EncryptedInterface::interfaceName()) return new EncryptedInterface(path);
+    if (interface == AtaDriveInterface::interfaceName()) return new AtaDriveInterface(path);
+    return nullptr;
 }
 
 void DiskInterface::updateProperties(QVariantMap properties) {

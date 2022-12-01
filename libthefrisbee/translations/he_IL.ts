@@ -276,67 +276,86 @@
 <context>
     <name>EraseOpticalPopover</name>
     <message>
+        <location filename="../operations/eraseopticalpopover.ui" line="54"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="149"/>
         <source>Erase Disc</source>
-        <translation type="vanished">מחק דיסק</translation>
+        <translation>מחק דיסק</translation>
     </message>
     <message>
+        <location filename="../operations/eraseopticalpopover.ui" line="69"/>
         <source>ERASE OPTIONS</source>
-        <translation type="vanished">הגדרות מחיקה</translation>
+        <translation>הגדרות מחיקה</translation>
     </message>
     <message>
+        <location filename="../operations/eraseopticalpopover.ui" line="76"/>
         <source>Erase Type</source>
-        <translation type="vanished">סוג מחיקה</translation>
+        <translation>סוג מחיקה</translation>
     </message>
     <message>
+        <location filename="../operations/eraseopticalpopover.ui" line="90"/>
         <source>Quick</source>
-        <translation type="vanished">מהיר</translation>
+        <translation>מהיר</translation>
     </message>
     <message>
+        <location filename="../operations/eraseopticalpopover.ui" line="95"/>
         <source>Full</source>
-        <translation type="vanished">מלא</translation>
+        <translation>מלא</translation>
     </message>
     <message>
+        <location filename="../operations/eraseopticalpopover.ui" line="103"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="181"/>
         <source>Erase this disc</source>
-        <translation type="vanished">מחק דיסק זה</translation>
+        <translation>מחק דיסק זה</translation>
     </message>
     <message>
+        <location filename="../operations/eraseopticalpopover.ui" line="164"/>
         <source>THIS IS IT</source>
-        <translation type="vanished">אין דרך חזרה</translation>
+        <translation>אין דרך חזרה</translation>
     </message>
     <message>
+        <location filename="../operations/eraseopticalpopover.ui" line="171"/>
         <source>There&apos;s no going back after this. Once the disc in the drive is erased, all the data on it will be gone forever.</source>
-        <translation type="vanished">אי אפשר לחזור חזרה מזה. אחרי שהדיסק נמחק, כל המידע בתוכו נעלם לתמיד.</translation>
+        <translation>אי אפשר לחזור חזרה מזה. אחרי שהדיסק נמחק, כל המידע בתוכו נעלם לתמיד.</translation>
     </message>
 </context>
 <context>
     <name>ErasePartitionPopover</name>
     <message>
+        <location filename="../operations/erasepartitionpopover.ui" line="57"/>
+        <location filename="../operations/erasepartitionpopover.ui" line="152"/>
         <source>Erase Partition</source>
-        <translation type="vanished">מחק מחיצה</translation>
+        <translation>מחק מחיצה</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitionpopover.ui" line="67"/>
+        <location filename="../operations/erasepartitionpopover.ui" line="184"/>
         <source>Erase this partition</source>
-        <translation type="vanished">מחק מחיצה זו</translation>
+        <translation>מחק מחיצה זו</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitionpopover.ui" line="78"/>
         <source>Filesystem</source>
-        <translation type="vanished">מערכת קבצים</translation>
+        <translation>מערכת קבצים</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitionpopover.ui" line="90"/>
         <source>ERASE OPTIONS</source>
-        <translation type="vanished">הגדרות מחיקה</translation>
+        <translation>הגדרות מחיקה</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitionpopover.ui" line="107"/>
         <source>Partition Name</source>
-        <translation type="vanished">שם מחיצה</translation>
+        <translation>שם מחיצה</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitionpopover.ui" line="167"/>
         <source>THIS IS IT</source>
-        <translation type="vanished">אין דרך חזרה</translation>
+        <translation>אין דרך חזרה</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitionpopover.ui" line="174"/>
         <source>There&apos;s no going back after this. Once the partition is erased, all the data on the partition is gone forever.</source>
-        <translation type="vanished">אין דרך חזרה אחרי זה. אחרי שהמחיצה נמחקת, כל המידע בתוכה נעלם לתמיד.</translation>
+        <translation>אין דרך חזרה אחרי זה. אחרי שהמחיצה נמחקת, כל המידע בתוכה נעלם לתמיד.</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitionpopover.cpp" line="50"/>
@@ -347,40 +366,211 @@
 <context>
     <name>ErasePartitionTablePopover</name>
     <message>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="57"/>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="157"/>
         <source>Erase Disk</source>
-        <translation type="vanished">מחק דיסק</translation>
+        <translation>מחק דיסק</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="72"/>
         <source>ERASE OPTIONS</source>
-        <translation type="vanished">הגדרות מחיקה</translation>
+        <translation>הגדרות מחיקה</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="79"/>
         <source>Partition Table</source>
-        <translation type="vanished">טבלת מחיצות</translation>
+        <translation>טבלת מחיצות</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="93"/>
         <source>GPT</source>
-        <translation type="vanished">GPT</translation>
+        <translation>GPT</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="98"/>
         <source>DOS/MBR</source>
-        <translation type="vanished">DOS/MBR</translation>
+        <translation>DOS/MBR</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="103"/>
         <source>Erase Only</source>
-        <translation type="vanished">רק מחק</translation>
+        <translation>רק מחק</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="111"/>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="189"/>
         <source>Erase this disk</source>
-        <translation type="vanished">מחק דיסק זה</translation>
+        <translation>מחק דיסק זה</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="172"/>
         <source>THIS IS IT</source>
-        <translation type="vanished">אין דרך חזרה</translation>
+        <translation>אין דרך חזרה</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="179"/>
         <source>There&apos;s no going back after this. Once the disk is erased, all the data on the disk is gone forever.</source>
-        <translation type="vanished">אי אפשר לחזור חזרה מזה. אחרי שהדיסק נמחק, כל המידע בתוכו נעלם לתמיד.</translation>
+        <translation>אי אפשר לחזור חזרה מזה. אחרי שהדיסק נמחק, כל המידע בתוכו נעלם לתמיד.</translation>
+    </message>
+</context>
+<context>
+    <name>FormattedSmartAttribute</name>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="30"/>
+        <source>Read Error Rate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="31"/>
+        <source>Spin Up Time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="32"/>
+        <source>Start/Stop Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="33"/>
+        <source>Reallocated Sector Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="34"/>
+        <source>Seek Error Rate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="35"/>
+        <source>Power On Hours</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="36"/>
+        <source>Spin Retry Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="37"/>
+        <source>Power Cycle Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="38"/>
+        <source>Reported Uncorrectable Errors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="39"/>
+        <source>High Fly Writes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="40"/>
+        <source>Airflow Temperature</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="41"/>
+        <source>G-Sense Error Rate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="42"/>
+        <source>Power Off Retract Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="43"/>
+        <source>Load Cycle Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="44"/>
+        <source>Temperature</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="45"/>
+        <source>Hardware ECC Recovered</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="46"/>
+        <source>Current Pending Sector Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="47"/>
+        <source>Uncorrectable Sector Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="48"/>
+        <source>UDMA CRC Error Rate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="49"/>
+        <source>Head Flying Hours</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="50"/>
+        <source>Total LBAs Written</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="51"/>
+        <source>Total LBAs Read</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="52"/>
+        <source>Throughput Performace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="53"/>
+        <source>Reallocation Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../structures/formattedsmartattribute.cpp" line="68"/>
+        <source>%n minutes</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../structures/formattedsmartattribute.cpp" line="70"/>
+        <source>%n sectors</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../structures/formattedsmartattribute.cpp" line="76"/>
+        <source>%n °C</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../structures/formattedsmartattribute.cpp" line="79"/>
+        <source>%n °F</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="84"/>
+        <source>N/A</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -460,24 +650,29 @@
 <context>
     <name>ImagePopover</name>
     <message>
+        <location filename="../operations/imagepopover.ui" line="35"/>
         <source>Image Disk</source>
-        <translation type="vanished">צור תמונה</translation>
+        <translation>צור תמונה</translation>
     </message>
     <message>
+        <location filename="../operations/imagepopover.ui" line="45"/>
         <source>Output File</source>
-        <translation type="vanished">קובץ פלט</translation>
+        <translation>קובץ פלט</translation>
     </message>
     <message>
+        <location filename="../operations/imagepopover.ui" line="55"/>
         <source>Browse...</source>
-        <translation type="vanished">עיון...</translation>
+        <translation>עיון...</translation>
     </message>
     <message>
+        <location filename="../operations/imagepopover.ui" line="67"/>
         <source>IMAGING OPTIONS</source>
-        <translation type="vanished">הגדרות תמונה</translation>
+        <translation>הגדרות תמונה</translation>
     </message>
     <message>
+        <location filename="../operations/imagepopover.ui" line="74"/>
         <source>Image this disk</source>
-        <translation type="vanished">צור תמונה של דיסק זה</translation>
+        <translation>צור תמונה של דיסק זה</translation>
     </message>
     <message>
         <source>Disk Imaged</source>
@@ -581,56 +776,68 @@
 <context>
     <name>PartitionPopover</name>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="35"/>
         <source>Edit Partitions</source>
-        <translation type="vanished">ערוך מחיצות</translation>
+        <translation>ערוך מחיצות</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="102"/>
         <source>ACTIONS</source>
-        <translation type="vanished">פעולות</translation>
+        <translation>פעולות</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="109"/>
         <source>Select a partition to resize or erase it. To add a new partition, click in some empty space.
 
 We won&apos;t modify anything until you apply your changes.</source>
-        <translation type="vanished">בחר במחיצה כדי לשנות גודלה או למחוק אותה. כדי להוסיף מחיצה, הקליק על מקום ריק.
+        <translation>בחר במחיצה כדי לשנות גודלה או למחוק אותה. כדי להוסיף מחיצה, הקליק על מקום ריק.
 
 אנו לא נשנה כלום עד שתחלו את השינויים שלכם.</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="150"/>
         <source>NEW PARTITION</source>
-        <translation type="vanished">מחיצה חדשה</translation>
+        <translation>מחיצה חדשה</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="157"/>
         <source>Add New Partition</source>
-        <translation type="vanished">הוסף מחיצה חדשה</translation>
+        <translation>הוסף מחיצה חדשה</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="199"/>
         <source>Delete Partition</source>
-        <translation type="vanished">מחק מחיצה</translation>
+        <translation>מחק מחיצה</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="206"/>
         <source>Name</source>
-        <translation type="vanished">שם</translation>
+        <translation>שם</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="219"/>
         <source>EDIT PARTITION</source>
-        <translation type="vanished">ערוך מחיצה</translation>
+        <translation>ערוך מחיצה</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="229"/>
         <source>Type</source>
-        <translation type="vanished">סוג</translation>
+        <translation>סוג</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="259"/>
         <source>Apply Changes</source>
-        <translation type="vanished">החל שינויים</translation>
+        <translation>החל שינויים</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="294"/>
         <source>APPLY CHANGES</source>
-        <translation type="vanished">החל שינויים</translation>
+        <translation>החל שינויים</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="311"/>
         <source>Apply Changes to Disk</source>
-        <translation type="vanished">החל שינויים בדיסק</translation>
+        <translation>החל שינויים בדיסק</translation>
     </message>
     <message>
         <location filename="../operations/partitionpopover.cpp" line="68"/>
@@ -788,30 +995,38 @@ We won&apos;t modify anything until you apply your changes.</source>
 <context>
     <name>RestoreOpticalPopover</name>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="72"/>
         <source>RESTORE OPTIONS</source>
-        <translation type="vanished">אפשרויות שחזור</translation>
+        <translation>אפשרויות שחזור</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="84"/>
         <source>Restore Image File</source>
-        <translation type="vanished">שחזר קובץ תמונה</translation>
+        <translation>שחזר קובץ תמונה</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="100"/>
         <source>Copy Media</source>
-        <translation type="vanished">העתק מדיה</translation>
+        <translation>העתק מדיה</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="155"/>
         <source>Input File</source>
-        <translation type="vanished">קובץ קלט</translation>
+        <translation>קובץ קלט</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="165"/>
         <source>Browse...</source>
-        <translation type="vanished">עיון...</translation>
+        <translation>עיון...</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="217"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="362"/>
         <source>Restore this image</source>
-        <translation type="vanished">שחזר תמונה זו</translation>
+        <translation>שחזר תמונה זו</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="250"/>
         <location filename="../operations/restoreopticalpopover.cpp" line="59"/>
         <source>Restore Disc</source>
         <translation>שחזר דיסק</translation>
@@ -822,32 +1037,38 @@ We won&apos;t modify anything until you apply your changes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="265"/>
         <source>DISC NOT BLANK</source>
-        <translation type="vanished">דיסק לא ריק</translation>
+        <translation>דיסק לא ריק</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="272"/>
         <source>The disc in the drive is not blank. To restore an image to the disc, the disc will need to be erased.
 
 Once the disc in the drive is erased, all the data on it will be gone forever.</source>
-        <translation type="vanished">הדיסק בכונן לא ריק. כדי לשחזר תמונה לדיסק, הדיסק צריך להיות ריק.
+        <translation>הדיסק בכונן לא ריק. כדי לשחזר תמונה לדיסק, הדיסק צריך להיות ריק.
 אחרי שהדיסק נמחק, כל המידע בתוכו נעלם לתמיד.</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="284"/>
         <source>Erase and Restore</source>
-        <translation type="vanished">מחק ושחזר</translation>
+        <translation>מחק ושחזר</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="330"/>
         <location filename="../operations/restoreopticalpopover.cpp" line="61"/>
         <source>Restore to Block</source>
         <translation>שחזר לבלוק</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="345"/>
         <source>THIS IS IT</source>
-        <translation type="vanished">אין דרך חזרה</translation>
+        <translation>אין דרך חזרה</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="352"/>
         <source>Restoring to this block will erase it. There&apos;s no going back; once the block is erased, all the data on the block is gone forever.</source>
-        <translation type="vanished">שיחזור בלוק זה ימחק אותו. אין דרך חזרה; כאשר הבלוק נמחק, כל המידע בתוכו נעלם לתמיד.</translation>
+        <translation>שיחזור בלוק זה ימחק אותו. אין דרך חזרה; כאשר הבלוק נמחק, כל המידע בתוכו נעלם לתמיד.</translation>
     </message>
     <message>
         <source>Unable to restore same media</source>

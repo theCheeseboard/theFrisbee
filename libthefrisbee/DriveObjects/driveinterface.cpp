@@ -18,6 +18,7 @@
  *
  * *************************************/
 #include "driveinterface.h"
+#include "atadriveinterface.h"
 
 #include <QCoroDBusPendingCall>
 #include <QDBusConnection>
@@ -28,6 +29,8 @@
 struct DriveInterfacePrivate {
         QDBusObjectPath path;
         QVariantMap properties;
+
+        QMap<QString, DiskInterface*> interfaces;
 };
 
 DriveInterface::DriveInterface(QDBusObjectPath path, QObject* parent) :
@@ -98,9 +101,51 @@ bool DriveInterface::isRemovable() {
     return d->properties.value("Removable").toBool();
 }
 
+bool DriveInterface::isInterfaceAvailable(DiskInterface::Interfaces interface) {
+    switch (interface) {
+        case DiskInterface::AtaDrive:
+            return d->interfaces.contains(AtaDriveInterface::interfaceName());
+        default:
+            return false;
+    }
+}
+
 void DriveInterface::updateProperties(QVariantMap properties) {
     for (QString property : properties.keys()) {
         d->properties.insert(property, properties.value(property));
+    }
+}
+
+void DriveInterface::updateInterfaces(QMap<QString, QVariantMap> interfaces) {
+    QStringList interfaceNames = {
+        AtaDriveInterface::interfaceName()};
+
+    for (QString interface : interfaceNames) {
+        if (interfaces.contains(interface)) {
+            // Add it to the list of interfaces
+
+            DiskInterface* diskInterface;
+            if (d->interfaces.contains(interface)) {
+                diskInterface = d->interfaces.value(interface);
+            } else {
+                diskInterface = DiskInterface::makeDiskInterface(interface, d->path);
+                d->interfaces.insert(interface, diskInterface);
+                QTimer::singleShot(0, [diskInterface, this] {
+                    emit interfaceAdded(diskInterface->interfaceType());
+                });
+            }
+
+            diskInterface->updateProperties(interfaces.value(interface));
+        } else {
+            // Remove it from the list of interfaces
+            if (d->interfaces.contains(interface)) {
+                DiskInterface* diskInterface = d->interfaces.take(interface);
+                QTimer::singleShot(0, [diskInterface, this] {
+                    emit interfaceRemoved(diskInterface->interfaceType());
+                });
+                diskInterface->deleteLater();
+            }
+        }
     }
 }
 
@@ -145,4 +190,8 @@ DriveInterface::MediaFormat DriveInterface::getMediaFormat(QString format) {
     };
 
     return formats.value(format, Unknown);
+}
+
+template<> AtaDriveInterface* DriveInterface::interface() const {
+    return static_cast<AtaDriveInterface*>(d->interfaces.value(AtaDriveInterface::interfaceName(), nullptr));
 }

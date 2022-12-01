@@ -24,7 +24,7 @@
 #include <QDBusObjectPath>
 #include <QDBusUnixFileDescriptor>
 #include <QObject>
-#include <Task>
+#include <QCoroTask>
 #include <tpromise.h>
 
 struct DriveObjectManagerPrivate;

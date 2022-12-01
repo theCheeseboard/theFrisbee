@@ -21,7 +21,7 @@
 #define IMAGEPOPOVER_H
 
 #include <QWidget>
-#include <Task>
+#include <QCoroTask>
 
 namespace Ui {
     class ImagePopover;

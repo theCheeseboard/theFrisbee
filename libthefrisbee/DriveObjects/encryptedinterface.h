@@ -21,7 +21,7 @@
 #define ENCRYPTEDINTERFACE_H
 
 #include "diskinterface.h"
-#include <Task>
+#include <QCoroTask>
 #include <tpromise.h>
 
 struct EncryptedInterfacePrivate;

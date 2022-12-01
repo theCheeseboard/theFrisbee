@@ -276,67 +276,86 @@
 <context>
     <name>EraseOpticalPopover</name>
     <message>
+        <location filename="../operations/eraseopticalpopover.ui" line="54"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="149"/>
         <source>Erase Disc</source>
-        <translation type="vanished">Xóa đĩa</translation>
+        <translation>Xóa đĩa</translation>
     </message>
     <message>
+        <location filename="../operations/eraseopticalpopover.ui" line="69"/>
         <source>ERASE OPTIONS</source>
-        <translation type="vanished">TÙY CHỌN XÓA</translation>
+        <translation>TÙY CHỌN XÓA</translation>
     </message>
     <message>
+        <location filename="../operations/eraseopticalpopover.ui" line="76"/>
         <source>Erase Type</source>
-        <translation type="vanished">Kiểu xóa</translation>
+        <translation>Kiểu xóa</translation>
     </message>
     <message>
+        <location filename="../operations/eraseopticalpopover.ui" line="90"/>
         <source>Quick</source>
-        <translation type="vanished">Nhanh</translation>
+        <translation>Nhanh</translation>
     </message>
     <message>
+        <location filename="../operations/eraseopticalpopover.ui" line="95"/>
         <source>Full</source>
-        <translation type="vanished">Hoàn toàn</translation>
+        <translation>Hoàn toàn</translation>
     </message>
     <message>
+        <location filename="../operations/eraseopticalpopover.ui" line="103"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="181"/>
         <source>Erase this disc</source>
-        <translation type="vanished">Xóa đĩa này</translation>
+        <translation>Xóa đĩa này</translation>
     </message>
     <message>
+        <location filename="../operations/eraseopticalpopover.ui" line="164"/>
         <source>THIS IS IT</source>
-        <translation type="vanished">SẴN SÀNG CHƯA?</translation>
+        <translation>SẴN SÀNG CHƯA?</translation>
     </message>
     <message>
+        <location filename="../operations/eraseopticalpopover.ui" line="171"/>
         <source>There&apos;s no going back after this. Once the disc in the drive is erased, all the data on it will be gone forever.</source>
-        <translation type="vanished">Bạn không thể quay lại sau điểm này. Sau khi đĩa trong ổ bị xóa, các dữ liệu trên nó sẽ bị mất vĩnh viễn.</translation>
+        <translation>Bạn không thể quay lại sau điểm này. Sau khi đĩa trong ổ bị xóa, các dữ liệu trên nó sẽ bị mất vĩnh viễn.</translation>
     </message>
 </context>
 <context>
     <name>ErasePartitionPopover</name>
     <message>
+        <location filename="../operations/erasepartitionpopover.ui" line="57"/>
+        <location filename="../operations/erasepartitionpopover.ui" line="152"/>
         <source>Erase Partition</source>
-        <translation type="vanished">Xóa phân vùng</translation>
+        <translation>Xóa phân vùng</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitionpopover.ui" line="67"/>
+        <location filename="../operations/erasepartitionpopover.ui" line="184"/>
         <source>Erase this partition</source>
-        <translation type="vanished">Xóa phân vùng này</translation>
+        <translation>Xóa phân vùng này</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitionpopover.ui" line="78"/>
         <source>Filesystem</source>
-        <translation type="vanished">Hệ thống tệp</translation>
+        <translation>Hệ thống tệp</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitionpopover.ui" line="90"/>
         <source>ERASE OPTIONS</source>
-        <translation type="vanished">TÙY CHỌN XÓA</translation>
+        <translation>TÙY CHỌN XÓA</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitionpopover.ui" line="107"/>
         <source>Partition Name</source>
-        <translation type="vanished">Tên phân vùng</translation>
+        <translation>Tên phân vùng</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitionpopover.ui" line="167"/>
         <source>THIS IS IT</source>
-        <translation type="vanished">SẴN SÀNG CHƯA?</translation>
+        <translation>SẴN SÀNG CHƯA?</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitionpopover.ui" line="174"/>
         <source>There&apos;s no going back after this. Once the partition is erased, all the data on the partition is gone forever.</source>
-        <translation type="vanished">Bạn không thể quay lại sau điểm này. Sau khi phân vùng bị xóa, các dữ liệu trên nó sẽ bị mất vĩnh viễn.</translation>
+        <translation>Bạn không thể quay lại sau điểm này. Sau khi phân vùng bị xóa, các dữ liệu trên nó sẽ bị mất vĩnh viễn.</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitionpopover.cpp" line="50"/>
@@ -347,40 +366,207 @@
 <context>
     <name>ErasePartitionTablePopover</name>
     <message>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="57"/>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="157"/>
         <source>Erase Disk</source>
-        <translation type="vanished">Xóa đĩa</translation>
+        <translation>Xóa đĩa</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="72"/>
         <source>ERASE OPTIONS</source>
-        <translation type="vanished">TÙY CHỌN XÓA</translation>
+        <translation>TÙY CHỌN XÓA</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="79"/>
         <source>Partition Table</source>
-        <translation type="vanished">Bảng phân vùng</translation>
+        <translation>Bảng phân vùng</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="93"/>
         <source>GPT</source>
-        <translation type="vanished">GPT</translation>
+        <translation>GPT</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="98"/>
         <source>DOS/MBR</source>
-        <translation type="vanished">DOS/MBR</translation>
+        <translation>DOS/MBR</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="103"/>
         <source>Erase Only</source>
-        <translation type="vanished">Chỉ xóa</translation>
+        <translation>Chỉ xóa</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="111"/>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="189"/>
         <source>Erase this disk</source>
-        <translation type="vanished">Xóa đĩa này</translation>
+        <translation>Xóa đĩa này</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="172"/>
         <source>THIS IS IT</source>
-        <translation type="vanished">SẴN SÀNG CHƯA?</translation>
+        <translation>SẴN SÀNG CHƯA?</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="179"/>
         <source>There&apos;s no going back after this. Once the disk is erased, all the data on the disk is gone forever.</source>
-        <translation type="vanished">Bạn không thể quay lại sau điểm này. Sau khi đĩa này bị xóa, các dữ liệu trên nó sẽ bị mất vĩnh viễn.</translation>
+        <translation>Bạn không thể quay lại sau điểm này. Sau khi đĩa này bị xóa, các dữ liệu trên nó sẽ bị mất vĩnh viễn.</translation>
+    </message>
+</context>
+<context>
+    <name>FormattedSmartAttribute</name>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="30"/>
+        <source>Read Error Rate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="31"/>
+        <source>Spin Up Time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="32"/>
+        <source>Start/Stop Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="33"/>
+        <source>Reallocated Sector Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="34"/>
+        <source>Seek Error Rate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="35"/>
+        <source>Power On Hours</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="36"/>
+        <source>Spin Retry Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="37"/>
+        <source>Power Cycle Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="38"/>
+        <source>Reported Uncorrectable Errors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="39"/>
+        <source>High Fly Writes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="40"/>
+        <source>Airflow Temperature</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="41"/>
+        <source>G-Sense Error Rate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="42"/>
+        <source>Power Off Retract Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="43"/>
+        <source>Load Cycle Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="44"/>
+        <source>Temperature</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="45"/>
+        <source>Hardware ECC Recovered</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="46"/>
+        <source>Current Pending Sector Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="47"/>
+        <source>Uncorrectable Sector Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="48"/>
+        <source>UDMA CRC Error Rate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="49"/>
+        <source>Head Flying Hours</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="50"/>
+        <source>Total LBAs Written</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="51"/>
+        <source>Total LBAs Read</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="52"/>
+        <source>Throughput Performace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="53"/>
+        <source>Reallocation Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../structures/formattedsmartattribute.cpp" line="68"/>
+        <source>%n minutes</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../structures/formattedsmartattribute.cpp" line="70"/>
+        <source>%n sectors</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../structures/formattedsmartattribute.cpp" line="76"/>
+        <source>%n °C</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../structures/formattedsmartattribute.cpp" line="79"/>
+        <source>%n °F</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="84"/>
+        <source>N/A</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -460,24 +646,29 @@
 <context>
     <name>ImagePopover</name>
     <message>
+        <location filename="../operations/imagepopover.ui" line="35"/>
         <source>Image Disk</source>
-        <translation type="vanished">Tạo ảnh đĩa</translation>
+        <translation>Tạo ảnh đĩa</translation>
     </message>
     <message>
+        <location filename="../operations/imagepopover.ui" line="45"/>
         <source>Output File</source>
-        <translation type="vanished">Tệp xuất ra</translation>
+        <translation>Tệp xuất ra</translation>
     </message>
     <message>
+        <location filename="../operations/imagepopover.ui" line="55"/>
         <source>Browse...</source>
-        <translation type="vanished">Duyệt...</translation>
+        <translation>Duyệt...</translation>
     </message>
     <message>
+        <location filename="../operations/imagepopover.ui" line="67"/>
         <source>IMAGING OPTIONS</source>
-        <translation type="vanished">TÙY CHỌN ẢNH ĐĨA</translation>
+        <translation>TÙY CHỌN ẢNH ĐĨA</translation>
     </message>
     <message>
+        <location filename="../operations/imagepopover.ui" line="74"/>
         <source>Image this disk</source>
-        <translation type="vanished">Tạo ảnh đĩa từ đĩa này</translation>
+        <translation>Tạo ảnh đĩa từ đĩa này</translation>
     </message>
     <message>
         <source>Disk Imaged</source>
@@ -581,56 +772,68 @@
 <context>
     <name>PartitionPopover</name>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="35"/>
         <source>Edit Partitions</source>
-        <translation type="vanished">Sửa phân vùng</translation>
+        <translation>Sửa phân vùng</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="102"/>
         <source>ACTIONS</source>
-        <translation type="vanished">HOẠT ĐỘNG</translation>
+        <translation>HOẠT ĐỘNG</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="109"/>
         <source>Select a partition to resize or erase it. To add a new partition, click in some empty space.
 
 We won&apos;t modify anything until you apply your changes.</source>
-        <translation type="vanished">Chọn một phân vùng để đổi khích thước hoặc xóa. Để tạo phân vùng mới, nhấn vào chỗ trống.
+        <translation>Chọn một phân vùng để đổi khích thước hoặc xóa. Để tạo phân vùng mới, nhấn vào chỗ trống.
 
 Chúng tôi sẽ không sửa đổi bất cứ điều gì cho đến khi bạn áp dụng thay đổi.</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="150"/>
         <source>NEW PARTITION</source>
-        <translation type="vanished">PHÂN VÙNG MỚI</translation>
+        <translation>PHÂN VÙNG MỚI</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="157"/>
         <source>Add New Partition</source>
-        <translation type="vanished">Thêm phân vùng mới</translation>
+        <translation>Thêm phân vùng mới</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="199"/>
         <source>Delete Partition</source>
-        <translation type="vanished">Xóa phân vùng</translation>
+        <translation>Xóa phân vùng</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="206"/>
         <source>Name</source>
-        <translation type="vanished">Tên</translation>
+        <translation>Tên</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="219"/>
         <source>EDIT PARTITION</source>
-        <translation type="vanished">SỬA PHÂN VÙNG</translation>
+        <translation>SỬA PHÂN VÙNG</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="229"/>
         <source>Type</source>
-        <translation type="vanished">Kiểu</translation>
+        <translation>Kiểu</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="259"/>
         <source>Apply Changes</source>
-        <translation type="vanished">Áp dụng các thay đổi</translation>
+        <translation>Áp dụng các thay đổi</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="294"/>
         <source>APPLY CHANGES</source>
-        <translation type="vanished">ÁP DỤNG CÁC THAY ĐỔI</translation>
+        <translation>ÁP DỤNG CÁC THAY ĐỔI</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="311"/>
         <source>Apply Changes to Disk</source>
-        <translation type="vanished">Áp dụng thay đổi vào đĩa</translation>
+        <translation>Áp dụng thay đổi vào đĩa</translation>
     </message>
     <message>
         <location filename="../operations/partitionpopover.cpp" line="68"/>
@@ -788,30 +991,38 @@ Chúng tôi sẽ không sửa đổi bất cứ điều gì cho đến khi bạn
 <context>
     <name>RestoreOpticalPopover</name>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="72"/>
         <source>RESTORE OPTIONS</source>
-        <translation type="vanished">TÙY CHỌN KHÔI PHỤC</translation>
+        <translation>TÙY CHỌN KHÔI PHỤC</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="84"/>
         <source>Restore Image File</source>
-        <translation type="vanished">Khôi phục tệp ảnh đĩa</translation>
+        <translation>Khôi phục tệp ảnh đĩa</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="100"/>
         <source>Copy Media</source>
-        <translation type="vanished">Chép phương tiện</translation>
+        <translation>Chép phương tiện</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="155"/>
         <source>Input File</source>
-        <translation type="vanished">Tệp khôi phục</translation>
+        <translation>Tệp khôi phục</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="165"/>
         <source>Browse...</source>
-        <translation type="vanished">Duyệt...</translation>
+        <translation>Duyệt...</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="217"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="362"/>
         <source>Restore this image</source>
-        <translation type="vanished">Khôi phục ảnh đĩa này</translation>
+        <translation>Khôi phục ảnh đĩa này</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="250"/>
         <location filename="../operations/restoreopticalpopover.cpp" line="59"/>
         <source>Restore Disc</source>
         <translation>Khôi phục đĩa</translation>
@@ -822,33 +1033,39 @@ Chúng tôi sẽ không sửa đổi bất cứ điều gì cho đến khi bạn
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="265"/>
         <source>DISC NOT BLANK</source>
-        <translation type="vanished">ĐĨA KHÔNG TRỐNG</translation>
+        <translation>ĐĨA KHÔNG TRỐNG</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="272"/>
         <source>The disc in the drive is not blank. To restore an image to the disc, the disc will need to be erased.
 
 Once the disc in the drive is erased, all the data on it will be gone forever.</source>
-        <translation type="vanished">Đĩa trong ổ không có trống. Để khôi phục ảnh đĩa này lại đĩa đó, nó sẽ phải bị xóa
+        <translation>Đĩa trong ổ không có trống. Để khôi phục ảnh đĩa này lại đĩa đó, nó sẽ phải bị xóa
 
 Sau khi đĩa trong ổ bị xóa, các tệp trên nó sẽ bị mất mãi mãi.</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="284"/>
         <source>Erase and Restore</source>
-        <translation type="vanished">Xóa và Khôi Phục</translation>
+        <translation>Xóa và Khôi Phục</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="330"/>
         <location filename="../operations/restoreopticalpopover.cpp" line="61"/>
         <source>Restore to Block</source>
         <translation>Khôi phục vào thiết bị khối</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="345"/>
         <source>THIS IS IT</source>
-        <translation type="vanished">SẴN SÀNG CHƯA?</translation>
+        <translation>SẴN SÀNG CHƯA?</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="352"/>
         <source>Restoring to this block will erase it. There&apos;s no going back; once the block is erased, all the data on the block is gone forever.</source>
-        <translation type="vanished">Khi bạn khôi phục ảnh đĩa này, bạn sẽ xóa thiết bị khối. Bạn không thể hoàn tác hoạt động này; khi thiết bị khỏi bị xóa, các dữ liệu trên nó sẽ bị mất mãi mãi.</translation>
+        <translation>Khi bạn khôi phục ảnh đĩa này, bạn sẽ xóa thiết bị khối. Bạn không thể hoàn tác hoạt động này; khi thiết bị khỏi bị xóa, các dữ liệu trên nó sẽ bị mất mãi mãi.</translation>
     </message>
     <message>
         <source>Unable to restore same media</source>

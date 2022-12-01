@@ -22,12 +22,14 @@
 
 #include <QDBusObjectPath>
 #include <QObject>
-#include <Task>
+#include "diskinterface.h"
+#include <QCoroTask>
 
 #include <tpromise.h>
 
 struct DriveInterfacePrivate;
 class DriveObjectManager;
+class AtaDriveInterface;
 class DriveInterface : public QObject {
         Q_OBJECT
     public:
@@ -89,12 +91,18 @@ class DriveInterface : public QObject {
 
         bool isRemovable();
 
+        template<typename T> T* interface() const;
+        bool isInterfaceAvailable(DiskInterface::Interfaces interface);
+
     signals:
+        void interfaceAdded(DiskInterface::Interfaces interface);
+        void interfaceRemoved(DiskInterface::Interfaces interface);
         void changed();
 
     protected:
         friend DriveObjectManager;
         void updateProperties(QVariantMap properties);
+        void updateInterfaces(QMap<QString, QVariantMap> interfaces);
 
     private slots:
         void propertiesChanged(QString interface, QVariantMap changedProperties, QStringList invalidatedProperties);

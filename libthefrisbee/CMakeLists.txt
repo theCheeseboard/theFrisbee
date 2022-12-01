@@ -15,6 +15,7 @@ set(SOURCES
         DriveObjects/loopinterface.cpp
         DriveObjects/partitioninterface.cpp
         DriveObjects/partitiontableinterface.cpp
+        DriveObjects/atadriveinterface.h DriveObjects/atadriveinterface.cpp
         components/partitionvisualisation.cpp
         components/sizeeditbox.cpp
         diskmodel.cpp
@@ -31,20 +32,27 @@ set(SOURCES
         jobs/restorejob.h jobs/restorejob.cpp
         jobs/restoreopticaljob.h jobs/restoreopticaljob.cpp
         jobs/imageblockjob.h jobs/imageblockjob.cpp
-        operations/eraseopticalpopover.cpp
-        operations/erasepartitionpopover.cpp
-        operations/erasepartitiontablepopover.cpp
-        operations/imagepopover.cpp
-        operations/partitionpopover.cpp
-        operations/restoreopticalpopover.cpp
+        operations/eraseopticalpopover.cpp operations/eraseopticalpopover.ui
+        operations/erasepartitionpopover.cpp operations/erasepartitionpopover.ui
+        operations/erasepartitiontablepopover.cpp operations/erasepartitiontablepopover.ui
+        operations/imagepopover.cpp operations/imagepopover.ui
+        operations/partitionpopover.cpp operations/partitionpopover.ui
+        operations/restoreopticalpopover.cpp operations/restoreopticalpopover.ui
         optical/opticalerrortracker.cpp
         partitioninformation.cpp
-        frisbeeexception.cpp)
+        frisbeeexception.cpp
+        structures/private/smartattribute.h structures/private/smartattribute.cpp
+        structures/formattedsmartattribute.cpp
+    )
+
+set(STRUCTURES_HEADERS
+    structures/formattedsmartattribute.h
+)
 
 file(GLOB ROOT_HEADERS *.h)
 file(GLOB DRIVEOBJECT_HEADERS DriveObjects/*.h)
 
-set(HEADERS ${ROOT_HEADERS} ${DRIVEOBJECT_HEADERS})
+set(HEADERS ${ROOT_HEADERS} ${DRIVEOBJECT_HEADERS} ${STRUCTURES_HEADERS})
 
 add_library(libthefrisbee SHARED ${SOURCES} ${HEADERS})
 set_target_properties(libthefrisbee PROPERTIES

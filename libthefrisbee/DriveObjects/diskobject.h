@@ -23,7 +23,7 @@
 #include "diskinterface.h"
 #include <QDBusObjectPath>
 #include <QObject>
-#include <Task>
+#include <QCoroTask>
 #include <tpromise.h>
 
 class DriveObjectManager;
@@ -58,8 +58,6 @@ class DiskObject : public QObject {
 
     private:
         DiskObjectPrivate* d;
-
-        DiskInterface* makeDiskInterface(QString interface);
 };
 
 #endif // DRIVEOBJECT_H

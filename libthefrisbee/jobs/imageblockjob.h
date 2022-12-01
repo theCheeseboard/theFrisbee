@@ -3,7 +3,7 @@
 
 #include <tjob.h>
 #include <QObject>
-#include <Task>
+#include <QCoroTask>
 
 struct ImageBlockJobPrivate;
 class DiskObject;

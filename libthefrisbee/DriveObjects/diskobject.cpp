@@ -191,7 +191,7 @@ void DiskObject::updateInterfaces(QMap<QString, QVariantMap> interfaces) {
             if (d->interfaces.contains(interface)) {
                 diskInterface = d->interfaces.value(interface);
             } else {
-                diskInterface = makeDiskInterface(interface);
+                diskInterface = DiskInterface::makeDiskInterface(interface, d->path);
                 d->interfaces.insert(interface, diskInterface);
                 QTimer::singleShot(0, [diskInterface, this] {
                     emit interfaceAdded(diskInterface->interfaceType());
@@ -210,16 +210,6 @@ void DiskObject::updateInterfaces(QMap<QString, QVariantMap> interfaces) {
             }
         }
     }
-}
-
-DiskInterface* DiskObject::makeDiskInterface(QString interface) {
-    if (interface == BlockInterface::interfaceName()) return new BlockInterface(d->path);
-    if (interface == FilesystemInterface::interfaceName()) return new FilesystemInterface(d->path);
-    if (interface == PartitionTableInterface::interfaceName()) return new PartitionTableInterface(d->path);
-    if (interface == PartitionInterface::interfaceName()) return new PartitionInterface(d->path);
-    if (interface == LoopInterface::interfaceName()) return new LoopInterface(d->path);
-    if (interface == EncryptedInterface::interfaceName()) return new EncryptedInterface(d->path);
-    return nullptr;
 }
 
 bool DiskObject::tryLock() {

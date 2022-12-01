@@ -21,7 +21,7 @@
 #define EDITPARTITIONJOB_H
 
 #include <tjob.h>
-#include <Task>
+#include <QCoroTask>
 #include "operations/partitionpopover.h"
 
 class DiskObject;

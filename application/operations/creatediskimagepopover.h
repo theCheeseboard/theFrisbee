@@ -21,7 +21,7 @@
 #define CREATEDISKIMAGEPOPOVER_H
 
 #include <QWidget>
-#include <Task>
+#include <QCoroTask>
 
 namespace Ui {
     class CreateDiskImagePopover;

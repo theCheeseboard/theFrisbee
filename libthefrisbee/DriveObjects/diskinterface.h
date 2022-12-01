@@ -24,6 +24,7 @@
 #include <QDBusObjectPath>
 
 class DiskObject;
+class DriveInterface;
 struct DiskInterfacePrivate;
 class DiskInterface : public QObject {
         Q_OBJECT
@@ -34,7 +35,8 @@ class DiskInterface : public QObject {
             PartitionTable,
             Partition,
             Loop,
-            Encrypted
+            Encrypted,
+            AtaDrive
         };
 
         explicit DiskInterface(QDBusObjectPath path, QString interface, QObject* parent = nullptr);
@@ -42,8 +44,11 @@ class DiskInterface : public QObject {
 
         virtual Interfaces interfaceType() = 0;
 
+        static DiskInterface* makeDiskInterface(QString interface, QDBusObjectPath path);
+
     protected:
         friend DiskObject;
+        friend DriveInterface;
         void updateProperties(QVariantMap properties);
         void bindPropertyUpdater(QString property, std::function<void(QVariant)> updater);
 

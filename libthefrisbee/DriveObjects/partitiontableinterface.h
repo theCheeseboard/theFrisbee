@@ -21,7 +21,7 @@
 #define PARTITIONTABLEINTERFACE_H
 
 #include "diskinterface.h"
-#include <Task>
+#include <QCoroTask>
 #include <tpromise.h>
 
 class DiskObject;

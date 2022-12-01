@@ -8,21 +8,27 @@ find_package(libcontemporary REQUIRED)
 set(SOURCES
         diskPanes/diskpanecomponent.cpp
         diskPanes/overviewdiskpane.cpp
+        diskPanes/smartdiskpane.cpp
+        popovers/smartpopover.cpp
         diskpane.cpp
         main.cpp
         mainwindow.cpp
         operations/creatediskimagepopover.cpp
 
         diskPanes/overviewdiskpane.ui
+        diskPanes/smartdiskpane.ui
         diskpane.ui
         mainwindow.ui
         operations/creatediskimagepopover.ui
+        popovers/smartpopover.ui
 
         resources.qrc)
 
 set(HEADERS
         diskPanes/diskpanecomponent.h
         diskPanes/overviewdiskpane.h
+        diskPanes/smartdiskpane.h
+        popovers/smartpopover.h
         diskpane.h
         mainwindow.h
         operations/creatediskimagepopover.h)

@@ -20,7 +20,7 @@
 #ifndef RESTOREDISKJOB_H
 #define RESTOREDISKJOB_H
 
-#include <Task>
+#include <QCoroTask>
 #include "restorejob.h"
 
 struct RestoreDiskJobPrivate;

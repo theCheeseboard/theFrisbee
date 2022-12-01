@@ -245,6 +245,7 @@ void DriveObjectManager::updateInterfaces() {
                 });
             }
 
+            object->updateInterfaces(interfaces);
             object->updateProperties(interfaces.value("org.freedesktop.UDisks2.Drive"));
         }
     }

@@ -276,67 +276,86 @@
 <context>
     <name>EraseOpticalPopover</name>
     <message>
+        <location filename="../operations/eraseopticalpopover.ui" line="54"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="149"/>
         <source>Erase Disc</source>
-        <translation type="vanished">Formater disk</translation>
+        <translation>Formater disk</translation>
     </message>
     <message>
+        <location filename="../operations/eraseopticalpopover.ui" line="69"/>
         <source>ERASE OPTIONS</source>
-        <translation type="vanished">FORMATERINGS-INSTILLINGER</translation>
+        <translation>FORMATERINGS-INSTILLINGER</translation>
     </message>
     <message>
+        <location filename="../operations/eraseopticalpopover.ui" line="76"/>
         <source>Erase Type</source>
-        <translation type="vanished">Formateringstype</translation>
+        <translation>Formateringstype</translation>
     </message>
     <message>
+        <location filename="../operations/eraseopticalpopover.ui" line="90"/>
         <source>Quick</source>
-        <translation type="vanished">Hurtig</translation>
+        <translation>Hurtig</translation>
     </message>
     <message>
+        <location filename="../operations/eraseopticalpopover.ui" line="95"/>
         <source>Full</source>
-        <translation type="vanished">Fuld</translation>
+        <translation>Fuld</translation>
     </message>
     <message>
+        <location filename="../operations/eraseopticalpopover.ui" line="103"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="181"/>
         <source>Erase this disc</source>
-        <translation type="vanished">Formater denne disk</translation>
+        <translation>Formater denne disk</translation>
     </message>
     <message>
+        <location filename="../operations/eraseopticalpopover.ui" line="164"/>
         <source>THIS IS IT</source>
-        <translation type="vanished">SIDSTE CHANCE</translation>
+        <translation>SIDSTE CHANCE</translation>
     </message>
     <message>
+        <location filename="../operations/eraseopticalpopover.ui" line="171"/>
         <source>There&apos;s no going back after this. Once the disc in the drive is erased, all the data on it will be gone forever.</source>
-        <translation type="vanished">Du kan ikke gå tilbage efter dette. Når disken i drevet er formateret, vil alle dataene på den være væk for evigt.</translation>
+        <translation>Du kan ikke gå tilbage efter dette. Når disken i drevet er formateret, vil alle dataene på den være væk for evigt.</translation>
     </message>
 </context>
 <context>
     <name>ErasePartitionPopover</name>
     <message>
+        <location filename="../operations/erasepartitionpopover.ui" line="57"/>
+        <location filename="../operations/erasepartitionpopover.ui" line="152"/>
         <source>Erase Partition</source>
-        <translation type="vanished">Formater partition</translation>
+        <translation>Formater partition</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitionpopover.ui" line="67"/>
+        <location filename="../operations/erasepartitionpopover.ui" line="184"/>
         <source>Erase this partition</source>
-        <translation type="vanished">Formater denne partition</translation>
+        <translation>Formater denne partition</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitionpopover.ui" line="78"/>
         <source>Filesystem</source>
-        <translation type="vanished">Filsystem</translation>
+        <translation>Filsystem</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitionpopover.ui" line="90"/>
         <source>ERASE OPTIONS</source>
-        <translation type="vanished">FORMATERINGSINDSTILLINGER</translation>
+        <translation>FORMATERINGSINDSTILLINGER</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitionpopover.ui" line="107"/>
         <source>Partition Name</source>
-        <translation type="vanished">Partitions-navn</translation>
+        <translation>Partitions-navn</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitionpopover.ui" line="167"/>
         <source>THIS IS IT</source>
-        <translation type="vanished">DET ER NU</translation>
+        <translation>DET ER NU</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitionpopover.ui" line="174"/>
         <source>There&apos;s no going back after this. Once the partition is erased, all the data on the partition is gone forever.</source>
-        <translation type="vanished">Du kan ikke vende tilbage efter dette. Når partitionen er formateret, så vil alt data på den være væk for evigt.</translation>
+        <translation>Du kan ikke vende tilbage efter dette. Når partitionen er formateret, så vil alt data på den være væk for evigt.</translation>
     </message>
     <message>
         <location filename="../operations/erasepartitionpopover.cpp" line="50"/>
@@ -347,40 +366,211 @@
 <context>
     <name>ErasePartitionTablePopover</name>
     <message>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="57"/>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="157"/>
         <source>Erase Disk</source>
-        <translation type="vanished">Formater disk</translation>
+        <translation>Formater disk</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="72"/>
         <source>ERASE OPTIONS</source>
-        <translation type="vanished">FORMATERINGSINDSTILLINGER</translation>
+        <translation>FORMATERINGSINDSTILLINGER</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="79"/>
         <source>Partition Table</source>
-        <translation type="vanished">Partitionstabel</translation>
+        <translation>Partitionstabel</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="93"/>
         <source>GPT</source>
-        <translation type="vanished">GPT</translation>
+        <translation>GPT</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="98"/>
         <source>DOS/MBR</source>
-        <translation type="vanished">DOS/MBR</translation>
+        <translation>DOS/MBR</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="103"/>
         <source>Erase Only</source>
-        <translation type="vanished">Formater kun</translation>
+        <translation>Formater kun</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="111"/>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="189"/>
         <source>Erase this disk</source>
-        <translation type="vanished">Formater denne disk</translation>
+        <translation>Formater denne disk</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="172"/>
         <source>THIS IS IT</source>
-        <translation type="vanished">DET ER NU</translation>
+        <translation>DET ER NU</translation>
     </message>
     <message>
+        <location filename="../operations/erasepartitiontablepopover.ui" line="179"/>
         <source>There&apos;s no going back after this. Once the disk is erased, all the data on the disk is gone forever.</source>
-        <translation type="vanished">Du kan ikke vende tilbage efter dette. Når disken er formateret, så vil alt data på den være væk for evigt.</translation>
+        <translation>Du kan ikke vende tilbage efter dette. Når disken er formateret, så vil alt data på den være væk for evigt.</translation>
+    </message>
+</context>
+<context>
+    <name>FormattedSmartAttribute</name>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="30"/>
+        <source>Read Error Rate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="31"/>
+        <source>Spin Up Time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="32"/>
+        <source>Start/Stop Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="33"/>
+        <source>Reallocated Sector Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="34"/>
+        <source>Seek Error Rate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="35"/>
+        <source>Power On Hours</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="36"/>
+        <source>Spin Retry Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="37"/>
+        <source>Power Cycle Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="38"/>
+        <source>Reported Uncorrectable Errors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="39"/>
+        <source>High Fly Writes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="40"/>
+        <source>Airflow Temperature</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="41"/>
+        <source>G-Sense Error Rate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="42"/>
+        <source>Power Off Retract Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="43"/>
+        <source>Load Cycle Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="44"/>
+        <source>Temperature</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="45"/>
+        <source>Hardware ECC Recovered</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="46"/>
+        <source>Current Pending Sector Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="47"/>
+        <source>Uncorrectable Sector Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="48"/>
+        <source>UDMA CRC Error Rate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="49"/>
+        <source>Head Flying Hours</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="50"/>
+        <source>Total LBAs Written</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="51"/>
+        <source>Total LBAs Read</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="52"/>
+        <source>Throughput Performace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="53"/>
+        <source>Reallocation Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../structures/formattedsmartattribute.cpp" line="68"/>
+        <source>%n minutes</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../structures/formattedsmartattribute.cpp" line="70"/>
+        <source>%n sectors</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../structures/formattedsmartattribute.cpp" line="76"/>
+        <source>%n °C</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../structures/formattedsmartattribute.cpp" line="79"/>
+        <source>%n °F</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <location filename="../structures/formattedsmartattribute.cpp" line="84"/>
+        <source>N/A</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -464,24 +654,29 @@
 <context>
     <name>ImagePopover</name>
     <message>
+        <location filename="../operations/imagepopover.ui" line="35"/>
         <source>Image Disk</source>
-        <translation type="vanished">Snapshot af disk</translation>
+        <translation>Snapshot af disk</translation>
     </message>
     <message>
+        <location filename="../operations/imagepopover.ui" line="45"/>
         <source>Output File</source>
-        <translation type="vanished">Output-fil</translation>
+        <translation>Output-fil</translation>
     </message>
     <message>
+        <location filename="../operations/imagepopover.ui" line="55"/>
         <source>Browse...</source>
-        <translation type="vanished">Gennemse...</translation>
+        <translation>Gennemse...</translation>
     </message>
     <message>
+        <location filename="../operations/imagepopover.ui" line="67"/>
         <source>IMAGING OPTIONS</source>
-        <translation type="vanished">SNAPSHOT-INDSTILLINGER</translation>
+        <translation>SNAPSHOT-INDSTILLINGER</translation>
     </message>
     <message>
+        <location filename="../operations/imagepopover.ui" line="74"/>
         <source>Image this disk</source>
-        <translation type="vanished">Tag snapshot</translation>
+        <translation>Tag snapshot</translation>
     </message>
     <message>
         <source>Disk Imaged</source>
@@ -585,56 +780,68 @@
 <context>
     <name>PartitionPopover</name>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="35"/>
         <source>Edit Partitions</source>
-        <translation type="vanished">Rediger partitioner</translation>
+        <translation>Rediger partitioner</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="102"/>
         <source>ACTIONS</source>
-        <translation type="vanished">OPERATIONER</translation>
+        <translation>OPERATIONER</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="109"/>
         <source>Select a partition to resize or erase it. To add a new partition, click in some empty space.
 
 We won&apos;t modify anything until you apply your changes.</source>
-        <translation type="vanished">Vælg en partition for at ændre dens størrelse eller fjerne den. For at tilføje en ny partition, klik et sted hvor der ikke ligger en anden.
+        <translation>Vælg en partition for at ændre dens størrelse eller fjerne den. For at tilføje en ny partition, klik et sted hvor der ikke ligger en anden.
 
 Vi vil ikke ændre noget indtil du bekræfter dine ændringer.</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="150"/>
         <source>NEW PARTITION</source>
-        <translation type="vanished">NY PARTITION</translation>
+        <translation>NY PARTITION</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="157"/>
         <source>Add New Partition</source>
-        <translation type="vanished">Tilføj ny partition</translation>
+        <translation>Tilføj ny partition</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="199"/>
         <source>Delete Partition</source>
-        <translation type="vanished">Slet partition</translation>
+        <translation>Slet partition</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="206"/>
         <source>Name</source>
-        <translation type="vanished">Navn</translation>
+        <translation>Navn</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="219"/>
         <source>EDIT PARTITION</source>
-        <translation type="vanished">REDIGER PARTITION</translation>
+        <translation>REDIGER PARTITION</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="229"/>
         <source>Type</source>
-        <translation type="vanished">Type</translation>
+        <translation>Type</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="259"/>
         <source>Apply Changes</source>
-        <translation type="vanished">Anvend ændringer</translation>
+        <translation>Anvend ændringer</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="294"/>
         <source>APPLY CHANGES</source>
-        <translation type="vanished">ANVEND ÆNDRINGER</translation>
+        <translation>ANVEND ÆNDRINGER</translation>
     </message>
     <message>
+        <location filename="../operations/partitionpopover.ui" line="311"/>
         <source>Apply Changes to Disk</source>
-        <translation type="vanished">Bekræft ændringer</translation>
+        <translation>Bekræft ændringer</translation>
     </message>
     <message>
         <location filename="../operations/partitionpopover.cpp" line="68"/>
@@ -792,30 +999,38 @@ Vi vil ikke ændre noget indtil du bekræfter dine ændringer.</translation>
 <context>
     <name>RestoreOpticalPopover</name>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="72"/>
         <source>RESTORE OPTIONS</source>
-        <translation type="vanished">GENDANNELSESINDSTILLINGER</translation>
+        <translation>GENDANNELSESINDSTILLINGER</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="84"/>
         <source>Restore Image File</source>
-        <translation type="vanished">Gendan snapshot</translation>
+        <translation>Gendan snapshot</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="100"/>
         <source>Copy Media</source>
-        <translation type="vanished">Kopier medie</translation>
+        <translation>Kopier medie</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="155"/>
         <source>Input File</source>
-        <translation type="vanished">Input-fil</translation>
+        <translation>Input-fil</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="165"/>
         <source>Browse...</source>
-        <translation type="vanished">Gennemse...</translation>
+        <translation>Gennemse...</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="217"/>
+        <location filename="../operations/restoreopticalpopover.ui" line="362"/>
         <source>Restore this image</source>
-        <translation type="vanished">Gendan snapshot</translation>
+        <translation>Gendan snapshot</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="250"/>
         <location filename="../operations/restoreopticalpopover.cpp" line="59"/>
         <source>Restore Disc</source>
         <translation>Gendan disk</translation>
@@ -826,33 +1041,39 @@ Vi vil ikke ændre noget indtil du bekræfter dine ændringer.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="265"/>
         <source>DISC NOT BLANK</source>
-        <translation type="vanished">DISK IKKE BLANK</translation>
+        <translation>DISK IKKE BLANK</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="272"/>
         <source>The disc in the drive is not blank. To restore an image to the disc, the disc will need to be erased.
 
 Once the disc in the drive is erased, all the data on it will be gone forever.</source>
-        <translation type="vanished">Disken i drevet er ikke blank. For at gendanne et snapshot til disken, skal disken formateres først.
+        <translation>Disken i drevet er ikke blank. For at gendanne et snapshot til disken, skal disken formateres først.
 
 Når disken i drevet er formateret, vil alt data på den være væk for evigt.</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="284"/>
         <source>Erase and Restore</source>
-        <translation type="vanished">Formater og gendan</translation>
+        <translation>Formater og gendan</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="330"/>
         <location filename="../operations/restoreopticalpopover.cpp" line="61"/>
         <source>Restore to Block</source>
         <translation>Formater til blokenhed</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="345"/>
         <source>THIS IS IT</source>
-        <translation type="vanished">DET ER NU</translation>
+        <translation>DET ER NU</translation>
     </message>
     <message>
+        <location filename="../operations/restoreopticalpopover.ui" line="352"/>
         <source>Restoring to this block will erase it. There&apos;s no going back; once the block is erased, all the data on the block is gone forever.</source>
-        <translation type="vanished">Gendannelse til denne blok vil formatere den. Når blokken er formateret, så vil alt data på den være væk for evigt.</translation>
+        <translation>Gendannelse til denne blok vil formatere den. Når blokken er formateret, så vil alt data på den være væk for evigt.</translation>
     </message>
     <message>
         <source>Unable to restore same media</source>

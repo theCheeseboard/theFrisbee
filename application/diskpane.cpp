@@ -33,6 +33,7 @@
 #include <tjobmanager.h>
 #include "diskPanes/diskpanecomponent.h"
 #include "diskPanes/overviewdiskpane.h"
+#include "diskPanes/smartdiskpane.h"
 #include "diskoperationmanager.h"
 
 struct DiskPanePrivate {
@@ -61,6 +62,7 @@ DiskPane::DiskPane(DiskObject* disk, QWidget* parent) :
     ui->eraseButton->setProperty("type", "destructive");
 
     d->components.append(new OverviewDiskPane(disk, this));
+    d->components.append(new SmartDiskPane(disk, this));
     updateComponents();
 }
 

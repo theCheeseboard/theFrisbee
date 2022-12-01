@@ -21,7 +21,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <Task>
+#include <QCoroTask>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {

@@ -93,17 +93,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="130"/>
+        <location filename="../diskpane.cpp" line="132"/>
         <source>Check this disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="131"/>
+        <location filename="../diskpane.cpp" line="133"/>
         <source>Check this disk for errors?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="132"/>
+        <location filename="../diskpane.cpp" line="134"/>
         <source>Depending on the size of the disk, the check may take a while.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -168,22 +168,22 @@
 <context>
     <name>OverviewDiskPane</name>
     <message>
-        <location filename="../diskPanes/overviewdiskpane.ui" line="77"/>
+        <location filename="../diskPanes/overviewdiskpane.ui" line="109"/>
         <source>Detach</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskPanes/overviewdiskpane.ui" line="88"/>
+        <location filename="../diskPanes/overviewdiskpane.ui" line="120"/>
         <source>Unmount</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskPanes/overviewdiskpane.ui" line="99"/>
+        <location filename="../diskPanes/overviewdiskpane.ui" line="131"/>
         <source>Mount</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskPanes/overviewdiskpane.ui" line="110"/>
+        <location filename="../diskPanes/overviewdiskpane.ui" line="142"/>
         <source>Eject</source>
         <translation type="unfinished"></translation>
     </message>
@@ -285,6 +285,220 @@
     <message>
         <location filename="../diskPanes/overviewdiskpane.cpp" line="137"/>
         <source>No Disc Inserted</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SmartDiskPane</name>
+    <message>
+        <location filename="../diskPanes/smartdiskpane.ui" line="52"/>
+        <source>SMART</source>
+        <comment>ATA Disk acronym</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../diskPanes/smartdiskpane.ui" line="81"/>
+        <source>Manage SMART Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../diskPanes/smartdiskpane.cpp" line="50"/>
+        <source>SMART is currently not enabled for this drive</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../diskPanes/smartdiskpane.cpp" line="55"/>
+        <source>The disk is about to fail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../diskPanes/smartdiskpane.cpp" line="57"/>
+        <source>The disk is operating normally</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SmartPopover</name>
+    <message>
+        <location filename="../popovers/smartpopover.ui" line="57"/>
+        <source>Manage SMART Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.ui" line="89"/>
+        <source>SMART is disabled for this disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.ui" line="99"/>
+        <source>Enable SMART to view SMART statistics and perform SMART self tests</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.ui" line="109"/>
+        <source>Enable SMART</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.ui" line="199"/>
+        <source>Last Updated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.ui" line="206"/>
+        <source>SMART Overview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.ui" line="226"/>
+        <source>Self Test Result</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.ui" line="290"/>
+        <source>SMART Self Test in progress</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.ui" line="297"/>
+        <source>A SMART Self Test is currently running for this disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.ui" line="329"/>
+        <source>Abort SMART Self Test</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.ui" line="343"/>
+        <location filename="../popovers/smartpopover.ui" line="430"/>
+        <location filename="../popovers/smartpopover.ui" line="473"/>
+        <source>Start SMART Self Test</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.ui" line="350"/>
+        <source>Disable SMART for this disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.ui" line="440"/>
+        <source>SMART Self Test Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.ui" line="456"/>
+        <source>Short</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.ui" line="466"/>
+        <source>Extended</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.ui" line="491"/>
+        <source>SMART Self Test Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.ui" line="484"/>
+        <source>Conveyance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.cpp" line="25"/>
+        <source>ID</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.cpp" line="25"/>
+        <source>Attribute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.cpp" line="25"/>
+        <source>Value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.cpp" line="25"/>
+        <source>Normalised</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.cpp" line="25"/>
+        <source>Threshold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.cpp" line="25"/>
+        <source>Worst</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.cpp" line="25"/>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.cpp" line="25"/>
+        <source>Updates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.cpp" line="25"/>
+        <source>Assessment</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.cpp" line="61"/>
+        <source>Pre-Fail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.cpp" line="61"/>
+        <source>Old-Age</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.cpp" line="62"/>
+        <source>Online</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.cpp" line="62"/>
+        <source>Offline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.cpp" line="73"/>
+        <source>Successful</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.cpp" line="76"/>
+        <source>Aborted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.cpp" line="79"/>
+        <source>Interrupted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.cpp" line="82"/>
+        <source>Unable to complete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.cpp" line="89"/>
+        <source>Failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/smartpopover.cpp" line="92"/>
+        <source>In Progress</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
