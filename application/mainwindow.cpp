@@ -33,6 +33,8 @@
 #include <frisbeeexception.h>
 #include <taboutdialog.h>
 #include <tapplication.h>
+#include <tcommandpalette/tcommandpaletteactionscope.h>
+#include <tcommandpalette/tcommandpalettecontroller.h>
 #include <tcsdtools.h>
 #include <thelpmenu.h>
 #include <tjobmanager.h>
@@ -63,11 +65,17 @@ MainWindow::MainWindow(QWidget* parent) :
     }
 
     ui->menuBar->setVisible(false);
+    ui->menuBar->addMenu(new tHelpMenu(this));
+
+    tCommandPaletteActionScope* commandPaletteActionScope;
+    auto commandPalette = tCommandPaletteController::defaultController(this, &commandPaletteActionScope);
+    commandPaletteActionScope->addMenuBar(ui->menuBar);
 
     QMenu* menu = new QMenu(this);
     menu->addAction(ui->actionCreate_Disk_Image);
     menu->addAction(ui->actionMountImage);
     menu->addSeparator();
+    menu->addAction(commandPalette->commandPaletteAction());
     menu->addMenu(new tHelpMenu(this));
     menu->addAction(ui->actionExit);
 
