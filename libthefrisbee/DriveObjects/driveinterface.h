@@ -20,10 +20,10 @@
 #ifndef DRIVEINTERFACE_H
 #define DRIVEINTERFACE_H
 
-#include <QDBusObjectPath>
-#include <QObject>
 #include "diskinterface.h"
 #include <QCoroTask>
+#include <QDBusObjectPath>
+#include <QObject>
 
 #include <tpromise.h>
 
@@ -81,6 +81,7 @@ class DriveInterface : public QObject {
         bool optical();
         bool opticalBlank();
         bool isOpticalDrive();
+        uint audioTracks();
 
         MediaFormat media();
         QList<MediaFormat> mediaCompatibility();

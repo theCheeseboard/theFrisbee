@@ -48,7 +48,7 @@ BlockInterface::BlockInterface(QDBusObjectPath path, QObject* parent) :
     d->path = path;
 
     bindPropertyUpdater("Device", [this](QVariant value) {
-        d->name = value.toString();
+        d->name = value.toString().remove('\0');
     });
     bindPropertyUpdater("Size", [this](QVariant value) {
         d->size = value.toULongLong();

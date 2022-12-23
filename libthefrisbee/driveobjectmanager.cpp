@@ -155,6 +155,10 @@ QList<DiskObject*> DriveObjectManager::opticalDisks() {
     return disks;
 }
 
+QList<DriveInterface*> DriveObjectManager::drives() {
+    return instance()->d->drives.values();
+}
+
 DiskObject* DriveObjectManager::diskForPath(QDBusObjectPath path) {
     return instance()->d->objects.value(path);
 }

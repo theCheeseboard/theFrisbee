@@ -21,10 +21,10 @@
 #define DRIVEOBJECTMANAGER_H
 
 #include "libthefrisbee_global.h"
+#include <QCoroTask>
 #include <QDBusObjectPath>
 #include <QDBusUnixFileDescriptor>
 #include <QObject>
-#include <QCoroTask>
 #include <tpromise.h>
 
 struct DriveObjectManagerPrivate;
@@ -40,6 +40,7 @@ class LIBTHEFRISBEE_EXPORT DriveObjectManager : public QObject {
         static QList<DiskObject*> filesystemDisks();
         static QList<DiskObject*> encryptedDisks();
         static QList<DiskObject*> opticalDisks();
+        static QList<DriveInterface*> drives();
 
         static DiskObject* diskForPath(QDBusObjectPath path);
         static DiskObject* diskByBlockName(QString blockName);

@@ -68,6 +68,10 @@ bool DriveInterface::isOpticalDrive() {
     return false;
 }
 
+uint DriveInterface::audioTracks() {
+    return d->properties.value("OpticalNumAudioTracks").toUInt();
+}
+
 DriveInterface::MediaFormat DriveInterface::media() {
     return getMediaFormat(d->properties.value("Media").toString());
 }
