@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.21.0)
 
 project(thefrisbee VERSION 1.0.0 LANGUAGES CXX)
 
-find_package(Qt6 REQUIRED COMPONENTS Widgets DBus)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets DBus)
 find_package(libcontemporary REQUIRED)
 
 set(SOURCES
@@ -48,7 +48,7 @@ cntp_target_desktop_file(thefrisbee
     DESKTOP_FILE com.vicr123.thefrisbee.desktop
     BLUEPRINT_DESKTOP_FILE com.vicr123.thefrisbee_blueprint.desktop)
 
-target_link_libraries(thefrisbee Qt6::Widgets Qt6::DBus libcontemporary libthefrisbee)
+target_link_libraries(thefrisbee Qt::Widgets Qt::DBus libcontemporary libthefrisbee)
 target_include_directories(thefrisbee PUBLIC ../libthefrisbee/)
 
 install(TARGETS thefrisbee
