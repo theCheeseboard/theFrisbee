@@ -52,6 +52,8 @@ RestoreOpticalJob::RestoreOpticalJob(DiskObject* disk, QObject* parent) :
     d->disk = disk;
     d->displayName = d->disk->displayName();
 
+    connect(this, &RestoreOpticalJob::descriptionChanged, this, &RestoreOpticalJob::statusStringChanged);
+
     d->description = tr("Waiting for restore medium");
 }
 
@@ -281,4 +283,12 @@ tJob::State RestoreOpticalJob::state() {
 
 QWidget* RestoreOpticalJob::makeProgressWidget() {
     return new RestoreOpticalJobProgress(this);
+}
+
+QString RestoreOpticalJob::titleString() {
+    return tr("Restore to %1").arg(this->displayName());
+}
+
+QString RestoreOpticalJob::statusString() {
+    return this->description();
 }

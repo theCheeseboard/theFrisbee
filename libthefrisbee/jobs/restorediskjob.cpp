@@ -51,6 +51,8 @@ RestoreDiskJob::RestoreDiskJob(DiskObject* disk, QObject* parent) :
     d->disk = disk;
     d->displayName = disk->displayName();
 
+    connect(this, &RestoreDiskJob::descriptionChanged, this, &RestoreDiskJob::statusStringChanged);
+
     d->description = tr("Waiting for disk");
 }
 
@@ -171,4 +173,12 @@ tJob::State RestoreDiskJob::state() {
 
 QWidget* RestoreDiskJob::makeProgressWidget() {
     return new RestoreDiskJobProgress(this);
+}
+
+QString RestoreDiskJob::titleString() {
+    return tr("Restore to %1").arg(this->displayName());
+}
+
+QString RestoreDiskJob::statusString() {
+    return this->description();
 }

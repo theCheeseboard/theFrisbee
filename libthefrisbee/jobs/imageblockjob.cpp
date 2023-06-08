@@ -9,36 +9,35 @@
 #include <tlogger.h>
 
 struct ImageBlockJobPrivate {
-    DiskObject* disk;
-    QIODevice* dest;
-    QString fileName;
+        DiskObject* disk;
+        QIODevice* dest;
+        QString fileName;
 
-    QString displayName;
-    QString description;
+        QString displayName;
+        QString description;
 
-    quint64 progress = 0;
-    quint64 totalProgress = 0;
-    tJob::State state = tJob::Processing;
-    int stage = 0;
+        quint64 progress = 0;
+        quint64 totalProgress = 0;
+        tJob::State state = tJob::Processing;
+        int stage = 0;
 };
 
-ImageBlockJob::ImageBlockJob(DiskObject *disk, QObject *parent)
-    : tJob{parent}
-{
+ImageBlockJob::ImageBlockJob(DiskObject* disk, QObject* parent) :
+    tJob{parent} {
     d = new ImageBlockJobPrivate();
     d->disk = disk;
     d->displayName = disk->displayName();
 
+    connect(this, &ImageBlockJob::descriptionChanged, this, &ImageBlockJob::statusStringChanged);
+
     d->description = tr("Waiting for disk");
 }
 
-ImageBlockJob::~ImageBlockJob()
-{
+ImageBlockJob::~ImageBlockJob() {
     delete d;
 }
 
-QCoro::Task<> ImageBlockJob::startImage(QIODevice *dest)
-{
+QCoro::Task<> ImageBlockJob::startImage(QIODevice* dest) {
     if (d->stage != 0) co_return;
 
     d->dest = dest;
@@ -61,7 +60,7 @@ QCoro::Task<> ImageBlockJob::startImage(QIODevice *dest)
         quint64 dataSize = block->size();
         auto ioDevice = co_await block->open(BlockInterface::Read, {});
 
-        //Reserve space for the file
+        // Reserve space for the file
         if (auto file = qobject_cast<QFile*>(dest)) {
             if (!file->resize(dataSize)) {
                 // Bail out
@@ -75,7 +74,7 @@ QCoro::Task<> ImageBlockJob::startImage(QIODevice *dest)
 
                 tNotification* notification = new tNotification();
                 notification->setSummary(tr("Couldn't Image Disc"));
-                notification->setText(tr("Unable to create a disk image of %1.").arg(d->displayName));
+                notification->setText(tr("Unable to create a disk image of %1.").arg(QLocale().quoteString(d->displayName)));
                 notification->post();
                 co_return;
             }
@@ -121,7 +120,7 @@ QCoro::Task<> ImageBlockJob::startImage(QIODevice *dest)
 
         tNotification* notification = new tNotification();
         notification->setSummary(tr("Imaged Disk"));
-        notification->setText(tr("A disk image of %1 has been created.").arg(d->displayName));
+        notification->setText(tr("A disk image of %1 has been created.").arg(QLocale().quoteString(d->displayName)));
         notification->post();
     } catch (FrisbeeException& ex) {
         // Bail out
@@ -135,13 +134,12 @@ QCoro::Task<> ImageBlockJob::startImage(QIODevice *dest)
 
         tNotification* notification = new tNotification();
         notification->setSummary(tr("Couldn't Image Disc"));
-        notification->setText(tr("Unable to create a disk image of %1.").arg(d->displayName));
+        notification->setText(tr("Unable to create a disk image of %1.").arg(QLocale().quoteString(d->displayName)));
         notification->post();
     }
 }
 
-void ImageBlockJob::cancel()
-{
+void ImageBlockJob::cancel() {
     if (d->stage == 0) {
         d->stage = -1;
 
@@ -156,33 +154,34 @@ void ImageBlockJob::cancel()
     }
 }
 
-QString ImageBlockJob::description()
-{
+QString ImageBlockJob::description() {
     return d->description;
 }
 
-QString ImageBlockJob::displayName()
-{
+QString ImageBlockJob::displayName() {
     return d->displayName;
 }
 
-
-quint64 ImageBlockJob::progress()
-{
+quint64 ImageBlockJob::progress() {
     return d->progress;
 }
 
-quint64 ImageBlockJob::totalProgress()
-{
+quint64 ImageBlockJob::totalProgress() {
     return d->totalProgress;
 }
 
-tJob::State ImageBlockJob::state()
-{
+tJob::State ImageBlockJob::state() {
     return d->state;
 }
 
-QWidget *ImageBlockJob::makeProgressWidget()
-{
+QWidget* ImageBlockJob::makeProgressWidget() {
     return new ImageBlockJobProgress(this);
+}
+
+QString ImageBlockJob::titleString() {
+    return tr("Image %1").arg(QLocale().quoteString(this->displayName()));
+}
+
+QString ImageBlockJob::statusString() {
+    return this->description();
 }

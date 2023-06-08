@@ -50,6 +50,8 @@ EraseCdRwJob::EraseCdRwJob(DiskObject* disk, bool quick, QObject* parent) :
     d->quick = quick;
     d->displayName = disk->displayName();
 
+    connect(this, &EraseCdRwJob::descriptionChanged, this, &EraseCdRwJob::statusStringChanged);
+
     switch (disk->interface<BlockInterface>()->drive()->media()) {
         case DriveInterface::CdRw:
             d->discType = tr("CD-RW");
@@ -245,4 +247,12 @@ EraseCdRwJob::State EraseCdRwJob::state() {
 
 QWidget* EraseCdRwJob::makeProgressWidget() {
     return new EraseCdRwJobProgress(this);
+}
+
+QString EraseCdRwJob::titleString() {
+    return tr("Erase %1").arg(this->displayName());
+}
+
+QString EraseCdRwJob::statusString() {
+    return this->description();
 }

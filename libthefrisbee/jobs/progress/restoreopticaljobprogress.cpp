@@ -35,7 +35,7 @@ RestoreOpticalJobProgress::RestoreOpticalJobProgress(RestoreOpticalJob* job, QWi
     d = new RestoreOpticalJobProgressPrivate();
     d->job = job;
 
-    ui->titleLabel->setText(tr("Restore to %1").arg(job->displayName()).toUpper());
+    ui->titleLabel->setText(job->titleString().toUpper());
 
     connect(job, &RestoreOpticalJob::stateChanged, this, [this](RestoreOpticalJob::State state) {
         updateState();

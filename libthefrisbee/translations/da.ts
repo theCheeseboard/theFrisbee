@@ -131,146 +131,154 @@
 <context>
     <name>EditPartitionJob</name>
     <message>
-        <location filename="../jobs/editpartitionjob.cpp" line="52"/>
+        <location filename="../jobs/editpartitionjob.cpp" line="54"/>
         <source>Waiting for other jobs to finish</source>
         <translation>Venter på at andre opgaver bliver færdige</translation>
     </message>
     <message>
-        <location filename="../jobs/editpartitionjob.cpp" line="96"/>
+        <location filename="../jobs/editpartitionjob.cpp" line="98"/>
         <source>Partitioning Complete</source>
         <translation>Partitionering færdig</translation>
     </message>
     <message>
-        <location filename="../jobs/editpartitionjob.cpp" line="102"/>
+        <location filename="../jobs/editpartitionjob.cpp" line="104"/>
         <source>Partitioning Operations Complete</source>
         <translation>Partitionerings-opgaver færdige</translation>
     </message>
     <message>
-        <location filename="../jobs/editpartitionjob.cpp" line="103"/>
+        <location filename="../jobs/editpartitionjob.cpp" line="105"/>
         <source>Changes to %1 have been applied.</source>
         <translation>Ændringer til %1 er blevet fuldført.</translation>
     </message>
     <message>
-        <location filename="../jobs/editpartitionjob.cpp" line="119"/>
+        <location filename="../jobs/editpartitionjob.cpp" line="121"/>
         <source>Creating partition %1</source>
         <translation>Laver partition %1</translation>
     </message>
     <message>
-        <location filename="../jobs/editpartitionjob.cpp" line="154"/>
+        <location filename="../jobs/editpartitionjob.cpp" line="156"/>
         <source>Deleting partition %1</source>
         <translation>Sletter partition %1</translation>
     </message>
     <message>
-        <location filename="../jobs/editpartitionjob.cpp" line="174"/>
+        <location filename="../jobs/editpartitionjob.cpp" line="176"/>
         <source>A partition operation failed.</source>
         <translation>En partitions-opgave fejlede.</translation>
     </message>
     <message>
-        <location filename="../jobs/editpartitionjob.cpp" line="178"/>
+        <location filename="../jobs/editpartitionjob.cpp" line="180"/>
         <source>Partitioning Operations Failed</source>
         <translation>Partitions-opgave fejlede</translation>
     </message>
     <message>
-        <location filename="../jobs/editpartitionjob.cpp" line="179"/>
+        <location filename="../jobs/editpartitionjob.cpp" line="181"/>
         <source>Changes to %1 could not be applied. The disk may be in an inconsistent state.</source>
         <translation>Ændringer til %1 kunne ikke fuldføres. Disken kan være korrupteret.</translation>
+    </message>
+    <message>
+        <location filename="../jobs/editpartitionjob.cpp" line="202"/>
+        <source>Partitioning %1</source>
+        <translation type="unfinished">Partitionerer %1</translation>
     </message>
 </context>
 <context>
     <name>EditPartitionJobProgress</name>
     <message>
-        <location filename="../jobs/progress/editpartitionjobprogress.cpp" line="31"/>
         <source>Partitioning %1</source>
-        <translation>Partitionerer %1</translation>
+        <translation type="vanished">Partitionerer %1</translation>
     </message>
 </context>
 <context>
     <name>EraseCdRwJob</name>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="55"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="57"/>
         <source>CD-RW</source>
         <translation>CD-RW</translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="58"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="60"/>
         <source>DVD-RW</source>
         <translation>DVD-RW</translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="62"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="64"/>
         <source>DVD+RW</source>
         <translation>DVD+RW</translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="65"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="67"/>
         <source>BD-RE</source>
         <translation>BD-RE</translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="68"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="70"/>
         <source>Unknown</source>
         <translation>Ukendt</translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="72"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="74"/>
         <source>Waiting for other jobs to finish</source>
         <translation>Venter på at andre opgaver bliver færdige</translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="111"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="113"/>
         <source>Unmounting Disc</source>
         <translation>Afmonterer disk</translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="137"/>
-        <location filename="../jobs/erasecdrwjob.cpp" line="187"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="139"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="189"/>
         <source>Failed to erase %1</source>
         <translation>Kunne ikke formatere %1</translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="143"/>
-        <location filename="../jobs/erasecdrwjob.cpp" line="194"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="145"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="196"/>
         <source>Couldn&apos;t Erase Disc</source>
         <translation>Kunne ikke formatere disk</translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="144"/>
-        <location filename="../jobs/erasecdrwjob.cpp" line="195"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="146"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="197"/>
         <source>The disc in %1 could not be erased.</source>
         <translation>Disken i %1 kunne ikke formateres.</translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="151"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="153"/>
         <source>Erasing %1</source>
         <translation>Formaterer %1</translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="185"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="187"/>
         <source>Couldn&apos;t erase %1 because %2.</source>
         <translation>Kunne ikke formatere %1 på grund af %2.</translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="220"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="222"/>
         <source>%1 Erased</source>
         <translation>%1 formateret</translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="226"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="228"/>
         <source>Erased Disc</source>
         <translation>Disk formateret</translation>
     </message>
     <message>
-        <location filename="../jobs/erasecdrwjob.cpp" line="227"/>
+        <location filename="../jobs/erasecdrwjob.cpp" line="229"/>
         <source>The disc in %1 has been erased.</source>
         <translation>Disken i %1 er blevet formateret.</translation>
+    </message>
+    <message>
+        <location filename="../jobs/erasecdrwjob.cpp" line="253"/>
+        <source>Erase %1</source>
+        <translation type="unfinished">Formater %1</translation>
     </message>
 </context>
 <context>
     <name>EraseCdRwJobProgress</name>
     <message>
-        <location filename="../jobs/progress/erasecdrwjobprogress.cpp" line="38"/>
         <source>Erase %1</source>
-        <translation>Formater %1</translation>
+        <translation type="vanished">Formater %1</translation>
     </message>
 </context>
 <context>
@@ -576,60 +584,65 @@
 <context>
     <name>ImageBlockJob</name>
     <message>
-        <location filename="../jobs/imageblockjob.cpp" line="32"/>
+        <location filename="../jobs/imageblockjob.cpp" line="33"/>
         <source>Waiting for disk</source>
         <translation type="unfinished">Venter på disk</translation>
     </message>
     <message>
-        <location filename="../jobs/imageblockjob.cpp" line="47"/>
+        <location filename="../jobs/imageblockjob.cpp" line="46"/>
         <source>Waiting for other jobs to finish</source>
         <translation type="unfinished">Venter på at andre opgaver bliver færdige</translation>
     </message>
     <message>
-        <location filename="../jobs/imageblockjob.cpp" line="116"/>
+        <location filename="../jobs/imageblockjob.cpp" line="115"/>
         <source>Disk imaged successfully</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/imageblockjob.cpp" line="123"/>
+        <location filename="../jobs/imageblockjob.cpp" line="122"/>
         <source>Imaged Disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/imageblockjob.cpp" line="124"/>
+        <location filename="../jobs/imageblockjob.cpp" line="123"/>
         <source>A disk image of %1 has been created.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/imageblockjob.cpp" line="131"/>
+        <location filename="../jobs/imageblockjob.cpp" line="130"/>
         <source>Couldn&apos;t open the destination device for reading</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../jobs/imageblockjob.cpp" line="182"/>
+        <source>Image %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../jobs/imageblockjob.cpp" line="76"/>
+        <location filename="../jobs/imageblockjob.cpp" line="136"/>
+        <source>Couldn&apos;t Image Disc</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../jobs/imageblockjob.cpp" line="70"/>
+        <source>Not enough space to create image file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../jobs/imageblockjob.cpp" line="77"/>
         <location filename="../jobs/imageblockjob.cpp" line="137"/>
-        <source>Couldn&apos;t Image Disc</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../jobs/imageblockjob.cpp" line="71"/>
-        <source>Not enough space to create image file</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../jobs/imageblockjob.cpp" line="78"/>
-        <location filename="../jobs/imageblockjob.cpp" line="138"/>
         <source>Unable to create a disk image of %1.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/imageblockjob.cpp" line="101"/>
+        <location filename="../jobs/imageblockjob.cpp" line="100"/>
         <source>Imaging %1
 %2 of %3 copied</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../jobs/imageblockjob.cpp" line="152"/>
+        <location filename="../jobs/imageblockjob.cpp" line="150"/>
         <source>Failed to image</source>
         <translation type="unfinished"></translation>
     </message>
@@ -644,11 +657,6 @@
     <message>
         <source>Restore to %1</source>
         <translation type="obsolete">Gendan til %1</translation>
-    </message>
-    <message>
-        <location filename="../jobs/progress/imageblockjobprogress.cpp" line="19"/>
-        <source>Image %1</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -867,133 +875,141 @@ Vi vil ikke ændre noget indtil du bekræfter dine ændringer.</translation>
 <context>
     <name>RestoreDiskJob</name>
     <message>
-        <location filename="../jobs/restorediskjob.cpp" line="54"/>
+        <location filename="../jobs/restorediskjob.cpp" line="56"/>
         <source>Waiting for disk</source>
         <translation>Venter på disk</translation>
     </message>
     <message>
-        <location filename="../jobs/restorediskjob.cpp" line="68"/>
+        <location filename="../jobs/restorediskjob.cpp" line="70"/>
         <source>Waiting for other jobs to finish</source>
         <translation>Venter på at andre opgaver bliver færdige</translation>
     </message>
     <message>
-        <location filename="../jobs/restorediskjob.cpp" line="101"/>
+        <location filename="../jobs/restorediskjob.cpp" line="103"/>
         <source>Restoring to %1
 %2 of %3 restored</source>
         <translation>Gendanner til %1
 %2 ud af %3 gendannet</translation>
     </message>
     <message>
-        <location filename="../jobs/restorediskjob.cpp" line="116"/>
+        <location filename="../jobs/restorediskjob.cpp" line="118"/>
         <source>Disk restored successfully</source>
         <translation>Disk gendannet succesfuldt</translation>
     </message>
     <message>
-        <location filename="../jobs/restorediskjob.cpp" line="126"/>
+        <location filename="../jobs/restorediskjob.cpp" line="128"/>
         <source>Couldn&apos;t open the destination device for writing</source>
         <translation>Kunne ikke åbne destinationsenhed til at skrive</translation>
     </message>
     <message>
-        <location filename="../jobs/restorediskjob.cpp" line="141"/>
+        <location filename="../jobs/restorediskjob.cpp" line="143"/>
         <source>Failed to restore image</source>
         <translation>Kunne ikke gendanne snapshot</translation>
+    </message>
+    <message>
+        <location filename="../jobs/restorediskjob.cpp" line="179"/>
+        <source>Restore to %1</source>
+        <translation type="unfinished">Gendan til %1</translation>
     </message>
 </context>
 <context>
     <name>RestoreDiskJobProgress</name>
     <message>
-        <location filename="../jobs/progress/restorediskjobprogress.cpp" line="38"/>
         <source>Restore to %1</source>
-        <translation>Gendan til %1</translation>
+        <translation type="vanished">Gendan til %1</translation>
     </message>
 </context>
 <context>
     <name>RestoreOpticalJob</name>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="55"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="57"/>
         <source>Waiting for restore medium</source>
         <translation>Venter på gendannelsesmedie</translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="69"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="71"/>
         <source>Waiting for other jobs to finish</source>
         <translation>Venter på at andre opgaver bliver færdige</translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="93"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="95"/>
         <source>Failed to restore image</source>
         <translation>Kunne ikke gendanne snapshot</translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="118"/>
-        <location filename="../jobs/restoreopticaljob.cpp" line="168"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="120"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="170"/>
         <source>Preparing to restore</source>
         <translation>Forbereder gendannelse</translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="135"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="137"/>
         <source>Couldn&apos;t restore the disc because %1.</source>
         <translation>Kunne ikke gendanne disk på grund af %1.</translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="137"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="139"/>
         <source>Failed to restore disc</source>
         <translation>Kunne ikke gendanne disk</translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="142"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="144"/>
         <source>Couldn&apos;t Restore Disc</source>
         <translation>Kunne ikke gendanne disk</translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="143"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="145"/>
         <source>The disc in %1 could not be restored.</source>
         <translation>Disken i %1 kunne ikke gendannes.</translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="177"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="179"/>
         <source>Erasing Disc</source>
         <translation>Formaterer disk</translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="183"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="185"/>
         <source>Burning Image (%1)
 %2 of %3</source>
         <translation>Brænder snapshot (%1)
 %2 ud af %3</translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="186"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="188"/>
         <source>Burning Image</source>
         <translation>Brænder snapshot</translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="197"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="199"/>
         <source>Finalizing Disc</source>
         <translation>Færdiggør disk</translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="238"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="240"/>
         <source>Restore Complete</source>
         <translation>Gendannelse færdig</translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="244"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="246"/>
         <source>Restored Disc</source>
         <translation>Disk gendannet</translation>
     </message>
     <message>
-        <location filename="../jobs/restoreopticaljob.cpp" line="245"/>
+        <location filename="../jobs/restoreopticaljob.cpp" line="247"/>
         <source>The disc in %1 has been restored.</source>
         <translation>Disken i %1 er blevet gendannet.</translation>
+    </message>
+    <message>
+        <location filename="../jobs/restoreopticaljob.cpp" line="289"/>
+        <source>Restore to %1</source>
+        <translation type="unfinished">Gendan til %1</translation>
     </message>
 </context>
 <context>
     <name>RestoreOpticalJobProgress</name>
     <message>
-        <location filename="../jobs/progress/restoreopticaljobprogress.cpp" line="38"/>
         <source>Restore to %1</source>
-        <translation>Gendan til %1</translation>
+        <translation type="vanished">Gendan til %1</translation>
     </message>
 </context>
 <context>

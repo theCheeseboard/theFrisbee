@@ -50,6 +50,8 @@ class EraseCdRwJob : public tJob {
         quint64 totalProgress();
         State state();
         QWidget* makeProgressWidget();
+        QString titleString();
+        QString statusString();
 };
 
 #endif // ERASECDRWJOB_H

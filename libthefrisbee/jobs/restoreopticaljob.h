@@ -53,6 +53,8 @@ class RestoreOpticalJob : public RestoreJob {
         quint64 totalProgress();
         State state();
         QWidget* makeProgressWidget();
+        QString titleString();
+        QString statusString();
 };
 
 #endif // RESTOREOPTICALJOB_H

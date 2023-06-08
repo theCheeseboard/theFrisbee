@@ -48,6 +48,8 @@ EditPartitionJob::EditPartitionJob(QList<PartitionPopover::PartitionOperation> o
     d->disk = disk;
     d->displayName = d->disk->displayName();
 
+    connect(this, &EditPartitionJob::descriptionChanged, this, &EditPartitionJob::statusStringChanged);
+
     // Try to acquire the lock
     d->description = tr("Waiting for other jobs to finish");
     emit descriptionChanged(d->description);
@@ -194,4 +196,12 @@ tJob::State EditPartitionJob::state() {
 
 QWidget* EditPartitionJob::makeProgressWidget() {
     return new EditPartitionJobProgress(this);
+}
+
+QString EditPartitionJob::titleString() {
+    return tr("Partitioning %1").arg(QLocale().quoteString(this->displayName()));
+}
+
+QString EditPartitionJob::statusString() {
+    return this->description();
 }

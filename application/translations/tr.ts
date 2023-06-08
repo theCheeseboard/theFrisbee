@@ -397,12 +397,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../popovers/smartpopover.ui" line="491"/>
+        <location filename="../popovers/smartpopover.ui" line="487"/>
         <source>SMART Self Test Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../popovers/smartpopover.ui" line="484"/>
+        <location filename="../popovers/smartpopover.ui" line="480"/>
         <source>Conveyance</source>
         <translation type="unfinished"></translation>
     </message>

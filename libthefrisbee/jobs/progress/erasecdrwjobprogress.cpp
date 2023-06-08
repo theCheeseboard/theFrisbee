@@ -35,7 +35,7 @@ EraseCdRwJobProgress::EraseCdRwJobProgress(EraseCdRwJob* job, QWidget* parent) :
     d = new EraseCdRwJobProgressPrivate();
     d->job = job;
 
-    ui->titleLabel->setText(tr("Erase %1").arg(job->displayName()).toUpper());
+    ui->titleLabel->setText(job->titleString().toUpper());
 
     connect(job, &EraseCdRwJob::stateChanged, this, [this](EraseCdRwJob::State state) {
         updateState();

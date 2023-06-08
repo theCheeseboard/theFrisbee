@@ -1,6 +1,7 @@
 on:
   push:
-    branches: [blueprint]
+  release:
+    types: [published]
   pull_request:
   workflow_dispatch:
 name: Build Flatpak
@@ -9,7 +10,7 @@ jobs:
     name: "Flatpak Builder"
     runs-on: ubuntu-latest
     container:
-      image: bilelmoussaoui/flatpak-github-actions:kde-5.15
+      image: bilelmoussaoui/flatpak-github-actions:kde-6.2
       options: --privileged
     strategy:
       matrix:
@@ -24,4 +25,5 @@ jobs:
         repo-token: ${{ secrets.REPO_TOKEN }}
         repository: blueprint
         bundle-name: "thefrisbee.flatpak"
-        manifest: "dist/com.vicr123.thefrisbee_blueprint.yml"
+        manifest: dist/com.vicr123.thefrisbee_blueprint.yml
+        deploy: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}

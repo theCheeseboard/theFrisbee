@@ -1,6 +1,6 @@
 app-id: com.vicr123.thefrisbee_blueprint
 runtime: org.kde.Platform
-runtime-version: '6.2'
+runtime-version: '6.5'
 sdk: org.kde.Sdk
 command: thefrisbee-blueprint
 finish-args:
@@ -22,7 +22,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/danvratil/qcoro.git
-        branch: v0.6.0
+        branch: v0.9.0
     config-opts:
       - -DCMAKE_POSITION_INDEPENDENT_CODE=ON
   - name: libcontemporary

@@ -20,8 +20,8 @@
 #ifndef RESTOREDISKJOB_H
 #define RESTOREDISKJOB_H
 
-#include <QCoroTask>
 #include "restorejob.h"
+#include <QCoroTask>
 
 struct RestoreDiskJobPrivate;
 class DiskObject;
@@ -51,6 +51,8 @@ class RestoreDiskJob : public RestoreJob {
         quint64 totalProgress();
         State state();
         QWidget* makeProgressWidget();
+        QString titleString();
+        QString statusString();
 };
 
 #endif // RestoreDiskJob_H

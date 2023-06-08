@@ -4,19 +4,18 @@
 #include "../imageblockjob.h"
 
 struct ImageBlockJobProgressPrivate {
-    ImageBlockJob* job;
+        ImageBlockJob* job;
 };
 
-ImageBlockJobProgress::ImageBlockJobProgress(ImageBlockJob *job, QWidget *parent) :
+ImageBlockJobProgress::ImageBlockJobProgress(ImageBlockJob* job, QWidget* parent) :
     QWidget(parent),
-    ui(new Ui::ImageBlockJobProgress)
-{
+    ui(new Ui::ImageBlockJobProgress) {
     ui->setupUi(this);
 
     d = new ImageBlockJobProgressPrivate();
     d->job = job;
 
-    ui->titleLabel->setText(tr("Image %1").arg(job->displayName()).toUpper());
+    ui->titleLabel->setText(job->titleString().toUpper());
 
     connect(job, &ImageBlockJob::stateChanged, this, [this](ImageBlockJob::State state) {
         updateState();
@@ -32,14 +31,12 @@ ImageBlockJobProgress::ImageBlockJobProgress(ImageBlockJob *job, QWidget *parent
     ui->statusLabel->setText(job->description());
 }
 
-ImageBlockJobProgress::~ImageBlockJobProgress()
-{
+ImageBlockJobProgress::~ImageBlockJobProgress() {
     delete ui;
     delete d;
 }
 
-void ImageBlockJobProgress::updateState()
-{
+void ImageBlockJobProgress::updateState() {
     switch (d->job->state()) {
         case tJob::Processing:
             ui->progressBar->setMaximum(d->job->totalProgress());

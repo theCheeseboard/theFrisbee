@@ -472,10 +472,6 @@
             <property name="text">
              <string>Start SMART Self Test</string>
             </property>
-            <property name="icon">
-             <iconset theme="media-image-restore">
-              <normaloff>../../libthefrisbee/operations</normaloff>../../libthefrisbee/operations</iconset>
-            </property>
            </widget>
           </item>
           <item row="3" column="1">
@@ -524,11 +520,6 @@
    </slots>
   </customwidget>
   <customwidget>
-   <class>tSubtitleLabel</class>
-   <extends>QLabel</extends>
-   <header location="global">tsubtitlelabel.h</header>
-  </customwidget>
-  <customwidget>
    <class>tStackedWidget</class>
    <extends>QStackedWidget</extends>
    <header location="global">tstackedwidget.h</header>
@@ -536,6 +527,11 @@
    <slots>
     <signal>switchingFrame(int)</signal>
    </slots>
+  </customwidget>
+  <customwidget>
+   <class>tSubtitleLabel</class>
+   <extends>QLabel</extends>
+   <header location="global">tsubtitlelabel.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
