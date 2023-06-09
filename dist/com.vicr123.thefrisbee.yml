@@ -29,14 +29,14 @@ modules:
     buildsystem: cmake-ninja
     sources:
       - type: git
-        url: https://github.com/vicr123/libcontemporary
-        branch: master
+        url: https://github.com/theCheeseboard/libcontemporary
+        tag: v6.0
   - name: contemporary
     buildsystem: cmake-ninja
     sources:
       - type: git
-        url: https://github.com/vicr123/contemporary-theme
-        branch: master
+        url: https://github.com/theCheeseboard/contemporary-theme
+        tag: v2.0
   - name: contemporary-icons
     buildsystem: simple
     build-commands:
@@ -44,12 +44,12 @@ modules:
       - cp -r * /app/share/icons/contemporary/
     sources:
       - type: git
-        url: https://github.com/vicr123/contemporary-icons
-        branch: master
+        url: https://github.com/theCheeseboard/contemporary-icons
+        tag: v1.11
   - name: thefrisbee
     buildsystem: cmake-ninja
     builddir: true
     sources:
       - type: git
-        url: https://github.com/vicr123/thefrisbee
+        url: https://github.com/theCheeseboard/thefrisbee
         branch: master

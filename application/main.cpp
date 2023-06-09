@@ -35,13 +35,13 @@ int main(int argc, char* argv[]) {
 
     a.setApplicationVersion("2.0");
     a.setGenericName(QApplication::translate("main", "Disk Utility"));
-    a.setAboutDialogSplashGraphic(a.aboutDialogSplashGraphicFromSvg(":/icons/aboutsplash.svg"));
     a.setApplicationLicense(tApplication::Gpl3OrLater);
     a.setCopyrightHolder("Victor Tran");
-    a.setCopyrightYear("2022");
+    a.setCopyrightYear("2023");
     a.setOrganizationName("theSuite");
-    a.setApplicationUrl(tApplication::Sources, QUrl("http://github.com/vicr123/thefrisbee"));
-    a.setApplicationUrl(tApplication::FileBug, QUrl("http://github.com/vicr123/thefrisbee/issues"));
+    a.setApplicationUrl(tApplication::Sources, QUrl("https://github.com/vicr123/thefrisbee"));
+    a.setApplicationUrl(tApplication::FileBug, QUrl("https://github.com/vicr123/thefrisbee/issues"));
+    a.setApplicationUrl(tApplication::HelpContents, QUrl("https://help.vicr123.com/docs/thefrisbee"));
     a.setApplicationName(T_APPMETA_READABLE_NAME);
     a.setDesktopFileName(T_APPMETA_DESKTOP_ID);
 
