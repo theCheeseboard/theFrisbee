@@ -53,3 +53,5 @@ modules:
       - type: git
         url: https://github.com/theCheeseboard/thefrisbee
         branch: master
+    config-opts:
+      - -DFORCE_STABLE=ON
