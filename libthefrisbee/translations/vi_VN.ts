@@ -445,7 +445,7 @@
       <source>Power On Hours</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Số đém cần thử lại quay</translation>
       <location filename="../structures/formattedsmartattribute.cpp" line="36" />
       <source>Spin Retry Count</source>
     </message>
@@ -790,54 +790,56 @@
       <source>ACTIONS</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Chọn một phân vùng để đổi kích cớ hoặc xóa nó. Để thêm phân vùng mới, nhấn trong khu vực tróng.
+
+Chúng tôi sẽ không có thay đổi gì đến khi lúc bạn áp dụng các thay đổi.</translation>
       <location filename="../operations/partitionpopover.ui" line="109" />
       <source>Select a partition to resize or erase it. To add a new partition, click in some empty space.
 
 We won't modify anything until you apply your changes.</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>PHÂN VÙNG MỚI</translation>
       <location filename="../operations/partitionpopover.ui" line="150" />
       <source>NEW PARTITION</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Thêm phân vùng mới</translation>
       <location filename="../operations/partitionpopover.ui" line="157" />
       <source>Add New Partition</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Xóa phân vùng</translation>
       <location filename="../operations/partitionpopover.ui" line="199" />
       <source>Delete Partition</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Tên</translation>
       <location filename="../operations/partitionpopover.ui" line="206" />
       <source>Name</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>SỬA PHÂN VÙNG</translation>
       <location filename="../operations/partitionpopover.ui" line="219" />
       <source>EDIT PARTITION</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Loại</translation>
       <location filename="../operations/partitionpopover.ui" line="229" />
       <source>Type</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Áp dụng thay đổi</translation>
       <location filename="../operations/partitionpopover.ui" line="259" />
       <source>Apply Changes</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>ÁP DỤNG THAY ĐỔI</translation>
       <location filename="../operations/partitionpopover.ui" line="294" />
       <source>APPLY CHANGES</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Áp dụng thay đổi cho đĩa</translation>
       <location filename="../operations/partitionpopover.ui" line="311" />
       <source>Apply Changes to Disk</source>
     </message>
@@ -845,33 +847,34 @@ We won't modify anything until you apply your changes.</source>
   <context>
     <name>RestoreDiskJob</name>
     <message>
-      <translation></translation>
+      <translation>Đang chờ đĩa</translation>
       <location filename="../jobs/restorediskjob.cpp" line="54" />
       <source>Waiting for disk</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Đang cho hoạt động khác hoàn thành</translation>
       <location filename="../jobs/restorediskjob.cpp" line="68" />
       <source>Waiting for other jobs to finish</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Đang khôi phục về %1
+Đã khôi phục %2 trên %3</translation>
       <location filename="../jobs/restorediskjob.cpp" line="101" />
       <source>Restoring to %1
 %2 of %3 restored</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Đã khôi phục đĩa thành công</translation>
       <location filename="../jobs/restorediskjob.cpp" line="116" />
       <source>Disk restored successfully</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Không thể mở thiết bị đầu ra để ghi</translation>
       <location filename="../jobs/restorediskjob.cpp" line="126" />
       <source>Couldn't open the destination device for writing</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Không thể khôi phục ảnh đĩa</translation>
       <location filename="../jobs/restorediskjob.cpp" line="141" />
       <source>Failed to restore image</source>
     </message>
@@ -879,7 +882,7 @@ We won't modify anything until you apply your changes.</source>
   <context>
     <name>RestoreDiskJobProgress</name>
     <message>
-      <translation></translation>
+      <translation>Khôi phục về %1</translation>
       <location filename="../jobs/progress/restorediskjobprogress.cpp" line="38" />
       <source>Restore to %1</source>
     </message>
@@ -887,79 +890,80 @@ We won't modify anything until you apply your changes.</source>
   <context>
     <name>RestoreOpticalJob</name>
     <message>
-      <translation></translation>
+      <translation>Đang chờ phương tiện để khôi phục về</translation>
       <location filename="../jobs/restoreopticaljob.cpp" line="55" />
       <source>Waiting for restore medium</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Đang cho hoạt động khác hoàn thành</translation>
       <location filename="../jobs/restoreopticaljob.cpp" line="69" />
       <source>Waiting for other jobs to finish</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Không thể khôi phục ảnh đĩa</translation>
       <location filename="../jobs/restoreopticaljob.cpp" line="93" />
       <source>Failed to restore image</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Đang chuẩn bị khôi phục</translation>
       <location filename="../jobs/restoreopticaljob.cpp" line="118" />
       <location filename="../jobs/restoreopticaljob.cpp" line="168" />
       <source>Preparing to restore</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Không thể khôi phục đĩa tại vị %1.</translation>
       <location filename="../jobs/restoreopticaljob.cpp" line="135" />
       <source>Couldn't restore the disc because %1.</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Không thể khôi phục đĩa</translation>
       <location filename="../jobs/restoreopticaljob.cpp" line="137" />
       <source>Failed to restore disc</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Không thể khôi phục đĩa</translation>
       <location filename="../jobs/restoreopticaljob.cpp" line="142" />
       <source>Couldn't Restore Disc</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Không có thể khôi phục về đĩa trong %1.</translation>
       <location filename="../jobs/restoreopticaljob.cpp" line="143" />
       <source>The disc in %1 could not be restored.</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Đang xóa đĩa</translation>
       <location filename="../jobs/restoreopticaljob.cpp" line="177" />
       <source>Erasing Disc</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Đang ghi ảnh (%1)
+%2 trên %3</translation>
       <location filename="../jobs/restoreopticaljob.cpp" line="183" />
       <source>Burning Image (%1)
 %2 of %3</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Đang ghi ảnh</translation>
       <location filename="../jobs/restoreopticaljob.cpp" line="186" />
       <source>Burning Image</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Đang hoàn thành đĩa</translation>
       <location filename="../jobs/restoreopticaljob.cpp" line="197" />
       <source>Finalizing Disc</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Khôi phục hoàn thành</translation>
       <location filename="../jobs/restoreopticaljob.cpp" line="238" />
       <source>Restore Complete</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Đã khôi phục đĩa</translation>
       <location filename="../jobs/restoreopticaljob.cpp" line="244" />
       <source>Restored Disc</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Đĩa trong ổ %1 đã bị khôi phục.</translation>
       <location filename="../jobs/restoreopticaljob.cpp" line="245" />
       <source>The disc in %1 has been restored.</source>
     </message>
@@ -967,7 +971,7 @@ We won't modify anything until you apply your changes.</source>
   <context>
     <name>RestoreOpticalJobProgress</name>
     <message>
-      <translation></translation>
+      <translation>Khôi phục về %1</translation>
       <location filename="../jobs/progress/restoreopticaljobprogress.cpp" line="38" />
       <source>Restore to %1</source>
     </message>
@@ -975,82 +979,84 @@ We won't modify anything until you apply your changes.</source>
   <context>
     <name>RestoreOpticalPopover</name>
     <message>
-      <translation></translation>
+      <translation>TÙY CHỌN KHÔI PHỤC</translation>
       <location filename="../operations/restoreopticalpopover.ui" line="72" />
       <source>RESTORE OPTIONS</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Khôi phục ảnh đĩa</translation>
       <location filename="../operations/restoreopticalpopover.ui" line="84" />
       <source>Restore Image File</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Chép phương tiện</translation>
       <location filename="../operations/restoreopticalpopover.ui" line="100" />
       <source>Copy Media</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Tệp đầu vào</translation>
       <location filename="../operations/restoreopticalpopover.ui" line="155" />
       <source>Input File</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Duyệt...</translation>
       <location filename="../operations/restoreopticalpopover.ui" line="165" />
       <source>Browse...</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Khôi phục ảnh đĩa này</translation>
       <location filename="../operations/restoreopticalpopover.ui" line="217" />
       <location filename="../operations/restoreopticalpopover.ui" line="362" />
       <source>Restore this image</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Khôi phục ảnh đĩa</translation>
       <location filename="../operations/restoreopticalpopover.ui" line="250" />
       <location filename="../operations/restoreopticalpopover.cpp" line="59" />
       <source>Restore Disc</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>ĐĨA KHÔNG CÓ TRÓNG</translation>
       <location filename="../operations/restoreopticalpopover.ui" line="265" />
       <source>DISC NOT BLANK</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Đĩa trong ổ không có tróng. Để khôi phục một ảnh về đĩa đó, nó sẽ phải bị xóa.
+
+Sau khi đĩa trong ổ bị xóa, các dữ liệu trên đĩa đó sẽ bị mất mãi mãi.</translation>
       <location filename="../operations/restoreopticalpopover.ui" line="272" />
       <source>The disc in the drive is not blank. To restore an image to the disc, the disc will need to be erased.
 
 Once the disc in the drive is erased, all the data on it will be gone forever.</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Xóa và khôi phục</translation>
       <location filename="../operations/restoreopticalpopover.ui" line="284" />
       <source>Erase and Restore</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Khôi phục về khối</translation>
       <location filename="../operations/restoreopticalpopover.ui" line="330" />
       <location filename="../operations/restoreopticalpopover.cpp" line="61" />
       <source>Restore to Block</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>SẴN SÀNG CHƯA?</translation>
       <location filename="../operations/restoreopticalpopover.ui" line="345" />
       <source>THIS IS IT</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Khi bạn khôi phục về khối này, bạn sẽ xóa nó. Bạn không có thể hoàn tác hoạt động này; sau khi khối dó bị xóa, các dữ liệu trên đó sẽ bị mất mãi mãi.</translation>
       <location filename="../operations/restoreopticalpopover.ui" line="352" />
       <source>Restoring to this block will erase it. There's no going back; once the block is erased, all the data on the block is gone forever.</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Không thể tự khôi phục</translation>
       <location filename="../operations/restoreopticalpopover.cpp" line="102" />
       <source>Unable to restore to self</source>
     </message>
     <message>
-      <translation></translation>
+      <translation>Một phương tiện không thể bị tự khôi phục. Vui lòng chọn một phương tiện khác để khôi phục.</translation>
       <location filename="../operations/restoreopticalpopover.cpp" line="102" />
       <source>A medium cannot be restored to itself. Select another medium to restore.</source>
     </message>
