@@ -6,6 +6,7 @@
 
 class DiskObject;
 class DriveInterface;
+class DriveObjectManager;
 struct UdisksInterfacePrivate;
 class UdisksInterface : public QObject {
         Q_OBJECT
@@ -16,6 +17,7 @@ class UdisksInterface : public QObject {
     protected:
         friend DiskObject;
         friend DriveInterface;
+        friend DriveObjectManager;
         void updateProperties(QVariantMap properties);
         void bindPropertyUpdater(QString property, std::function<void(QVariant)> updater);
 

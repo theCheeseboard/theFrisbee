@@ -12,6 +12,8 @@ class VolumeGroup : public UdisksInterface {
 
         static QString interfaceName();
 
+        QString name();
+
     private:
         VolumeGroupPrivate* d;
 };

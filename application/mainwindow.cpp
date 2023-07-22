@@ -41,6 +41,7 @@
 #include <tlogger.h>
 #include <tpaintcalculator.h>
 #include <tpopover.h>
+#include <twindowtabberbutton.h>
 
 struct MainWindowPrivate {
         tCsdTools csd;
@@ -64,12 +65,17 @@ MainWindow::MainWindow(QWidget* parent) :
         ui->rightCsdLayout->addWidget(d->csd.csdBoxForWidget(this));
     }
 
+    ui->stackedWidget->setCurrentAnimation(tStackedWidget::SlideHorizontal);
+
     ui->menuBar->setVisible(false);
     ui->menuBar->addMenu(new tHelpMenu(this));
 
     tCommandPaletteActionScope* commandPaletteActionScope;
     auto commandPalette = tCommandPaletteController::defaultController(this, &commandPaletteActionScope);
     commandPaletteActionScope->addMenuBar(ui->menuBar);
+
+    ui->windowTabber->addButton(new tWindowTabberButton(QIcon::fromTheme("drive-harddisk"), tr("Disks"), ui->stackedWidget, ui->disksPage));
+    ui->windowTabber->addButton(new tWindowTabberButton(QIcon::fromTheme("drive-logical-volume"), tr("LVs"), ui->stackedWidget, ui->lvmPage));
 
     QMenu* menu = new QMenu(this);
     menu->addAction(ui->actionCreate_Disk_Image);
@@ -82,16 +88,16 @@ MainWindow::MainWindow(QWidget* parent) :
     ui->menuButton->setIcon(tApplication::applicationIcon());
     ui->menuButton->setIconSize(SC_DPI_WT(QSize(24, 24), QSize, this));
     ui->menuButton->setMenu(menu);
-    ui->stackedWidget->setCurrentAnimation(tStackedWidget::Lift);
+    ui->stackedWidget_2->setCurrentAnimation(tStackedWidget::Lift);
 
-    ui->leftWidget->setFixedWidth(SC_DPI_W(400, this));
+    ui->leftWidget->setFixedWidth(400);
 
     ui->diskList->setModel(new DiskModel());
     connect(ui->diskList->selectionModel(), &QItemSelectionModel::currentChanged, this, [this](QModelIndex current, QModelIndex previous) {
         if (current.isValid()) {
             DiskPane* disk = new DiskPane(static_cast<DiskObject*>(current.internalPointer()));
-            ui->stackedWidget->addWidget(disk);
-            ui->stackedWidget->setCurrentWidget(disk);
+            ui->stackedWidget_2->addWidget(disk);
+            ui->stackedWidget_2->setCurrentWidget(disk);
         }
     });
 

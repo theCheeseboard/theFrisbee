@@ -298,6 +298,7 @@ void DriveObjectManager::updateInterfaces() {
                         emit volumeGroupAdded(vg);
                     });
                 }
+                vg->updateProperties(interfaces.value(VolumeGroup::interfaceName()));
             } else if (interfaces.contains(LogicalVolume::interfaceName())) {
                 LogicalVolume* lv;
                 if (d->volumeGroups.contains(path)) {
@@ -309,6 +310,7 @@ void DriveObjectManager::updateInterfaces() {
                         emit logicalVolumeAdded(lv);
                     });
                 }
+                lv->updateProperties(interfaces.value(VolumeGroup::interfaceName()));
             }
         }
     }

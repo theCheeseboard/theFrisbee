@@ -35,7 +35,8 @@ class DiskInterface : public UdisksInterface {
             Loop,
             Encrypted,
             AtaDrive,
-            BlockLvm2
+            BlockLvm2,
+            PhysicalVolume
         };
 
         explicit DiskInterface(QDBusObjectPath path, QString interface, QObject* parent = nullptr);

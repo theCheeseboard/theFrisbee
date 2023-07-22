@@ -26,6 +26,7 @@
 #include "DriveObjects/loopinterface.h"
 #include "DriveObjects/partitioninterface.h"
 #include "DriveObjects/partitiontableinterface.h"
+#include "DriveObjects/physicalvolumeinterface.h"
 
 #include <QDBusConnection>
 
@@ -50,5 +51,6 @@ DiskInterface* DiskInterface::makeDiskInterface(QString interface, QDBusObjectPa
     if (interface == EncryptedInterface::interfaceName()) return new EncryptedInterface(path);
     if (interface == AtaDriveInterface::interfaceName()) return new AtaDriveInterface(path);
     if (interface == BlockLvm2Interface::interfaceName()) return new BlockLvm2Interface(path);
+    if (interface == PhysicalVolumeInterface::interfaceName()) return new PhysicalVolumeInterface(path);
     return nullptr;
 }

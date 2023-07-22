@@ -33,6 +33,7 @@
 #include "loopinterface.h"
 #include "partitioninterface.h"
 #include "partitiontableinterface.h"
+#include "physicalvolumeinterface.h"
 
 struct DiskObjectPrivate {
         QDBusObjectPath path;
@@ -80,6 +81,10 @@ template<> BlockLvm2Interface* DiskObject::interface() const {
     return static_cast<BlockLvm2Interface*>(d->interfaces.value(BlockLvm2Interface::interfaceName(), nullptr));
 }
 
+template<> PhysicalVolumeInterface* DiskObject::interface() const {
+    return static_cast<PhysicalVolumeInterface*>(d->interfaces.value(PhysicalVolumeInterface::interfaceName(), nullptr));
+}
+
 bool DiskObject::isInterfaceAvailable(DiskInterface::Interfaces interface) {
     switch (interface) {
         case DiskInterface::Block:
@@ -96,6 +101,8 @@ bool DiskObject::isInterfaceAvailable(DiskInterface::Interfaces interface) {
             return d->interfaces.contains(EncryptedInterface::interfaceName());
         case DiskInterface::BlockLvm2:
             return d->interfaces.contains(BlockLvm2Interface::interfaceName());
+        case DiskInterface::PhysicalVolume:
+            return d->interfaces.contains(PhysicalVolumeInterface::interfaceName());
         default:
             return false;
     }
@@ -189,7 +196,8 @@ void DiskObject::updateInterfaces(QMap<QString, QVariantMap> interfaces) {
         PartitionInterface::interfaceName(),
         LoopInterface::interfaceName(),
         EncryptedInterface::interfaceName(),
-        BlockLvm2Interface::interfaceName()};
+        BlockLvm2Interface::interfaceName(),
+        PhysicalVolumeInterface::interfaceName()};
 
     for (QString interface : interfaceNames) {
         if (interfaces.contains(interface)) {

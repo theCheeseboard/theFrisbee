@@ -18,6 +18,7 @@ set(SOURCES
         DriveObjects/udisksinterface.h DriveObjects/udisksinterface.cpp
         DriveObjects/atadriveinterface.h DriveObjects/atadriveinterface.cpp
         DriveObjects/blocklvm2interface.h DriveObjects/blocklvm2interface.cpp
+        DriveObjects/physicalvolumeinterface.h DriveObjects/physicalvolumeinterface.cpp
 
         DriveObjects/volumegroup.h DriveObjects/volumegroup.cpp
         DriveObjects/logicalvolume.h DriveObjects/logicalvolume.cpp
