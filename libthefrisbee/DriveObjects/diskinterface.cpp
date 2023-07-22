@@ -20,6 +20,7 @@
 #include "diskinterface.h"
 #include "DriveObjects/atadriveinterface.h"
 #include "DriveObjects/blockinterface.h"
+#include "DriveObjects/blocklvm2interface.h"
 #include "DriveObjects/encryptedinterface.h"
 #include "DriveObjects/filesysteminterface.h"
 #include "DriveObjects/loopinterface.h"
@@ -29,23 +30,18 @@
 #include <QDBusConnection>
 
 struct DiskInterfacePrivate {
-    QString interface;
-    QMap<QString, std::function<void (QVariant)>> updaters;
 };
 
-DiskInterface::DiskInterface(QDBusObjectPath path, QString interface, QObject* parent) : QObject(parent) {
+DiskInterface::DiskInterface(QDBusObjectPath path, QString interface, QObject* parent) :
+    UdisksInterface(path, interface, parent) {
     d = new DiskInterfacePrivate();
-    d->interface = interface;
-
-    QDBusConnection::systemBus().connect("org.freedesktop.UDisks2", path.path(), "org.freedesktop.DBus.Properties", "PropertiesChanged", this, SLOT(propertiesChanged(QString, QVariantMap, QStringList)));
 }
 
 DiskInterface::~DiskInterface() {
     delete d;
 }
 
-DiskInterface *DiskInterface::makeDiskInterface(QString interface, QDBusObjectPath path)
-{
+DiskInterface* DiskInterface::makeDiskInterface(QString interface, QDBusObjectPath path) {
     if (interface == BlockInterface::interfaceName()) return new BlockInterface(path);
     if (interface == FilesystemInterface::interfaceName()) return new FilesystemInterface(path);
     if (interface == PartitionTableInterface::interfaceName()) return new PartitionTableInterface(path);
@@ -53,21 +49,6 @@ DiskInterface *DiskInterface::makeDiskInterface(QString interface, QDBusObjectPa
     if (interface == LoopInterface::interfaceName()) return new LoopInterface(path);
     if (interface == EncryptedInterface::interfaceName()) return new EncryptedInterface(path);
     if (interface == AtaDriveInterface::interfaceName()) return new AtaDriveInterface(path);
+    if (interface == BlockLvm2Interface::interfaceName()) return new BlockLvm2Interface(path);
     return nullptr;
 }
-
-void DiskInterface::updateProperties(QVariantMap properties) {
-    for (QString property : properties.keys()) {
-        if (d->updaters.contains(property)) d->updaters.value(property)(properties.value(property));
-    }
-}
-
-void DiskInterface::bindPropertyUpdater(QString property, std::function<void (QVariant)> updater) {
-    d->updaters.insert(property, updater);
-}
-
-void DiskInterface::propertiesChanged(QString interface, QVariantMap changedProperties, QStringList invalidatedProperties) {
-    Q_UNUSED(invalidatedProperties);
-    if (interface == d->interface) updateProperties(changedProperties);
-}
-

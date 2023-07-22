@@ -20,13 +20,11 @@
 #ifndef DISKINTERFACE_H
 #define DISKINTERFACE_H
 
-#include <QObject>
+#include "udisksinterface.h"
 #include <QDBusObjectPath>
 
-class DiskObject;
-class DriveInterface;
 struct DiskInterfacePrivate;
-class DiskInterface : public QObject {
+class DiskInterface : public UdisksInterface {
         Q_OBJECT
     public:
         enum Interfaces {
@@ -36,7 +34,8 @@ class DiskInterface : public QObject {
             Partition,
             Loop,
             Encrypted,
-            AtaDrive
+            AtaDrive,
+            BlockLvm2
         };
 
         explicit DiskInterface(QDBusObjectPath path, QString interface, QObject* parent = nullptr);
@@ -45,17 +44,6 @@ class DiskInterface : public QObject {
         virtual Interfaces interfaceType() = 0;
 
         static DiskInterface* makeDiskInterface(QString interface, QDBusObjectPath path);
-
-    protected:
-        friend DiskObject;
-        friend DriveInterface;
-        void updateProperties(QVariantMap properties);
-        void bindPropertyUpdater(QString property, std::function<void(QVariant)> updater);
-
-    signals:
-
-    private slots:
-        void propertiesChanged(QString interface, QVariantMap changedProperties, QStringList invalidatedProperties);
 
     private:
         DiskInterfacePrivate* d;

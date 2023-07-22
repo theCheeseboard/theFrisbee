@@ -4,12 +4,12 @@
 <context>
     <name>DiskObject</name>
     <message>
-        <location filename="../DriveObjects/diskobject.cpp" line="113"/>
+        <location filename="../DriveObjects/diskobject.cpp" line="120"/>
         <source>Loop Device</source>
         <translation>Loopenhed</translation>
     </message>
     <message>
-        <location filename="../DriveObjects/diskobject.cpp" line="116"/>
+        <location filename="../DriveObjects/diskobject.cpp" line="123"/>
         <source>Block Device</source>
         <translation>Blokenhed</translation>
     </message>

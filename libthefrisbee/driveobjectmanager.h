@@ -30,6 +30,8 @@
 struct DriveObjectManagerPrivate;
 class DiskObject;
 class DriveInterface;
+class VolumeGroup;
+class LogicalVolume;
 class LIBTHEFRISBEE_EXPORT DriveObjectManager : public QObject {
         Q_OBJECT
     public:
@@ -42,9 +44,15 @@ class LIBTHEFRISBEE_EXPORT DriveObjectManager : public QObject {
         static QList<DiskObject*> opticalDisks();
         static QList<DriveInterface*> drives();
 
+        static QList<VolumeGroup*> volumeGroups();
+        static QList<LogicalVolume*> logicalVolumes();
+
         static DiskObject* diskForPath(QDBusObjectPath path);
         static DiskObject* diskByBlockName(QString blockName);
         static DriveInterface* driveForPath(QDBusObjectPath path);
+
+        static VolumeGroup* volumeGroupForPath(QDBusObjectPath path);
+        static LogicalVolume* logicalVolumeForPath(QDBusObjectPath path);
 
         static QStringList supportedFilesystems();
 
@@ -58,6 +66,10 @@ class LIBTHEFRISBEE_EXPORT DriveObjectManager : public QObject {
         void diskRemoved(DiskObject* disk);
         void driveAdded(DriveInterface* drive);
         void driveRemoved(DriveInterface* drive);
+        void volumeGroupAdded(VolumeGroup* drive);
+        void volumeGroupRemoved(VolumeGroup* drive);
+        void logicalVolumeAdded(LogicalVolume* drive);
+        void logicalVolumeRemoved(LogicalVolume* drive);
         void rootDisksChanged();
         void filesystemDisksChanged();
 

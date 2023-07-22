@@ -15,7 +15,13 @@ set(SOURCES
         DriveObjects/loopinterface.cpp
         DriveObjects/partitioninterface.cpp
         DriveObjects/partitiontableinterface.cpp
+        DriveObjects/udisksinterface.h DriveObjects/udisksinterface.cpp
         DriveObjects/atadriveinterface.h DriveObjects/atadriveinterface.cpp
+        DriveObjects/blocklvm2interface.h DriveObjects/blocklvm2interface.cpp
+
+        DriveObjects/volumegroup.h DriveObjects/volumegroup.cpp
+        DriveObjects/logicalvolume.h DriveObjects/logicalvolume.cpp
+
         components/partitionvisualisation.cpp
         components/sizeeditbox.cpp
         diskmodel.cpp

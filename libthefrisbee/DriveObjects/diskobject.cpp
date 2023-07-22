@@ -25,6 +25,7 @@
 #include <QTimer>
 
 #include "blockinterface.h"
+#include "blocklvm2interface.h"
 #include "diskinterface.h"
 #include "driveinterface.h"
 #include "encryptedinterface.h"
@@ -75,6 +76,10 @@ template<> EncryptedInterface* DiskObject::interface() const {
     return static_cast<EncryptedInterface*>(d->interfaces.value(EncryptedInterface::interfaceName(), nullptr));
 }
 
+template<> BlockLvm2Interface* DiskObject::interface() const {
+    return static_cast<BlockLvm2Interface*>(d->interfaces.value(BlockLvm2Interface::interfaceName(), nullptr));
+}
+
 bool DiskObject::isInterfaceAvailable(DiskInterface::Interfaces interface) {
     switch (interface) {
         case DiskInterface::Block:
@@ -89,6 +94,8 @@ bool DiskObject::isInterfaceAvailable(DiskInterface::Interfaces interface) {
             return d->interfaces.contains(LoopInterface::interfaceName());
         case DiskInterface::Encrypted:
             return d->interfaces.contains(EncryptedInterface::interfaceName());
+        case DiskInterface::BlockLvm2:
+            return d->interfaces.contains(BlockLvm2Interface::interfaceName());
         default:
             return false;
     }
@@ -181,7 +188,8 @@ void DiskObject::updateInterfaces(QMap<QString, QVariantMap> interfaces) {
         PartitionTableInterface::interfaceName(),
         PartitionInterface::interfaceName(),
         LoopInterface::interfaceName(),
-        EncryptedInterface::interfaceName()};
+        EncryptedInterface::interfaceName(),
+        BlockLvm2Interface::interfaceName()};
 
     for (QString interface : interfaceNames) {
         if (interfaces.contains(interface)) {
