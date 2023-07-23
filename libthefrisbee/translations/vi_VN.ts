@@ -750,6 +750,11 @@
         <source>Extended Boot Partition</source>
         <translation></translation>
     </message>
+    <message>
+        <location filename="../partitioninformation.cpp" line="63"/>
+        <source>LVM Physical Volume</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PartitionPopover</name>
@@ -779,59 +784,59 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="102"/>
+        <location filename="../operations/partitionpopover.ui" line="101"/>
         <source>ACTIONS</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="109"/>
+        <location filename="../operations/partitionpopover.ui" line="108"/>
         <source>Select a partition to resize or erase it. To add a new partition, click in some empty space.
 
 We won&apos;t modify anything until you apply your changes.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="150"/>
+        <location filename="../operations/partitionpopover.ui" line="148"/>
         <source>NEW PARTITION</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="157"/>
+        <location filename="../operations/partitionpopover.ui" line="155"/>
         <source>Add New Partition</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="199"/>
+        <location filename="../operations/partitionpopover.ui" line="197"/>
         <source>Delete Partition</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="206"/>
+        <location filename="../operations/partitionpopover.ui" line="204"/>
         <source>Name</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="219"/>
+        <location filename="../operations/partitionpopover.ui" line="216"/>
         <source>EDIT PARTITION</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="229"/>
+        <location filename="../operations/partitionpopover.ui" line="226"/>
         <source>Type</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="259"/>
+        <location filename="../operations/partitionpopover.ui" line="256"/>
         <source>Apply Changes</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="294"/>
+        <location filename="../operations/partitionpopover.ui" line="290"/>
         <source>APPLY CHANGES</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="311"/>
+        <location filename="../operations/partitionpopover.ui" line="307"/>
         <source>Apply Changes to Disk</source>
         <translation></translation>
     </message>

@@ -776,6 +776,11 @@
         <source>Extended Boot Partition</source>
         <translation>Phân vùng khởi động mở rộng</translation>
     </message>
+    <message>
+        <location filename="../partitioninformation.cpp" line="63"/>
+        <source>LVM Physical Volume</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PartitionPopover</name>
@@ -785,12 +790,12 @@
         <translation>Sửa phân vùng</translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="102"/>
+        <location filename="../operations/partitionpopover.ui" line="101"/>
         <source>ACTIONS</source>
         <translation>HOẠT ĐỘNG</translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="109"/>
+        <location filename="../operations/partitionpopover.ui" line="108"/>
         <source>Select a partition to resize or erase it. To add a new partition, click in some empty space.
 
 We won&apos;t modify anything until you apply your changes.</source>
@@ -799,47 +804,47 @@ We won&apos;t modify anything until you apply your changes.</source>
 Chúng tôi sẽ không sửa đổi bất cứ điều gì cho đến khi bạn áp dụng thay đổi.</translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="150"/>
+        <location filename="../operations/partitionpopover.ui" line="148"/>
         <source>NEW PARTITION</source>
         <translation>PHÂN VÙNG MỚI</translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="157"/>
+        <location filename="../operations/partitionpopover.ui" line="155"/>
         <source>Add New Partition</source>
         <translation>Thêm phân vùng mới</translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="199"/>
+        <location filename="../operations/partitionpopover.ui" line="197"/>
         <source>Delete Partition</source>
         <translation>Xóa phân vùng</translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="206"/>
+        <location filename="../operations/partitionpopover.ui" line="204"/>
         <source>Name</source>
         <translation>Tên</translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="219"/>
+        <location filename="../operations/partitionpopover.ui" line="216"/>
         <source>EDIT PARTITION</source>
         <translation>SỬA PHÂN VÙNG</translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="229"/>
+        <location filename="../operations/partitionpopover.ui" line="226"/>
         <source>Type</source>
         <translation>Kiểu</translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="259"/>
+        <location filename="../operations/partitionpopover.ui" line="256"/>
         <source>Apply Changes</source>
         <translation>Áp dụng các thay đổi</translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="294"/>
+        <location filename="../operations/partitionpopover.ui" line="290"/>
         <source>APPLY CHANGES</source>
         <translation>ÁP DỤNG CÁC THAY ĐỔI</translation>
     </message>
     <message>
-        <location filename="../operations/partitionpopover.ui" line="311"/>
+        <location filename="../operations/partitionpopover.ui" line="307"/>
         <source>Apply Changes to Disk</source>
         <translation>Áp dụng thay đổi vào đĩa</translation>
     </message>
