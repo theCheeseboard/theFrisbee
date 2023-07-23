@@ -138,59 +138,72 @@
     </message>
 </context>
 <context>
+    <name>LvmPage</name>
+    <message>
+        <location filename="../lvm/lvmpage.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lvm/lvmpage.ui" line="73"/>
+        <source>Volume Groups</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="232"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="233"/>
         <source>theFrisbee</source>
         <translation>theFrisbee</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="148"/>
         <location filename="../mainwindow.cpp" line="81"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="243"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="244"/>
         <source>Disks</source>
         <translation>Diskler</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="203"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="244"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="245"/>
         <source>File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="209"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="245"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="246"/>
         <source>Image</source>
         <translation type="unfinished">Resim</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="223"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="233"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="234"/>
         <source>Exit</source>
         <translation>Vazgeç</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="226"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="235"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="236"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="235"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="237"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="238"/>
         <source>Attach Image</source>
         <translation>Resim Ekle</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="244"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="238"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="239"/>
         <source>Create Disk Image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="247"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="240"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="241"/>
         <source>Ctrl+N</source>
         <translation type="unfinished"></translation>
     </message>

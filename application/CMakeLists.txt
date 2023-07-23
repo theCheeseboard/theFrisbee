@@ -16,6 +16,8 @@ set(SOURCES
         mainwindow.cpp mainwindow.ui
         operations/creatediskimagepopover.cpp operations/creatediskimagepopover.ui
 
+        lvm/lvmpage.cpp lvm/lvmpage.ui
+
         main.cpp
 
         resources.qrc)
@@ -27,7 +29,9 @@ set(HEADERS
         popovers/smartpopover.h
         diskpane.h
         mainwindow.h
-        operations/creatediskimagepopover.h)
+        operations/creatediskimagepopover.h
+        lvm/lvmpage.h
+    )
 
 add_executable(thefrisbee ${SOURCES} ${HEADERS})
 

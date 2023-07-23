@@ -1111,4 +1111,12 @@ Once the disc in the drive is erased, all the data on it will be gone forever.</
         <translation>לא ניתן לשחזר מדיום מעצמו. בחר מדיום אחר לשחזר.</translation>
     </message>
 </context>
+<context>
+    <name>VolumeGroupModel</name>
+    <message>
+        <location filename="../volumegroupmodel.cpp" line="44"/>
+        <source>New Volume Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 </TS>

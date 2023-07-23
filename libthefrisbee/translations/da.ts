@@ -1116,4 +1116,12 @@ Når disken i drevet er formateret, vil alt data på den være væk for evigt.</
         <translation>Et medie kan ikke gendannes til sig selv. Vælg et andet medie at gendanne.</translation>
     </message>
 </context>
+<context>
+    <name>VolumeGroupModel</name>
+    <message>
+        <location filename="../volumegroupmodel.cpp" line="44"/>
+        <source>New Volume Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 </TS>

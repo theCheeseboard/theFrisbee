@@ -179,4 +179,5 @@ void MainWindow::resizeEvent(QResizeEvent* event) {
 
     ui->leftWidget->setContentsMargins(0, ui->topWidget->sizeHint().height(), 0, 0);
     ui->verticalLayout_3->setContentsMargins(0, ui->topWidget->sizeHint().height(), 0, 0);
+    ui->lvmPage->setTopPadding(ui->topWidget->sizeHint().height());
 }

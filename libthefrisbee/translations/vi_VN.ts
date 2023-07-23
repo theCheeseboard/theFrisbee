@@ -1108,4 +1108,12 @@ Sau khi đĩa trong ổ bị xóa, các tệp trên nó sẽ bị mất mãi mã
         <translation>Một phương tiện không thể bị khôi phục lại vào chính nó. Vui lòng chọn một phương tiện khác để khôi phục.</translation>
     </message>
 </context>
+<context>
+    <name>VolumeGroupModel</name>
+    <message>
+        <location filename="../volumegroupmodel.cpp" line="44"/>
+        <source>New Volume Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 </TS>

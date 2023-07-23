@@ -50,6 +50,7 @@ set(SOURCES
         frisbeeexception.cpp
         structures/private/smartattribute.h structures/private/smartattribute.cpp
         structures/formattedsmartattribute.cpp
+        volumegroupmodel.h volumegroupmodel.cpp
     )
 
 set(STRUCTURES_HEADERS

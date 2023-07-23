@@ -184,7 +184,7 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="lvmPage"/>
+      <widget class="LvmPage" name="lvmPage"/>
      </widget>
     </item>
    </layout>
@@ -270,6 +270,12 @@
    <class>tWindowTabber</class>
    <extends>QWidget</extends>
    <header location="global">twindowtabber.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>LvmPage</class>
+   <extends>QWidget</extends>
+   <header>lvm/lvmpage.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
