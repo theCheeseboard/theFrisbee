@@ -17,43 +17,43 @@
 <context>
     <name>DiskOperationManager</name>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="54"/>
+        <location filename="../diskoperationmanager.cpp" line="55"/>
         <source>Erase a block device</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="55"/>
+        <location filename="../diskoperationmanager.cpp" line="56"/>
         <source>Create an image of a block device</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="56"/>
+        <location filename="../diskoperationmanager.cpp" line="57"/>
         <source>Restore an image back to a block device or disc</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="57"/>
+        <location filename="../diskoperationmanager.cpp" line="58"/>
         <source>Edit partitions on a filesystem</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="98"/>
-        <location filename="../diskoperationmanager.cpp" line="187"/>
+        <location filename="../diskoperationmanager.cpp" line="99"/>
+        <location filename="../diskoperationmanager.cpp" line="194"/>
         <source>No Media</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="98"/>
+        <location filename="../diskoperationmanager.cpp" line="99"/>
         <source>There is no media in the drive to erase.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="105"/>
+        <location filename="../diskoperationmanager.cpp" line="106"/>
         <source>Disc already blank</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="105"/>
+        <location filename="../diskoperationmanager.cpp" line="106"/>
         <source>The disc in the drive is already blank. Do you still want to erase it?</source>
         <translation></translation>
     </message>
@@ -83,47 +83,57 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="187"/>
+        <location filename="../diskoperationmanager.cpp" line="164"/>
+        <source>LVM</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../diskoperationmanager.cpp" line="164"/>
+        <source>This is a physical volume attached to an activated volume group. Erasing it may cause one or more logical volumes on the volume group to become unavailable permanently. Do you still want to erase it?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../diskoperationmanager.cpp" line="194"/>
         <source>There is no media in the drive to restore to.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="210"/>
+        <location filename="../diskoperationmanager.cpp" line="216"/>
         <source>Disc not writable</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="210"/>
+        <location filename="../diskoperationmanager.cpp" line="216"/>
         <source>The disc in the drive is not writable.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="244"/>
+        <location filename="../diskoperationmanager.cpp" line="250"/>
         <source>No Partition Table</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="245"/>
+        <location filename="../diskoperationmanager.cpp" line="251"/>
         <source>Erase the disk to create a partition table.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="271"/>
+        <location filename="../diskoperationmanager.cpp" line="277"/>
         <source>Optical tools unavailable</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="279"/>
+        <location filename="../diskoperationmanager.cpp" line="285"/>
         <source>theFrisbee can&apos;t write to optical discs when installed as a Flatpak.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="281"/>
+        <location filename="../diskoperationmanager.cpp" line="287"/>
         <source>Your system does not have the necessary tools installed to write to optical discs.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="282"/>
+        <location filename="../diskoperationmanager.cpp" line="288"/>
         <source>You&apos;ll need to install either cdrtools or cdrkit using your system&apos;s package manager.</source>
         <translation></translation>
     </message>

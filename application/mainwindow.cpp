@@ -67,6 +67,10 @@ MainWindow::MainWindow(QWidget* parent) :
 
     ui->stackedWidget->setCurrentAnimation(tStackedWidget::SlideHorizontal);
 
+    ui->centralwidget->layout()->removeWidget(ui->topWidget);
+    ui->topWidget->raise();
+    ui->topWidget->move(0, 0);
+
     ui->menuBar->setVisible(false);
     ui->menuBar->addMenu(new tHelpMenu(this));
 
@@ -75,7 +79,7 @@ MainWindow::MainWindow(QWidget* parent) :
     commandPaletteActionScope->addMenuBar(ui->menuBar);
 
     ui->windowTabber->addButton(new tWindowTabberButton(QIcon::fromTheme("drive-harddisk"), tr("Disks"), ui->stackedWidget, ui->disksPage));
-    ui->windowTabber->addButton(new tWindowTabberButton(QIcon::fromTheme("drive-logical-volume"), tr("LVs"), ui->stackedWidget, ui->lvmPage));
+    ui->windowTabber->addButton(new tWindowTabberButton(QIcon::fromTheme("drive-logical-volume"), tr("LVM"), ui->stackedWidget, ui->lvmPage));
 
     QMenu* menu = new QMenu(this);
     menu->addAction(ui->actionCreate_Disk_Image);
@@ -140,21 +144,21 @@ void MainWindow::on_actionExit_triggered() {
 }
 
 bool MainWindow::eventFilter(QObject* watched, QEvent* event) {
-    if (watched == ui->topWidget && event->type() == QEvent::Paint) {
-        QPainter* painter = new QPainter(ui->topWidget);
+    //    if (watched == ui->topWidget && event->type() == QEvent::Paint) {
+    //        QPainter* painter = new QPainter(ui->topWidget);
 
-        tPaintCalculator calculator;
-        calculator.setPainter(painter);
-        calculator.setDrawBounds(ui->topWidget->size());
+    //        tPaintCalculator calculator;
+    //        calculator.setPainter(painter);
+    //        calculator.setDrawBounds(ui->topWidget->size());
 
-        calculator.addRect(QRectF(SC_DPI_W(400, this) + (this->layoutDirection() == Qt::RightToLeft ? 1 : 0), 0, 0, ui->topWidget->height()), [painter, this](QRectF drawBounds) {
-            painter->setPen(libContemporaryCommon::lineColor(this->palette().color(QPalette::WindowText)));
-            painter->drawLine(drawBounds.topLeft(), drawBounds.bottomLeft());
-        });
+    //        calculator.addRect(QRectF(SC_DPI_W(400, this) + (this->layoutDirection() == Qt::RightToLeft ? 1 : 0), 0, 0, ui->topWidget->height()), [painter, this](QRectF drawBounds) {
+    //            painter->setPen(libContemporaryCommon::lineColor(this->palette().color(QPalette::WindowText)));
+    //            painter->drawLine(drawBounds.topLeft(), drawBounds.bottomLeft());
+    //        });
 
-        calculator.performPaint();
-        delete painter;
-    }
+    //        calculator.performPaint();
+    //        delete painter;
+    //    }
     return false;
 }
 
@@ -167,4 +171,12 @@ void MainWindow::on_actionCreate_Disk_Image_triggered() {
     connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
     connect(popover, &tPopover::dismissed, jp, &CreateDiskImagePopover::deleteLater);
     popover->show(this->window());
+}
+
+void MainWindow::resizeEvent(QResizeEvent* event) {
+    ui->topWidget->setFixedWidth(ui->centralwidget->width());
+    ui->topWidget->setFixedHeight(ui->topWidget->sizeHint().height());
+
+    ui->leftWidget->setContentsMargins(0, ui->topWidget->sizeHint().height(), 0, 0);
+    ui->verticalLayout_3->setContentsMargins(0, ui->topWidget->sizeHint().height(), 0, 0);
 }

@@ -81,7 +81,10 @@
        <item>
         <widget class="QPushButton" name="evictDataButton">
          <property name="text">
-          <string>Evict Data</string>
+          <string>Relocate Data</string>
+         </property>
+         <property name="icon">
+          <iconset theme="lvm-pv-evict"/>
          </property>
         </widget>
        </item>

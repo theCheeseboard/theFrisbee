@@ -49,5 +49,9 @@ class MainWindow : public QMainWindow {
         MainWindowPrivate* d;
 
         bool eventFilter(QObject* watched, QEvent* event);
+
+        // QWidget interface
+    protected:
+        void resizeEvent(QResizeEvent *event);
 };
 #endif // MAINWINDOW_H

@@ -123,11 +123,11 @@
     </message>
     <message>
         <location filename="../diskPanes/lvmdiskpane.ui" line="84"/>
-        <source>Evict Data</source>
+        <source>Relocate Data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskPanes/lvmdiskpane.ui" line="91"/>
+        <location filename="../diskPanes/lvmdiskpane.ui" line="94"/>
         <source>View Volume Group</source>
         <translation type="unfinished"></translation>
     </message>
@@ -141,62 +141,62 @@
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="226"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="232"/>
         <source>theFrisbee</source>
         <translation>theFrisbee</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="148"/>
-        <location filename="../mainwindow.cpp" line="77"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="237"/>
+        <location filename="../mainwindow.cpp" line="81"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="243"/>
         <source>Disks</source>
         <translation>Diske</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="199"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="238"/>
+        <location filename="../mainwindow.ui" line="203"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="244"/>
         <source>File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="205"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="239"/>
+        <location filename="../mainwindow.ui" line="209"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="245"/>
         <source>Image</source>
         <translation type="unfinished">Snapshot</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="219"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="227"/>
+        <location filename="../mainwindow.ui" line="223"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="233"/>
         <source>Exit</source>
         <translation>Luk</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="222"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="229"/>
+        <location filename="../mainwindow.ui" line="226"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="235"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="231"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="231"/>
+        <location filename="../mainwindow.ui" line="235"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="237"/>
         <source>Attach Image</source>
         <translation>Synkroniser med snapshot-fil</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="240"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="232"/>
+        <location filename="../mainwindow.ui" line="244"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="238"/>
         <source>Create Disk Image</source>
         <translation>Lav snapshot</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="243"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="234"/>
+        <location filename="../mainwindow.ui" line="247"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="240"/>
         <source>Ctrl+N</source>
         <translation>Ctrl+N</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="78"/>
-        <source>LVs</source>
+        <location filename="../mainwindow.cpp" line="82"/>
+        <source>LVM</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
