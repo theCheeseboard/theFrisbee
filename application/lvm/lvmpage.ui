@@ -30,7 +30,7 @@
     <number>0</number>
    </property>
    <item>
-    <widget class="QStackedWidget" name="stackedWidget">
+    <widget class="tStackedWidget" name="stackedWidget">
      <widget class="QWidget" name="page">
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <property name="spacing">
@@ -49,7 +49,7 @@
         <number>0</number>
        </property>
        <item>
-        <widget class="QStackedWidget" name="stackedWidget_2">
+        <widget class="tStackedWidget" name="stackedWidget_2">
          <widget class="QWidget" name="vgsPage">
           <layout class="QVBoxLayout" name="verticalLayout_3">
            <property name="spacing">
@@ -83,7 +83,6 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="page_4"/>
         </widget>
        </item>
       </layout>
@@ -94,6 +93,15 @@
   </layout>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>tStackedWidget</class>
+   <extends>QStackedWidget</extends>
+   <header location="global">tstackedwidget.h</header>
+   <container>1</container>
+   <slots>
+    <signal>switchingFrame(int)</signal>
+   </slots>
+  </customwidget>
   <customwidget>
    <class>tTitleLabel</class>
    <extends>QLabel</extends>

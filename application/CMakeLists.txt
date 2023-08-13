@@ -17,6 +17,7 @@ set(SOURCES
         operations/creatediskimagepopover.cpp operations/creatediskimagepopover.ui
 
         lvm/lvmpage.cpp lvm/lvmpage.ui
+        lvm/volumegrouppage.cpp lvm/volumegrouppage.ui
 
         main.cpp
 
@@ -31,6 +32,7 @@ set(HEADERS
         mainwindow.h
         operations/creatediskimagepopover.h
         lvm/lvmpage.h
+        lvm/volumegrouppage.h
     )
 
 add_executable(thefrisbee ${SOURCES} ${HEADERS})

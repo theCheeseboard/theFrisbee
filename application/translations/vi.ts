@@ -551,6 +551,14 @@
     </message>
 </context>
 <context>
+    <name>VolumeGroupPage</name>
+    <message>
+        <location filename="../lvm/volumegrouppage.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>main</name>
     <message>
         <location filename="../main.cpp" line="37"/>

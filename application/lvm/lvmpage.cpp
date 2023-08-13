@@ -1,10 +1,13 @@
 #include "lvmpage.h"
 #include "ui_lvmpage.h"
 
+#include "volumegrouppage.h"
+#include <DriveObjects/volumegroup.h>
 #include <volumegroupmodel.h>
 
 struct LvmPagePrivate {
         VolumeGroupModel* vgModel;
+        int topPadding = 0;
 };
 
 LvmPage::LvmPage(QWidget* parent) :
@@ -16,6 +19,9 @@ LvmPage::LvmPage(QWidget* parent) :
     d->vgModel = new VolumeGroupModel(this);
     d->vgModel->setShowAddButton(true);
     ui->listView->setModel(d->vgModel);
+
+    ui->stackedWidget->setCurrentAnimation(tStackedWidget::Fade);
+    ui->stackedWidget_2->setCurrentAnimation(tStackedWidget::Lift);
 }
 
 LvmPage::~LvmPage() {
@@ -24,5 +30,21 @@ LvmPage::~LvmPage() {
 }
 
 void LvmPage::setTopPadding(int padding) {
+    d->topPadding = padding;
     ui->vgsPage->layout()->setContentsMargins(0, padding, 0, 0);
+}
+
+void LvmPage::on_listView_clicked(const QModelIndex& index) {
+    auto vg = index.data(VolumeGroupModel::VolumeGroupRole).value<VolumeGroup*>();
+    if (vg) {
+        auto vgPage = new VolumeGroupPage(vg);
+        vgPage->setTopPadding(d->topPadding);
+        connect(vgPage, &VolumeGroupPage::done, this, [this] {
+            ui->stackedWidget_2->setCurrentWidget(ui->vgsPage);
+        });
+        ui->stackedWidget_2->addWidget(vgPage);
+        ui->stackedWidget_2->setCurrentWidget(vgPage);
+    } else {
+        // Create a new VG
+    }
 }

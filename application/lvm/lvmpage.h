@@ -17,6 +17,9 @@ class LvmPage : public QWidget {
 
         void setTopPadding(int padding);
 
+    private slots:
+        void on_listView_clicked(const QModelIndex& index);
+
     private:
         Ui::LvmPage* ui;
         LvmPagePrivate* d;
