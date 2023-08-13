@@ -87,7 +87,7 @@ install(EXPORT libthefrisbeeTargets
 
 install(FILES com.vicr123.trigger-uevent.policy
         DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/polkit-1/actions)
-install(FILES trigger-uevent.sh
+install(PROGRAMS trigger-uevent.sh
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/libthefrisbee)
 
 install(TARGETS libthefrisbee
