@@ -2,8 +2,11 @@
 #include "ui_volumegrouppage.h"
 
 #include <DriveObjects/volumegroup.h>
+#include <volumegrouplvmodel.h>
 
 struct VolumeGroupPagePrivate {
+    VolumeGroup* vg;
+    VolumeGroupLvModel* lvModel;
 };
 
 VolumeGroupPage::VolumeGroupPage(VolumeGroup* vg, QWidget* parent) :
@@ -11,7 +14,16 @@ VolumeGroupPage::VolumeGroupPage(VolumeGroup* vg, QWidget* parent) :
     ui(new Ui::VolumeGroupPage) {
     ui->setupUi(this);
     d = new VolumeGroupPagePrivate();
+    d->vg = vg;
     ui->titleLabel->setText(vg->name());
+    ui->disbandButton->setProperty("type", "destructive");
+
+    d->lvModel = new VolumeGroupLvModel(d->vg);
+    connect(d->lvModel, &VolumeGroupLvModel::modelReset, this, [this] {
+        ui->lvsView->setFixedHeight(ui->lvsView->sizeHintForRow(0) * d->lvModel->rowCount());
+    });
+    ui->lvsView->setModel(d->lvModel);
+    ui->lvsView->setFixedHeight(ui->lvsView->sizeHintForRow(0) * d->lvModel->rowCount());
 }
 
 VolumeGroupPage::~VolumeGroupPage() {
@@ -27,3 +39,9 @@ void VolumeGroupPage::setTopPadding(int padding) {
 void VolumeGroupPage::on_titleLabel_backButtonClicked() {
     emit done();
 }
+
+void VolumeGroupPage::on_disbandButton_clicked()
+{
+
+}
+

@@ -65,7 +65,8 @@ DriveObjectManager::DriveObjectManager(QObject* parent) :
 
     QDBusConnection::systemBus().connect("org.freedesktop.UDisks2", "/org/freedesktop/UDisks2", "org.freedesktop.DBus.ObjectManager", "InterfacesAdded", this, SLOT(updateInterfaces()));
     QDBusConnection::systemBus().connect("org.freedesktop.UDisks2", "/org/freedesktop/UDisks2", "org.freedesktop.DBus.ObjectManager", "InterfacesRemoved", this, SLOT(updateInterfaces()));
-    updateInterfaces();
+
+    QTimer::singleShot(0, this, &DriveObjectManager::updateInterfaces);
 }
 
 DriveObjectManager* DriveObjectManager::instance() {
@@ -310,7 +311,7 @@ void DriveObjectManager::updateInterfaces() {
                         emit logicalVolumeAdded(lv);
                     });
                 }
-                lv->updateProperties(interfaces.value(VolumeGroup::interfaceName()));
+                lv->updateProperties(interfaces.value(LogicalVolume::interfaceName()));
             }
         }
     }

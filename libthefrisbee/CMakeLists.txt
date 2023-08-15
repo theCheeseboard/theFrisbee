@@ -51,6 +51,7 @@ set(SOURCES
         structures/private/smartattribute.h structures/private/smartattribute.cpp
         structures/formattedsmartattribute.cpp
         volumegroupmodel.h volumegroupmodel.cpp
+        volumegrouplvmodel.h volumegrouplvmodel.cpp
     )
 
 set(STRUCTURES_HEADERS

@@ -2,8 +2,10 @@
 #define VOLUMEGROUP_H
 
 #include "udisksinterface.h"
+#include <ranges/trange.h>
 
 struct VolumeGroupPrivate;
+class LogicalVolume;
 class VolumeGroup : public UdisksInterface {
         Q_OBJECT
     public:
@@ -11,8 +13,12 @@ class VolumeGroup : public UdisksInterface {
         ~VolumeGroup();
 
         static QString interfaceName();
+        tRange<LogicalVolume*> lvs();
 
         QString name();
+
+    signals:
+        void lvsChanged();
 
     private:
         VolumeGroupPrivate* d;

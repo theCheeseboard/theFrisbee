@@ -4,6 +4,7 @@
 #include "udisksinterface.h"
 
 struct LogicalVolumePrivate;
+class VolumeGroup;
 class LogicalVolume : public UdisksInterface {
         Q_OBJECT
     public:
@@ -11,6 +12,10 @@ class LogicalVolume : public UdisksInterface {
         ~LogicalVolume();
 
         static QString interfaceName();
+
+        QString name();
+        VolumeGroup* vg();
+        DiskObject* block();
 
     private:
         LogicalVolumePrivate* d;

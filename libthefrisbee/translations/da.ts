@@ -1117,6 +1117,14 @@ Når disken i drevet er formateret, vil alt data på den være væk for evigt.</
     </message>
 </context>
 <context>
+    <name>VolumeGroupLvModel</name>
+    <message>
+        <location filename="../volumegrouplvmodel.cpp" line="40"/>
+        <source>New Logical Volume</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>VolumeGroupModel</name>
     <message>
         <location filename="../volumegroupmodel.cpp" line="44"/>

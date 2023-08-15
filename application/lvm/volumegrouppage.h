@@ -24,6 +24,8 @@ class VolumeGroupPage : public QWidget {
     private slots:
         void on_titleLabel_backButtonClicked();
 
+        void on_disbandButton_clicked();
+
     private:
         Ui::VolumeGroupPage* ui;
         VolumeGroupPagePrivate* d;

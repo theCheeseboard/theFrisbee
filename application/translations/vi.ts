@@ -557,6 +557,21 @@
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../lvm/volumegrouppage.ui" line="93"/>
+        <source>Logical Volumes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lvm/volumegrouppage.ui" line="116"/>
+        <source>Physical Volumes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lvm/volumegrouppage.ui" line="139"/>
+        <source>Disband Volume Group</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>main</name>

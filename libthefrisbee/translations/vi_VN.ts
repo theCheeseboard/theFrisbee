@@ -1109,6 +1109,14 @@ Sau khi đĩa trong ổ bị xóa, các tệp trên nó sẽ bị mất mãi mã
     </message>
 </context>
 <context>
+    <name>VolumeGroupLvModel</name>
+    <message>
+        <location filename="../volumegrouplvmodel.cpp" line="40"/>
+        <source>New Logical Volume</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>VolumeGroupModel</name>
     <message>
         <location filename="../volumegroupmodel.cpp" line="44"/>

@@ -1059,6 +1059,14 @@ Once the disc in the drive is erased, all the data on it will be gone forever.</
     </message>
 </context>
 <context>
+    <name>VolumeGroupLvModel</name>
+    <message>
+        <location filename="../volumegrouplvmodel.cpp" line="40"/>
+        <source>New Logical Volume</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>VolumeGroupModel</name>
     <message>
         <location filename="../volumegroupmodel.cpp" line="44"/>
