@@ -143,12 +143,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskPanes/lvmdiskpane.cpp" line="51"/>
+        <location filename="../diskPanes/lvmdiskpane.cpp" line="52"/>
         <source>This block is part of the %1 volume group.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskPanes/lvmdiskpane.cpp" line="56"/>
+        <location filename="../diskPanes/lvmdiskpane.cpp" line="57"/>
         <source>This block is not part of a volume group.</source>
         <translation type="unfinished"></translation>
     </message>

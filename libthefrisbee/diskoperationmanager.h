@@ -20,9 +20,9 @@
 #ifndef DISKOPERATIONMANAGER_H
 #define DISKOPERATIONMANAGER_H
 
-#include <QWidget>
-#include <DriveObjects/diskobject.h>
 #include "libthefrisbee_global.h"
+#include <DriveObjects/diskobject.h>
+#include <QWidget>
 
 class LIBTHEFRISBEE_EXPORT DiskOperationManager : public QObject {
         Q_OBJECT
@@ -34,6 +34,7 @@ class LIBTHEFRISBEE_EXPORT DiskOperationManager : public QObject {
             Restore,
             Image,
             Partition,
+            AttachPv,
             LastOperation = Partition
         };
 
@@ -51,6 +52,7 @@ class LIBTHEFRISBEE_EXPORT DiskOperationManager : public QObject {
         static void showRestoreOperationUi(QWidget* parent, DiskObject* disk);
         static void showImageOperationUi(QWidget* parent, DiskObject* disk);
         static void showPartitionOperationUi(QWidget* parent, DiskObject* disk);
+        static void showAttachPvOperationUi(QWidget* parent, DiskObject* disk);
 };
 
 #endif // DISKOPERATIONMANAGER_H

@@ -32,6 +32,7 @@
 #include <tpopover.h>
 #include <ttoast.h>
 
+#include <operations/attachpvpopover.h>
 #include <operations/eraseopticalpopover.h>
 #include <operations/erasepartitionpopover.h>
 #include <operations/erasepartitiontablepopover.h>
@@ -48,14 +49,16 @@ QMap<DiskOperationManager::DiskOperation, QString> OperationManagerPrivate::oper
     {DiskOperationManager::Erase,     "erase"    },
     {DiskOperationManager::Image,     "image"    },
     {DiskOperationManager::Restore,   "restore"  },
-    {DiskOperationManager::Partition, "partition"}
+    {DiskOperationManager::Partition, "partition"},
+    {DiskOperationManager::AttachPv,  "attachPv" }
 };
 
 QMap<DiskOperationManager::DiskOperation, QString> OperationManagerPrivate::operationDescriptions = {
     {DiskOperationManager::Erase,     DiskOperationManager::tr("Erase a block device")                           },
     {DiskOperationManager::Image,     DiskOperationManager::tr("Create an image of a block device")              },
     {DiskOperationManager::Restore,   DiskOperationManager::tr("Restore an image back to a block device or disc")},
-    {DiskOperationManager::Partition, DiskOperationManager::tr("Edit partitions on a filesystem")                }
+    {DiskOperationManager::Partition, DiskOperationManager::tr("Edit partitions on a filesystem")                },
+    {DiskOperationManager::AttachPv,  DiskOperationManager::tr("Attach a Physical Volume to a Volume Group")     }
 };
 
 DiskOperationManager::DiskOperation DiskOperationManager::operationForString(QString operationString) {
@@ -87,6 +90,9 @@ void DiskOperationManager::showDiskOperationUi(QWidget* parent, DiskOperation op
             break;
         case DiskOperationManager::Partition:
             showPartitionOperationUi(parent, disk);
+            break;
+        case DiskOperationManager::AttachPv:
+            showAttachPvOperationUi(parent, disk);
     }
 }
 
@@ -267,6 +273,17 @@ void DiskOperationManager::showPartitionOperationUi(QWidget* parent, DiskObject*
     connect(jp, &PartitionPopover::done, popover, &tPopover::dismiss);
     connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
     connect(popover, &tPopover::dismissed, jp, &PartitionPopover::deleteLater);
+    popover->show(parent->window());
+}
+
+void DiskOperationManager::showAttachPvOperationUi(QWidget* parent, DiskObject* disk) {
+    auto* jp = new AttachPvPopover(disk);
+    tPopover* popover = new tPopover(jp);
+    popover->setPopoverWidth(-200);
+    popover->setPopoverSide(tPopover::Bottom);
+    connect(jp, &AttachPvPopover::done, popover, &tPopover::dismiss);
+    connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
+    connect(popover, &tPopover::dismissed, jp, &AttachPvPopover::deleteLater);
     popover->show(parent->window());
 }
 

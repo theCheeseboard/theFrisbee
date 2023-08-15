@@ -17,7 +17,7 @@ LvmPage::LvmPage(QWidget* parent) :
 
     d = new LvmPagePrivate();
     d->vgModel = new VolumeGroupModel(this);
-    d->vgModel->setShowAddButton(true);
+    d->vgModel->setShowAddButton(false);
     ui->listView->setModel(d->vgModel);
 
     ui->stackedWidget->setCurrentAnimation(tStackedWidget::Fade);
@@ -44,7 +44,5 @@ void LvmPage::on_listView_clicked(const QModelIndex& index) {
         });
         ui->stackedWidget_2->addWidget(vgPage);
         ui->stackedWidget_2->setCurrentWidget(vgPage);
-    } else {
-        // Create a new VG
     }
 }

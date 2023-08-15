@@ -237,6 +237,22 @@ QCoro::Task<QDBusObjectPath> DriveObjectManager::loopSetup(QDBusUnixFileDescript
     }
 }
 
+QCoro::Task<QDBusObjectPath> DriveObjectManager::volumeGroupCreate(QString name, QList<DiskObject*> blocks, QVariantMap options) {
+    QDBusMessage vgCreate = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", "/org/freedesktop/UDisks2/Manager", "org.freedesktop.UDisks2.Manager.LVM2", "VolumeGroupCreate");
+    vgCreate.setArguments({name, QVariant::fromValue(tRange(blocks).map<QDBusObjectPath>([](DiskObject* obj) {
+                                                                       return obj->path();
+                                                                   })
+                                                         .toList()),
+        options});
+    auto call = QDBusConnection::systemBus().asyncCall(vgCreate);
+    auto reply = co_await call;
+    if (call.isError()) {
+        throw FrisbeeException(call.error().message());
+    } else {
+        co_return reply.arguments().first().value<QDBusObjectPath>();
+    }
+}
+
 void DriveObjectManager::updateInterfaces() {
     d->rootDisks.clear();
     d->filesystemDisks.clear();

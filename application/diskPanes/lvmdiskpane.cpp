@@ -6,6 +6,7 @@
 #include <DriveObjects/partitiontableinterface.h>
 #include <DriveObjects/physicalvolumeinterface.h>
 #include <DriveObjects/volumegroup.h>
+#include <diskoperationmanager.h>
 #include <partitioninformation.h>
 
 struct LvmDiskPanePrivate {
@@ -65,4 +66,5 @@ int LvmDiskPane::order() const {
 }
 
 void LvmDiskPane::on_attachVgButton_clicked() {
+    DiskOperationManager::showDiskOperationUi(this->window(), DiskOperationManager::AttachPv, d->disk);
 }

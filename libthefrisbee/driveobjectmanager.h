@@ -59,6 +59,7 @@ class LIBTHEFRISBEE_EXPORT DriveObjectManager : public QObject {
         static QStringList supportedFilesystems();
 
         static QCoro::Task<QDBusObjectPath> loopSetup(QDBusUnixFileDescriptor fd, QVariantMap options);
+        static QCoro::Task<QDBusObjectPath> volumeGroupCreate(QString name, QList<DiskObject*> blocks, QVariantMap options);
 
     public slots:
         void updateInterfaces();
