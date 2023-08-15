@@ -62,3 +62,11 @@ QCoro::Task<> VolumeGroup::deleteVg(bool wipe, QVariantMap options) {
     auto reply = co_await call;
     if (call.isError()) throw FrisbeeException(call.error().message());
 }
+
+QCoro::Task<> VolumeGroup::addDevice(DiskObject* block, QVariantMap options) {
+    QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "AddDevice");
+    message.setArguments({block->path(), options});
+    auto call = QDBusConnection::systemBus().asyncCall(message);
+    auto reply = co_await call;
+    if (call.isError()) throw FrisbeeException(call.error().message());
+}

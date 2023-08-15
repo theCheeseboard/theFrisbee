@@ -39,7 +39,10 @@ void AttachPvPopover::on_titleLabel_backButtonClicked() {
 
 void AttachPvPopover::on_vgList_activated(const QModelIndex& index) {
     auto vg = index.data(VolumeGroupModel::VolumeGroupRole).value<VolumeGroup*>();
-    if (!vg) {
+    if (vg) {
+        vg->addDevice(d->disk, {});
+        emit done();
+    } else {
         ui->stackedWidget->setCurrentWidget(ui->addVgPage);
     }
 }
