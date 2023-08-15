@@ -6,6 +6,7 @@
 
 struct VolumeGroupPrivate;
 class LogicalVolume;
+class DiskObject;
 class VolumeGroup : public UdisksInterface {
         Q_OBJECT
     public:
@@ -14,11 +15,13 @@ class VolumeGroup : public UdisksInterface {
 
         static QString interfaceName();
         tRange<LogicalVolume*> lvs();
+        tRange<DiskObject*> pvs();
 
         QString name();
 
     signals:
         void lvsChanged();
+        void pvsChanged();
 
     private:
         VolumeGroupPrivate* d;

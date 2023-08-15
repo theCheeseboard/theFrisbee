@@ -29,6 +29,7 @@
 #include "DriveObjects/logicalvolume.h"
 #include "DriveObjects/loopinterface.h"
 #include "DriveObjects/partitiontableinterface.h"
+#include "DriveObjects/physicalvolumeinterface.h"
 #include "DriveObjects/volumegroup.h"
 #include <QCoroDBusPendingCall>
 #include <QDebug>
@@ -173,6 +174,15 @@ QList<DiskObject*> DriveObjectManager::opticalDisks() {
     }
 
     return disks;
+}
+
+tRange<DiskObject*> DriveObjectManager::lvmPhysicalVolumeDisks() {
+    return tRange(instance()->d->objects.values()).filter([](DiskObject* obj) {
+                                                      return obj->isInterfaceAvailable(DiskInterface::PhysicalVolume);
+                                                  })
+        .filter([](DiskObject* obj) {
+            return obj->interface<PhysicalVolumeInterface>()->volumeGroup() != nullptr;
+        });
 }
 
 QList<VolumeGroup*> DriveObjectManager::volumeGroups() {

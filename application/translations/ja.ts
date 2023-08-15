@@ -568,7 +568,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lvm/volumegrouppage.ui" line="139"/>
+        <location filename="../lvm/volumegrouppage.ui" line="146"/>
         <source>Disband Volume Group</source>
         <translation type="unfinished"></translation>
     </message>

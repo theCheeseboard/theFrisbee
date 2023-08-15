@@ -52,6 +52,7 @@ set(SOURCES
         structures/formattedsmartattribute.cpp
         volumegroupmodel.h volumegroupmodel.cpp
         volumegrouplvmodel.h volumegrouplvmodel.cpp
+        volumegrouppvmodel.h volumegrouppvmodel.cpp
     )
 
 set(STRUCTURES_HEADERS

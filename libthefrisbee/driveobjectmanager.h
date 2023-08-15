@@ -25,6 +25,7 @@
 #include <QDBusObjectPath>
 #include <QDBusUnixFileDescriptor>
 #include <QObject>
+#include <ranges/trange.h>
 #include <tpromise.h>
 
 struct DriveObjectManagerPrivate;
@@ -42,6 +43,7 @@ class LIBTHEFRISBEE_EXPORT DriveObjectManager : public QObject {
         static QList<DiskObject*> filesystemDisks();
         static QList<DiskObject*> encryptedDisks();
         static QList<DiskObject*> opticalDisks();
+        static tRange<DiskObject*> lvmPhysicalVolumeDisks();
         static QList<DriveInterface*> drives();
 
         static QList<VolumeGroup*> volumeGroups();
