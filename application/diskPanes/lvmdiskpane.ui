@@ -84,7 +84,8 @@
           <string>Relocate Data</string>
          </property>
          <property name="icon">
-          <iconset theme="lvm-pv-evict"/>
+          <iconset theme="lvm-pv-evict">
+           <normaloff>.</normaloff>.</iconset>
          </property>
         </widget>
        </item>
@@ -92,6 +93,16 @@
         <widget class="QPushButton" name="viewVgButton">
          <property name="text">
           <string>View Volume Group</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="attachVgButton">
+         <property name="text">
+          <string>Attach to Volume Group</string>
+         </property>
+         <property name="icon">
+          <iconset theme="list-add"/>
          </property>
         </widget>
        </item>

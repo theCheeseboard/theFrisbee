@@ -20,9 +20,13 @@ class LvmDiskPane : public DiskPaneComponent {
         Ui::LvmDiskPane* ui;
         LvmDiskPanePrivate* d;
 
+        void updateDetails();
+
         // DiskPaneComponent interface
     public:
         int order() const;
+    private slots:
+        void on_attachVgButton_clicked();
 };
 
 #endif // LVMDISKPANE_H

@@ -133,13 +133,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskPanes/lvmdiskpane.ui" line="94"/>
+        <location filename="../diskPanes/lvmdiskpane.ui" line="95"/>
         <source>View Volume Group</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskPanes/lvmdiskpane.cpp" line="25"/>
-        <source>This block is part of the %1 volume group</source>
+        <location filename="../diskPanes/lvmdiskpane.ui" line="102"/>
+        <source>Attach to Volume Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../diskPanes/lvmdiskpane.cpp" line="51"/>
+        <source>This block is part of the %1 volume group.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../diskPanes/lvmdiskpane.cpp" line="56"/>
+        <source>This block is not part of a volume group.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
