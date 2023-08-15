@@ -115,7 +115,7 @@ void DiskOperationManager::showEraseOperationUi(QWidget* parent, DiskObject* dis
             if (rewritables.contains(drive->media())) {
                 EraseOpticalPopover* jp = new EraseOpticalPopover(disk);
                 tPopover* popover = new tPopover(jp);
-                popover->setPopoverWidth(SC_DPI(-200));
+                popover->setPopoverWidth(-200);
                 popover->setPopoverSide(tPopover::Bottom);
                 connect(jp, &EraseOpticalPopover::done, popover, &tPopover::dismiss);
                 connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
@@ -165,10 +165,10 @@ void DiskOperationManager::showEraseOperationUi(QWidget* parent, DiskObject* dis
         }
     }
 
-    if (disk->isInterfaceAvailable(DiskInterface::Partition)) {
+    if (disk->isInterfaceAvailable(DiskInterface::Partition) || disk->isInterfaceAvailable(DiskInterface::BlockLvm2)) {
         ErasePartitionPopover* jp = new ErasePartitionPopover(disk);
         tPopover* popover = new tPopover(jp);
-        popover->setPopoverWidth(SC_DPI(-200));
+        popover->setPopoverWidth(-200);
         popover->setPopoverSide(tPopover::Bottom);
         connect(jp, &ErasePartitionPopover::done, popover, &tPopover::dismiss);
         connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
@@ -177,7 +177,7 @@ void DiskOperationManager::showEraseOperationUi(QWidget* parent, DiskObject* dis
     } else {
         ErasePartitionTablePopover* jp = new ErasePartitionTablePopover(disk);
         tPopover* popover = new tPopover(jp);
-        popover->setPopoverWidth(SC_DPI(-200));
+        popover->setPopoverWidth(-200);
         popover->setPopoverSide(tPopover::Bottom);
         connect(jp, &ErasePartitionTablePopover::done, popover, &tPopover::dismiss);
         connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
@@ -206,7 +206,7 @@ void DiskOperationManager::showRestoreOperationUi(QWidget* parent, DiskObject* d
         if (rewritables.contains(drive->media()) || drive->opticalBlank()) {
             RestoreOpticalPopover* jp = new RestoreOpticalPopover(disk);
             tPopover* popover = new tPopover(jp);
-            popover->setPopoverWidth(SC_DPI(-200));
+            popover->setPopoverWidth(-200);
             popover->setPopoverSide(tPopover::Bottom);
             connect(jp, &RestoreOpticalPopover::done, popover, &tPopover::dismiss);
             connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
@@ -218,7 +218,7 @@ void DiskOperationManager::showRestoreOperationUi(QWidget* parent, DiskObject* d
     } else {
         RestoreOpticalPopover* jp = new RestoreOpticalPopover(disk);
         tPopover* popover = new tPopover(jp);
-        popover->setPopoverWidth(SC_DPI(-200));
+        popover->setPopoverWidth(-200);
         popover->setPopoverSide(tPopover::Bottom);
         connect(jp, &RestoreOpticalPopover::done, popover, &tPopover::dismiss);
         connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
@@ -230,7 +230,7 @@ void DiskOperationManager::showRestoreOperationUi(QWidget* parent, DiskObject* d
 void DiskOperationManager::showImageOperationUi(QWidget* parent, DiskObject* disk) {
     ImagePopover* jp = new ImagePopover(disk);
     tPopover* popover = new tPopover(jp);
-    popover->setPopoverWidth(SC_DPI(-200));
+    popover->setPopoverWidth(-200);
     popover->setPopoverSide(tPopover::Bottom);
     connect(jp, &ImagePopover::done, popover, &tPopover::dismiss);
     connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);

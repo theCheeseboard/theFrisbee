@@ -39,71 +39,77 @@
     <name>DiskPane</name>
     <message>
         <location filename="../diskpane.ui" line="35"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="219"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="227"/>
         <source>Title</source>
         <translation>لقب</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="82"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="220"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="228"/>
         <source>JOBS RUNNING</source>
         <translation>الوظائف قيد التشغيل</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="89"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="221"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="229"/>
         <source>Some tasks may be unavailable while jobs are currently being run on this item.</source>
         <translation>قد تكون بعض المهام غير متاحة أثناء تشغيل الوظائف حاليًا على هذا العنصر.</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="114"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="222"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="230"/>
         <source>View Jobs</source>
         <translation>مشاهدة الوظائف</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="232"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="223"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="231"/>
         <source>Check</source>
         <translation>راجع</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="239"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="224"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="232"/>
         <source>Edit Partitions</source>
         <translation>تحرير الأقسام</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="246"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="225"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="233"/>
         <source>Image</source>
         <extracomment>A verb: &quot;Create Image&quot;</extracomment>
         <translation>اصنع صورة</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="253"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="226"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="234"/>
         <source>Restore</source>
         <translation>يعيد</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="273"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="227"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="235"/>
         <source>Erase</source>
         <translation>أمسح</translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="134"/>
+        <location filename="../diskpane.ui" line="284"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="236"/>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../diskpane.cpp" line="147"/>
         <source>Check this disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="135"/>
+        <location filename="../diskpane.cpp" line="148"/>
         <source>Check this disk for errors?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="136"/>
+        <location filename="../diskpane.cpp" line="149"/>
         <source>Depending on the size of the disk, the check may take a while.</source>
         <translation type="unfinished"></translation>
     </message>

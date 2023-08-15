@@ -39,71 +39,77 @@
     <name>DiskPane</name>
     <message>
         <location filename="../diskpane.ui" line="35"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="219"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="227"/>
         <source>Title</source>
         <translation>Tiêu đề</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="82"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="220"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="228"/>
         <source>JOBS RUNNING</source>
         <translation>HOẠT ĐỘNG ĐANG CHẠY</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="89"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="221"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="229"/>
         <source>Some tasks may be unavailable while jobs are currently being run on this item.</source>
         <translation>Một số tác vụ có thể không sản khi hoạt động khác đang chạy trên mục này.</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="114"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="222"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="230"/>
         <source>View Jobs</source>
         <translation>Xem hoạt động</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="232"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="223"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="231"/>
         <source>Check</source>
         <translation>Kiểm tra</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="239"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="224"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="232"/>
         <source>Edit Partitions</source>
         <translation>Sửa phân vùng</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="246"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="225"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="233"/>
         <source>Image</source>
         <extracomment>A verb: &quot;Create Image&quot;</extracomment>
         <translation>Tạo ảnh đĩa</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="253"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="226"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="234"/>
         <source>Restore</source>
         <translation>Khôi phục</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="273"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="227"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="235"/>
         <source>Erase</source>
         <translation>Xóa</translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="134"/>
+        <location filename="../diskpane.ui" line="284"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="236"/>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../diskpane.cpp" line="147"/>
         <source>Check this disk</source>
         <translation>Kiểm tra đĩa này</translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="135"/>
+        <location filename="../diskpane.cpp" line="148"/>
         <source>Check this disk for errors?</source>
         <translation>Kiểm tra đĩa này cho lổi?</translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="136"/>
+        <location filename="../diskpane.cpp" line="149"/>
         <source>Depending on the size of the disk, the check may take a while.</source>
         <translation>Dựa trên kích cỡ đĩa này, hoạt động kiểm tra có thể mất thời gian.</translation>
     </message>

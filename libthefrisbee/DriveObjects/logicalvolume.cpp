@@ -3,9 +3,9 @@
 #include "driveobjectmanager.h"
 
 struct LogicalVolumePrivate {
-    QDBusObjectPath vg;
-    QDBusObjectPath block;
-    QString name;
+        QDBusObjectPath vg;
+        QDBusObjectPath block;
+        QString name;
 };
 
 LogicalVolume::LogicalVolume(QDBusObjectPath path, QObject* parent) :
@@ -31,17 +31,14 @@ QString LogicalVolume::interfaceName() {
     return QStringLiteral("org.freedesktop.UDisks2.LogicalVolume");
 }
 
-QString LogicalVolume::name()
-{
+QString LogicalVolume::name() {
     return d->name;
 }
 
-VolumeGroup *LogicalVolume::vg()
-{
+VolumeGroup* LogicalVolume::vg() {
     return DriveObjectManager::volumeGroupForPath(d->vg);
 }
 
-DiskObject *LogicalVolume::block()
-{
+DiskObject* LogicalVolume::block() {
     return DriveObjectManager::diskForPath(d->block);
 }

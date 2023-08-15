@@ -39,71 +39,77 @@
     <name>DiskPane</name>
     <message>
         <location filename="../diskpane.ui" line="35"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="219"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="227"/>
         <source>Title</source>
         <translation>Navn</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="82"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="220"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="228"/>
         <source>JOBS RUNNING</source>
         <translation>NUVÆRENDE OPGAVER</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="89"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="221"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="229"/>
         <source>Some tasks may be unavailable while jobs are currently being run on this item.</source>
         <translation>Nogle muligheder kan være utilgængelige mens opgaver køres på denne enhed.</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="114"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="222"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="230"/>
         <source>View Jobs</source>
         <translation>Vis opgaver</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="232"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="223"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="231"/>
         <source>Check</source>
         <translation>Tjek</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="239"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="224"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="232"/>
         <source>Edit Partitions</source>
         <translation>Rediger partitioner</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="246"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="225"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="233"/>
         <source>Image</source>
         <extracomment>A verb: &quot;Create Image&quot;</extracomment>
         <translation>Snapshot</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="253"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="226"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="234"/>
         <source>Restore</source>
         <translation>Gendan</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="273"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="227"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="235"/>
         <source>Erase</source>
         <translation>Formater</translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="134"/>
+        <location filename="../diskpane.ui" line="284"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="236"/>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../diskpane.cpp" line="147"/>
         <source>Check this disk</source>
         <translation>Tjek denne disk</translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="135"/>
+        <location filename="../diskpane.cpp" line="148"/>
         <source>Check this disk for errors?</source>
         <translation>Tjek denne disk for fejl?</translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="136"/>
+        <location filename="../diskpane.cpp" line="149"/>
         <source>Depending on the size of the disk, the check may take a while.</source>
         <translation>Dette kan tage lang tid på store diske.</translation>
     </message>

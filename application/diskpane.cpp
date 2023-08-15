@@ -26,6 +26,7 @@
 #include "diskPanes/smartdiskpane.h"
 #include "diskoperationmanager.h"
 #include <DriveObjects/blockinterface.h>
+#include <DriveObjects/blocklvm2interface.h>
 #include <DriveObjects/diskobject.h>
 #include <DriveObjects/driveinterface.h>
 #include <DriveObjects/filesysteminterface.h>
@@ -61,6 +62,7 @@ DiskPane::DiskPane(DiskObject* disk, QWidget* parent) :
     updateLock(d->disk->isLocked());
 
     ui->eraseButton->setProperty("type", "destructive");
+    ui->deleteButton->setProperty("type", "destructive");
 
     d->components.append(new OverviewDiskPane(disk, this));
     d->components.append(new SmartDiskPane(disk, this));
@@ -107,6 +109,8 @@ void DiskPane::updateComponents() {
 }
 
 void DiskPane::updateButtons() {
+    ui->deleteButton->setVisible(false);
+
     DriveInterface* drive = d->disk->interface<BlockInterface>()->drive();
     if (drive) {
         if (drive->isOpticalDrive()) {
@@ -115,6 +119,15 @@ void DiskPane::updateButtons() {
 
             ui->operationsWidget->setVisible(drive->mediaAvailable());
             ui->line->setVisible(drive->mediaAvailable());
+        }
+    }
+
+    auto blockLvm2 = d->disk->interface<BlockLvm2Interface>();
+    if (blockLvm2) {
+        auto lv = blockLvm2->logicalVolume();
+        if (lv) {
+            ui->editPartitionsButton->setVisible(false);
+            ui->deleteButton->setVisible(true);
         }
     }
 }
@@ -143,4 +156,7 @@ void DiskPane::on_checkButton_clicked() {
         box->deleteLater();
     });
     box->open();
+}
+
+void DiskPane::on_deleteButton_clicked() {
 }

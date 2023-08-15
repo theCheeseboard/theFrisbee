@@ -30,6 +30,7 @@
 #include "driveinterface.h"
 #include "encryptedinterface.h"
 #include "filesysteminterface.h"
+#include "logicalvolume.h"
 #include "loopinterface.h"
 #include "partitioninterface.h"
 #include "partitiontableinterface.h"
@@ -111,6 +112,14 @@ bool DiskObject::isInterfaceAvailable(DiskInterface::Interfaces interface) {
 QString DiskObject::displayName() {
     PartitionInterface* partition = interface<PartitionInterface>();
     if (partition && !partition->name().isEmpty()) return partition->name();
+
+    auto blockLvm2 = interface<BlockLvm2Interface>();
+    if (blockLvm2) {
+        auto lv = blockLvm2->logicalVolume();
+        if (lv) {
+            return lv->name();
+        }
+    }
 
     BlockInterface* block = interface<BlockInterface>();
     if (block) {

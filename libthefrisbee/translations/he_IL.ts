@@ -4,12 +4,12 @@
 <context>
     <name>DiskObject</name>
     <message>
-        <location filename="../DriveObjects/diskobject.cpp" line="127"/>
+        <location filename="../DriveObjects/diskobject.cpp" line="136"/>
         <source>Loop Device</source>
         <translation>התקן מחזורי</translation>
     </message>
     <message>
-        <location filename="../DriveObjects/diskobject.cpp" line="130"/>
+        <location filename="../DriveObjects/diskobject.cpp" line="139"/>
         <source>Block Device</source>
         <translation>התקן בלוק</translation>
     </message>

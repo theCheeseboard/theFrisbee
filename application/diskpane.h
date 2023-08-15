@@ -48,6 +48,8 @@ class DiskPane : public QWidget {
 
         void on_checkButton_clicked();
 
+        void on_deleteButton_clicked();
+
     private:
         Ui::DiskPane* ui;
         DiskPanePrivate* d;
