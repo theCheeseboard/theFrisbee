@@ -1,17 +1,25 @@
 #include "volumegroup.h"
 #include "logicalvolume.h"
 
+#include <QCoroDBusPendingCall>
+#include <QDBusConnection>
+#include <QDBusMessage>
+#include <QDBusPendingCall>
+
 #include "DriveObjects/diskobject.h"
 #include "DriveObjects/physicalvolumeinterface.h"
 #include "driveobjectmanager.h"
+#include "frisbeeexception.h"
 
 struct VolumeGroupPrivate {
+        QDBusObjectPath path;
         QString name;
 };
 
 VolumeGroup::VolumeGroup(QDBusObjectPath path, QObject* parent) :
     UdisksInterface{path, interfaceName(), parent} {
     d = new VolumeGroupPrivate();
+    d->path = path;
 
     bindPropertyUpdater("Name", [this](QVariant value) {
         d->name = value.toString();
@@ -45,4 +53,12 @@ tRange<DiskObject*> VolumeGroup::pvs() {
 
 QString VolumeGroup::name() {
     return d->name;
+}
+
+QCoro::Task<> VolumeGroup::deleteVg(bool wipe, QVariantMap options) {
+    QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Delete");
+    message.setArguments({wipe, options});
+    auto call = QDBusConnection::systemBus().asyncCall(message);
+    auto reply = co_await call;
+    if (call.isError()) throw FrisbeeException(call.error().message());
 }

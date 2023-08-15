@@ -41,6 +41,30 @@
     </message>
 </context>
 <context>
+    <name>DisbandVgPopover</name>
+    <message>
+        <location filename="../operations/disbandvgpopover.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/disbandvgpopover.ui" line="35"/>
+        <location filename="../operations/disbandvgpopover.ui" line="67"/>
+        <source>Disband Volume Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/disbandvgpopover.ui" line="50"/>
+        <source>THIS IS IT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/disbandvgpopover.ui" line="57"/>
+        <source>There&apos;s no going back after this. Once the Volume Group is disbanded, all the logical volumes contained within, and all the data in the logical volumes will be gone forever.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>DiskObject</name>
     <message>
         <location filename="../DriveObjects/diskobject.cpp" line="136"/>

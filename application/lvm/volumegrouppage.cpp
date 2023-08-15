@@ -5,6 +5,8 @@
 #include <DriveObjects/diskobject.h>
 #include <DriveObjects/logicalvolume.h>
 #include <DriveObjects/volumegroup.h>
+#include <operations/disbandvgpopover.h>
+#include <tpopover.h>
 #include <volumegrouplvmodel.h>
 #include <volumegrouppvmodel.h>
 
@@ -77,4 +79,13 @@ void VolumeGroupPage::on_titleLabel_backButtonClicked() {
 }
 
 void VolumeGroupPage::on_disbandButton_clicked() {
+    auto* jp = new DisbandVgPopover(d->vg);
+    tPopover* popover = new tPopover(jp);
+    popover->setPopoverWidth(-200);
+    popover->setPopoverSide(tPopover::Bottom);
+    connect(jp, &DisbandVgPopover::done, popover, &tPopover::dismiss);
+    connect(jp, &DisbandVgPopover::deleted, this, &VolumeGroupPage::done);
+    connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
+    connect(popover, &tPopover::dismissed, jp, &DisbandVgPopover::deleteLater);
+    popover->show(this->window());
 }

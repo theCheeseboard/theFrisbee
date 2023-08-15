@@ -48,7 +48,7 @@ void LvmDiskPane::updateDetails() {
 
     this->setVisible(true);
     auto pv = d->disk->interface<PhysicalVolumeInterface>();
-    if (pv) {
+    if (pv && pv->volumeGroup()) {
         ui->lvmDescription->setText(tr("This block is part of the %1 volume group.").arg(QLocale().quoteString(pv->volumeGroup()->name())));
         ui->evictDataButton->setVisible(true);
         ui->viewVgButton->setVisible(true);

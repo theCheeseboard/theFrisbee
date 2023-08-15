@@ -2,6 +2,7 @@
 #define VOLUMEGROUP_H
 
 #include "udisksinterface.h"
+#include <QCoroTask>
 #include <ranges/trange.h>
 
 struct VolumeGroupPrivate;
@@ -18,6 +19,8 @@ class VolumeGroup : public UdisksInterface {
         tRange<DiskObject*> pvs();
 
         QString name();
+
+        QCoro::Task<> deleteVg(bool wipe, QVariantMap options);
 
     signals:
         void lvsChanged();
