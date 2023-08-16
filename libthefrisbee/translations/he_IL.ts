@@ -131,128 +131,133 @@
 <context>
     <name>DiskOperationManager</name>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="57"/>
+        <location filename="../diskoperationmanager.cpp" line="60"/>
         <source>Erase a block device</source>
         <translation>מחק התקן בלוק</translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="58"/>
+        <location filename="../diskoperationmanager.cpp" line="61"/>
         <source>Create an image of a block device</source>
         <translation>צור תמונה של התקן בלוק</translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="59"/>
+        <location filename="../diskoperationmanager.cpp" line="62"/>
         <source>Restore an image back to a block device or disc</source>
         <translation>שחזר תמונה חזרה להתקן בלוק או דיסק</translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="60"/>
+        <location filename="../diskoperationmanager.cpp" line="63"/>
         <source>Edit partitions on a filesystem</source>
         <translation>ערוך מחיצות במערכת קבצים</translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="61"/>
+        <location filename="../diskoperationmanager.cpp" line="64"/>
         <source>Attach a Physical Volume to a Volume Group</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="105"/>
-        <location filename="../diskoperationmanager.cpp" line="200"/>
+        <location filename="../diskoperationmanager.cpp" line="65"/>
+        <source>Delete a volume</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../diskoperationmanager.cpp" line="112"/>
+        <location filename="../diskoperationmanager.cpp" line="207"/>
         <source>No Media</source>
         <translation>אין מדיה</translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="105"/>
+        <location filename="../diskoperationmanager.cpp" line="112"/>
         <source>There is no media in the drive to erase.</source>
         <translation>אין מדיה בכונן כדי למחוק</translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="112"/>
+        <location filename="../diskoperationmanager.cpp" line="119"/>
         <source>Disc already blank</source>
         <translation>דיסק כבר ריק</translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="112"/>
+        <location filename="../diskoperationmanager.cpp" line="119"/>
         <source>The disc in the drive is already blank. Do you still want to erase it?</source>
         <translation>הדיסק בכונן כבר ריק. עדיין למחוק אותו?</translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="134"/>
+        <location filename="../diskoperationmanager.cpp" line="141"/>
         <source>Disc not rewritable</source>
         <translation>דיסק לא ניתן לכתיבה מחדש</translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="135"/>
+        <location filename="../diskoperationmanager.cpp" line="142"/>
         <source>The disc in the drive is not rewritable.</source>
         <translation>הדיסק בכונן לא ניתן לכתיבה מחדש</translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="136"/>
+        <location filename="../diskoperationmanager.cpp" line="143"/>
         <source>Only rewritable discs can be erased. If you need to destroy the data on this disc, you should physically break it in half.</source>
         <translation>ניתן למחוק רק דיסקים שניתנים לכתיבה מחדש. אם עליכם להשמיד את המידע על הדיסק, שברו אותו לשניים.</translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="164"/>
+        <location filename="../diskoperationmanager.cpp" line="171"/>
         <source>System Disk</source>
         <translation>דיסק מערכת</translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="164"/>
+        <location filename="../diskoperationmanager.cpp" line="171"/>
         <source>This is a system disk. Erasing it may cause your device to stop working altogether. Do you still want to erase it?</source>
         <translation>זהו דיסק מערכת. מחיקת דיסק זה יכול לגרום למכשיר זה להפסיק לעבוד. עדיין למחוק אותו?</translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="170"/>
+        <location filename="../diskoperationmanager.cpp" line="177"/>
         <source>LVM</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="170"/>
+        <location filename="../diskoperationmanager.cpp" line="177"/>
         <source>This is a physical volume attached to an activated volume group. Erasing it may cause one or more logical volumes on the volume group to become unavailable permanently. Do you still want to erase it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="200"/>
+        <location filename="../diskoperationmanager.cpp" line="207"/>
         <source>There is no media in the drive to restore to.</source>
         <translation>אין מדיה בכונן כדי לשחזר</translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="222"/>
+        <location filename="../diskoperationmanager.cpp" line="229"/>
         <source>Disc not writable</source>
         <translation>דיסק לא ניתן לכתיבה</translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="222"/>
+        <location filename="../diskoperationmanager.cpp" line="229"/>
         <source>The disc in the drive is not writable.</source>
         <translation>הדיסק בכונן לא ניתן לכתיבה</translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="256"/>
+        <location filename="../diskoperationmanager.cpp" line="263"/>
         <source>No Partition Table</source>
         <translation>אין טבלת מחיצות</translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="257"/>
+        <location filename="../diskoperationmanager.cpp" line="264"/>
         <source>Erase the disk to create a partition table.</source>
         <translation>מחק דיסק כדי ליצור טבלת מחיצות</translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="294"/>
+        <location filename="../diskoperationmanager.cpp" line="318"/>
         <source>Optical tools unavailable</source>
         <translation>כלים אופטיים אינם זמינים</translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="302"/>
+        <location filename="../diskoperationmanager.cpp" line="326"/>
         <source>theFrisbee can&apos;t write to optical discs when installed as a Flatpak.</source>
         <translation>theFrisbee לא יכול לכתוב בדיסקים אופטיים כאשר הוא מותקן כ-Flatpak</translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="304"/>
+        <location filename="../diskoperationmanager.cpp" line="328"/>
         <source>Your system does not have the necessary tools installed to write to optical discs.</source>
         <translation>למערכת שלך אין את הכלים הדרושים כדי לכתוב בדיסקים אופטיים.</translation>
     </message>
     <message>
-        <location filename="../diskoperationmanager.cpp" line="305"/>
+        <location filename="../diskoperationmanager.cpp" line="329"/>
         <source>You&apos;ll need to install either cdrtools or cdrkit using your system&apos;s package manager.</source>
         <translation>עליך להתקין cdrtools או cdrkit עם מנהל החבילות של המערכת שלך.</translation>
     </message>
@@ -414,43 +419,47 @@
     <name>EraseOpticalPopover</name>
     <message>
         <location filename="../operations/eraseopticalpopover.ui" line="54"/>
-        <location filename="../operations/eraseopticalpopover.ui" line="149"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="144"/>
         <source>Erase Disc</source>
         <translation>מחק דיסק</translation>
     </message>
     <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="69"/>
         <source>ERASE OPTIONS</source>
-        <translation>הגדרות מחיקה</translation>
+        <translation type="vanished">הגדרות מחיקה</translation>
     </message>
     <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="76"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="64"/>
+        <source>Erase Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/eraseopticalpopover.ui" line="71"/>
         <source>Erase Type</source>
         <translation>סוג מחיקה</translation>
     </message>
     <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="90"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="85"/>
         <source>Quick</source>
         <translation>מהיר</translation>
     </message>
     <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="95"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="90"/>
         <source>Full</source>
         <translation>מלא</translation>
     </message>
     <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="103"/>
-        <location filename="../operations/eraseopticalpopover.ui" line="181"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="98"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="176"/>
         <source>Erase this disc</source>
         <translation>מחק דיסק זה</translation>
     </message>
     <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="164"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="159"/>
         <source>THIS IS IT</source>
         <translation>אין דרך חזרה</translation>
     </message>
     <message>
-        <location filename="../operations/eraseopticalpopover.ui" line="171"/>
+        <location filename="../operations/eraseopticalpopover.ui" line="166"/>
         <source>There&apos;s no going back after this. Once the disc in the drive is erased, all the data on it will be gone forever.</source>
         <translation>אי אפשר לחזור חזרה מזה. אחרי שהדיסק נמחק, כל המידע בתוכו נעלם לתמיד.</translation>
     </message>
@@ -1000,6 +1009,34 @@ We won&apos;t modify anything until you apply your changes.</source>
         <location filename="../operations/partitionpopover.cpp" line="226"/>
         <source>Ready to apply these changes to the disk?</source>
         <translation>האם אתם מוכנים להחיל את השינויים לדיסק?</translation>
+    </message>
+</context>
+<context>
+    <name>RemoveLvPopover</name>
+    <message>
+        <location filename="../operations/removelvpopover.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/removelvpopover.ui" line="35"/>
+        <location filename="../operations/removelvpopover.ui" line="59"/>
+        <source>Delete Logical Volume</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/removelvpopover.ui" line="45"/>
+        <source>This is it!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/removelvpopover.ui" line="52"/>
+        <source>There&apos;s no going back after this. Once the logical volume is deleted, all the data on it will be gone forever.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There&apos;s no going back after this. Once the disc in the drive is erased, all the data on it will be gone forever.</source>
+        <translation type="obsolete">אי אפשר לחזור חזרה מזה. אחרי שהדיסק נמחק, כל המידע בתוכו נעלם לתמיד.</translation>
     </message>
 </context>
 <context>

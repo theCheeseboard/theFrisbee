@@ -21,6 +21,7 @@
 #include "diskoperationmanager.h"
 
 #include <DriveObjects/blockinterface.h>
+#include <DriveObjects/blocklvm2interface.h>
 #include <DriveObjects/driveinterface.h>
 #include <DriveObjects/filesysteminterface.h>
 #include <DriveObjects/partitioninterface.h>
@@ -38,6 +39,7 @@
 #include <operations/erasepartitiontablepopover.h>
 #include <operations/imagepopover.h>
 #include <operations/partitionpopover.h>
+#include <operations/removelvpopover.h>
 #include <operations/restoreopticalpopover.h>
 
 struct OperationManagerPrivate {
@@ -50,7 +52,8 @@ QMap<DiskOperationManager::DiskOperation, QString> OperationManagerPrivate::oper
     {DiskOperationManager::Image,     "image"    },
     {DiskOperationManager::Restore,   "restore"  },
     {DiskOperationManager::Partition, "partition"},
-    {DiskOperationManager::AttachPv,  "attachPv" }
+    {DiskOperationManager::AttachPv,  "attachPv" },
+    {DiskOperationManager::Delete,    "delete"   }
 };
 
 QMap<DiskOperationManager::DiskOperation, QString> OperationManagerPrivate::operationDescriptions = {
@@ -58,7 +61,8 @@ QMap<DiskOperationManager::DiskOperation, QString> OperationManagerPrivate::oper
     {DiskOperationManager::Image,     DiskOperationManager::tr("Create an image of a block device")              },
     {DiskOperationManager::Restore,   DiskOperationManager::tr("Restore an image back to a block device or disc")},
     {DiskOperationManager::Partition, DiskOperationManager::tr("Edit partitions on a filesystem")                },
-    {DiskOperationManager::AttachPv,  DiskOperationManager::tr("Attach a Physical Volume to a Volume Group")     }
+    {DiskOperationManager::AttachPv,  DiskOperationManager::tr("Attach a Physical Volume to a Volume Group")     },
+    {DiskOperationManager::AttachPv,  DiskOperationManager::tr("Delete a volume")                                }
 };
 
 DiskOperationManager::DiskOperation DiskOperationManager::operationForString(QString operationString) {
@@ -93,6 +97,9 @@ void DiskOperationManager::showDiskOperationUi(QWidget* parent, DiskOperation op
             break;
         case DiskOperationManager::AttachPv:
             showAttachPvOperationUi(parent, disk);
+            break;
+        case DiskOperationManager::Delete:
+            showDeleteOperationUi(parent, disk);
     }
 }
 
@@ -285,6 +292,23 @@ void DiskOperationManager::showAttachPvOperationUi(QWidget* parent, DiskObject* 
     connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
     connect(popover, &tPopover::dismissed, jp, &AttachPvPopover::deleteLater);
     popover->show(parent->window());
+}
+
+void DiskOperationManager::showDeleteOperationUi(QWidget* parent, DiskObject* disk) {
+    if (disk->isInterfaceAvailable(DiskInterface::BlockLvm2)) {
+        auto blockLvm2 = disk->interface<BlockLvm2Interface>();
+        auto pv = blockLvm2->logicalVolume();
+        if (pv) {
+            auto* jp = new RemoveLvPopover(pv);
+            tPopover* popover = new tPopover(jp);
+            popover->setPopoverWidth(-200);
+            popover->setPopoverSide(tPopover::Bottom);
+            connect(jp, &RemoveLvPopover::done, popover, &tPopover::dismiss);
+            connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
+            connect(popover, &tPopover::dismissed, jp, &RemoveLvPopover::deleteLater);
+            popover->show(parent->window());
+        }
+    }
 }
 
 bool DiskOperationManager::ensureOpticalUtilitiesInstalled(QWidget* parent) {

@@ -68,7 +68,8 @@ file(GLOB DRIVEOBJECT_HEADERS DriveObjects/*.h)
 
 set(HEADERS ${ROOT_HEADERS} ${DRIVEOBJECT_HEADERS} ${STRUCTURES_HEADERS})
 
-add_library(libthefrisbee SHARED ${SOURCES} ${HEADERS})
+add_library(libthefrisbee SHARED ${SOURCES} ${HEADERS}
+    operations/removelvpopover.h operations/removelvpopover.cpp operations/removelvpopover.ui)
 set_target_properties(libthefrisbee PROPERTIES
         CNTP_DATA_SUBDIR thefrisbee/libthefrisbee)
 cntp_init(libthefrisbee 20)

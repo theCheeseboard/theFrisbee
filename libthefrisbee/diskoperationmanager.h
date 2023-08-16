@@ -35,6 +35,7 @@ class LIBTHEFRISBEE_EXPORT DiskOperationManager : public QObject {
             Image,
             Partition,
             AttachPv,
+            Delete,
             LastOperation = Partition
         };
 
@@ -53,6 +54,7 @@ class LIBTHEFRISBEE_EXPORT DiskOperationManager : public QObject {
         static void showImageOperationUi(QWidget* parent, DiskObject* disk);
         static void showPartitionOperationUi(QWidget* parent, DiskObject* disk);
         static void showAttachPvOperationUi(QWidget* parent, DiskObject* disk);
+        static void showDeleteOperationUi(QWidget* parent, DiskObject* disk);
 };
 
 #endif // DISKOPERATIONMANAGER_H

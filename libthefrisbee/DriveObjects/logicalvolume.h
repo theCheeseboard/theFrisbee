@@ -2,6 +2,7 @@
 #define LOGICALVOLUME_H
 
 #include "udisksinterface.h"
+#include <QCoroTask>
 
 struct LogicalVolumePrivate;
 class VolumeGroup;
@@ -16,6 +17,8 @@ class LogicalVolume : public UdisksInterface {
         QString name();
         VolumeGroup* vg();
         DiskObject* block();
+
+        QCoro::Task<> deleteLogicalVolume(QVariantMap options);
 
     private:
         LogicalVolumePrivate* d;

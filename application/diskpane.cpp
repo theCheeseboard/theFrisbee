@@ -159,4 +159,5 @@ void DiskPane::on_checkButton_clicked() {
 }
 
 void DiskPane::on_deleteButton_clicked() {
+    DiskOperationManager::showDiskOperationUi(this->window(), DiskOperationManager::Delete, d->disk);
 }

@@ -59,14 +59,9 @@
         <widget class="QWidget" name="optionsWidget" native="true">
          <layout class="QGridLayout" name="gridLayout">
           <item row="0" column="0" colspan="2">
-           <widget class="QLabel" name="label">
-            <property name="font">
-             <font>
-              <bold>true</bold>
-             </font>
-            </property>
+           <widget class="tSubtitleLabel" name="label">
             <property name="text">
-             <string>ERASE OPTIONS</string>
+             <string>Erase Options</string>
             </property>
            </widget>
           </item>
@@ -225,6 +220,11 @@
    <slots>
     <signal>backButtonClicked()</signal>
    </slots>
+  </customwidget>
+  <customwidget>
+   <class>tSubtitleLabel</class>
+   <extends>QLabel</extends>
+   <header location="global">tsubtitlelabel.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
