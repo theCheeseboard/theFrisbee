@@ -26,6 +26,8 @@ class VolumeGroupPage : public QWidget {
 
         void on_disbandButton_clicked();
 
+        void on_lvsView_activated(const QModelIndex& index);
+
     private:
         Ui::VolumeGroupPage* ui;
         VolumeGroupPagePrivate* d;

@@ -32,6 +32,7 @@ class SizeEditBox : public QLineEdit {
 
         bool hasValidSize();
         quint64 size();
+        void setSize(quint64 size);
 
     signals:
 

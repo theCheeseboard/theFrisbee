@@ -55,6 +55,8 @@ set(SOURCES
         volumegrouppvmodel.h volumegrouppvmodel.cpp
         operations/attachpvpopover.h operations/attachpvpopover.cpp operations/attachpvpopover.ui
         operations/disbandvgpopover.h operations/disbandvgpopover.cpp operations/disbandvgpopover.ui
+        operations/addlvpopover.h operations/addlvpopover.cpp operations/addlvpopover.ui
+        components/sizerangebox.h components/sizerangebox.cpp components/sizerangebox.ui
     )
 
 set(STRUCTURES_HEADERS

@@ -2,6 +2,53 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="da" sourcelanguage="en_US">
 <context>
+    <name>AddLvPopover</name>
+    <message>
+        <location filename="../operations/addlvpopover.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/addlvpopover.ui" line="35"/>
+        <source>New Logical Volume</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/addlvpopover.ui" line="70"/>
+        <source>Logical Volume Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/addlvpopover.ui" line="87"/>
+        <source>Format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/addlvpopover.ui" line="52"/>
+        <source>Create Logical Volume</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../operations/addlvpopover.ui" line="77"/>
+        <source>Name</source>
+        <translation type="unfinished">Navn</translation>
+    </message>
+    <message>
+        <location filename="../operations/addlvpopover.ui" line="63"/>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Erase Type</source>
+        <translation type="obsolete">Formateringstype</translation>
+    </message>
+    <message>
+        <location filename="../operations/addlvpopover.cpp" line="33"/>
+        <source>Leave Empty</source>
+        <translation type="unfinished">Gør tom</translation>
+    </message>
+</context>
+<context>
     <name>AttachPvPopover</name>
     <message>
         <location filename="../operations/attachpvpopover.ui" line="14"/>
@@ -1186,6 +1233,14 @@ Når disken i drevet er formateret, vil alt data på den være væk for evigt.</
         <location filename="../operations/restoreopticalpopover.cpp" line="102"/>
         <source>A medium cannot be restored to itself. Select another medium to restore.</source>
         <translation>Et medie kan ikke gendannes til sig selv. Vælg et andet medie at gendanne.</translation>
+    </message>
+</context>
+<context>
+    <name>SizeRangeBox</name>
+    <message>
+        <location filename="../components/sizerangebox.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

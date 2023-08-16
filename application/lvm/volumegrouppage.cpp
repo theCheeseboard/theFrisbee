@@ -5,6 +5,7 @@
 #include <DriveObjects/diskobject.h>
 #include <DriveObjects/logicalvolume.h>
 #include <DriveObjects/volumegroup.h>
+#include <operations/addlvpopover.h>
 #include <operations/disbandvgpopover.h>
 #include <tpopover.h>
 #include <volumegrouplvmodel.h>
@@ -88,4 +89,18 @@ void VolumeGroupPage::on_disbandButton_clicked() {
     connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
     connect(popover, &tPopover::dismissed, jp, &DisbandVgPopover::deleteLater);
     popover->show(this->window());
+}
+
+void VolumeGroupPage::on_lvsView_activated(const QModelIndex& index) {
+    auto lv = index.data(VolumeGroupLvModel::LvRole).value<LogicalVolume*>();
+    if (!lv) {
+        auto* jp = new AddLvPopover(d->vg);
+        tPopover* popover = new tPopover(jp);
+        popover->setPopoverWidth(-200);
+        popover->setPopoverSide(tPopover::Bottom);
+        connect(jp, &AddLvPopover::done, popover, &tPopover::dismiss);
+        connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
+        connect(popover, &tPopover::dismissed, jp, &AddLvPopover::deleteLater);
+        popover->show(this->window());
+    }
 }

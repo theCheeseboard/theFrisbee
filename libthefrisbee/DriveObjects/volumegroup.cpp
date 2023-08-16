@@ -14,6 +14,8 @@
 struct VolumeGroupPrivate {
         QDBusObjectPath path;
         QString name;
+        quint64 size;
+        quint64 freeSize;
 };
 
 VolumeGroup::VolumeGroup(QDBusObjectPath path, QObject* parent) :
@@ -23,6 +25,12 @@ VolumeGroup::VolumeGroup(QDBusObjectPath path, QObject* parent) :
 
     bindPropertyUpdater("Name", [this](QVariant value) {
         d->name = value.toString();
+    });
+    bindPropertyUpdater("Size", [this](QVariant value) {
+        d->size = value.toULongLong();
+    });
+    bindPropertyUpdater("FreeSize", [this](QVariant value) {
+        d->freeSize = value.toULongLong();
     });
 
     connect(DriveObjectManager::instance(), &DriveObjectManager::logicalVolumeAdded, this, &VolumeGroup::lvsChanged);
@@ -55,6 +63,14 @@ QString VolumeGroup::name() {
     return d->name;
 }
 
+quint64 VolumeGroup::size() {
+    return d->size;
+}
+
+quint64 VolumeGroup::freeSize() {
+    return d->freeSize;
+}
+
 QCoro::Task<> VolumeGroup::deleteVg(bool wipe, QVariantMap options) {
     QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "Delete");
     message.setArguments({wipe, options});
@@ -69,4 +85,15 @@ QCoro::Task<> VolumeGroup::addDevice(DiskObject* block, QVariantMap options) {
     auto call = QDBusConnection::systemBus().asyncCall(message);
     auto reply = co_await call;
     if (call.isError()) throw FrisbeeException(call.error().message());
+}
+
+QCoro::Task<LogicalVolume*> VolumeGroup::createPlainVolume(QString name, quint64 size, QVariantMap options) {
+    QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "CreatePlainVolume");
+    message.setArguments({name, size, options});
+    auto call = QDBusConnection::systemBus().asyncCall(message);
+    auto reply = co_await call;
+    if (call.isError()) throw FrisbeeException(call.error().message());
+
+    auto lvPath = reply.arguments().first().value<QDBusObjectPath>();
+    co_return DriveObjectManager::logicalVolumeForPath(lvPath);
 }

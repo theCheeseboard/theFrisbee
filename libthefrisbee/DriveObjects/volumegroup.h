@@ -19,9 +19,12 @@ class VolumeGroup : public UdisksInterface {
         tRange<DiskObject*> pvs();
 
         QString name();
+        quint64 size();
+        quint64 freeSize();
 
         QCoro::Task<> deleteVg(bool wipe, QVariantMap options);
         QCoro::Task<> addDevice(DiskObject* block, QVariantMap options);
+        QCoro::Task<LogicalVolume*> createPlainVolume(QString name, quint64 size, QVariantMap options);
 
     signals:
         void lvsChanged();
