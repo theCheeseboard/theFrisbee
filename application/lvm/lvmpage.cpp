@@ -20,8 +20,13 @@ LvmPage::LvmPage(QWidget* parent) :
     d->vgModel->setShowAddButton(false);
     ui->listView->setModel(d->vgModel);
 
+    ui->noVgIcon->setPixmap(QIcon::fromTheme("drive-logical-volume").pixmap(QSize(128, 128)));
+
     ui->stackedWidget->setCurrentAnimation(tStackedWidget::Fade);
     ui->stackedWidget_2->setCurrentAnimation(tStackedWidget::Lift);
+
+    connect(d->vgModel, &VolumeGroupModel::dataChanged, this, &LvmPage::updatePage);
+    updatePage();
 }
 
 LvmPage::~LvmPage() {
@@ -44,5 +49,13 @@ void LvmPage::on_listView_clicked(const QModelIndex& index) {
         });
         ui->stackedWidget_2->addWidget(vgPage);
         ui->stackedWidget_2->setCurrentWidget(vgPage);
+    }
+}
+
+void LvmPage::updatePage() {
+    if (d->vgModel->rowCount() == 0) {
+        ui->stackedWidget->setCurrentWidget(ui->noVgsPage);
+    } else {
+        ui->stackedWidget->setCurrentWidget(ui->vgListPage);
     }
 }

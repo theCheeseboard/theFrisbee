@@ -97,3 +97,19 @@ QCoro::Task<LogicalVolume*> VolumeGroup::createPlainVolume(QString name, quint64
     auto lvPath = reply.arguments().first().value<QDBusObjectPath>();
     co_return DriveObjectManager::logicalVolumeForPath(lvPath);
 }
+
+QCoro::Task<> VolumeGroup::emptyDevice(DiskObject* block, QVariantMap options) {
+    QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "EmptyDevice");
+    message.setArguments({block->path(), options});
+    auto call = QDBusConnection::systemBus().asyncCall(message, 30000000);
+    auto reply = co_await call;
+    if (call.isError()) throw FrisbeeException(call.error().message());
+}
+
+QCoro::Task<> VolumeGroup::removeDevice(DiskObject* block, bool wipe, QVariantMap options) {
+    QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", d->path.path(), interfaceName(), "RemoveDevice");
+    message.setArguments({block->path(), wipe, options});
+    auto call = QDBusConnection::systemBus().asyncCall(message, 30000000);
+    auto reply = co_await call;
+    if (call.isError()) throw FrisbeeException(call.error().message());
+}

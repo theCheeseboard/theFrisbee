@@ -15,6 +15,8 @@ class PhysicalVolumeInterface : public DiskInterface {
         static QString interfaceName();
 
         VolumeGroup* volumeGroup();
+        quint64 size();
+        quint64 freeSize();
 
     private:
         PhysicalVolumeInterfacePrivate* d;

@@ -27,6 +27,7 @@ class LvmDiskPane : public DiskPaneComponent {
         int order() const;
     private slots:
         void on_attachVgButton_clicked();
+        void on_pvSettingsButton_clicked();
 };
 
 #endif // LVMDISKPANE_H

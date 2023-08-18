@@ -12,6 +12,7 @@ set(SOURCES
         diskPanes/lvmdiskpane.h diskPanes/lvmdiskpane.cpp diskPanes/lvmdiskpane.ui
 
         popovers/smartpopover.cpp popovers/smartpopover.ui
+        popovers/pvremovepopover.h popovers/pvremovepopover.cpp popovers/pvremovepopover.ui
         diskpane.cpp diskpane.ui
         mainwindow.cpp mainwindow.ui
         operations/creatediskimagepopover.cpp operations/creatediskimagepopover.ui

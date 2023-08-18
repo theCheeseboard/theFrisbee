@@ -23,6 +23,8 @@ class LvmPage : public QWidget {
     private:
         Ui::LvmPage* ui;
         LvmPagePrivate* d;
+
+        void updatePage();
 };
 
 #endif // LVMPAGE_H

@@ -129,7 +129,7 @@
     </message>
     <message>
         <location filename="../diskPanes/lvmdiskpane.ui" line="84"/>
-        <source>Relocate Data</source>
+        <source>Manage Physical Volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -161,8 +161,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lvm/lvmpage.ui" line="73"/>
+        <location filename="../lvm/lvmpage.ui" line="76"/>
         <source>Volume Groups</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lvm/lvmpage.ui" line="116"/>
+        <source>No Volume Groups</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lvm/lvmpage.ui" line="139"/>
+        <source>Create an LVM Physical Volume and add it to a new Volume Group to start using LVM</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -350,6 +360,80 @@
         <location filename="../diskPanes/overviewdiskpane.cpp" line="137"/>
         <source>No Disc Inserted</source>
         <translation></translation>
+    </message>
+</context>
+<context>
+    <name>PvRemovePopover</name>
+    <message>
+        <location filename="../popovers/pvremovepopover.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/pvremovepopover.ui" line="57"/>
+        <source>Manage Physical Volume</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/pvremovepopover.ui" line="67"/>
+        <source>Actions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/pvremovepopover.ui" line="79"/>
+        <location filename="../popovers/pvremovepopover.ui" line="138"/>
+        <location filename="../popovers/pvremovepopover.ui" line="175"/>
+        <source>Relocate Data</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/pvremovepopover.ui" line="90"/>
+        <location filename="../popovers/pvremovepopover.ui" line="221"/>
+        <location filename="../popovers/pvremovepopover.ui" line="245"/>
+        <location filename="../popovers/pvremovepopover.ui" line="291"/>
+        <location filename="../popovers/pvremovepopover.ui" line="328"/>
+        <source>Remove from Volume Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/pvremovepopover.ui" line="148"/>
+        <source>Relocate Data?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/pvremovepopover.ui" line="155"/>
+        <source>Relocating data from this block will move extents from this block to other blocks in the volume group.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/pvremovepopover.ui" line="165"/>
+        <source>Once the data has been relocated, all extents on this block will be free.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/pvremovepopover.ui" line="231"/>
+        <source>Remove Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/pvremovepopover.ui" line="238"/>
+        <source>Also overwrite space</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/pvremovepopover.ui" line="301"/>
+        <source>This is it!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/pvremovepopover.ui" line="308"/>
+        <source>Removing this block from the volume group will make its space unavailable to the volume group. Used extents in this block will first be moved to free extents in other blocks in the volume group.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/pvremovepopover.ui" line="318"/>
+        <source>This operation can take some time.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
