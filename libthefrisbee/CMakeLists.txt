@@ -15,7 +15,14 @@ set(SOURCES
         DriveObjects/loopinterface.cpp
         DriveObjects/partitioninterface.cpp
         DriveObjects/partitiontableinterface.cpp
+        DriveObjects/udisksinterface.h DriveObjects/udisksinterface.cpp
         DriveObjects/atadriveinterface.h DriveObjects/atadriveinterface.cpp
+        DriveObjects/blocklvm2interface.h DriveObjects/blocklvm2interface.cpp
+        DriveObjects/physicalvolumeinterface.h DriveObjects/physicalvolumeinterface.cpp
+
+        DriveObjects/volumegroup.h DriveObjects/volumegroup.cpp
+        DriveObjects/logicalvolume.h DriveObjects/logicalvolume.cpp
+
         components/partitionvisualisation.cpp
         components/sizeeditbox.cpp
         diskmodel.cpp
@@ -43,6 +50,13 @@ set(SOURCES
         frisbeeexception.cpp
         structures/private/smartattribute.h structures/private/smartattribute.cpp
         structures/formattedsmartattribute.cpp
+        volumegroupmodel.h volumegroupmodel.cpp
+        volumegrouplvmodel.h volumegrouplvmodel.cpp
+        volumegrouppvmodel.h volumegrouppvmodel.cpp
+        operations/attachpvpopover.h operations/attachpvpopover.cpp operations/attachpvpopover.ui
+        operations/disbandvgpopover.h operations/disbandvgpopover.cpp operations/disbandvgpopover.ui
+        operations/addlvpopover.h operations/addlvpopover.cpp operations/addlvpopover.ui
+        components/sizerangebox.h components/sizerangebox.cpp components/sizerangebox.ui
     )
 
 set(STRUCTURES_HEADERS
@@ -54,7 +68,8 @@ file(GLOB DRIVEOBJECT_HEADERS DriveObjects/*.h)
 
 set(HEADERS ${ROOT_HEADERS} ${DRIVEOBJECT_HEADERS} ${STRUCTURES_HEADERS})
 
-add_library(libthefrisbee SHARED ${SOURCES} ${HEADERS})
+add_library(libthefrisbee SHARED ${SOURCES} ${HEADERS}
+    operations/removelvpopover.h operations/removelvpopover.cpp operations/removelvpopover.ui)
 set_target_properties(libthefrisbee PROPERTIES
         CNTP_DATA_SUBDIR thefrisbee/libthefrisbee)
 cntp_init(libthefrisbee 20)

@@ -41,6 +41,7 @@
 #include <tlogger.h>
 #include <tpaintcalculator.h>
 #include <tpopover.h>
+#include <twindowtabberbutton.h>
 
 struct MainWindowPrivate {
         tCsdTools csd;
@@ -64,12 +65,21 @@ MainWindow::MainWindow(QWidget* parent) :
         ui->rightCsdLayout->addWidget(d->csd.csdBoxForWidget(this));
     }
 
+    ui->stackedWidget->setCurrentAnimation(tStackedWidget::SlideHorizontal);
+
+    ui->centralwidget->layout()->removeWidget(ui->topWidget);
+    ui->topWidget->raise();
+    ui->topWidget->move(0, 0);
+
     ui->menuBar->setVisible(false);
     ui->menuBar->addMenu(new tHelpMenu(this));
 
     tCommandPaletteActionScope* commandPaletteActionScope;
     auto commandPalette = tCommandPaletteController::defaultController(this, &commandPaletteActionScope);
     commandPaletteActionScope->addMenuBar(ui->menuBar);
+
+    ui->windowTabber->addButton(new tWindowTabberButton(QIcon::fromTheme("drive-harddisk"), tr("Disks"), ui->stackedWidget, ui->disksPage));
+    ui->windowTabber->addButton(new tWindowTabberButton(QIcon::fromTheme("drive-logical-volume"), tr("LVM"), ui->stackedWidget, ui->lvmPage));
 
     QMenu* menu = new QMenu(this);
     menu->addAction(ui->actionCreate_Disk_Image);
@@ -82,16 +92,16 @@ MainWindow::MainWindow(QWidget* parent) :
     ui->menuButton->setIcon(tApplication::applicationIcon());
     ui->menuButton->setIconSize(SC_DPI_WT(QSize(24, 24), QSize, this));
     ui->menuButton->setMenu(menu);
-    ui->stackedWidget->setCurrentAnimation(tStackedWidget::Lift);
+    ui->stackedWidget_2->setCurrentAnimation(tStackedWidget::Lift);
 
-    ui->leftWidget->setFixedWidth(SC_DPI_W(400, this));
+    ui->leftWidget->setFixedWidth(400);
 
     ui->diskList->setModel(new DiskModel());
     connect(ui->diskList->selectionModel(), &QItemSelectionModel::currentChanged, this, [this](QModelIndex current, QModelIndex previous) {
         if (current.isValid()) {
             DiskPane* disk = new DiskPane(static_cast<DiskObject*>(current.internalPointer()));
-            ui->stackedWidget->addWidget(disk);
-            ui->stackedWidget->setCurrentWidget(disk);
+            ui->stackedWidget_2->addWidget(disk);
+            ui->stackedWidget_2->setCurrentWidget(disk);
         }
     });
 
@@ -134,21 +144,21 @@ void MainWindow::on_actionExit_triggered() {
 }
 
 bool MainWindow::eventFilter(QObject* watched, QEvent* event) {
-    if (watched == ui->topWidget && event->type() == QEvent::Paint) {
-        QPainter* painter = new QPainter(ui->topWidget);
+    //    if (watched == ui->topWidget && event->type() == QEvent::Paint) {
+    //        QPainter* painter = new QPainter(ui->topWidget);
 
-        tPaintCalculator calculator;
-        calculator.setPainter(painter);
-        calculator.setDrawBounds(ui->topWidget->size());
+    //        tPaintCalculator calculator;
+    //        calculator.setPainter(painter);
+    //        calculator.setDrawBounds(ui->topWidget->size());
 
-        calculator.addRect(QRectF(SC_DPI_W(400, this) + (this->layoutDirection() == Qt::RightToLeft ? 1 : 0), 0, 0, ui->topWidget->height()), [painter, this](QRectF drawBounds) {
-            painter->setPen(libContemporaryCommon::lineColor(this->palette().color(QPalette::WindowText)));
-            painter->drawLine(drawBounds.topLeft(), drawBounds.bottomLeft());
-        });
+    //        calculator.addRect(QRectF(SC_DPI_W(400, this) + (this->layoutDirection() == Qt::RightToLeft ? 1 : 0), 0, 0, ui->topWidget->height()), [painter, this](QRectF drawBounds) {
+    //            painter->setPen(libContemporaryCommon::lineColor(this->palette().color(QPalette::WindowText)));
+    //            painter->drawLine(drawBounds.topLeft(), drawBounds.bottomLeft());
+    //        });
 
-        calculator.performPaint();
-        delete painter;
-    }
+    //        calculator.performPaint();
+    //        delete painter;
+    //    }
     return false;
 }
 
@@ -161,4 +171,13 @@ void MainWindow::on_actionCreate_Disk_Image_triggered() {
     connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
     connect(popover, &tPopover::dismissed, jp, &CreateDiskImagePopover::deleteLater);
     popover->show(this->window());
+}
+
+void MainWindow::resizeEvent(QResizeEvent* event) {
+    ui->topWidget->setFixedWidth(ui->centralwidget->width());
+    ui->topWidget->setFixedHeight(ui->topWidget->sizeHint().height());
+
+    ui->leftWidget->setContentsMargins(0, ui->topWidget->sizeHint().height(), 0, 0);
+    ui->verticalLayout_3->setContentsMargins(0, ui->topWidget->sizeHint().height(), 0, 0);
+    ui->lvmPage->setTopPadding(ui->topWidget->sizeHint().height());
 }

@@ -25,11 +25,14 @@
 #include <QDBusObjectPath>
 #include <QDBusUnixFileDescriptor>
 #include <QObject>
+#include <ranges/trange.h>
 #include <tpromise.h>
 
 struct DriveObjectManagerPrivate;
 class DiskObject;
 class DriveInterface;
+class VolumeGroup;
+class LogicalVolume;
 class LIBTHEFRISBEE_EXPORT DriveObjectManager : public QObject {
         Q_OBJECT
     public:
@@ -40,15 +43,23 @@ class LIBTHEFRISBEE_EXPORT DriveObjectManager : public QObject {
         static QList<DiskObject*> filesystemDisks();
         static QList<DiskObject*> encryptedDisks();
         static QList<DiskObject*> opticalDisks();
+        static tRange<DiskObject*> lvmPhysicalVolumeDisks();
         static QList<DriveInterface*> drives();
+
+        static QList<VolumeGroup*> volumeGroups();
+        static QList<LogicalVolume*> logicalVolumes();
 
         static DiskObject* diskForPath(QDBusObjectPath path);
         static DiskObject* diskByBlockName(QString blockName);
         static DriveInterface* driveForPath(QDBusObjectPath path);
 
+        static VolumeGroup* volumeGroupForPath(QDBusObjectPath path);
+        static LogicalVolume* logicalVolumeForPath(QDBusObjectPath path);
+
         static QStringList supportedFilesystems();
 
         static QCoro::Task<QDBusObjectPath> loopSetup(QDBusUnixFileDescriptor fd, QVariantMap options);
+        static QCoro::Task<QDBusObjectPath> volumeGroupCreate(QString name, QList<DiskObject*> blocks, QVariantMap options);
 
     public slots:
         void updateInterfaces();
@@ -58,6 +69,10 @@ class LIBTHEFRISBEE_EXPORT DriveObjectManager : public QObject {
         void diskRemoved(DiskObject* disk);
         void driveAdded(DriveInterface* drive);
         void driveRemoved(DriveInterface* drive);
+        void volumeGroupAdded(VolumeGroup* drive);
+        void volumeGroupRemoved(VolumeGroup* drive);
+        void logicalVolumeAdded(LogicalVolume* drive);
+        void logicalVolumeRemoved(LogicalVolume* drive);
         void rootDisksChanged();
         void filesystemDisksChanged();
 

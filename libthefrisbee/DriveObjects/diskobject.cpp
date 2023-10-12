@@ -25,13 +25,16 @@
 #include <QTimer>
 
 #include "blockinterface.h"
+#include "blocklvm2interface.h"
 #include "diskinterface.h"
 #include "driveinterface.h"
 #include "encryptedinterface.h"
 #include "filesysteminterface.h"
+#include "logicalvolume.h"
 #include "loopinterface.h"
 #include "partitioninterface.h"
 #include "partitiontableinterface.h"
+#include "physicalvolumeinterface.h"
 
 struct DiskObjectPrivate {
         QDBusObjectPath path;
@@ -75,6 +78,14 @@ template<> EncryptedInterface* DiskObject::interface() const {
     return static_cast<EncryptedInterface*>(d->interfaces.value(EncryptedInterface::interfaceName(), nullptr));
 }
 
+template<> BlockLvm2Interface* DiskObject::interface() const {
+    return static_cast<BlockLvm2Interface*>(d->interfaces.value(BlockLvm2Interface::interfaceName(), nullptr));
+}
+
+template<> PhysicalVolumeInterface* DiskObject::interface() const {
+    return static_cast<PhysicalVolumeInterface*>(d->interfaces.value(PhysicalVolumeInterface::interfaceName(), nullptr));
+}
+
 bool DiskObject::isInterfaceAvailable(DiskInterface::Interfaces interface) {
     switch (interface) {
         case DiskInterface::Block:
@@ -89,6 +100,10 @@ bool DiskObject::isInterfaceAvailable(DiskInterface::Interfaces interface) {
             return d->interfaces.contains(LoopInterface::interfaceName());
         case DiskInterface::Encrypted:
             return d->interfaces.contains(EncryptedInterface::interfaceName());
+        case DiskInterface::BlockLvm2:
+            return d->interfaces.contains(BlockLvm2Interface::interfaceName());
+        case DiskInterface::PhysicalVolume:
+            return d->interfaces.contains(PhysicalVolumeInterface::interfaceName());
         default:
             return false;
     }
@@ -97,6 +112,14 @@ bool DiskObject::isInterfaceAvailable(DiskInterface::Interfaces interface) {
 QString DiskObject::displayName() {
     PartitionInterface* partition = interface<PartitionInterface>();
     if (partition && !partition->name().isEmpty()) return partition->name();
+
+    auto blockLvm2 = interface<BlockLvm2Interface>();
+    if (blockLvm2) {
+        auto lv = blockLvm2->logicalVolume();
+        if (lv) {
+            return lv->name();
+        }
+    }
 
     BlockInterface* block = interface<BlockInterface>();
     if (block) {
@@ -181,7 +204,9 @@ void DiskObject::updateInterfaces(QMap<QString, QVariantMap> interfaces) {
         PartitionTableInterface::interfaceName(),
         PartitionInterface::interfaceName(),
         LoopInterface::interfaceName(),
-        EncryptedInterface::interfaceName()};
+        EncryptedInterface::interfaceName(),
+        BlockLvm2Interface::interfaceName(),
+        PhysicalVolumeInterface::interfaceName()};
 
     for (QString interface : interfaceNames) {
         if (interfaces.contains(interface)) {

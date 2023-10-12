@@ -7,20 +7,20 @@ find_package(libcontemporary REQUIRED)
 
 set(SOURCES
         diskPanes/diskpanecomponent.cpp
-        diskPanes/overviewdiskpane.cpp
-        diskPanes/smartdiskpane.cpp
-        popovers/smartpopover.cpp
-        diskpane.cpp
-        main.cpp
-        mainwindow.cpp
-        operations/creatediskimagepopover.cpp
+        diskPanes/overviewdiskpane.cpp diskPanes/overviewdiskpane.ui
+        diskPanes/smartdiskpane.cpp diskPanes/smartdiskpane.ui
+        diskPanes/lvmdiskpane.h diskPanes/lvmdiskpane.cpp diskPanes/lvmdiskpane.ui
 
-        diskPanes/overviewdiskpane.ui
-        diskPanes/smartdiskpane.ui
-        diskpane.ui
-        mainwindow.ui
-        operations/creatediskimagepopover.ui
-        popovers/smartpopover.ui
+        popovers/smartpopover.cpp popovers/smartpopover.ui
+        popovers/pvremovepopover.h popovers/pvremovepopover.cpp popovers/pvremovepopover.ui
+        diskpane.cpp diskpane.ui
+        mainwindow.cpp mainwindow.ui
+        operations/creatediskimagepopover.cpp operations/creatediskimagepopover.ui
+
+        lvm/lvmpage.cpp lvm/lvmpage.ui
+        lvm/volumegrouppage.cpp lvm/volumegrouppage.ui
+
+        main.cpp
 
         resources.qrc)
 
@@ -31,7 +31,10 @@ set(HEADERS
         popovers/smartpopover.h
         diskpane.h
         mainwindow.h
-        operations/creatediskimagepopover.h)
+        operations/creatediskimagepopover.h
+        lvm/lvmpage.h
+        lvm/volumegrouppage.h
+    )
 
 add_executable(thefrisbee ${SOURCES} ${HEADERS})
 

@@ -29,12 +29,16 @@
 #include <QDBusObjectPath>
 #include <QDBusPendingCallWatcher>
 #include <frisbeeexception.h>
+#include <ranges/trange.h>
 
 struct PartitionTableInterfacePrivate {
         QDBusObjectPath path;
 
         QList<QDBusObjectPath> partitions;
         QString type;
+
+        bool partitionObjectUpdateRequired = false;
+        QList<QPointer<DiskObject>> partitionObjects;
 };
 
 PartitionTableInterface::PartitionTableInterface(QDBusObjectPath path, QObject* parent) :
@@ -47,6 +51,7 @@ PartitionTableInterface::PartitionTableInterface(QDBusObjectPath path, QObject* 
         d->partitions.clear();
 
         arg >> d->partitions;
+        d->partitionObjectUpdateRequired = true;
     });
     bindPropertyUpdater("Type", [this](QVariant value) {
         d->type = value.toString();
@@ -66,24 +71,14 @@ DiskInterface::Interfaces PartitionTableInterface::interfaceType() {
 }
 
 QList<DiskObject*> PartitionTableInterface::partitions() {
-    QList<DiskObject*> diskObjects;
-    for (QDBusObjectPath path : d->partitions) {
-        DiskObject* disk = DriveObjectManager::diskForPath(path);
-        if (disk) diskObjects.append(disk);
-    }
-
-    std::sort(diskObjects.begin(), diskObjects.end(), [=](DiskObject* first, DiskObject* second) {
-        PartitionInterface* partitionFirst = first->interface<PartitionInterface>();
-        PartitionInterface* partitionSecond = second->interface<PartitionInterface>();
-        if (partitionFirst && partitionSecond) {
-            return partitionFirst->number() < partitionSecond->number();
-        } else {
-            // ???
-            return false;
-        }
-    });
-
-    return diskObjects;
+    updatePartitions();
+    return tRange(d->partitionObjects).filter([](QPointer<DiskObject> object) {
+                                          return !object.isNull();
+                                      })
+        .map<DiskObject*>([](QPointer<DiskObject> object) {
+            return object.data();
+        })
+        .toList();
 }
 
 QString PartitionTableInterface::type() {
@@ -108,4 +103,29 @@ QCoro::Task<QDBusObjectPath> PartitionTableInterface::createPartitionAndFormat(q
     auto reply = co_await call;
     if (call.isError()) throw FrisbeeException(call.error().message());
     co_return reply.arguments().first().value<QDBusObjectPath>();
+}
+
+void PartitionTableInterface::updatePartitions() {
+    if (!d->partitionObjectUpdateRequired) {
+        return;
+    }
+
+    QList<QPointer<DiskObject>> diskObjects;
+    for (const QDBusObjectPath& path : d->partitions) {
+        QPointer<DiskObject> disk = DriveObjectManager::diskForPath(path);
+        if (disk) diskObjects.append(disk);
+    }
+
+    std::sort(diskObjects.begin(), diskObjects.end(), [=](QPointer<DiskObject> first, QPointer<DiskObject> second) {
+        PartitionInterface* partitionFirst = first->interface<PartitionInterface>();
+        PartitionInterface* partitionSecond = second->interface<PartitionInterface>();
+        if (partitionFirst && partitionSecond) {
+            return partitionFirst->number() < partitionSecond->number();
+        } else {
+            // ???
+            return false;
+        }
+    });
+    d->partitionObjects = diskObjects;
+    d->partitionObjectUpdateRequired = false;
 }

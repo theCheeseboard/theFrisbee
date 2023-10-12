@@ -21,40 +21,48 @@
 #include "diskoperationmanager.h"
 
 #include <DriveObjects/blockinterface.h>
+#include <DriveObjects/blocklvm2interface.h>
 #include <DriveObjects/driveinterface.h>
 #include <DriveObjects/filesysteminterface.h>
 #include <DriveObjects/partitioninterface.h>
 #include <DriveObjects/partitiontableinterface.h>
+#include <DriveObjects/physicalvolumeinterface.h>
 
 #include <QMessageBox>
 #include <tapplication.h>
 #include <tpopover.h>
 #include <ttoast.h>
 
+#include <operations/attachpvpopover.h>
 #include <operations/eraseopticalpopover.h>
 #include <operations/erasepartitionpopover.h>
 #include <operations/erasepartitiontablepopover.h>
 #include <operations/imagepopover.h>
 #include <operations/partitionpopover.h>
+#include <operations/removelvpopover.h>
 #include <operations/restoreopticalpopover.h>
 
 struct OperationManagerPrivate {
-    static QMap<DiskOperationManager::DiskOperation, QString> operations;
-    static QMap<DiskOperationManager::DiskOperation, QString> operationDescriptions;
+        static QMap<DiskOperationManager::DiskOperation, QString> operations;
+        static QMap<DiskOperationManager::DiskOperation, QString> operationDescriptions;
 };
 
 QMap<DiskOperationManager::DiskOperation, QString> OperationManagerPrivate::operations = {
-    {DiskOperationManager::Erase, "erase"},
-    {DiskOperationManager::Image, "image"},
-    {DiskOperationManager::Restore, "restore"},
-    {DiskOperationManager::Partition, "partition"}
+    {DiskOperationManager::Erase,     "erase"    },
+    {DiskOperationManager::Image,     "image"    },
+    {DiskOperationManager::Restore,   "restore"  },
+    {DiskOperationManager::Partition, "partition"},
+    {DiskOperationManager::AttachPv,  "attachPv" },
+    {DiskOperationManager::Delete,    "delete"   }
 };
 
 QMap<DiskOperationManager::DiskOperation, QString> OperationManagerPrivate::operationDescriptions = {
-    {DiskOperationManager::Erase, DiskOperationManager::tr("Erase a block device")},
-    {DiskOperationManager::Image, DiskOperationManager::tr("Create an image of a block device")},
-    {DiskOperationManager::Restore, DiskOperationManager::tr("Restore an image back to a block device or disc")},
-    {DiskOperationManager::Partition, DiskOperationManager::tr("Edit partitions on a filesystem")}
+    {DiskOperationManager::Erase,     DiskOperationManager::tr("Erase a block device")                           },
+    {DiskOperationManager::Image,     DiskOperationManager::tr("Create an image of a block device")              },
+    {DiskOperationManager::Restore,   DiskOperationManager::tr("Restore an image back to a block device or disc")},
+    {DiskOperationManager::Partition, DiskOperationManager::tr("Edit partitions on a filesystem")                },
+    {DiskOperationManager::AttachPv,  DiskOperationManager::tr("Attach a Physical Volume to a Volume Group")     },
+    {DiskOperationManager::AttachPv,  DiskOperationManager::tr("Delete a volume")                                }
 };
 
 DiskOperationManager::DiskOperation DiskOperationManager::operationForString(QString operationString) {
@@ -86,11 +94,17 @@ void DiskOperationManager::showDiskOperationUi(QWidget* parent, DiskOperation op
             break;
         case DiskOperationManager::Partition:
             showPartitionOperationUi(parent, disk);
+            break;
+        case DiskOperationManager::AttachPv:
+            showAttachPvOperationUi(parent, disk);
+            break;
+        case DiskOperationManager::Delete:
+            showDeleteOperationUi(parent, disk);
     }
 }
 
 void DiskOperationManager::showEraseOperationUi(QWidget* parent, DiskObject* disk) {
-    //Determine which type of erasure is the most appropriate for this disk
+    // Determine which type of erasure is the most appropriate for this disk
 
     DriveInterface* drive = disk->interface<BlockInterface>()->drive();
     if (drive) {
@@ -109,13 +123,12 @@ void DiskOperationManager::showEraseOperationUi(QWidget* parent, DiskObject* dis
                 DriveInterface::CdRw,
                 DriveInterface::DvdRw,
                 DriveInterface::DvdPRw,
-                DriveInterface::DvdPRwDl
-            };
+                DriveInterface::DvdPRwDl};
 
             if (rewritables.contains(drive->media())) {
                 EraseOpticalPopover* jp = new EraseOpticalPopover(disk);
                 tPopover* popover = new tPopover(jp);
-                popover->setPopoverWidth(SC_DPI(-200));
+                popover->setPopoverWidth(-200);
                 popover->setPopoverSide(tPopover::Bottom);
                 connect(jp, &EraseOpticalPopover::done, popover, &tPopover::dismiss);
                 connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
@@ -129,7 +142,7 @@ void DiskOperationManager::showEraseOperationUi(QWidget* parent, DiskObject* dis
                 box->setText(tr("The disc in the drive is not rewritable."));
                 box->setInformativeText(tr("Only rewritable discs can be erased. If you need to destroy the data on this disc, you should physically break it in half."));
                 box->setIcon(QMessageBox::Warning);
-                connect(box, &QMessageBox::finished, parent, [ = ] {
+                connect(box, &QMessageBox::finished, parent, [=] {
                     box->deleteLater();
                 });
                 box->open();
@@ -138,7 +151,7 @@ void DiskOperationManager::showEraseOperationUi(QWidget* parent, DiskObject* dis
         }
     }
 
-    //Ensure this is not the root disk
+    // Ensure this is not the root disk
     bool warnRoot = false;
     if (disk->isInterfaceAvailable(DiskInterface::Filesystem)) {
         for (const QByteArray& mountPoint : disk->interface<FilesystemInterface>()->mountPoints()) {
@@ -158,10 +171,17 @@ void DiskOperationManager::showEraseOperationUi(QWidget* parent, DiskObject* dis
         if (QMessageBox::warning(parent, tr("System Disk"), tr("This is a system disk. Erasing it may cause your device to stop working altogether. Do you still want to erase it?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::No) == QMessageBox::No) return;
     }
 
-    if (disk->isInterfaceAvailable(DiskInterface::Partition)) {
+    // Check for LVM
+    if (disk->isInterfaceAvailable(DiskInterface::PhysicalVolume)) {
+        if (auto vg = disk->interface<PhysicalVolumeInterface>()->volumeGroup()) {
+            if (QMessageBox::warning(parent, tr("LVM"), tr("This is a physical volume attached to an activated volume group. Erasing it may cause one or more logical volumes on the volume group to become unavailable permanently. Do you still want to erase it?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::No) == QMessageBox::No) return;
+        }
+    }
+
+    if (disk->isInterfaceAvailable(DiskInterface::Partition) || disk->isInterfaceAvailable(DiskInterface::BlockLvm2)) {
         ErasePartitionPopover* jp = new ErasePartitionPopover(disk);
         tPopover* popover = new tPopover(jp);
-        popover->setPopoverWidth(SC_DPI(-200));
+        popover->setPopoverWidth(-200);
         popover->setPopoverSide(tPopover::Bottom);
         connect(jp, &ErasePartitionPopover::done, popover, &tPopover::dismiss);
         connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
@@ -170,7 +190,7 @@ void DiskOperationManager::showEraseOperationUi(QWidget* parent, DiskObject* dis
     } else {
         ErasePartitionTablePopover* jp = new ErasePartitionTablePopover(disk);
         tPopover* popover = new tPopover(jp);
-        popover->setPopoverWidth(SC_DPI(-200));
+        popover->setPopoverWidth(-200);
         popover->setPopoverSide(tPopover::Bottom);
         connect(jp, &ErasePartitionTablePopover::done, popover, &tPopover::dismiss);
         connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
@@ -180,7 +200,7 @@ void DiskOperationManager::showEraseOperationUi(QWidget* parent, DiskObject* dis
 }
 
 void DiskOperationManager::showRestoreOperationUi(QWidget* parent, DiskObject* disk) {
-    //Determine which type of erasure is the most appropriate for this disk
+    // Determine which type of erasure is the most appropriate for this disk
 
     DriveInterface* drive = disk->interface<BlockInterface>()->drive();
     if (drive && !drive->mediaAvailable()) {
@@ -194,13 +214,12 @@ void DiskOperationManager::showRestoreOperationUi(QWidget* parent, DiskObject* d
             DriveInterface::CdRw,
             DriveInterface::DvdRw,
             DriveInterface::DvdPRw,
-            DriveInterface::DvdPRwDl
-        };
+            DriveInterface::DvdPRwDl};
 
         if (rewritables.contains(drive->media()) || drive->opticalBlank()) {
             RestoreOpticalPopover* jp = new RestoreOpticalPopover(disk);
             tPopover* popover = new tPopover(jp);
-            popover->setPopoverWidth(SC_DPI(-200));
+            popover->setPopoverWidth(-200);
             popover->setPopoverSide(tPopover::Bottom);
             connect(jp, &RestoreOpticalPopover::done, popover, &tPopover::dismiss);
             connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
@@ -212,7 +231,7 @@ void DiskOperationManager::showRestoreOperationUi(QWidget* parent, DiskObject* d
     } else {
         RestoreOpticalPopover* jp = new RestoreOpticalPopover(disk);
         tPopover* popover = new tPopover(jp);
-        popover->setPopoverWidth(SC_DPI(-200));
+        popover->setPopoverWidth(-200);
         popover->setPopoverSide(tPopover::Bottom);
         connect(jp, &RestoreOpticalPopover::done, popover, &tPopover::dismiss);
         connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
@@ -224,7 +243,7 @@ void DiskOperationManager::showRestoreOperationUi(QWidget* parent, DiskObject* d
 void DiskOperationManager::showImageOperationUi(QWidget* parent, DiskObject* disk) {
     ImagePopover* jp = new ImagePopover(disk);
     tPopover* popover = new tPopover(jp);
-    popover->setPopoverWidth(SC_DPI(-200));
+    popover->setPopoverWidth(-200);
     popover->setPopoverSide(tPopover::Bottom);
     connect(jp, &ImagePopover::done, popover, &tPopover::dismiss);
     connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
@@ -247,7 +266,7 @@ void DiskOperationManager::showPartitionOperationUi(QWidget* parent, DiskObject*
             {"erase", "Erase Disk"}
         });
         connect(toast, &tToast::dismissed, toast, &tToast::deleteLater);
-        connect(toast, &tToast::actionClicked, parent, [ = ](QString key) {
+        connect(toast, &tToast::actionClicked, parent, [=](QString key) {
             if (key == "erase") showEraseOperationUi(parent, disk);
         });
         toast->show(parent->window());
@@ -264,6 +283,34 @@ void DiskOperationManager::showPartitionOperationUi(QWidget* parent, DiskObject*
     popover->show(parent->window());
 }
 
+void DiskOperationManager::showAttachPvOperationUi(QWidget* parent, DiskObject* disk) {
+    auto* jp = new AttachPvPopover(disk);
+    tPopover* popover = new tPopover(jp);
+    popover->setPopoverWidth(-200);
+    popover->setPopoverSide(tPopover::Bottom);
+    connect(jp, &AttachPvPopover::done, popover, &tPopover::dismiss);
+    connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
+    connect(popover, &tPopover::dismissed, jp, &AttachPvPopover::deleteLater);
+    popover->show(parent->window());
+}
+
+void DiskOperationManager::showDeleteOperationUi(QWidget* parent, DiskObject* disk) {
+    if (disk->isInterfaceAvailable(DiskInterface::BlockLvm2)) {
+        auto blockLvm2 = disk->interface<BlockLvm2Interface>();
+        auto pv = blockLvm2->logicalVolume();
+        if (pv) {
+            auto* jp = new RemoveLvPopover(pv);
+            tPopover* popover = new tPopover(jp);
+            popover->setPopoverWidth(-200);
+            popover->setPopoverSide(tPopover::Bottom);
+            connect(jp, &RemoveLvPopover::done, popover, &tPopover::dismiss);
+            connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
+            connect(popover, &tPopover::dismissed, jp, &RemoveLvPopover::deleteLater);
+            popover->show(parent->window());
+        }
+    }
+}
+
 bool DiskOperationManager::ensureOpticalUtilitiesInstalled(QWidget* parent) {
     if (QStandardPaths::findExecutable("cdrecord").isEmpty()) {
         QMessageBox* box = new QMessageBox();
@@ -271,7 +318,7 @@ bool DiskOperationManager::ensureOpticalUtilitiesInstalled(QWidget* parent) {
         box->setWindowTitle(tr("Optical tools unavailable"));
         box->setWindowModality(Qt::WindowModal);
         box->setIcon(QMessageBox::Warning);
-        connect(box, &QMessageBox::finished, parent, [ = ] {
+        connect(box, &QMessageBox::finished, parent, [=] {
             box->deleteLater();
         });
 

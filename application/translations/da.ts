@@ -39,130 +39,204 @@
     <name>DiskPane</name>
     <message>
         <location filename="../diskpane.ui" line="35"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="219"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="227"/>
         <source>Title</source>
         <translation>Navn</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="82"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="220"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="228"/>
         <source>JOBS RUNNING</source>
         <translation>NUVÆRENDE OPGAVER</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="89"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="221"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="229"/>
         <source>Some tasks may be unavailable while jobs are currently being run on this item.</source>
         <translation>Nogle muligheder kan være utilgængelige mens opgaver køres på denne enhed.</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="114"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="222"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="230"/>
         <source>View Jobs</source>
         <translation>Vis opgaver</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="232"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="223"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="231"/>
         <source>Check</source>
         <translation>Tjek</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="239"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="224"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="232"/>
         <source>Edit Partitions</source>
         <translation>Rediger partitioner</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="246"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="225"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="233"/>
         <source>Image</source>
         <extracomment>A verb: &quot;Create Image&quot;</extracomment>
         <translation>Snapshot</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="253"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="226"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="234"/>
         <source>Restore</source>
         <translation>Gendan</translation>
     </message>
     <message>
         <location filename="../diskpane.ui" line="273"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="227"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="235"/>
         <source>Erase</source>
         <translation>Formater</translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="132"/>
+        <location filename="../diskpane.ui" line="284"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_diskpane.h" line="236"/>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../diskpane.cpp" line="147"/>
         <source>Check this disk</source>
         <translation>Tjek denne disk</translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="133"/>
+        <location filename="../diskpane.cpp" line="148"/>
         <source>Check this disk for errors?</source>
         <translation>Tjek denne disk for fejl?</translation>
     </message>
     <message>
-        <location filename="../diskpane.cpp" line="134"/>
+        <location filename="../diskpane.cpp" line="149"/>
         <source>Depending on the size of the disk, the check may take a while.</source>
         <translation>Dette kan tage lang tid på store diske.</translation>
+    </message>
+</context>
+<context>
+    <name>LvmDiskPane</name>
+    <message>
+        <location filename="../diskPanes/lvmdiskpane.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../diskPanes/lvmdiskpane.ui" line="52"/>
+        <source>LVM</source>
+        <comment>ATA Disk acronym</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../diskPanes/lvmdiskpane.ui" line="84"/>
+        <source>Manage Physical Volume</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../diskPanes/lvmdiskpane.ui" line="95"/>
+        <source>View Volume Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../diskPanes/lvmdiskpane.ui" line="102"/>
+        <source>Attach to Volume Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../diskPanes/lvmdiskpane.cpp" line="52"/>
+        <source>This block is part of the %1 volume group.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../diskPanes/lvmdiskpane.cpp" line="57"/>
+        <source>This block is not part of a volume group.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LvmPage</name>
+    <message>
+        <location filename="../lvm/lvmpage.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lvm/lvmpage.ui" line="76"/>
+        <source>Volume Groups</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lvm/lvmpage.ui" line="116"/>
+        <source>No Volume Groups</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lvm/lvmpage.ui" line="139"/>
+        <source>Create an LVM Physical Volume and add it to a new Volume Group to start using LVM</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="208"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="233"/>
         <source>theFrisbee</source>
         <translation>theFrisbee</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="137"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="219"/>
+        <location filename="../mainwindow.ui" line="148"/>
+        <location filename="../mainwindow.cpp" line="81"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="244"/>
         <source>Disks</source>
         <translation>Diske</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="185"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="220"/>
+        <location filename="../mainwindow.ui" line="203"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="245"/>
         <source>File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="191"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="221"/>
+        <location filename="../mainwindow.ui" line="209"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="246"/>
         <source>Image</source>
         <translation type="unfinished">Snapshot</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="205"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="209"/>
+        <location filename="../mainwindow.ui" line="223"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="234"/>
         <source>Exit</source>
         <translation>Luk</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="208"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="211"/>
+        <location filename="../mainwindow.ui" line="226"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="236"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="217"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="213"/>
+        <location filename="../mainwindow.ui" line="235"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="238"/>
         <source>Attach Image</source>
         <translation>Synkroniser med snapshot-fil</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="226"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="214"/>
+        <location filename="../mainwindow.ui" line="244"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="239"/>
         <source>Create Disk Image</source>
         <translation>Lav snapshot</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="229"/>
-        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="216"/>
+        <location filename="../mainwindow.ui" line="247"/>
+        <location filename="../../../build-thefrisbee-Chroot_6-Debug/application/thefrisbee_autogen/include/ui_mainwindow.h" line="241"/>
         <source>Ctrl+N</source>
         <translation>Ctrl+N</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="82"/>
+        <source>LVM</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -286,6 +360,80 @@
         <location filename="../diskPanes/overviewdiskpane.cpp" line="137"/>
         <source>No Disc Inserted</source>
         <translation>Ingen disk i drev</translation>
+    </message>
+</context>
+<context>
+    <name>PvRemovePopover</name>
+    <message>
+        <location filename="../popovers/pvremovepopover.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/pvremovepopover.ui" line="57"/>
+        <source>Manage Physical Volume</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/pvremovepopover.ui" line="67"/>
+        <source>Actions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/pvremovepopover.ui" line="79"/>
+        <location filename="../popovers/pvremovepopover.ui" line="138"/>
+        <location filename="../popovers/pvremovepopover.ui" line="175"/>
+        <source>Relocate Data</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/pvremovepopover.ui" line="90"/>
+        <location filename="../popovers/pvremovepopover.ui" line="221"/>
+        <location filename="../popovers/pvremovepopover.ui" line="245"/>
+        <location filename="../popovers/pvremovepopover.ui" line="291"/>
+        <location filename="../popovers/pvremovepopover.ui" line="328"/>
+        <source>Remove from Volume Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/pvremovepopover.ui" line="148"/>
+        <source>Relocate Data?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/pvremovepopover.ui" line="155"/>
+        <source>Relocating data from this block will move extents from this block to other blocks in the volume group.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/pvremovepopover.ui" line="165"/>
+        <source>Once the data has been relocated, all extents on this block will be free.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/pvremovepopover.ui" line="231"/>
+        <source>Remove Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/pvremovepopover.ui" line="238"/>
+        <source>Also overwrite space</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/pvremovepopover.ui" line="301"/>
+        <source>This is it!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/pvremovepopover.ui" line="308"/>
+        <source>Removing this block from the volume group will make its space unavailable to the volume group. Used extents in this block will first be moved to free extents in other blocks in the volume group.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../popovers/pvremovepopover.ui" line="318"/>
+        <source>This operation can take some time.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -499,6 +647,29 @@
     <message>
         <location filename="../popovers/smartpopover.cpp" line="92"/>
         <source>In Progress</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>VolumeGroupPage</name>
+    <message>
+        <location filename="../lvm/volumegrouppage.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lvm/volumegrouppage.ui" line="93"/>
+        <source>Logical Volumes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lvm/volumegrouppage.ui" line="116"/>
+        <source>Physical Volumes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lvm/volumegrouppage.ui" line="146"/>
+        <source>Disband Volume Group</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

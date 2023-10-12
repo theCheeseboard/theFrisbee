@@ -153,7 +153,7 @@
         <x>0</x>
         <y>0</y>
         <width>609</width>
-        <height>366</height>
+        <height>360</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -275,6 +275,16 @@
         <property name="icon">
          <iconset theme="media-harddisk-erase">
           <normaloff>.</normaloff>.</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="deleteButton">
+        <property name="text">
+         <string>Delete</string>
+        </property>
+        <property name="icon">
+         <iconset theme="edit-delete"/>
         </property>
        </widget>
       </item>

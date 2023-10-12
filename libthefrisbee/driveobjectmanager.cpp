@@ -21,15 +21,20 @@
 #include "frisbeeexception.h"
 
 #include "DriveObjects/blockinterface.h"
+#include "DriveObjects/blocklvm2interface.h"
 #include "DriveObjects/diskobject.h"
 #include "DriveObjects/driveinterface.h"
 #include "DriveObjects/encryptedinterface.h"
 #include "DriveObjects/filesysteminterface.h"
+#include "DriveObjects/logicalvolume.h"
 #include "DriveObjects/loopinterface.h"
 #include "DriveObjects/partitiontableinterface.h"
+#include "DriveObjects/physicalvolumeinterface.h"
+#include "DriveObjects/volumegroup.h"
 #include <QCoroDBusPendingCall>
 #include <QDebug>
 #include <QTimer>
+#include <ranges/trange.h>
 
 #include <QDBusArgument>
 #include <QDBusConnection>
@@ -41,6 +46,9 @@ struct DriveObjectManagerPrivate {
         QMap<QDBusObjectPath, DiskObject*> objects;
         QMap<QDBusObjectPath, DriveInterface*> drives;
 
+        QMap<QDBusObjectPath, VolumeGroup*> volumeGroups;
+        QMap<QDBusObjectPath, LogicalVolume*> logicalVolumes;
+
         QList<DiskObject*> rootDisks;
         QList<DiskObject*> filesystemDisks;
 };
@@ -49,9 +57,17 @@ DriveObjectManager::DriveObjectManager(QObject* parent) :
     QObject(parent) {
     d = new DriveObjectManagerPrivate();
 
+    // Activate required modules
+    for (auto module : QStringList{"lvm2"}) {
+        QDBusMessage enableModules = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", "/org/freedesktop/UDisks2/Manager", "org.freedesktop.UDisks2.Manager", "EnableModule");
+        enableModules.setArguments({module, true});
+        auto call = QDBusConnection::systemBus().call(enableModules);
+    }
+
     QDBusConnection::systemBus().connect("org.freedesktop.UDisks2", "/org/freedesktop/UDisks2", "org.freedesktop.DBus.ObjectManager", "InterfacesAdded", this, SLOT(updateInterfaces()));
     QDBusConnection::systemBus().connect("org.freedesktop.UDisks2", "/org/freedesktop/UDisks2", "org.freedesktop.DBus.ObjectManager", "InterfacesRemoved", this, SLOT(updateInterfaces()));
-    updateInterfaces();
+
+    QTimer::singleShot(0, this, &DriveObjectManager::updateInterfaces);
 }
 
 DriveObjectManager* DriveObjectManager::instance() {
@@ -66,16 +82,21 @@ QList<DiskObject*> DriveObjectManager::rootDisks() {
     QList<DiskObject*> notRootDisks;
 
     for (DiskObject* disk : disks) {
-        PartitionTableInterface* partitionTable = disk->interface<PartitionTableInterface>();
+        auto partitionTable = disk->interface<PartitionTableInterface>();
         if (partitionTable) {
             for (DiskObject* partition : partitionTable->partitions()) {
                 notRootDisks.append(partition);
             }
         }
 
-        LoopInterface* loop = disk->interface<LoopInterface>();
+        auto loop = disk->interface<LoopInterface>();
         if (loop) {
             if (!loop->isAvailable()) notRootDisks.append(disk);
+        }
+
+        auto lvm2Block = disk->interface<BlockLvm2Interface>();
+        if (lvm2Block) {
+            if (lvm2Block->logicalVolume()) notRootDisks.append(disk);
         }
     }
 
@@ -155,6 +176,23 @@ QList<DiskObject*> DriveObjectManager::opticalDisks() {
     return disks;
 }
 
+tRange<DiskObject*> DriveObjectManager::lvmPhysicalVolumeDisks() {
+    return tRange(instance()->d->objects.values()).filter([](DiskObject* obj) {
+                                                      return obj->isInterfaceAvailable(DiskInterface::PhysicalVolume);
+                                                  })
+        .filter([](DiskObject* obj) {
+            return obj->interface<PhysicalVolumeInterface>()->volumeGroup() != nullptr;
+        });
+}
+
+QList<VolumeGroup*> DriveObjectManager::volumeGroups() {
+    return instance()->d->volumeGroups.values();
+}
+
+QList<LogicalVolume*> DriveObjectManager::logicalVolumes() {
+    return instance()->d->logicalVolumes.values();
+}
+
 QList<DriveInterface*> DriveObjectManager::drives() {
     return instance()->d->drives.values();
 }
@@ -164,14 +202,22 @@ DiskObject* DriveObjectManager::diskForPath(QDBusObjectPath path) {
 }
 
 DiskObject* DriveObjectManager::diskByBlockName(QString blockName) {
-    for (DiskObject* object : instance()->d->objects.values()) {
-        if (object->interface<BlockInterface>() && object->interface<BlockInterface>()->blockName() == blockName) return object;
-    }
-    return nullptr;
+    return tRange(instance()->d->objects.values()).first([blockName](const DiskObject* object) {
+        return object->interface<BlockInterface>() && object->interface<BlockInterface>()->blockName() == blockName;
+    },
+        nullptr);
 }
 
 DriveInterface* DriveObjectManager::driveForPath(QDBusObjectPath path) {
     return instance()->d->drives.value(path);
+}
+
+VolumeGroup* DriveObjectManager::volumeGroupForPath(QDBusObjectPath path) {
+    return instance()->d->volumeGroups.value(path);
+}
+
+LogicalVolume* DriveObjectManager::logicalVolumeForPath(QDBusObjectPath path) {
+    return instance()->d->logicalVolumes.value(path);
 }
 
 QStringList DriveObjectManager::supportedFilesystems() {
@@ -183,6 +229,22 @@ QCoro::Task<QDBusObjectPath> DriveObjectManager::loopSetup(QDBusUnixFileDescript
     QDBusMessage loopSetup = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", "/org/freedesktop/UDisks2/Manager", "org.freedesktop.UDisks2.Manager", "LoopSetup");
     loopSetup.setArguments({QVariant::fromValue(fd), options});
     auto call = QDBusConnection::systemBus().asyncCall(loopSetup);
+    auto reply = co_await call;
+    if (call.isError()) {
+        throw FrisbeeException(call.error().message());
+    } else {
+        co_return reply.arguments().first().value<QDBusObjectPath>();
+    }
+}
+
+QCoro::Task<QDBusObjectPath> DriveObjectManager::volumeGroupCreate(QString name, QList<DiskObject*> blocks, QVariantMap options) {
+    QDBusMessage vgCreate = QDBusMessage::createMethodCall("org.freedesktop.UDisks2", "/org/freedesktop/UDisks2/Manager", "org.freedesktop.UDisks2.Manager.LVM2", "VolumeGroupCreate");
+    vgCreate.setArguments({name, QVariant::fromValue(tRange(blocks).map<QDBusObjectPath>([](DiskObject* obj) {
+                                                                       return obj->path();
+                                                                   })
+                                                         .toList()),
+        options});
+    auto call = QDBusConnection::systemBus().asyncCall(vgCreate);
     auto reply = co_await call;
     if (call.isError()) {
         throw FrisbeeException(call.error().message());
@@ -251,6 +313,32 @@ void DriveObjectManager::updateInterfaces() {
 
             object->updateInterfaces(interfaces);
             object->updateProperties(interfaces.value("org.freedesktop.UDisks2.Drive"));
+        } else if (path.path().startsWith("/org/freedesktop/UDisks2/lvm")) {
+            if (interfaces.contains(VolumeGroup::interfaceName())) {
+                VolumeGroup* vg;
+                if (d->volumeGroups.contains(path)) {
+                    vg = d->volumeGroups.value(path);
+                } else {
+                    vg = new VolumeGroup(path);
+                    d->volumeGroups.insert(path, vg);
+                    QTimer::singleShot(0, [vg, this] {
+                        emit volumeGroupAdded(vg);
+                    });
+                }
+                vg->updateProperties(interfaces.value(VolumeGroup::interfaceName()));
+            } else if (interfaces.contains(LogicalVolume::interfaceName())) {
+                LogicalVolume* lv;
+                if (d->volumeGroups.contains(path)) {
+                    lv = d->logicalVolumes.value(path);
+                } else {
+                    lv = new LogicalVolume(path);
+                    d->logicalVolumes.insert(path, lv);
+                    QTimer::singleShot(0, [lv, this] {
+                        emit logicalVolumeAdded(lv);
+                    });
+                }
+                lv->updateProperties(interfaces.value(LogicalVolume::interfaceName()));
+            }
         }
     }
 
@@ -261,9 +349,27 @@ void DriveObjectManager::updateInterfaces() {
     for (QDBusObjectPath path : d->drives.keys()) {
         if (!reply.contains(path)) gone.append(path);
     }
+    for (QDBusObjectPath path : d->volumeGroups.keys()) {
+        if (!reply.contains(path)) gone.append(path);
+    }
+    for (QDBusObjectPath path : d->logicalVolumes.keys()) {
+        if (!reply.contains(path)) gone.append(path);
+    }
 
     for (QDBusObjectPath path : gone) {
-        if (d->objects.contains(path)) {
+        if (d->volumeGroups.contains(path)) {
+            VolumeGroup* vg = d->volumeGroups.take(path);
+            QTimer::singleShot(0, [vg, this] {
+                emit volumeGroupRemoved(vg);
+            });
+            vg->deleteLater();
+        } else if (d->volumeGroups.contains(path)) {
+            LogicalVolume* lv = d->logicalVolumes.take(path);
+            QTimer::singleShot(0, [lv, this] {
+                emit logicalVolumeRemoved(lv);
+            });
+            lv->deleteLater();
+        } else if (d->objects.contains(path)) {
             DiskObject* disk = d->objects.take(path);
             QTimer::singleShot(0, [disk, this] {
                 emit diskRemoved(disk);

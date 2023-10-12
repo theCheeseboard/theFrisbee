@@ -45,6 +45,8 @@ class PartitionTableInterface : public DiskInterface {
 
     private:
         PartitionTableInterfacePrivate* d;
+
+        void updatePartitions();
 };
 
 #endif // PARTITIONTABLEINTERFACE_H

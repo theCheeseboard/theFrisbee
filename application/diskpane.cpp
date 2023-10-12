@@ -20,25 +20,27 @@
 #include "diskpane.h"
 #include "ui_diskpane.h"
 
-#include <tapplication.h>
-#include <DriveObjects/diskobject.h>
-#include <DriveObjects/partitioninterface.h>
-#include <DriveObjects/blockinterface.h>
-#include <DriveObjects/driveinterface.h>
-#include <DriveObjects/partitiontableinterface.h>
-#include <DriveObjects/filesysteminterface.h>
-#include <QMessageBox>
-#include <tpopover.h>
-#include <ttoast.h>
-#include <tjobmanager.h>
 #include "diskPanes/diskpanecomponent.h"
+#include "diskPanes/lvmdiskpane.h"
 #include "diskPanes/overviewdiskpane.h"
 #include "diskPanes/smartdiskpane.h"
 #include "diskoperationmanager.h"
+#include <DriveObjects/blockinterface.h>
+#include <DriveObjects/blocklvm2interface.h>
+#include <DriveObjects/diskobject.h>
+#include <DriveObjects/driveinterface.h>
+#include <DriveObjects/filesysteminterface.h>
+#include <DriveObjects/partitioninterface.h>
+#include <DriveObjects/partitiontableinterface.h>
+#include <QMessageBox>
+#include <tapplication.h>
+#include <tjobmanager.h>
+#include <tpopover.h>
+#include <ttoast.h>
 
 struct DiskPanePrivate {
-    DiskObject* disk;
-    QList<DiskPaneComponent*> components;
+        DiskObject* disk;
+        QList<DiskPaneComponent*> components;
 };
 
 DiskPane::DiskPane(DiskObject* disk, QWidget* parent) :
@@ -60,9 +62,11 @@ DiskPane::DiskPane(DiskObject* disk, QWidget* parent) :
     updateLock(d->disk->isLocked());
 
     ui->eraseButton->setProperty("type", "destructive");
+    ui->deleteButton->setProperty("type", "destructive");
 
     d->components.append(new OverviewDiskPane(disk, this));
     d->components.append(new SmartDiskPane(disk, this));
+    d->components.append(new LvmDiskPane(disk, this));
     updateComponents();
 }
 
@@ -90,7 +94,7 @@ void DiskPane::on_restoreButton_clicked() {
 void DiskPane::updateComponents() {
     ui->componentsLayout->setEnabled(false);
 
-    std::sort(d->components.begin(), d->components.end(), [ = ](DiskPaneComponent * first, DiskPaneComponent * second) {
+    std::sort(d->components.begin(), d->components.end(), [=](DiskPaneComponent* first, DiskPaneComponent* second) {
         return first->order() < second->order();
     });
 
@@ -105,6 +109,8 @@ void DiskPane::updateComponents() {
 }
 
 void DiskPane::updateButtons() {
+    ui->deleteButton->setVisible(false);
+
     DriveInterface* drive = d->disk->interface<BlockInterface>()->drive();
     if (drive) {
         if (drive->isOpticalDrive()) {
@@ -113,6 +119,15 @@ void DiskPane::updateButtons() {
 
             ui->operationsWidget->setVisible(drive->mediaAvailable());
             ui->line->setVisible(drive->mediaAvailable());
+        }
+    }
+
+    auto blockLvm2 = d->disk->interface<BlockLvm2Interface>();
+    if (blockLvm2) {
+        auto lv = blockLvm2->logicalVolume();
+        if (lv) {
+            ui->editPartitionsButton->setVisible(false);
+            ui->deleteButton->setVisible(true);
         }
     }
 }
@@ -134,11 +149,15 @@ void DiskPane::on_checkButton_clicked() {
     box->setInformativeText(tr("Depending on the size of the disk, the check may take a while."));
     box->setStandardButtons(QMessageBox::Yes | QMessageBox::No);
     box->setIcon(QMessageBox::Question);
-    connect(box, &QMessageBox::finished, this, [ = ](int result) {
+    connect(box, &QMessageBox::finished, this, [=](int result) {
         if (result == QMessageBox::Yes) {
-            //Check the disk
+            // Check the disk
         }
         box->deleteLater();
     });
     box->open();
+}
+
+void DiskPane::on_deleteButton_clicked() {
+    DiskOperationManager::showDiskOperationUi(this->window(), DiskOperationManager::Delete, d->disk);
 }

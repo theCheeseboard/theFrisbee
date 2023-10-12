@@ -20,40 +20,41 @@
 #include "sizeeditbox.h"
 
 struct SizeEditBoxPrivate {
-    static QMap<QString, quint64> factors;
+        static QMap<QString, quint64> factors;
 };
 
 #define BYTE_FACTOR 1ULL
 #define KILOBYTE_FACTOR 1024ULL
-#define MEGABYTE_FACTOR KILOBYTE_FACTOR * KILOBYTE_FACTOR
-#define GIGABYTE_FACTOR MEGABYTE_FACTOR * KILOBYTE_FACTOR
-#define TERABYTE_FACTOR GIGABYTE_FACTOR * KILOBYTE_FACTOR
-#define PETABYTE_FACTOR TERABYTE_FACTOR * KILOBYTE_FACTOR
-#define EXABYTE_FACTOR PETABYTE_FACTOR * KILOBYTE_FACTOR
+#define MEGABYTE_FACTOR KILOBYTE_FACTOR* KILOBYTE_FACTOR
+#define GIGABYTE_FACTOR MEGABYTE_FACTOR* KILOBYTE_FACTOR
+#define TERABYTE_FACTOR GIGABYTE_FACTOR* KILOBYTE_FACTOR
+#define PETABYTE_FACTOR TERABYTE_FACTOR* KILOBYTE_FACTOR
+#define EXABYTE_FACTOR PETABYTE_FACTOR* KILOBYTE_FACTOR
 
 QMap<QString, quint64> SizeEditBoxPrivate::factors = {
-    {"B", BYTE_FACTOR},
-    {"K", KILOBYTE_FACTOR},
-    {"KB", KILOBYTE_FACTOR},
+    {"B",   BYTE_FACTOR    },
+    {"K",   KILOBYTE_FACTOR},
+    {"KB",  KILOBYTE_FACTOR},
     {"KIB", KILOBYTE_FACTOR},
-    {"M", MEGABYTE_FACTOR},
-    {"MB", MEGABYTE_FACTOR},
+    {"M",   MEGABYTE_FACTOR},
+    {"MB",  MEGABYTE_FACTOR},
     {"MIB", MEGABYTE_FACTOR},
-    {"G", GIGABYTE_FACTOR},
-    {"GB", GIGABYTE_FACTOR},
+    {"G",   GIGABYTE_FACTOR},
+    {"GB",  GIGABYTE_FACTOR},
     {"GIB", GIGABYTE_FACTOR},
-    {"T", TERABYTE_FACTOR},
-    {"TB", TERABYTE_FACTOR},
+    {"T",   TERABYTE_FACTOR},
+    {"TB",  TERABYTE_FACTOR},
     {"TIB", TERABYTE_FACTOR},
-    {"P", PETABYTE_FACTOR},
-    {"PB", PETABYTE_FACTOR},
+    {"P",   PETABYTE_FACTOR},
+    {"PB",  PETABYTE_FACTOR},
     {"PIB", PETABYTE_FACTOR},
-    {"E", EXABYTE_FACTOR},
-    {"EB", EXABYTE_FACTOR},
-    {"EIB", EXABYTE_FACTOR}
+    {"E",   EXABYTE_FACTOR },
+    {"EB",  EXABYTE_FACTOR },
+    {"EIB", EXABYTE_FACTOR }
 };
 
-SizeEditBox::SizeEditBox(QWidget* parent) : QLineEdit(parent) {
+SizeEditBox::SizeEditBox(QWidget* parent) :
+    QLineEdit(parent) {
     d = new SizeEditBoxPrivate();
     this->setValidator(new SizeEditValidator(this));
 }
@@ -87,11 +88,15 @@ quint64 SizeEditBox::size() {
     return size;
 }
 
-struct SizeEditValidatorPrivate {
+void SizeEditBox::setSize(quint64 size) {
+    this->setText(QLocale().formattedDataSize(size));
+}
 
+struct SizeEditValidatorPrivate {
 };
 
-SizeEditValidator::SizeEditValidator(QObject* parent) : QValidator(parent) {
+SizeEditValidator::SizeEditValidator(QObject* parent) :
+    QValidator(parent) {
     d = new SizeEditValidatorPrivate();
 }
 
@@ -132,7 +137,6 @@ QValidator::State SizeEditValidator::validate(QString& input, int& pos) const {
     if (unit.length() != 2 && unit != "B") return Intermediate;
     return Acceptable;
 }
-
 
 void SizeEditValidator::fixup(QString& input) const {
     QString number;
