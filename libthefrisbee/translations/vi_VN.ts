@@ -4,22 +4,17 @@
 <context>
     <name>AddLvPopover</name>
     <message>
-        <location filename="../operations/addlvpopover.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../operations/addlvpopover.ui" line="35"/>
         <source>New Logical Volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/addlvpopover.ui" line="70"/>
+        <location filename="../operations/addlvpopover.ui" line="69"/>
         <source>Logical Volume Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/addlvpopover.ui" line="87"/>
+        <location filename="../operations/addlvpopover.ui" line="86"/>
         <source>Format</source>
         <translation type="unfinished"></translation>
     </message>
@@ -29,12 +24,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../operations/addlvpopover.ui" line="77"/>
+        <location filename="../operations/addlvpopover.ui" line="76"/>
         <source>Name</source>
         <translation type="unfinished">Tên</translation>
     </message>
     <message>
-        <location filename="../operations/addlvpopover.ui" line="63"/>
+        <location filename="../operations/addlvpopover.ui" line="62"/>
         <source>Size</source>
         <translation type="unfinished"></translation>
     </message>
@@ -50,11 +45,6 @@
 </context>
 <context>
     <name>AttachPvPopover</name>
-    <message>
-        <location filename="../operations/attachpvpopover.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../operations/attachpvpopover.ui" line="57"/>
         <location filename="../operations/attachpvpopover.ui" line="110"/>
@@ -89,11 +79,6 @@
 </context>
 <context>
     <name>DisbandVgPopover</name>
-    <message>
-        <location filename="../operations/disbandvgpopover.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../operations/disbandvgpopover.ui" line="35"/>
         <location filename="../operations/disbandvgpopover.ui" line="67"/>
@@ -1009,11 +994,6 @@ Chúng tôi sẽ không sửa đổi bất cứ điều gì cho đến khi bạn
 </context>
 <context>
     <name>RemoveLvPopover</name>
-    <message>
-        <location filename="../operations/removelvpopover.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../operations/removelvpopover.ui" line="35"/>
         <location filename="../operations/removelvpopover.ui" line="59"/>
