@@ -33,11 +33,11 @@ int main(int argc, char* argv[]) {
     a.addLibraryTranslator(LIBTHEFRISBEE_TRANSLATOR);
     a.installTranslators();
 
-    a.setApplicationVersion("2.0");
+    a.setApplicationVersion("3.0");
     a.setGenericName(QApplication::translate("main", "Disk Utility"));
     a.setApplicationLicense(tApplication::Gpl3OrLater);
     a.setCopyrightHolder("Victor Tran");
-    a.setCopyrightYear("2023");
+    a.setCopyrightYear("2024");
     a.setOrganizationName("theSuite");
     a.setApplicationUrl(tApplication::Sources, QUrl("https://github.com/vicr123/thefrisbee"));
     a.setApplicationUrl(tApplication::FileBug, QUrl("https://github.com/vicr123/thefrisbee/issues"));
